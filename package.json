@@ -1,16 +1,15 @@
 {
-  "name": "js_training",
+  "name": "webfrontend_intro",
   "version": "1.0.0",
-  "description": "```sh $ asdf install $ npm install ```",
-  "main": "exercise1.js",
+  "description": "introduction of Web Frontend!",
+  "main": "",
   "dependencies": {
-    "node-fetch": "^2.1.2"
+    "node-fetch": "^2.5.0"
   },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC"
 }
