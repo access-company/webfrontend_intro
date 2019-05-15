@@ -1,4 +1,4 @@
-## JavaScript の非同期処理
+# JavaScript の非同期処理
 
 - 非同期処理はなぜ必要か？
 - 非同期処理の実装例
@@ -6,7 +6,7 @@
 - Promise
 - async await
 
-### 非同期処理はなぜ必要か？
+## 非同期処理はなぜ必要か？
 
 - 何かがクリックされた時に、時間のかかる処理をさせると...
   - ユーザーはクリックしたのに、何も反応がなくイラつく
@@ -14,7 +14,7 @@
   - サービスを使わなくなる
 - C や Java ならマルチスレッドで回避できるが、JavaScript はシングルスレッド。どうするか？
 
-#### 同期処理
+### 同期処理
 
 ```js
 const onClick = () => {
@@ -23,7 +23,7 @@ const onClick = () => {
 };
 ```
 
-#### 非同期処理
+### 非同期処理
 
 ```js
 const onClick = () => {
@@ -38,7 +38,7 @@ const onClick = () => {
   - 先の例では、関数の戻り値で結果を受け取っていた
 - どのように結果を受け取れば良いか？
 
-### コールバック
+## コールバック
 
 ```js
 setTimeout(() => {
@@ -53,7 +53,7 @@ setTimeout(() => {
 - 非同期処理が連鎖しなければ、シンプルで良い
 - _連鎖する場合、困ったことが起こる_
 
-#### Ex7. コールバック演習
+### Ex7. コールバック演習
 
 - 演習問題
   - 次のコードを拡張し、以下の要件を満たすように実装してください。
@@ -75,7 +75,7 @@ setTimeout(() => {
 }, 1000);
 ```
 
-#### コールバック演習まとめ
+### コールバック演習まとめ
 
 - インデントがどんどん深く。。
   - 通称：コールバック地獄
@@ -85,7 +85,7 @@ setTimeout(() => {
   - 先の例は、簡単のために用意したもの。HTTP リクエストを組み合わせると、頻出度は高い。
     - ある URL から情報を取得して、その情報を元にさらにリクエストを投げるなど
 
-### Promise
+## Promise
 
 ```js
 fetch('http://example.com/movies.json')
@@ -101,7 +101,7 @@ fetch('http://example.com/movies.json')
   - 最近作られた非同期系の API は、Promise を返すようになっているものが多い
   - 例：[fetch 関数](https://developer.mozilla.org/ja/docs/Web/API/Fetch_API/Using_Fetch)
 
-#### Ex8. Promise 演習
+### Ex8. Promise 演習
 
 - 演習問題
   - fetch で以下 URL から JSON を取得し、さらにその中に含まれる followers_url から JSON を取得してください。
@@ -121,7 +121,7 @@ fetch('https://api.github.com/users/github')
   .then(myJson => console.log(myJson));
 ```
 
-#### Promise 演習まとめ
+### Promise 演習まとめ
 
 - Promise を正しく使用するのは、意外と難しい
   - 今回紹介していないが、エラーハンドリングも絡むとさらに複雑になる
@@ -132,7 +132,7 @@ fetch('https://api.github.com/users/github')
 - Promise を返さない関数も Promise 化することができる
   - 余裕のある人は、setTimeout を Promise 化して、コールバック演習の課題を Promise で解決してみてください
 
-### async await
+## async await
 
 ```js
 async function fetchMovieJson() {
@@ -148,7 +148,7 @@ fetchMovieJson();
 - await で呼び出す関数は、Promise を返す必要がある
 - await を使用する関数は、async をつける必要がある
 
-#### Ex9. async await 演習
+### Ex9. async await 演習
 
 - 演習問題
   - Promise 演習で作成したコードを async await で書き直してください。
@@ -171,7 +171,7 @@ async function fetchFollowers() {
 fetchFollowers();
 ```
 
-#### async await 演習まとめ
+### async await 演習まとめ
 
 - async await は非常に便利
 - async await は最新の仕様であるため、使用できない場合も多いので注意

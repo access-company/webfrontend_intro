@@ -1,4 +1,4 @@
-## JavaScript 基礎
+# JavaScript 基礎
 
 - console.log
 - コメントアウト
@@ -6,7 +6,7 @@
 - オブジェクト
 - 無名関数
 
-### console.log
+## console.log
 
 ```js
 const hello = 'hello world';
@@ -19,7 +19,7 @@ console.log(hello); // ➔ 'hello world'
 - デバッグでよく使う
   - いわゆる printf デバッグ
 
-### コメントアウト
+## コメントアウト
 
 ```js
 console.log('comment out'); // 行末までコメントアウト
@@ -32,7 +32,7 @@ console.log('comment out'); // 行末までコメントアウト
 */
 ```
 
-### 配列
+## 配列
 
 ```js
 const array = [1, 1, 2, 3, 5];
@@ -42,7 +42,7 @@ array[5] = 8;
 console.log(array); // ➔ [1, 1, 2, 3, 5, 8];
 ```
 
-### オブジェクト
+## オブジェクト
 
 ```js
 const obj = {
@@ -61,7 +61,7 @@ console.log(obj.a); // ➔ 'hello world'
 console.log(obj.c.d); // ➔ [1, 2]
 ```
 
-### 無名関数
+## 無名関数
 
 ```js
 const sum = function(a, b) {
@@ -74,7 +74,7 @@ sum(2, 5); // ➔ 7
 - JavaScript では、関数を変数に代入することができる
 - この例の場合、代入されている（赤い）関数を無名関数という
 
-## [ECMAScript6(ES2015)](https://github.com/lukehoban/es6features) 演習
+# [ECMAScript6(ES2015)](https://github.com/lukehoban/es6features) 演習
 
 - const, let
 - enhanced object literal
@@ -86,7 +86,7 @@ sum(2, 5); // ➔ 7
 - export, import
 - class 構文
 
-### const, let
+## const, let
 
 ```js
 const a = 0;
@@ -103,7 +103,7 @@ let b = 'fuga'; // エラー
   - var とはスコープも異なるが、今は気にしないでも大丈夫
   - 気になる人は、関数スコープ、ブロックスコープで調べると良い
 
-#### Ex1. const, let 演習
+### Ex1. const, let 演習
 
 - 演習問題
   - ES5 で書かれているコードの var を const と let で書き直してください
@@ -112,8 +112,8 @@ let b = 'fuga'; // エラー
   - const, let 以外にも修正すべき箇所があります。
 - 実行方法
   ```sh
-    $ node exercise1.js
-    # 2
+  $ node exercise1.js
+  # 2
   ```
 
 ```js
@@ -136,7 +136,7 @@ var a = filtered[0];
 console.log(a);
 ```
 
-### enhanced object literal
+## enhanced object literal
 
 ```js
 const name = 'taro';
@@ -148,7 +148,7 @@ person.age; // ➔ 25
 
 - オブジェクトのプロパティ名と変数名が一致していた場合に使用できる省略記法
 
-#### Ex2. enhanced object literal 演習
+### Ex2. enhanced object literal 演習
 
 - 演習問題
   - ES5 で書かれているコードを enhanced object literal で書き直してください
@@ -171,9 +171,9 @@ const taro = newUser('51ff0475d615329700235136', 'Taro', 'Yamada', 14);
 console.log(taro);
 ```
 
-### destructuring
+## destructuring
 
-#### 配列
+### 配列
 
 ```js
 const [a, b, c] = [1, 2];
@@ -187,7 +187,7 @@ console.log(c); // ➔ undefined
 - 関数の引数にも使える
 - 左辺と右辺のサイズが異なった場合、elixir のパターンマッチと違いエラーにならないので注意
 
-#### オブジェクト
+### オブジェクト
 
 ```js
 const {
@@ -205,7 +205,7 @@ console.log(c); // ➔ ”ReferenceError: c is not defined”
 - enhanced object literal のように、プロパティ名と変数名をそのまま対応可能
 - ネストしているオブジェクトにも使用できる
 
-#### Ex3-1. destructuring 演習
+### Ex3-1. destructuring 演習
 
 - 演習問題
   - 次のコードを destructuring で書き直してください
@@ -238,7 +238,7 @@ inspectUser({
 });
 ```
 
-### arrow function
+## arrow function
 
 ```js
 const sum = (x, y) => {
@@ -260,7 +260,7 @@ sum2(1, 2); // ➔ 3
   - 今は気にしなくても大丈夫
   - JavaScript の this は闇が深い。。
 
-#### Ex3-2. arrow function 演習
+### Ex3-2. arrow function 演習
 
 - 演習問題
   - Ex3-1 の inspectUser を arrow function で書き直してください
@@ -272,7 +272,7 @@ sum2(1, 2); // ➔ 3
   # expiresAt = 2013-10-22T10:04:20+00:00
   ```
 
-### template strings
+## template strings
 
 ```js
 const name = 'taro';
@@ -281,7 +281,7 @@ console.log(`My name is ${name}`); // ➔ 'My name is taro'
 
 - バッククォートで文字列を生成すると、文字列内に`${}`で変数を挿入できる
 
-#### Ex3-3. template strings 演習
+### Ex3-3. template strings 演習
 
 - 演習問題
   - Ex3-2 のコードを template strings で書き直してください
@@ -293,7 +293,7 @@ console.log(`My name is ${name}`); // ➔ 'My name is taro'
   # expiresAt = 2013-10-22T10:04:20+00:00
   ```
 
-### rest parameters
+## rest parameters
 
 ```js
 const f = (x, ...y) => y;
@@ -303,7 +303,7 @@ f(1, 2, 3); // ➔ [2, 3]
 - 引数を...をつけて宣言すると、可変長引数として配列が受け取れる
 - あまり使用頻度は高くないので、演習は割愛
 
-### spread 構文
+## spread 構文
 
 ```js
 const a = { x: 1, y: 2 };
@@ -317,7 +317,7 @@ console.log(b); // ➔ { x: 3, y: 2 }
 - Deep Copy ではなく、Shallow Copy であることに注意
   - 今は気にしなくても大丈夫
 
-#### Ex4. spread 構文演習
+### Ex4. spread 構文演習
 
 - 演習問題
   - 次のバグっているコードを spread 構文で修正してください
@@ -345,21 +345,21 @@ printUserInUpperCase(user);
 console.log(userList[0]); // name は 'taro yamada' と表示されることを期待
 ```
 
-##### 現在の値
+#### 現在の値
 
 ```js
 { id: '51ff0475d615329700235136', name: 'TARO YAMADA', age: 14 }
 { id: '51ff0475d615329700235136', name: 'TARO YAMADA', age: 14 }
 ```
 
-##### 期待値
+#### 期待値
 
 ```js
 { id: '51ff0475d615329700235136', name: 'TARO YAMADA', age: 14 }
 { id: '51ff0475d615329700235136', name: 'taro yamada', age: 14 }
 ```
 
-### class 構文
+## class 構文
 
 ```js
 class Animal {
@@ -384,7 +384,7 @@ d.speak(); // 'ポメラニアス barks.'
 - つけない場合は、prototype メソッド（インスタンスメソッド）になる
   - 注：JavaScript はプロトタイプベース
 
-#### Ex5. class 構文演習
+### Ex5. class 構文演習
 
 - 演習問題
   - 次のクラスをコメントを元に完成させてください
@@ -414,9 +414,9 @@ const user2 = new User('74ff0520d615329720235156', 'Hanako', 14);
 console.log(`${user1.name} is ${user2.name}: ${User.equal(user1, user2)}`);
 ```
 
-### export, import
+## export, import
 
-#### default export, named import
+### default export, named import
 
 ```js
 /* util.js */
@@ -433,7 +433,7 @@ sum(1, 2); // ➔ 3
 - 関数、変数を export する
 - それを別のファイルから import して再利用できる
 
-#### named export, named import
+### named export, named import
 
 ```js
 /* util.js */
@@ -449,7 +449,7 @@ sum(1, 2); // ➔ 3
 
 - 関数、変数を名前付きで export する
 
-#### Ex6. export, import 演習
+### Ex6. export, import 演習
 
 - 演習問題
   - Ex5 の User クラスを export して別のファイル(exercise6.mjs)から利用してみてください
