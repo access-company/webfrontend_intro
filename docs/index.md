@@ -99,8 +99,8 @@ div {
 function sum(a, b) {
   return a + b;
 }
-sum(1, 2)   // == 3
-sum(1, ‘2’) // == ‘12’
+sum(1, 2); // == 3
+sum(1, '2'); // == '12'
 ```
 
 - ブラウザで動作する動的型付け言語
@@ -114,7 +114,7 @@ sum(1, ‘2’) // == ‘12’
 
 ```js
 // divをbodyに追加する例
-const divElm = document.createElement(‘div’);
+const divElm = document.createElement('div');
 document.body.appendChild(divElm);
 ```
 
@@ -174,8 +174,8 @@ document.body.appendChild(divElm);
 ### console.log
 
 ```js
-const hello = ‘hello world’;
-console.log(hello); // ➔ ‘hello world’
+const hello = 'hello world';
+console.log(hello); // ➔ 'hello world'
 ```
 
 - 高機能なコンソール出力
@@ -211,17 +211,18 @@ console.log(array); // ➔ [1, 1, 2, 3, 5, 8];
 
 ```js
 const obj = {
-  a: ‘hello’,
+  a: 'hello',
   b: 1024,
-  c: { // オブジェクトを入れ子にすることもできる
-    d: [1, 2],
-  },
+  c: {
+    // オブジェクトを入れ子にすることもできる
+    d: [1, 2]
+  }
 };
 
-console.log(obj.a);   // ➔ ‘hello’
-obj.a = ‘hello world!’;
+console.log(obj.a); // ➔ 'hello'
+obj.a = 'hello world!';
 
-console.log(obj.a);   // ➔ ‘hello world’
+console.log(obj.a); // ➔ 'hello world'
 console.log(obj.c.d); // ➔ [1, 2]
 ```
 
@@ -238,9 +239,7 @@ sum(2, 5); // ➔ 7
 - JavaScript では、関数を変数に代入することができる
 - この例の場合、代入されている（赤い）関数を無名関数という
 
-## ECMAScript6(ES2015)演習
-
-- [ES2015 仕様](https://github.com/lukehoban/es6features)
+## [ECMAScript6(ES2015)](https://github.com/lukehoban/es6features) 演習
 
 - const, let
 - enhanced object literal
@@ -256,24 +255,23 @@ sum(2, 5); // ➔ 7
 
 ```js
 const a = 0;
+a = 1; // エラー
 
-let b = ‘hoge’;
-b = ‘piyo’;
-
-// a = 1;           これはエラーになる
-// let b = ‘fuga’;  これもエラー
+let b = 'hoge';
+b = 'piyo';
+let b = 'fuga'; // エラー
 ```
 
 - 変数を宣言する
-- const は再代入不可、let は代入可
-- ECMAScript5 では、変数宣言に var を使用していた
+- const は再代入不可、let は再代入可
+- ES5 では、変数宣言に var を使用していた
   - var とはスコープも異なるが、今は気にしないでも大丈夫
   - 気になる人は、関数スコープ、ブロックスコープで調べると良い
 
 #### Ex1. const, let 演習
 
 - 演習問題
-  - ECMAScript5 で書かれているコードの var を const と let で書き直してください
+  - ES5 で書かれているコードの var を const と let で書き直してください
     - 対象コードは、NFA で実際に使用されています。
   - const が使用できる箇所は、必ず const を使用してください。
   - const, let 以外にも修正すべき箇所があります。
@@ -306,11 +304,11 @@ console.log(a);
 ### enhanced object literal
 
 ```js
-const name = ‘taro’;
+const name = 'taro';
 
 const person = { name, age: 25 }; // ➔ { name: name, age: 25 }
-person.name;                      // ➔ ‘taro’
-person.age;                       // ➔ 25
+person.name; // ➔ 'taro'
+person.age; // ➔ 25
 ```
 
 - オブジェクトのプロパティ名と変数名が一致していた場合に使用できる省略記法
@@ -318,7 +316,7 @@ person.age;                       // ➔ 25
 #### Ex2. enhanced object literal 演習
 
 - 演習問題
-  - ECMAScript5 で書かれているコードを enhanced object literal で書き直してください
+  - ES5 で書かれているコードを enhanced object literal で書き直してください
 - 実行方法
   ```sh
   $ node exercise2.js
@@ -327,14 +325,14 @@ person.age;                       // ➔ 25
 
 ```js
 const newUser = function(id, firstName, lastName, age) {
-  const fullName = firstName + ‘ ‘ + lastName;
+  const fullName = firstName + ' ' + lastName;
   return {
-    id:   id,
+    id: id,
     name: fullName,
-    age:  age,
+    age: age
   };
 };
-const taro = newUser(‘51ff0475d615329700235136’, ‘Taro’, ‘Yamada’, 14);
+const taro = newUser('51ff0475d615329700235136', 'Taro', 'Yamada', 14);
 console.log(taro);
 ```
 
@@ -386,22 +384,22 @@ console.log(c); // ➔ ”ReferenceError: c is not defined”
 
 ```js
 const inspectUser = function(user) {
-  const data    = user.data;
+  const data = user.data;
   const session = data.session;
-  console.log("id = " + data.id);
-  console.log("key = " + session.key);
-  console.log("expiresAt = " + session.expiresAt);
+  console.log('id = ' + data.id);
+  console.log('key = ' + session.key);
+  console.log('expiresAt = ' + session.expiresAt);
 };
 inspectUser({
-  email: ‘my@email.addr’,
-  name: ‘Taro Access’,
+  email: 'my@email.addr',
+  name: 'Taro Access',
   data: {
-    id: ‘51ff0475d615329700235136’,
+    id: '51ff0475d615329700235136',
     session: {
-      key: ‘NoBtELh82txWnMb5kEQJ’,
-      expiresAt: ‘2013-10-22T10:04:20+00:00’,
-    },
-  },
+      key: 'NoBtELh82txWnMb5kEQJ',
+      expiresAt: '2013-10-22T10:04:20+00:00'
+    }
+  }
 });
 ```
 
@@ -442,8 +440,8 @@ sum2(1, 2); // ➔ 3
 ### template strings
 
 ```js
-const name = ‘taro’;
-console.log(`My name is ${name}`); // ➔ ‘My name is taro’
+const name = 'taro';
+console.log(`My name is ${name}`); // ➔ 'My name is taro'
 ```
 
 - バッククォートで文字列を生成すると、文字列内に`${}`で変数を挿入できる
@@ -542,8 +540,8 @@ class Dog extends Animal {
     console.log(`${this.name} barks.`);
   }
 }
-var d = new Dog('Mitzie');
-d.speak(); // Mitzie barks.
+var d = new Dog('ポメラニアス');
+d.speak(); // 'ポメラニアス barks.'
 ```
 
 - クラスベースのオブジェクト指向(Java とか）のような書き方ができる構文
@@ -671,7 +669,7 @@ const onClick = () => {
 
 ```js
 setTimeout(() => {
-  console.log(‘Hello world!!’); // 1000[ms] 後に 'Hello world!!' が表示される
+  console.log('Hello world!!'); // 1000[ms] 後に 'Hello world!!' が表示される
 }, 1000);
 ```
 
