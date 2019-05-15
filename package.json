@@ -1,0 +1,16 @@
+{
+  "name": "js_training",
+  "version": "1.0.0",
+  "description": "```sh $ asdf install $ npm install ```",
+  "main": "exercise1.js",
+  "dependencies": {
+    "node-fetch": "^2.1.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
