@@ -1,4 +1,4 @@
-# フロントエンド新卒研修資料
+# Table of contents
 
 - [座学](./practical)
 - [JavaScript 基礎](./es2015_handson)
