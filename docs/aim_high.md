@@ -27,7 +27,7 @@
 - 公式の [REPL](https://www.typescriptlang.org/play/index.html) が便利。コンパイル後、どう変換されるか実験できる。
   - 下記の通り Options の各種チェックを有効化することで、より厳格な型チェックが行われるため、体験としては全て有効化しておくのがオススメ
 
-![ts_options](../images/ts_options.png)
+![ts_options](./images/ts_options.png)
 
 ## Vue.js
 

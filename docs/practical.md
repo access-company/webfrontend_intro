@@ -187,7 +187,7 @@ headerElm.innerText = 'Hello にゃーん!';
 
 ## Chrome Developer Tools
 
-![devtools](../images/devtools.png)
+![devtools](./images/devtools.png)
 
 - Chrome で開いて、操作してみてください！ (command + option + i)
 - 詳細は、[公式サイト](https://developers.google.com/web/tools/chrome-devtools/)を参考
