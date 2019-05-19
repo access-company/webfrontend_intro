@@ -1,10 +1,36 @@
 # JavaScript 基礎
 
+## 目的
+
+- JavaScript プログラミングの基礎を知る
+  - 記号で構成される構文は関数と違ってググりにくいため、構文の名前を知っておくと捗る
+  - 知識が 0 ➔ 0.1 でもあれば、行動に移すための心理障壁を超えやすくなる
+
+## Table of Contents
+
 - console.log
 - コメントアウト
 - 配列
 - オブジェクト
 - 無名関数
+
+## 演習の準備
+
+```sh
+$ git clone git@github.com:access-company/webfrontend_intro.git
+$ cd webfrontend_intro
+$ git checkout -b ${自分の名前}
+$ asdf install # 時間かかるかも
+$ npm install
+```
+
+- 各演習ごとに完成したら commit して push !!
+
+```sh
+$ git add -u ${変更したファイル名}
+$ git commit -v ${comment}
+$ git push origin head
+```
 
 ## console.log
 

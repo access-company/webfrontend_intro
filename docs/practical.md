@@ -1,50 +1,33 @@
 # 座学
 
-## 座学の目的
+## 目的
 
-- フロントエンドエンジニアの役割を知る
-- JavaScript プログラミングの基礎を知る
-  - 記号で構成される構文は関数と違ってググりにくい
-  - よく使われる構文の名前を知っておく(この座学で全てを理解できなくても OK)
-- 非同期処理の基礎を知る
-  - 概念を知らないと結構難しいので、演習問題ができなくても大丈夫
-  - なぜ必要なのか、どのような解決方法があるのかを知っておく
+- Web Frontend エンジニアの役割を知る
+- 昨今の Web アプリケーションの開発スタイルを知る
 
-## 今日話すこと・やってもらうこと
+## Table of Contents
 
-- フロントエンドのお話
-  - フロントエンジニアとは？
-  - ACCESS 製 Web アプリの紹介
-  - HTML、CSS、JavaScript、DOM の簡単な説明
-  - フロントエンドの今までの流れ
-  - メジャーな周辺ツールの紹介
-- JavaScript の演習
-  - 基礎文法
-  - ECMAScript 6(ES2015)演習
-  - 非同期処理について
+- Web Frontend エンジニアとは？
+- ACCESS 製 Web アプリの紹介
+- HTML
+- CSS
+- JavaScript
+- DOM(Document Object Model)
+- Web Frontend 開発の移り変わり
+- メジャーな周辺ツール
+- Chrome Developer Tools
 
-## 演習の準備
+## Web Frontend エンジニアとは？
 
-```sh
-$ git clone git@github.com:access-company/webfrontend_intro.git
-$ cd webfrontend_intro
-$ git checkout -b ${自分の名前}
-$ asdf install # 時間かかるかも
-$ npm install
-```
+- Web アプリケーションの Frontend を開発するエンジニアのこと
+- HTML, JavaScript, CSS を組み合わせて、UI を作成する
 
-- 各演習ごとに完成したら commit して push !!
+### Web Frontend の特徴
 
-## フロントエンドエンジニアとは？
-
-- ざっくりいうと、、
-  - Web アプリケーションのフロントエンドを開発するエンジニアのこと
-  - HTML, JavaScript, CSS を組み合わせて、UI を作成する
-- 特徴
-  - 技術の流行り廃りが激しい
-  - 周辺ツールが豊富で、便利な分覚えることも多い
-  - JavaScript の言語仕様である ECMAScript は年ごとにアップデートされる
-  - 非同期処理をうまく扱えるかが１つのポイント
+- 技術の流行り廃りが激しい
+- 周辺ツールが豊富で、便利な分覚えることも多い
+- JavaScript の言語仕様である ECMAScript は年ごとにアップデートされる
+- 非同期処理をうまく扱えるかが１つのポイント
 
 ## ACCESS 製 Web アプリの紹介
 
@@ -119,10 +102,10 @@ document.body.appendChild(divElm);
 - HTML ドキュメントを動的に操作するためのインターフェース
 - 基本的には、JavaScript で操作する
 
-## フロントエンドの流れ
+## Web Frontend 開発の移り変わり
 
 - CGI
-  - サーバーで HTML を生成して、フロントエンドは静的なページを表示していた
+  - サーバーで HTML を生成して、Frontend は静的なページを表示していた
 - jQuery が流行る
   - 動的なページを実現するのに、jQuery は便利だった
     - ブラウザの互換性の吸収（特に IE...）
@@ -151,7 +134,7 @@ document.body.appendChild(divElm);
   - ブレークポイント
   - DevTools はメジャーブラウザであればある
 
-## Chrome Developer Tools 体験
+## Chrome Developer Tools
 
 - Chrome で開いて、操作してみてください！
 
