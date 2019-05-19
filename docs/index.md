@@ -5,7 +5,7 @@
 - Web Frontend エンジニアの役割を知る
 - 昨今の Web アプリケーションの開発スタイルを知る
 
-## [JavaScript 基礎](./es2015_handson)
+## [JavaScript 基礎(ES2015)](./es2015_handson)
 
 - JavaScript プログラミングの基礎を知る
   - 記号で構成される構文は関数と違ってググりにくいため、構文の名前を知っておくと捗る

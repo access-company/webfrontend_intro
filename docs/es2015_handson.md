@@ -17,14 +17,21 @@
 ## 演習の準備
 
 ```sh
+# このリポジトリをクローン
 $ git clone git@github.com:access-company/webfrontend_intro.git
 $ cd webfrontend_intro
+
+# 作業ブランチを作成
 $ git checkout -b ${自分の名前}
-$ asdf install # 時間かかるかも
+
+# nodejs のインストール
+$ asdf install
+
+# 依存ライブラリの local install
 $ npm install
 ```
 
-- 各演習ごとに完成したら commit して push !!
+各演習ごとに実装を終えたら commit して push !!
 
 ```sh
 $ git add -u ${変更したファイル名}
@@ -37,13 +44,20 @@ $ git push origin head
 ```js
 const hello = 'hello world';
 console.log(hello); // ➔ 'hello world'
+
+const warning = 'どこか調子悪いみたい';
+console.warn(warning); // ➔ 'どこか調子悪いみたい' (黄色で表示される)
+
+const error = '何かしらの深刻な問題が起きたよ';
+console.error(error); // ➔ '何かしらの深刻な問題が起きたよ' (赤色で表示される)
 ```
 
 - 高機能なコンソール出力
   - オブジェクトを渡すと、プロパティも展開してくれる
-  - 最新だと、console.table なるものもある
+  - 最新だと、console.table, trace などあり[多機能](https://qiita.com/koinori/items/83f119cb2d82c0ca2c1e)
 - デバッグでよく使う
   - いわゆる printf デバッグ
+- 例外発生時など、エラー出力は `console.error` を使った方が良い
 
 ## コメントアウト
 
@@ -57,6 +71,10 @@ console.log('comment out'); // 行末までコメントアウト
   console.log('comment out')
 */
 ```
+
+- よくあるコメントアウトで特筆すべき点はない
+- JSON ではコメントアウトのシンタックスはサポートされていないので注意
+  - [Can comments be used in JSON ?](https://stackoverflow.com/questions/244777/can-comments-be-used-in-json)
 
 ## 配列
 
@@ -85,7 +103,14 @@ obj.a = 'hello world!';
 
 console.log(obj.a); // ➔ 'hello world'
 console.log(obj.c.d); // ➔ [1, 2]
+
+const key = 'b';
+console.log(obj[key]); // ➔ 1024
+console.log(obj['b']); // ➔ 1024
+console.log(obj.key); // ➔ undefined
 ```
+
+- 連想配列という呼び方をすることがあるが、オブジェクトと呼ぶのが一般的
 
 ## 無名関数
 
@@ -98,7 +123,7 @@ sum(2, 5); // ➔ 7
 ```
 
 - JavaScript では、関数を変数に代入することができる
-- この例の場合、代入されている（赤い）関数を無名関数という
+- この例の場合、代入されている関数を無名関数という
 
 # [ECMAScript6(ES2015)](https://github.com/lukehoban/es6features) 演習
 
@@ -125,8 +150,11 @@ let b = 'fuga'; // エラー
 
 - 変数を宣言する
 - const は再代入不可、let は再代入可
+  - const でもアドレスの変更を制限するだけで、参照先の値は変更が可能な点に注意
+  - 実際にプログラムを書く際はほぼ const のみで実現が可能
+  - let を記述する必要がある場合、良くないコードの可能性が高い
 - ES5 では、変数宣言に var を使用していた
-  - var とはスコープも異なるが、今は気にしないでも大丈夫
+  - var とはスコープも異なるが、今は気にしないでも大丈夫。**利用してはいけないことだけ覚えておく**
   - 気になる人は、関数スコープ、ブロックスコープで調べると良い
 
 ### Ex1. const, let 演習

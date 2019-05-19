@@ -112,14 +112,15 @@ sum(1, '2'); // ➔ '12'
 
 - ブラウザで動作する動的型付け言語
   - 暗黙的な型変換が行われる
-  - **とにかく罠が多い**
-
-<blockquote class="twitter-tweet" data-lang="ja"><p lang="en" dir="ltr">Thanks for inventing <a href="https://twitter.com/hashtag/javascript?src=hash&amp;ref_src=twsrc%5Etfw">#javascript</a>! ;-) <a href="https://t.co/NISVQTALWB">pic.twitter.com/NISVQTALWB</a></p>&mdash; Claudio De Sio (@cdesio) <a href="https://twitter.com/cdesio/status/1013166206877163520?ref_src=twsrc%5Etfw">2018年6月30日</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
+  - **とにかく罠が多い！**
 - シングルスレッドで動作する
 - 標準仕様は、ECMAScript という名前で、ES とよく省略される
   - ES5, ES6 とかでバージョンを指定することがよくあるが、JavaScript5 とは言わない
+
+### 罠の例 😱
+
+<blockquote class="twitter-tweet" data-lang="ja"><p lang="en" dir="ltr">Thanks for inventing <a href="https://twitter.com/hashtag/javascript?src=hash&amp;ref_src=twsrc%5Etfw">#javascript</a>! ;-) <a href="https://t.co/NISVQTALWB">pic.twitter.com/NISVQTALWB</a></p>&mdash; Claudio De Sio (@cdesio) <a href="https://twitter.com/cdesio/status/1013166206877163520?ref_src=twsrc%5Etfw">2018年6月30日</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 ## DOM(Document Object Model)
 
@@ -165,8 +166,8 @@ headerElm.innerText = 'Hello にゃーん!';
     - DOM 操作は、ライブラリ・フレームワーク(ViewModel)に任せる
 - SPA(Single Page Application)が流行る
   - ページ遷移の UX の向上が主な目的
-  - _今回の演習は Vue.js を使って、ここに挑戦！_
-- 詳しく知りたい場合は、[Web アプリケーションフロントエンド年代記 - 2018 年夏編](https://www.kaitoy.xyz/2018/08/16/chronicle-of-frontend-2018/) を読むと良い
+  - **今回の演習は Vue.js を使って、ここに挑戦！**
+- もっと詳しい歴史を知りたい場合は [Web アプリケーションフロントエンド年代記 - 2018 年夏編](https://www.kaitoy.xyz/2018/08/16/chronicle-of-frontend-2018/) が素晴らしい記事なので読むと良い
 
 ## メジャーな周辺ツール
 
