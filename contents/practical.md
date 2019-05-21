@@ -5,18 +5,6 @@
 - Web Frontend エンジニアの役割を知る
 - 昨今の Web アプリケーションの開発スタイルを知る
 
-## Table of Contents
-
-- Web Frontend エンジニアとは？
-- ACCESS 製 Web アプリの紹介
-- HTML
-- CSS
-- JavaScript
-- DOM(Document Object Model)
-- Web Frontend 開発の移り変わり
-- メジャーな周辺ツール
-- Chrome Developer Tools
-
 ## Web Frontend エンジニアとは？
 
 - Web アプリケーションの Frontend を開発するエンジニアのこと

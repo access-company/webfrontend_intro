@@ -1,5 +1,9 @@
 # Web Frontend 新卒研修
 
+## [研修の前に](./disclaimer)
+
+- おことわり
+
 ## [座学](./practical.md)
 
 - Web Frontend エンジニアの役割を知る
