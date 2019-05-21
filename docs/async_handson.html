@@ -1,0 +1,480 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>JavaScript の非同期処理 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="aim_high.html" />
+    
+    
+    <link rel="prev" href="es2015_handson.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="practical.html">
+            
+                <a href="practical.html">
+            
+                    
+                    座学
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="es2015_handson.html">
+            
+                <a href="es2015_handson.html">
+            
+                    
+                    JavaScript 基礎(ES2015)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4" data-path="async_handson.html">
+            
+                <a href="async_handson.html">
+            
+                    
+                    JavaScript の非同期処理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="aim_high.html">
+            
+                <a href="aim_high.html">
+            
+                    
+                    さらなる高みへ
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >JavaScript の非同期処理</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="javascript-&#x306E;&#x975E;&#x540C;&#x671F;&#x51E6;&#x7406;">JavaScript &#x306E;&#x975E;&#x540C;&#x671F;&#x51E6;&#x7406;</h1>
+<h2 id="&#x76EE;&#x7684;">&#x76EE;&#x7684;</h2>
+<ul>
+<li>&#x975E;&#x540C;&#x671F;&#x51E6;&#x7406;&#x306E;&#x57FA;&#x790E;&#x3092;&#x77E5;&#x308B;<ul>
+<li>&#x6982;&#x5FF5;&#x3092;&#x77E5;&#x3089;&#x306A;&#x3044;&#x3068;&#x7D50;&#x69CB;&#x96E3;&#x3057;&#x3044;&#x306E;&#x3067;&#x3001;&#x6F14;&#x7FD2;&#x554F;&#x984C;&#x304C;&#x3067;&#x304D;&#x306A;&#x304F;&#x3066;&#x3082;&#x5927;&#x4E08;&#x592B;</li>
+<li>&#x306A;&#x305C;&#x5FC5;&#x8981;&#x306A;&#x306E;&#x304B;&#x3001;&#x3069;&#x306E;&#x3088;&#x3046;&#x306A;&#x89E3;&#x6C7A;&#x65B9;&#x6CD5;&#x304C;&#x3042;&#x308B;&#x306E;&#x304B;&#x3092;&#x77E5;&#x3063;&#x3066;&#x304A;&#x304F;</li>
+</ul>
+</li>
+</ul>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li>&#x975E;&#x540C;&#x671F;&#x51E6;&#x7406;&#x306F;&#x306A;&#x305C;&#x5FC5;&#x8981;&#x304B;&#xFF1F;</li>
+<li>&#x975E;&#x540C;&#x671F;&#x51E6;&#x7406;&#x306E;&#x5B9F;&#x88C5;&#x4F8B;</li>
+<li>&#x30B3;&#x30FC;&#x30EB;&#x30D0;&#x30C3;&#x30AF;</li>
+<li>Promise</li>
+<li>async await</li>
+</ul>
+<h2 id="&#x975E;&#x540C;&#x671F;&#x51E6;&#x7406;&#x306F;&#x306A;&#x305C;&#x5FC5;&#x8981;&#x304B;&#xFF1F;">&#x975E;&#x540C;&#x671F;&#x51E6;&#x7406;&#x306F;&#x306A;&#x305C;&#x5FC5;&#x8981;&#x304B;&#xFF1F;</h2>
+<ul>
+<li>&#x4F55;&#x304B;&#x304C;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3055;&#x308C;&#x305F;&#x6642;&#x306B;&#x3001;&#x6642;&#x9593;&#x306E;&#x304B;&#x304B;&#x308B;&#x51E6;&#x7406;&#x3092;&#x3055;&#x305B;&#x308B;&#x3068;...<ul>
+<li>&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x306F;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3057;&#x305F;&#x306E;&#x306B;&#x3001;&#x4F55;&#x3082;&#x53CD;&#x5FDC;&#x304C;&#x306A;&#x304F;&#x30A4;&#x30E9;&#x3064;&#x304F;</li>
+<li>&#x53CD;&#x5FDC;&#x304C;&#x306A;&#x3044;&#x3069;&#x3053;&#x308D;&#x304B;&#x3001;10 &#x79D2;&#x56FA;&#x307E;&#x3063;&#x3066;&#x3057;&#x307E;&#x3044;&#x3001;&#x58CA;&#x308C;&#x305F;&#x3068;&#x601D;&#x3046;</li>
+<li>&#x30B5;&#x30FC;&#x30D3;&#x30B9;&#x3092;&#x4F7F;&#x308F;&#x306A;&#x304F;&#x306A;&#x308B;</li>
+</ul>
+</li>
+<li>C &#x3084; Java &#x306A;&#x3089;&#x30DE;&#x30EB;&#x30C1;&#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x3067;&#x56DE;&#x907F;&#x3067;&#x304D;&#x308B;&#x304C;&#x3001;JavaScript &#x306F;&#x30B7;&#x30F3;&#x30B0;&#x30EB;&#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x3002;&#x3069;&#x3046;&#x3059;&#x308B;&#x304B;&#xFF1F;</li>
+</ul>
+<h3 id="&#x540C;&#x671F;&#x51E6;&#x7406;">&#x540C;&#x671F;&#x51E6;&#x7406;</h3>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> onClick = () =&gt; {
+  <span class="hljs-keyword">const</span> result = execVerySlowProcess(); <span class="hljs-comment">// &#x3053;&#x3053;&#x3067;&#x51E6;&#x7406;&#x3092;&#x30D6;&#x30ED;&#x30C3;&#x30AF;</span>
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;sync&apos;</span>); <span class="hljs-comment">// &#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x5F8C;&#x3001;&#x3057;&#x3070;&#x3089;&#x304F;&#x3057;&#x3066;&#x304B;&#x3089; &apos;sync&apos; &#x304C;&#x8868;&#x793A;&#x3055;&#x308C;&#x308B;</span>
+};
+</code></pre>
+<h3 id="&#x975E;&#x540C;&#x671F;&#x51E6;&#x7406;">&#x975E;&#x540C;&#x671F;&#x51E6;&#x7406;</h3>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> onClick = () =&gt; {
+  execSlowProcessAsync(); <span class="hljs-comment">// &#x3053;&#x3053;&#x3067;&#x30D6;&#x30ED;&#x30C3;&#x30AF;&#x3057;&#x306A;&#x3044;</span>
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;async&apos;</span>); <span class="hljs-comment">// &#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x5F8C;&#x3001;&#x5373;&#x5EA7;&#x306B; &apos;async&apos; &#x304C;&#x8868;&#x793A;&#x3055;&#x308C;&#x308B;</span>
+};
+</code></pre>
+<ul>
+<li>&#x30D6;&#x30ED;&#x30C3;&#x30AF;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x554F;&#x984C;&#x306A;&#x3089;&#x3001;&#x30D6;&#x30ED;&#x30C3;&#x30AF;&#x3055;&#x305B;&#x306A;&#x3051;&#x308C;&#x3070;&#x3044;&#x3044;</li>
+<li>&#x5B9F;&#x969B;&#x306E;&#x51E6;&#x7406;&#x306F;&#x3001;&#x30D0;&#x30C3;&#x30AF;&#x30B0;&#x30E9;&#x30A6;&#x30F3;&#x30C9;&#x3067;&#x884C;&#x3046;</li>
+<li>&#x305F;&#x3060;&#x3057;&#x3001;&#x623B;&#x308A;&#x5024;&#x3067;&#x51E6;&#x7406;&#x306E;&#x7D50;&#x679C;&#x3092;&#x53D7;&#x3051;&#x53D6;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x306A;&#x3044;<ul>
+<li>&#x5148;&#x306E;&#x4F8B;&#x3067;&#x306F;&#x3001;&#x95A2;&#x6570;&#x306E;&#x623B;&#x308A;&#x5024;&#x3067;&#x7D50;&#x679C;&#x3092;&#x53D7;&#x3051;&#x53D6;&#x3063;&#x3066;&#x3044;&#x305F;</li>
+</ul>
+</li>
+<li>&#x3069;&#x306E;&#x3088;&#x3046;&#x306B;&#x7D50;&#x679C;&#x3092;&#x53D7;&#x3051;&#x53D6;&#x308C;&#x3070;&#x826F;&#x3044;&#x304B;&#xFF1F;</li>
+</ul>
+<h2 id="&#x30B3;&#x30FC;&#x30EB;&#x30D0;&#x30C3;&#x30AF;">&#x30B3;&#x30FC;&#x30EB;&#x30D0;&#x30C3;&#x30AF;</h2>
+<pre><code class="lang-js">setTimeout(() =&gt; {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Hello world!!&apos;</span>); <span class="hljs-comment">// 1000[ms] &#x5F8C;&#x306B; &apos;Hello world!!&apos; &#x304C;&#x8868;&#x793A;&#x3055;&#x308C;&#x308B;</span>
+}, <span class="hljs-number">1000</span>);
+</code></pre>
+<ul>
+<li>&#x975E;&#x540C;&#x671F;&#x306B;&#x51E6;&#x7406;&#x3055;&#x308C;&#x308B;&#x95A2;&#x6570;&#x306B;&#x30B3;&#x30FC;&#x30EB;&#x30D0;&#x30C3;&#x30AF;&#x95A2;&#x6570;&#x3092;&#x6E21;&#x3059;&#x30D1;&#x30BF;&#x30FC;&#x30F3;</li>
+<li>&#x7D50;&#x679C;&#x306F;&#x3001;&#x30B3;&#x30FC;&#x30EB;&#x30D0;&#x30C3;&#x30AF;&#x95A2;&#x6570;&#x306E;&#x5F15;&#x6570;&#x3067;&#x53D7;&#x3051;&#x53D6;&#x308B;<ul>
+<li>&#x4F8B;&#x306F;&#x3001;&#x30BF;&#x30A4;&#x30DE;&#x30FC;&#x306A;&#x306E;&#x3067;&#x7D50;&#x679C;&#x304C;&#x306A;&#x3044;&#x3001;&#x305D;&#x306E;&#x305F;&#x3081;&#x5F15;&#x6570;&#x3082;&#x7A7A;</li>
+</ul>
+</li>
+<li>&#x4F8B;&#xFF1A;&#x30BF;&#x30A4;&#x30DE;&#x30FC;&#x3001;HTTP &#x30EA;&#x30AF;&#x30A8;&#x30B9;&#x30C8;&#x3001;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x30A2;&#x30AF;&#x30BB;&#x30B9;&#x306A;&#x3069;</li>
+<li>&#x975E;&#x540C;&#x671F;&#x51E6;&#x7406;&#x304C;&#x9023;&#x9396;&#x3057;&#x306A;&#x3051;&#x308C;&#x3070;&#x3001;&#x30B7;&#x30F3;&#x30D7;&#x30EB;&#x3067;&#x826F;&#x3044;</li>
+<li><em>&#x9023;&#x9396;&#x3059;&#x308B;&#x5834;&#x5408;&#x3001;&#x56F0;&#x3063;&#x305F;&#x3053;&#x3068;&#x304C;&#x8D77;&#x3053;&#x308B;</em></li>
+</ul>
+<h3 id="ex7-&#x30B3;&#x30FC;&#x30EB;&#x30D0;&#x30C3;&#x30AF;&#x6F14;&#x7FD2;">Ex7. &#x30B3;&#x30FC;&#x30EB;&#x30D0;&#x30C3;&#x30AF;&#x6F14;&#x7FD2;</h3>
+<ul>
+<li>&#x6F14;&#x7FD2;&#x554F;&#x984C;<ul>
+<li>&#x6B21;&#x306E;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x62E1;&#x5F35;&#x3057;&#x3001;&#x4EE5;&#x4E0B;&#x306E;&#x8981;&#x4EF6;&#x3092;&#x6E80;&#x305F;&#x3059;&#x3088;&#x3046;&#x306B;&#x5B9F;&#x88C5;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;<ul>
+<li>1 &#x79D2;&#x5F8C;&#x306B; &apos;Hello&apos; &#x3092;&#x51FA;&#x529B;</li>
+<li>&#x3055;&#x3089;&#x306B; 3 &#x79D2;&#x5F8C;&#x306B; &apos;World&apos; &#x3092;&#x51FA;&#x529B;</li>
+<li>&#x3055;&#x3089;&#x306B; 2 &#x79D2;&#x5F8C;&#x306B; &apos;!&apos; &#x3092;&#x51FA;&#x529B;</li>
+<li>&#x3055;&#x3089;&#x306B; 1 &#x79D2;&#x5F8C;&#x306B; &apos;!&apos; &#x3092;&#x51FA;&#x529B;</li>
+</ul>
+</li>
+<li>&#x51FA;&#x529B;&#x5148;&#x306F;&#x3001;&#x6A19;&#x6E96;&#x51FA;&#x529B;&#x3092;&#x5229;&#x7528;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</li>
+<li>&#x30A4;&#x30F3;&#x30C7;&#x30F3;&#x30C8;&#x306F;&#x3001;&#x9069;&#x5207;&#x306B;&#x4F7F;&#x7528;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</li>
+</ul>
+</li>
+<li>&#x5B9F;&#x884C;&#x65B9;&#x6CD5;<pre><code class="lang-sh">$ node exercise7.js
+<span class="hljs-comment"># Hello  (1&#x79D2;&#x5F8C;)</span>
+</code></pre>
+</li>
+</ul>
+<pre><code class="lang-js">setTimeout(() =&gt; {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Hello&apos;</span>);
+}, <span class="hljs-number">1000</span>);
+</code></pre>
+<h3 id="&#x30B3;&#x30FC;&#x30EB;&#x30D0;&#x30C3;&#x30AF;&#x6F14;&#x7FD2;&#x307E;&#x3068;&#x3081;">&#x30B3;&#x30FC;&#x30EB;&#x30D0;&#x30C3;&#x30AF;&#x6F14;&#x7FD2;&#x307E;&#x3068;&#x3081;</h3>
+<ul>
+<li>&#x30A4;&#x30F3;&#x30C7;&#x30F3;&#x30C8;&#x304C;&#x3069;&#x3093;&#x3069;&#x3093;&#x6DF1;&#x304F;&#x3002;&#x3002;<ul>
+<li>&#x901A;&#x79F0;&#xFF1A;&#x30B3;&#x30FC;&#x30EB;&#x30D0;&#x30C3;&#x30AF;&#x5730;&#x7344;</li>
+<li>&#x30B0;&#x30B0;&#x308B;&#x3068;&#x3044;&#x3063;&#x3071;&#x3044;&#x60C5;&#x5831;&#x304C;&#x51FA;&#x3066;&#x304F;&#x308B;</li>
+</ul>
+</li>
+<li>&#x5730;&#x7344;&#x306B;&#x306A;&#x308B;&#x30B1;&#x30FC;&#x30B9;&#x306F;&#x3001;&#x305D;&#x3093;&#x306A;&#x306B;&#x3042;&#x308B;&#x306E;&#x304B;&#xFF1F;<ul>
+<li>&#x3042;&#x308B;</li>
+<li>&#x5148;&#x306E;&#x4F8B;&#x306F;&#x3001;&#x7C21;&#x5358;&#x306E;&#x305F;&#x3081;&#x306B;&#x7528;&#x610F;&#x3057;&#x305F;&#x3082;&#x306E;&#x3002;HTTP &#x30EA;&#x30AF;&#x30A8;&#x30B9;&#x30C8;&#x3092;&#x7D44;&#x307F;&#x5408;&#x308F;&#x305B;&#x308B;&#x3068;&#x3001;&#x983B;&#x51FA;&#x5EA6;&#x306F;&#x9AD8;&#x3044;&#x3002;<ul>
+<li>&#x3042;&#x308B; URL &#x304B;&#x3089;&#x60C5;&#x5831;&#x3092;&#x53D6;&#x5F97;&#x3057;&#x3066;&#x3001;&#x305D;&#x306E;&#x60C5;&#x5831;&#x3092;&#x5143;&#x306B;&#x3055;&#x3089;&#x306B;&#x30EA;&#x30AF;&#x30A8;&#x30B9;&#x30C8;&#x3092;&#x6295;&#x3052;&#x308B;&#x306A;&#x3069;</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="promise">Promise</h2>
+<pre><code class="lang-js">fetch(<span class="hljs-string">&apos;http://example.com/movies.json&apos;</span>)
+  .then(response =&gt; response.json())
+  .then(myJson =&gt; <span class="hljs-built_in">console</span>.log(myJson));
+</code></pre>
+<ul>
+<li>&#x30B3;&#x30FC;&#x30EB;&#x30D0;&#x30C3;&#x30AF;&#x5730;&#x7344;&#x3092;&#x89E3;&#x6C7A;&#x3059;&#x308B;&#x4E00;&#x3064;&#x306E;&#x624B;&#x6BB5;</li>
+<li>.then &#x3092;&#x4F7F;&#x3063;&#x3066;&#x9023;&#x9396;&#x3092;&#x8868;&#x73FE;&#x3059;&#x308B;<ul>
+<li>then &#x306B;&#x6E21;&#x3059;&#x30B3;&#x30FC;&#x30EB;&#x30D0;&#x30C3;&#x30AF;&#x95A2;&#x6570;&#x304C; Promise &#x3092;&#x8FD4;&#x3059;&#x3068;&#x3001;&#x975E;&#x540C;&#x671F;&#x51E6;&#x7406;&#x3092;&#x9023;&#x9396;&#x3067;&#x304D;&#x308B;</li>
+<li><code>response.json()</code>&#x3082; Promise &#x3092;&#x8FD4;&#x3059;&#x95A2;&#x6570;</li>
+</ul>
+</li>
+<li>Promise &#x306F;&#x578B;&#x306A;&#x306E;&#x3067;&#x3001;Promise &#x3092;&#x8FD4;&#x3059;&#x3088;&#x3046;&#x306A;&#x95A2;&#x6570;&#x3092;&#x65B0;&#x305F;&#x306B;&#x4F5C;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308B;&#x3002;<ul>
+<li>&#x6700;&#x8FD1;&#x4F5C;&#x3089;&#x308C;&#x305F;&#x975E;&#x540C;&#x671F;&#x7CFB;&#x306E; API &#x306F;&#x3001;Promise &#x3092;&#x8FD4;&#x3059;&#x3088;&#x3046;&#x306B;&#x306A;&#x3063;&#x3066;&#x3044;&#x308B;&#x3082;&#x306E;&#x304C;&#x591A;&#x3044;</li>
+<li>&#x4F8B;&#xFF1A;<a href="https://developer.mozilla.org/ja/docs/Web/API/Fetch_API/Using_Fetch" target="_blank">fetch &#x95A2;&#x6570;</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="ex8-promise-&#x6F14;&#x7FD2;">Ex8. Promise &#x6F14;&#x7FD2;</h3>
+<ul>
+<li>&#x6F14;&#x7FD2;&#x554F;&#x984C;<ul>
+<li>fetch &#x3067;&#x4EE5;&#x4E0B; URL &#x304B;&#x3089; JSON &#x3092;&#x53D6;&#x5F97;&#x3057;&#x3001;&#x3055;&#x3089;&#x306B;&#x305D;&#x306E;&#x4E2D;&#x306B;&#x542B;&#x307E;&#x308C;&#x308B; followers_url &#x304B;&#x3089; JSON &#x3092;&#x53D6;&#x5F97;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;<ul>
+<li><a href="http://tama.tok.access-company.com/user/soichiro.isobe/training/fetch/users/github.json" target="_blank">http://tama.tok.access-company.com/user/soichiro.isobe/training/fetch/users/github.json</a></li>
+</ul>
+</li>
+<li>&#x30B3;&#x30FC;&#x30EB;&#x30D0;&#x30C3;&#x30AF;&#x5730;&#x7344;&#x306B;&#x306A;&#x3063;&#x3066;&#x3044;&#x308B;&#x5834;&#x5408;&#x306F;&#x3001;Promise &#x3092;&#x6B63;&#x3057;&#x304F;&#x5229;&#x7528;&#x3067;&#x304D;&#x3066;&#x3044;&#x306A;&#x3044;&#x53EF;&#x80FD;&#x6027;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;</li>
+</ul>
+</li>
+<li>&#x5B9F;&#x884C;&#x65B9;&#x6CD5;<pre><code class="lang-sh">$ node --experimental-modules exercise8.mjs
+<span class="hljs-comment"># { login: &apos;github&apos;,  id: 9919, avatar_url: &apos;https://avatars1.githubusercontent.com/u/9919?v=4&apos;, gravatar_id: &apos;&apos;, &#x2026;}</span>
+</code></pre>
+</li>
+</ul>
+<pre><code class="lang-js"><span class="hljs-keyword">import</span> fetch <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;node-fetch&apos;</span>;
+
+fetch(<span class="hljs-string">&apos;https://api.github.com/users/github&apos;</span>)
+  .then(response =&gt; response.json())
+  .then(myJson =&gt; <span class="hljs-built_in">console</span>.log(myJson));
+</code></pre>
+<h3 id="promise-&#x6F14;&#x7FD2;&#x307E;&#x3068;&#x3081;">Promise &#x6F14;&#x7FD2;&#x307E;&#x3068;&#x3081;</h3>
+<ul>
+<li>Promise &#x3092;&#x6B63;&#x3057;&#x304F;&#x4F7F;&#x7528;&#x3059;&#x308B;&#x306E;&#x306F;&#x3001;&#x610F;&#x5916;&#x3068;&#x96E3;&#x3057;&#x3044;<ul>
+<li>&#x4ECA;&#x56DE;&#x7D39;&#x4ECB;&#x3057;&#x3066;&#x3044;&#x306A;&#x3044;&#x304C;&#x3001;&#x30A8;&#x30E9;&#x30FC;&#x30CF;&#x30F3;&#x30C9;&#x30EA;&#x30F3;&#x30B0;&#x3082;&#x7D61;&#x3080;&#x3068;&#x3055;&#x3089;&#x306B;&#x8907;&#x96D1;&#x306B;&#x306A;&#x308B;</li>
+</ul>
+</li>
+<li>&#x4E00;&#x6B69;&#x9593;&#x9055;&#x3048;&#x308B;&#x3068;&#x3001;&#x30B3;&#x30FC;&#x30EB;&#x30D0;&#x30C3;&#x30AF;&#x5730;&#x7344;&#x3068;&#x540C;&#x3058;&#x3088;&#x3046;&#x306A;&#x30B3;&#x30FC;&#x30C9;&#x306B;&#x306A;&#x308B;</li>
+<li>&#x8907;&#x6570;&#x306E;&#x975E;&#x540C;&#x671F;&#x51E6;&#x7406;&#x3092;&#x4E26;&#x5217;&#x51E6;&#x7406;&#x3059;&#x308B;&#x306A;&#x3069;&#x306E;&#x5FDC;&#x7528;&#x3082;&#x3042;&#x308B;<ul>
+<li>Promise.all</li>
+<li>Promise.race</li>
+</ul>
+</li>
+<li>Promise &#x3092;&#x8FD4;&#x3055;&#x306A;&#x3044;&#x95A2;&#x6570;&#x3082; Promise &#x5316;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308B;<ul>
+<li>&#x4F59;&#x88D5;&#x306E;&#x3042;&#x308B;&#x4EBA;&#x306F;&#x3001;setTimeout &#x3092; Promise &#x5316;&#x3057;&#x3066;&#x3001;&#x30B3;&#x30FC;&#x30EB;&#x30D0;&#x30C3;&#x30AF;&#x6F14;&#x7FD2;&#x306E;&#x8AB2;&#x984C;&#x3092; Promise &#x3067;&#x89E3;&#x6C7A;&#x3057;&#x3066;&#x307F;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;</li>
+</ul>
+</li>
+</ul>
+<h2 id="async-await">async await</h2>
+<pre><code class="lang-js"><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fetchMovieJson</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">const</span> res = <span class="hljs-keyword">await</span> fetch(<span class="hljs-string">&apos;http://example.com/movies.json&apos;</span>);
+  <span class="hljs-keyword">const</span> myJson = <span class="hljs-keyword">await</span> res.json();
+  <span class="hljs-built_in">console</span>.log(myJson);
+}
+
+fetchMovieJson();
+</code></pre>
+<ul>
+<li>&#x624B;&#x7D9A;&#x304D;&#x7684;&#x306B;&#x975E;&#x540C;&#x671F;&#x51E6;&#x7406;&#x3092;&#x304B;&#x3051;&#x308B;&#x69CB;&#x6587;</li>
+<li>await &#x3067;&#x547C;&#x3073;&#x51FA;&#x3059;&#x95A2;&#x6570;&#x306F;&#x3001;Promise &#x3092;&#x8FD4;&#x3059;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308B;</li>
+<li>await &#x3092;&#x4F7F;&#x7528;&#x3059;&#x308B;&#x95A2;&#x6570;&#x306F;&#x3001;async &#x3092;&#x3064;&#x3051;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308B;</li>
+</ul>
+<h3 id="ex9-async-await-&#x6F14;&#x7FD2;">Ex9. async await &#x6F14;&#x7FD2;</h3>
+<ul>
+<li>&#x6F14;&#x7FD2;&#x554F;&#x984C;<ul>
+<li>Promise &#x6F14;&#x7FD2;&#x3067;&#x4F5C;&#x6210;&#x3057;&#x305F;&#x30B3;&#x30FC;&#x30C9;&#x3092; async await &#x3067;&#x66F8;&#x304D;&#x76F4;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</li>
+</ul>
+</li>
+<li>&#x5B9F;&#x884C;&#x65B9;&#x6CD5;<pre><code class="lang-sh">$ node --experimental-modules exercise9.mjs
+<span class="hljs-comment"># { login: &apos;github&apos;,  id: 9919, avatar_url: &apos;https://avatars1.githubusercontent.com/u/9919?v=4&apos;, gravatar_id: &apos;&apos;, &#x2026;}</span>
+</code></pre>
+</li>
+</ul>
+<pre><code class="lang-js"><span class="hljs-keyword">import</span> fetch <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;node-fetch&apos;</span>;
+
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fetchFollowers</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">const</span> url = <span class="hljs-string">&apos;https://api.github.com/users/github&apos;</span>;
+  <span class="hljs-keyword">const</span> usersResponse = <span class="hljs-keyword">await</span> fetch(url);
+  <span class="hljs-keyword">const</span> users = <span class="hljs-keyword">await</span> usersResponse.json();
+  <span class="hljs-built_in">console</span>.log(users);
+}
+
+fetchFollowers();
+</code></pre>
+<h3 id="async-await-&#x6F14;&#x7FD2;&#x307E;&#x3068;&#x3081;">async await &#x6F14;&#x7FD2;&#x307E;&#x3068;&#x3081;</h3>
+<ul>
+<li>async await &#x306F;&#x975E;&#x5E38;&#x306B;&#x4FBF;&#x5229;</li>
+<li>async await &#x306F;&#x6700;&#x65B0;&#x306E;&#x4ED5;&#x69D8;&#x3067;&#x3042;&#x308B;&#x305F;&#x3081;&#x3001;&#x4F7F;&#x7528;&#x3067;&#x304D;&#x306A;&#x3044;&#x5834;&#x5408;&#x3082;&#x591A;&#x3044;&#x306E;&#x3067;&#x6CE8;&#x610F;</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="es2015_handson.html" class="navigation navigation-prev " aria-label="Previous page: JavaScript 基礎(ES2015)">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="aim_high.html" class="navigation navigation-next " aria-label="Next page: さらなる高みへ">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"JavaScript の非同期処理","level":"1.4","depth":1,"next":{"title":"さらなる高みへ","level":"1.5","depth":1,"path":"aim_high.md","ref":"./aim_high.md","articles":[]},"previous":{"title":"JavaScript 基礎(ES2015)","level":"1.3","depth":1,"path":"es2015_handson.md","ref":"./es2015_handson.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"async_handson.md","mtime":"2019-05-19T07:27:15.240Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-19T20:00:41.465Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

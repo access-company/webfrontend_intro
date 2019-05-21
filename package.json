@@ -8,7 +8,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "gitbook build ./contents && rm -rf ./docs && mv ./contents/_book ./docs"
   },
   "author": "",
   "license": "ISC"
