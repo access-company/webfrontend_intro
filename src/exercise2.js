@@ -2,11 +2,11 @@ const newUser = function(id,
                          firstName, 
                          lastName, 
                          age) {
-  const name = firstName + " " + lastName;
+  const fullname = firstName + " " + lastName;
   return {
-    id: id,
-    name,
-    age: age,
+    id,
+    age,
+    name: fullname,
   };
 };
 const taro = newUser("51ff0475d615329700235136", 
