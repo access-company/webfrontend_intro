@@ -620,49 +620,61 @@
 </ul>
 <h2 id="&#x975E;&#x540C;&#x671F;&#x51E6;&#x7406;&#x306F;&#x306A;&#x305C;&#x5FC5;&#x8981;&#x304B;&#xFF1F;">&#x975E;&#x540C;&#x671F;&#x51E6;&#x7406;&#x306F;&#x306A;&#x305C;&#x5FC5;&#x8981;&#x304B;&#xFF1F;</h2>
 <ul>
-<li>&#x4F55;&#x304B;&#x304C;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3055;&#x308C;&#x305F;&#x6642;&#x306B;&#x3001;&#x6642;&#x9593;&#x306E;&#x304B;&#x304B;&#x308B;&#x51E6;&#x7406;&#x3092;&#x3055;&#x305B;&#x308B;&#x3068;...<ul>
-<li>&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x306F;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3057;&#x305F;&#x306E;&#x306B;&#x3001;&#x4F55;&#x3082;&#x53CD;&#x5FDC;&#x304C;&#x306A;&#x304F;&#x30A4;&#x30E9;&#x3064;&#x304F;</li>
-<li>&#x53CD;&#x5FDC;&#x304C;&#x306A;&#x3044;&#x3069;&#x3053;&#x308D;&#x304B;&#x3001;10 &#x79D2;&#x56FA;&#x307E;&#x3063;&#x3066;&#x3057;&#x307E;&#x3044;&#x3001;&#x58CA;&#x308C;&#x305F;&#x3068;&#x601D;&#x3046;</li>
-<li>&#x30B5;&#x30FC;&#x30D3;&#x30B9;&#x3092;&#x4F7F;&#x308F;&#x306A;&#x304F;&#x306A;&#x308B;</li>
+<li>&#x4E00;&#x8A00;&#x3067;&#x3044;&#x3048;&#x3070;&#x3001;&#x3088;&#x308A;&#x826F;&#x3044; UX &#x3092;&#x63D0;&#x4F9B;&#x3059;&#x308B;&#x305F;&#x3081;<ul>
+<li>&#x30DC;&#x30BF;&#x30F3;&#x3092;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3057;&#x305F;&#x306E;&#x306B;&#x3001;&#x4F55;&#x3082;&#x53CD;&#x5FDC;&#x304C;&#x306A;&#x304F;&#x4E0D;&#x5B89;&#x306B;&#x306A;&#x308B;</li>
+<li>&#x53CD;&#x5FDC;&#x304C;&#x306A;&#x3044;&#x3069;&#x3053;&#x308D;&#x304B;&#x3001;10 &#x79D2;&#x56FA;&#x307E;&#x3063;&#x3066;&#x3057;&#x307E;&#x3044;&#x30D5;&#x30EA;&#x30FC;&#x30BA;&#x3057;&#x305F;&#x3068;&#x601D;&#x3046;</li>
 </ul>
 </li>
-<li>C &#x3084; Java &#x306A;&#x3089;&#x30DE;&#x30EB;&#x30C1;&#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x3067;&#x56DE;&#x907F;&#x3067;&#x304D;&#x308B;&#x304C;&#x3001;JavaScript &#x306F;&#x30B7;&#x30F3;&#x30B0;&#x30EB;&#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x3002;&#x3069;&#x3046;&#x3059;&#x308B;&#x304B;&#xFF1F;</li>
+<li>C &#x3084; Java &#x306A;&#x3089;&#x30DE;&#x30EB;&#x30C1;&#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x3092;&#x5229;&#x7528;&#x3067;&#x304D;&#x308B;&#x304C;&#x3001;JavaScript &#x306F; <strong>&#x57FA;&#x672C;&#x7684;&#x306B;</strong> &#x30B7;&#x30F3;&#x30B0;&#x30EB;&#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x3067;&#x3042;&#x308B;&#x3002;&#x3069;&#x3046;&#x3059;&#x308B;&#x304B;&#xFF1F;<ul>
+<li>&#x88DC;&#x8DB3;: &#x8FD1;&#x5E74;&#x30E2;&#x30C0;&#x30F3;&#x30D6;&#x30E9;&#x30A6;&#x30B6;&#x3067;&#x306F;&#x3001;&#x30DE;&#x30EB;&#x30C1;&#x30B9;&#x30EC;&#x30C3;&#x30C9;&#x3092;&#x5B9F;&#x73FE;&#x3059;&#x308B;&#x65B9;&#x6CD5;&#x304C;&#x63D0;&#x4F9B;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x3002;&#x8208;&#x5473;&#x304C;&#x3042;&#x308B;&#x4EBA;&#x306F;&#x3001;<code>WebWorker</code>, <code>ServiceWorker</code> &#x3068;&#x3044;&#x3046;&#x30AD;&#x30FC;&#x30EF;&#x30FC;&#x30C9;&#x3067;&#x8ABF;&#x3079;&#x3066;&#x307F;&#x308B;&#x3068;&#x826F;&#x3044;&#x3002;</li>
+</ul>
+</li>
 </ul>
 <h3 id="&#x540C;&#x671F;&#x51E6;&#x7406;">&#x540C;&#x671F;&#x51E6;&#x7406;</h3>
 <pre><code class="lang-js"><span class="hljs-keyword">const</span> onClick = () =&gt; {
-  <span class="hljs-keyword">const</span> result = execVerySlowProcess(); <span class="hljs-comment">// &#x3053;&#x3053;&#x3067;&#x51E6;&#x7406;&#x3092;&#x30D6;&#x30ED;&#x30C3;&#x30AF;</span>
-  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;sync&apos;</span>); <span class="hljs-comment">// &#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x5F8C;&#x3001;&#x3057;&#x3070;&#x3089;&#x304F;&#x3057;&#x3066;&#x304B;&#x3089; &apos;sync&apos; &#x304C;&#x8868;&#x793A;&#x3055;&#x308C;&#x308B;</span>
+  <span class="hljs-keyword">const</span> result = execVerySlowProcess(); <span class="hljs-comment">// &#x3053;&#x3053;&#x3067;&#x30D6;&#x30ED;&#x30C3;&#x30AF;&#x3057;&#x3066;&#x3057;&#x307E;&#x3046;</span>
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;sync&apos;</span>); <span class="hljs-comment">// execVerySlowProcess &#x306E;&#x51E6;&#x7406;&#x304C;&#x5B8C;&#x4E86;&#x3057;&#x305F;&#x3089; &apos;sync&apos; &#x304C;&#x8868;&#x793A;&#x3055;&#x308C;&#x308B;</span>
+  <span class="hljs-built_in">console</span>.log(result);
 };
 </code></pre>
 <h3 id="&#x975E;&#x540C;&#x671F;&#x51E6;&#x7406;">&#x975E;&#x540C;&#x671F;&#x51E6;&#x7406;</h3>
 <pre><code class="lang-js"><span class="hljs-keyword">const</span> onClick = () =&gt; {
   execSlowProcessAsync(); <span class="hljs-comment">// &#x3053;&#x3053;&#x3067;&#x30D6;&#x30ED;&#x30C3;&#x30AF;&#x3057;&#x306A;&#x3044;</span>
-  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;async&apos;</span>); <span class="hljs-comment">// &#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x5F8C;&#x3001;&#x5373;&#x5EA7;&#x306B; &apos;async&apos; &#x304C;&#x8868;&#x793A;&#x3055;&#x308C;&#x308B;</span>
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;async&apos;</span>); <span class="hljs-comment">// &#x30E6;&#x30FC;&#x30B6;&#x306E;&#x611F;&#x899A;&#x7684;&#x306B;&#x306F;&#x3001;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x5F8C;&#x3001;&#x5373;&#x5EA7;&#x306B; &apos;async&apos; &#x304C;&#x8868;&#x793A;&#x3055;&#x308C;&#x308B;</span>
+  <span class="hljs-comment">// console.log(result); // &#x540C;&#x671F;&#x306E;&#x4F8B;&#x3068;&#x306F;&#x7570;&#x306A;&#x308A;&#x3001;&#x95A2;&#x6570;&#x306E;&#x5B9F;&#x884C;&#x7D50;&#x679C;&#x306F;&#x53C2;&#x7167;&#x3067;&#x304D;&#x306A;&#x3044;&#x304C;&#x3069;&#x3046;&#x3059;&#x308B;&#xFF1F;</span>
 };
 </code></pre>
 <ul>
-<li>&#x30D6;&#x30ED;&#x30C3;&#x30AF;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x554F;&#x984C;&#x306A;&#x3089;&#x3001;&#x30D6;&#x30ED;&#x30C3;&#x30AF;&#x3055;&#x305B;&#x306A;&#x3051;&#x308C;&#x3070;&#x3044;&#x3044;</li>
+<li>&#x30D6;&#x30ED;&#x30C3;&#x30AF;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x554F;&#x984C;&#x306A;&#x3089;&#x3001;&#x30D6;&#x30ED;&#x30C3;&#x30AF;&#x3055;&#x305B;&#x306A;&#x3051;&#x308C;&#x3070;&#x3044;&#x3044;&#x3058;&#x3083;&#x306A;&#x3044;</li>
 <li>&#x5B9F;&#x969B;&#x306E;&#x51E6;&#x7406;&#x306F;&#x3001;&#x30D0;&#x30C3;&#x30AF;&#x30B0;&#x30E9;&#x30A6;&#x30F3;&#x30C9;&#x3067;&#x884C;&#x3046;</li>
-<li>&#x305F;&#x3060;&#x3057;&#x3001;&#x623B;&#x308A;&#x5024;&#x3067;&#x51E6;&#x7406;&#x306E;&#x7D50;&#x679C;&#x3092;&#x53D7;&#x3051;&#x53D6;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x306A;&#x3044;<ul>
-<li>&#x5148;&#x306E;&#x4F8B;&#x3067;&#x306F;&#x3001;&#x95A2;&#x6570;&#x306E;&#x623B;&#x308A;&#x5024;&#x3067;&#x7D50;&#x679C;&#x3092;&#x53D7;&#x3051;&#x53D6;&#x3063;&#x3066;&#x3044;&#x305F;</li>
+<li>&#x305F;&#x3060;&#x3057;&#x3001;&#x975E;&#x540C;&#x671F;&#x51E6;&#x7406;&#x306E;&#x5834;&#x5408;&#x3001;&#x623B;&#x308A;&#x5024;&#x3067;&#x51E6;&#x7406;&#x306E;&#x7D50;&#x679C;&#x3092;&#x53D7;&#x3051;&#x53D6;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x306A;&#x3044;<ul>
+<li>&#x540C;&#x671F;&#x51E6;&#x7406;&#x306E;&#x4F8B;&#x3067;&#x306F;&#x3001;&#x95A2;&#x6570;&#x306E;&#x623B;&#x308A;&#x5024;&#x3067; <code>result</code> &#x3092;&#x53D7;&#x3051;&#x53D6;&#x3063;&#x3066;&#x3044;&#x305F;&#x304C;&#x3001;&#x975E;&#x540C;&#x671F;&#x51E6;&#x7406;&#x3067;&#x306F;&#x3069;&#x3046;&#x5B9F;&#x73FE;&#x3059;&#x308C;&#x3070;&#x826F;&#x3044;&#x304B;&#xFF1F;</li>
 </ul>
 </li>
-<li>&#x3069;&#x306E;&#x3088;&#x3046;&#x306B;&#x7D50;&#x679C;&#x3092;&#x53D7;&#x3051;&#x53D6;&#x308C;&#x3070;&#x826F;&#x3044;&#x304B;&#xFF1F;</li>
+<li>&#x672C;&#x7AE0;&#x3067;&#x306F;&#x3001;&#x3053;&#x308C;&#x3092;&#x5B9F;&#x73FE;&#x3059;&#x308B;&#x305F;&#x3081;&#x306E;&#x65B9;&#x6CD5;&#x3068;&#x3057;&#x3066;&#x3001;<code>&#x30B3;&#x30FC;&#x30EB;&#x30D0;&#x30C3;&#x30AF;</code>, <code>Promise</code>, <code>async await</code> &#x3068;&#x3044;&#x3046; 3 &#x3064;&#x306E;&#x65B9;&#x6CD5;&#x3092;&#x7D39;&#x4ECB;&#x3059;&#x308B;&#x3002;</li>
 </ul>
 <h2 id="&#x30B3;&#x30FC;&#x30EB;&#x30D0;&#x30C3;&#x30AF;">&#x30B3;&#x30FC;&#x30EB;&#x30D0;&#x30C3;&#x30AF;</h2>
 <pre><code class="lang-js">setTimeout(() =&gt; {
   <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Hello world!!&apos;</span>); <span class="hljs-comment">// 1000[ms] &#x5F8C;&#x306B; &apos;Hello world!!&apos; &#x304C;&#x8868;&#x793A;&#x3055;&#x308C;&#x308B;</span>
 }, <span class="hljs-number">1000</span>);
+
+<span class="hljs-comment">// nodejs &#x3067; HTTP &#x30EA;&#x30AF;&#x30A8;&#x30B9;&#x30C8;&#x3057;&#x3001;&#x7D50;&#x679C;&#x3092;&#x53D7;&#x3051;&#x53D6;&#x308B;&#x4F8B; (&#x5B9F;&#x969B;&#x306B; Web&#x30A2;&#x30D7;&#x30EA;&#x3067;&#x306F;&#x3053;&#x3046;&#x3044;&#x3046;&#x66F8;&#x304D;&#x65B9;&#x306F;&#x3057;&#x306A;&#x3044;&#x306E;&#x3067;&#x3001;&#x3042;&#x304F;&#x307E;&#x3067;&#x53C2;&#x8003;&#x3068;&#x3057;&#x3066;)</span>
+request(<span class="hljs-string">&apos;http://weather.livedoor.com/forecast/webservice/json/v1?city=130010&apos;</span>, (error, response, body) =&gt; {
+  <span class="hljs-built_in">console</span>.log(error);
+  <span class="hljs-built_in">console</span>.log(response);
+  <span class="hljs-built_in">console</span>.log(body);
+});
 </code></pre>
 <ul>
-<li>&#x975E;&#x540C;&#x671F;&#x306B;&#x51E6;&#x7406;&#x3055;&#x308C;&#x308B;&#x95A2;&#x6570;&#x306B;&#x30B3;&#x30FC;&#x30EB;&#x30D0;&#x30C3;&#x30AF;&#x95A2;&#x6570;&#x3092;&#x6E21;&#x3059;&#x30D1;&#x30BF;&#x30FC;&#x30F3;</li>
-<li>&#x7D50;&#x679C;&#x306F;&#x3001;&#x30B3;&#x30FC;&#x30EB;&#x30D0;&#x30C3;&#x30AF;&#x95A2;&#x6570;&#x306E;&#x5F15;&#x6570;&#x3067;&#x53D7;&#x3051;&#x53D6;&#x308B;<ul>
-<li>&#x4F8B;&#x306F;&#x3001;&#x30BF;&#x30A4;&#x30DE;&#x30FC;&#x306A;&#x306E;&#x3067;&#x7D50;&#x679C;&#x304C;&#x306A;&#x3044;&#x3001;&#x305D;&#x306E;&#x305F;&#x3081;&#x5F15;&#x6570;&#x3082;&#x7A7A;</li>
+<li>&#x4ED6;&#x8A00;&#x8A9E;&#x3067;&#x3082;&#x304A;&#x306A;&#x3058;&#x307F;&#x306E;&#x6700;&#x3082;&#x30B7;&#x30F3;&#x30D7;&#x30EB;&#x306A;&#x4ED5;&#x7D44;&#x307F;&#x3002;C &#x8A00;&#x8A9E;&#x3067;&#x3082;&#x591A;&#x7528;&#x3055;&#x308C;&#x308B;&#x3002;</li>
+<li>&#x975E;&#x540C;&#x671F;&#x306B;&#x51E6;&#x7406;&#x3055;&#x308C;&#x308B;&#x95A2;&#x6570;&#x306E;&#x5F15;&#x6570;&#x306B;&#x3001;&#x30B3;&#x30FC;&#x30EB;&#x30D0;&#x30C3;&#x30AF;&#x95A2;&#x6570;&#x3092;&#x6E21;&#x3059;</li>
+<li>&#x975E;&#x540C;&#x671F;&#x95A2;&#x6570;&#x306E;&#x51E6;&#x7406;&#x7D50;&#x679C;&#x306F;&#x3001;&#x30B3;&#x30FC;&#x30EB;&#x30D0;&#x30C3;&#x30AF;&#x95A2;&#x6570;&#x306E;&#x5F15;&#x6570;&#x3067;&#x53D7;&#x3051;&#x53D6;&#x308B;<ul>
+<li>&#x30BF;&#x30A4;&#x30DE;&#x30FC;&#x4F8B;&#x306F;&#x3001;&#x5358;&#x306A;&#x308B;&#x30BF;&#x30A4;&#x30DE;&#x30FC;&#x306A;&#x306E;&#x3067;&#x7D50;&#x679C;&#x304C;&#x306A;&#x3044;&#x3001;&#x305D;&#x306E;&#x305F;&#x3081;&#x5F15;&#x6570;&#x3082;&#x7A7A;</li>
+<li>nodejs &#x306E; HTTP &#x30EA;&#x30AF;&#x30A8;&#x30B9;&#x30C8;&#x306E;&#x4F8B;&#x306F;&#x3001;GET &#x3057;&#x305F;&#x7D50;&#x679C;&#x3092; <code>error</code>, <code>response</code>, <code>body</code> &#x3068;&#x3044;&#x3046;&#x5F15;&#x6570;&#x3067;&#x53D7;&#x3051;&#x53D6;&#x3063;&#x3066;&#x3044;&#x308B;</li>
 </ul>
 </li>
-<li>&#x4F8B;&#xFF1A;&#x30BF;&#x30A4;&#x30DE;&#x30FC;&#x3001;HTTP &#x30EA;&#x30AF;&#x30A8;&#x30B9;&#x30C8;&#x3001;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x30A2;&#x30AF;&#x30BB;&#x30B9;&#x306A;&#x3069;</li>
 <li>&#x975E;&#x540C;&#x671F;&#x51E6;&#x7406;&#x304C;&#x9023;&#x9396;&#x3057;&#x306A;&#x3051;&#x308C;&#x3070;&#x3001;&#x30B7;&#x30F3;&#x30D7;&#x30EB;&#x3067;&#x826F;&#x3044;</li>
-<li><strong>&#x9023;&#x9396;&#x3059;&#x308B;&#x5834;&#x5408;&#x3001;&#x56F0;&#x3063;&#x305F;&#x3053;&#x3068;&#x304C;&#x8D77;&#x3053;&#x308B;</strong></li>
+<li><strong>&#x9023;&#x9396;&#x3059;&#x308B;&#x5834;&#x5408;&#x3001;&#x3068;&#x3066;&#x3082;&#x8F9B;&#x3044;&#x601D;&#x3044;&#x3092;&#x3059;&#x308B;&#x3053;&#x3068;&#x306B;&#x306A;&#x308B;</strong></li>
 </ul>
 <h3 id="ex7-&#x30B3;&#x30FC;&#x30EB;&#x30D0;&#x30C3;&#x30AF;&#x6F14;&#x7FD2;">Ex7. &#x30B3;&#x30FC;&#x30EB;&#x30D0;&#x30C3;&#x30AF;&#x6F14;&#x7FD2;</h3>
 <ul>
@@ -686,29 +698,29 @@
 </code></pre>
 <h3 id="&#x30B3;&#x30FC;&#x30EB;&#x30D0;&#x30C3;&#x30AF;&#x6F14;&#x7FD2;&#x307E;&#x3068;&#x3081;">&#x30B3;&#x30FC;&#x30EB;&#x30D0;&#x30C3;&#x30AF;&#x6F14;&#x7FD2;&#x307E;&#x3068;&#x3081;</h3>
 <ul>
-<li>&#x30A4;&#x30F3;&#x30C7;&#x30F3;&#x30C8;&#x304C;&#x3069;&#x3093;&#x3069;&#x3093;&#x6DF1;&#x304F;&#x3002;&#x3002;<ul>
-<li>&#x901A;&#x79F0;&#xFF1A;&#x30B3;&#x30FC;&#x30EB;&#x30D0;&#x30C3;&#x30AF;&#x5730;&#x7344;</li>
+<li>&#x3042;&#x3041;&#x3001;<a href="https://s3-ap-northeast-1.amazonaws.com/cdn.bibi-star.jp/production/imgs/images/000/037/019/original.jpg?1529479769" target="_blank">&#x30A4;&#x30F3;&#x30C7;&#x30F3;&#x30C8;&#x304C;&#x6DF1;&#x304F;</a>&#x306A;&#x3063;&#x3066;&#x3044;&#x304F;&#x2026;<ul>
+<li>&#x901A;&#x79F0;&#xFF1A;&#x30B3;&#x30FC;&#x30EB;&#x30D0;&#x30C3;&#x30AF;&#x5730;&#x7344; (callback hell)</li>
 <li>&#x30B0;&#x30B0;&#x308B;&#x3068;&#x3044;&#x3063;&#x3071;&#x3044;&#x60C5;&#x5831;&#x304C;&#x51FA;&#x3066;&#x304F;&#x308B;</li>
 </ul>
 </li>
-<li>&#x5730;&#x7344;&#x306B;&#x306A;&#x308B;&#x30B1;&#x30FC;&#x30B9;&#x306F;&#x3001;&#x305D;&#x3093;&#x306A;&#x306B;&#x3042;&#x308B;&#x306E;&#x304B;&#xFF1F;<ul>
-<li>&#x3042;&#x308B;</li>
-<li>&#x5148;&#x306E;&#x4F8B;&#x306F;&#x3001;&#x7C21;&#x5358;&#x306E;&#x305F;&#x3081;&#x306B;&#x7528;&#x610F;&#x3057;&#x305F;&#x3082;&#x306E;&#x3002;HTTP &#x30EA;&#x30AF;&#x30A8;&#x30B9;&#x30C8;&#x3092;&#x7D44;&#x307F;&#x5408;&#x308F;&#x305B;&#x308B;&#x3068;&#x3001;&#x983B;&#x51FA;&#x5EA6;&#x306F;&#x9AD8;&#x3044;&#x3002;<ul>
-<li>&#x3042;&#x308B; URL &#x304B;&#x3089;&#x60C5;&#x5831;&#x3092;&#x53D6;&#x5F97;&#x3057;&#x3066;&#x3001;&#x305D;&#x306E;&#x60C5;&#x5831;&#x3092;&#x5143;&#x306B;&#x3055;&#x3089;&#x306B;&#x30EA;&#x30AF;&#x30A8;&#x30B9;&#x30C8;&#x3092;&#x6295;&#x3052;&#x308B;&#x306A;&#x3069;</li>
+<li>&#x30B3;&#x30FC;&#x30EB;&#x30D0;&#x30C3;&#x30AF;&#x5730;&#x7344;&#x3068;&#x306A;&#x308B;&#x30B1;&#x30FC;&#x30B9;&#x306F;&#x3001;&#x305D;&#x3093;&#x306A;&#x306B;&#x3042;&#x308B;&#x306E;&#x304B;&#xFF1F;<ul>
+<li>&#x666E;&#x901A;&#x306B;&#x3042;&#x308B;</li>
+<li>&#x5148;&#x306E;&#x6F14;&#x7FD2;&#x306F;&#x3001;&#x5B9F;&#x7528;&#x6027;&#x306E;&#x306A;&#x3044;&#x4F8B;&#x3067;&#x3042;&#x308B;&#x304C;&#x3001;HTTP &#x30EA;&#x30AF;&#x30A8;&#x30B9;&#x30C8;&#x3092;&#x7D44;&#x307F;&#x5408;&#x308F;&#x305B;&#x308B;&#x3068;&#x983B;&#x51FA;&#x3059;&#x308B;<ul>
+<li>&#x4F8B;&#x3048;&#x3070;&#x3001;&#x3042;&#x308B; URL &#x304B;&#x3089;&#x60C5;&#x5831;&#x3092; GET &#x3057;&#x3066;&#x3001;&#x305D;&#x306E;&#x60C5;&#x5831;&#x3092;&#x5143;&#x306B;&#x3055;&#x3089;&#x306B;&#x30EA;&#x30AF;&#x30A8;&#x30B9;&#x30C8;&#x3092;&#x6295;&#x3052;&#x308B;&#x306A;&#x3069;</li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 <h2 id="promise">Promise</h2>
-<pre><code class="lang-js">fetch(<span class="hljs-string">&apos;http://example.com/movies.json&apos;</span>)
+<pre><code class="lang-js">fetch(<span class="hljs-string">&apos;http://weather.livedoor.com/forecast/webservice/json/v1?city=130010&apos;</span>) <span class="hljs-comment">// &#x6771;&#x4EAC;&#x306E;&#x5929;&#x6C17;&#x60C5;&#x5831;&#x3092; JSON &#x5F62;&#x5F0F;&#x3067;&#x8FD4;&#x3059; API</span>
   .then(response =&gt; response.json())
-  .then(myJson =&gt; <span class="hljs-built_in">console</span>.log(myJson));
+  .then(json =&gt; <span class="hljs-built_in">console</span>.log(json.description));
 </code></pre>
 <ul>
 <li>&#x30B3;&#x30FC;&#x30EB;&#x30D0;&#x30C3;&#x30AF;&#x5730;&#x7344;&#x3092;&#x89E3;&#x6C7A;&#x3059;&#x308B;&#x4E00;&#x3064;&#x306E;&#x624B;&#x6BB5;</li>
-<li>.then &#x3092;&#x4F7F;&#x3063;&#x3066;&#x9023;&#x9396;&#x3092;&#x8868;&#x73FE;&#x3059;&#x308B;<ul>
-<li>then &#x306B;&#x6E21;&#x3059;&#x30B3;&#x30FC;&#x30EB;&#x30D0;&#x30C3;&#x30AF;&#x95A2;&#x6570;&#x304C; Promise &#x3092;&#x8FD4;&#x3059;&#x3068;&#x3001;&#x975E;&#x540C;&#x671F;&#x51E6;&#x7406;&#x3092;&#x9023;&#x9396;&#x3067;&#x304D;&#x308B;</li>
+<li><code>then</code> &#x3092;&#x4F7F;&#x3063;&#x3066;&#x9023;&#x9396;&#x3092;&#x8868;&#x73FE;&#x3059;&#x308B;<ul>
+<li><code>then</code> &#x306B;&#x6E21;&#x3059;&#x30B3;&#x30FC;&#x30EB;&#x30D0;&#x30C3;&#x30AF;&#x95A2;&#x6570;&#x304C; Promise &#x3092;&#x8FD4;&#x3059;&#x3068;&#x3001;&#x975E;&#x540C;&#x671F;&#x51E6;&#x7406;&#x3092;&#x9023;&#x9396;&#x3067;&#x304D;&#x308B;</li>
 <li><code>response.json()</code>&#x3082; Promise &#x3092;&#x8FD4;&#x3059;&#x95A2;&#x6570;</li>
 </ul>
 </li>
@@ -720,17 +732,17 @@
 </ul>
 <h3 id="ex8-promise-&#x6F14;&#x7FD2;">Ex8. Promise &#x6F14;&#x7FD2;</h3>
 <ul>
-<li>fetch &#x3067;&#x4EE5;&#x4E0B; URL &#x304B;&#x3089; JSON &#x3092;&#x53D6;&#x5F97;&#x3057;&#x3001;&#x3055;&#x3089;&#x306B;&#x305D;&#x306E;&#x4E2D;&#x306B;&#x542B;&#x307E;&#x308C;&#x308B; followers_url &#x304B;&#x3089; JSON &#x3092;&#x53D6;&#x5F97;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;<ul>
-<li><a href="http://tama.tok.access-company.com/user/soichiro.isobe/training/fetch/users/github.json" target="_blank">http://tama.tok.access-company.com/user/soichiro.isobe/training/fetch/users/github.json</a></li>
+<li>fetch &#x3067;&#x4EE5;&#x4E0B; URL &#x304B;&#x3089; JSON &#x3092;&#x53D6;&#x5F97;&#x3057;&#x3001;&#x3055;&#x3089;&#x306B;&#x305D;&#x306E;&#x4E2D;&#x306B;&#x542B;&#x307E;&#x308C;&#x308B; <code>followers_url</code> &#x304B;&#x3089; JSON &#x3092;&#x53D6;&#x5F97;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;<ul>
+<li><a href="https://api.github.com/users/diescake" target="_blank">https://api.github.com/users/diescake</a></li>
 </ul>
 </li>
 <li>&#x30B3;&#x30FC;&#x30EB;&#x30D0;&#x30C3;&#x30AF;&#x5730;&#x7344;&#x306B;&#x306A;&#x3063;&#x3066;&#x3044;&#x308B;&#x5834;&#x5408;&#x306F;&#x3001;Promise &#x3092;&#x6B63;&#x3057;&#x304F;&#x5229;&#x7528;&#x3067;&#x304D;&#x3066;&#x3044;&#x306A;&#x3044;&#x53EF;&#x80FD;&#x6027;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;</li>
 </ul>
-<pre><code class="lang-js"><span class="hljs-keyword">import</span> fetch <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;node-fetch&apos;</span>;
+<pre><code class="lang-js"><span class="hljs-keyword">import</span> fetch <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;node-fetch&apos;</span>; <span class="hljs-comment">// nodejs &#x306B;&#x306F; fetch &#x95A2;&#x6570;&#x306F;&#x5B9F;&#x88C5;&#x3055;&#x308C;&#x3066;&#x3044;&#x306A;&#x3044;&#x305F;&#x3081; import &#x3057;&#x3066;&#x5229;&#x7528;&#x3057;&#x3066;&#x3044;&#x308B;</span>
 
 fetch(<span class="hljs-string">&apos;https://api.github.com/users/github&apos;</span>)
   .then(response =&gt; response.json())
-  .then(myJson =&gt; <span class="hljs-built_in">console</span>.log(myJson));
+  .then(json =&gt; <span class="hljs-built_in">console</span>.log(json));
 </code></pre>
 <h4 id="&#x5B9F;&#x884C;&#x65B9;&#x6CD5;">&#x5B9F;&#x884C;&#x65B9;&#x6CD5;</h4>
 <pre><code class="lang-sh">$ node --experimental-modules exercise8.mjs
@@ -738,34 +750,35 @@ fetch(<span class="hljs-string">&apos;https://api.github.com/users/github&apos;<
 </code></pre>
 <h3 id="promise-&#x6F14;&#x7FD2;&#x307E;&#x3068;&#x3081;">Promise &#x6F14;&#x7FD2;&#x307E;&#x3068;&#x3081;</h3>
 <ul>
-<li>Promise &#x3092;&#x6B63;&#x3057;&#x304F;&#x4F7F;&#x7528;&#x3059;&#x308B;&#x306E;&#x306F;&#x3001;&#x610F;&#x5916;&#x3068;&#x96E3;&#x3057;&#x3044;<ul>
-<li>&#x4ECA;&#x56DE;&#x7D39;&#x4ECB;&#x3057;&#x3066;&#x3044;&#x306A;&#x3044;&#x304C;&#x3001;&#x30A8;&#x30E9;&#x30FC;&#x30CF;&#x30F3;&#x30C9;&#x30EA;&#x30F3;&#x30B0;&#x3082;&#x7D61;&#x3080;&#x3068;&#x3055;&#x3089;&#x306B;&#x8907;&#x96D1;&#x306B;&#x306A;&#x308B;</li>
-</ul>
-</li>
+<li>Promise &#x3092;&#x5B8C;&#x5168;&#x306B;&#x7406;&#x89E3;&#x3057;&#x3066;&#x3001;&#x6B63;&#x3057;&#x304F;&#x4F7F;&#x7528;&#x3059;&#x308B;&#x306E;&#x306F;&#x3001;&#x5272;&#x3068;&#x96E3;&#x3057;&#x3044;<ul>
+<li>&#x4ECA;&#x56DE;&#x7D39;&#x4ECB;&#x3057;&#x3066;&#x3044;&#x306A;&#x3044;&#x304C;&#x3001;&#x30A8;&#x30E9;&#x30FC;&#x30CF;&#x30F3;&#x30C9;&#x30EA;&#x30F3;&#x30B0;&#x3082;&#x7D61;&#x3080;&#x3068;&#x3055;&#x3089;&#x306B;&#x8907;&#x96D1;&#x306B;&#x306A;&#x308B; (&#x901A;&#x4FE1;&#x306B;&#x306F;&#x30A8;&#x30E9;&#x30FC;&#x306F;&#x3064;&#x304D;&#x3082;&#x306E;)</li>
 <li>&#x4E00;&#x6B69;&#x9593;&#x9055;&#x3048;&#x308B;&#x3068;&#x3001;&#x30B3;&#x30FC;&#x30EB;&#x30D0;&#x30C3;&#x30AF;&#x5730;&#x7344;&#x3068;&#x540C;&#x3058;&#x3088;&#x3046;&#x306A;&#x30B3;&#x30FC;&#x30C9;&#x306B;&#x306A;&#x308B;</li>
-<li>&#x8907;&#x6570;&#x306E;&#x975E;&#x540C;&#x671F;&#x51E6;&#x7406;&#x3092;&#x4E26;&#x5217;&#x51E6;&#x7406;&#x3059;&#x308B;&#x306A;&#x3069;&#x306E;&#x5FDC;&#x7528;&#x3082;&#x3042;&#x308B;<ul>
-<li>Promise.all</li>
-<li>Promise.race</li>
 </ul>
 </li>
-<li>Promise &#x3092;&#x8FD4;&#x3055;&#x306A;&#x3044;&#x95A2;&#x6570;&#x3082; Promise &#x5316;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308B;<ul>
-<li>&#x4F59;&#x88D5;&#x306E;&#x3042;&#x308B;&#x4EBA;&#x306F;&#x3001;setTimeout &#x3092; Promise &#x5316;&#x3057;&#x3066;&#x3001;&#x30B3;&#x30FC;&#x30EB;&#x30D0;&#x30C3;&#x30AF;&#x6F14;&#x7FD2;&#x306E;&#x8AB2;&#x984C;&#x3092; Promise &#x3067;&#x89E3;&#x6C7A;&#x3057;&#x3066;&#x307F;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;</li>
+<li>&#x8907;&#x6570;&#x306E;&#x975E;&#x540C;&#x671F;&#x51E6;&#x7406;&#x3092;&#x4E26;&#x5217;&#x51E6;&#x7406;&#x3059;&#x308B;&#x306A;&#x3069;&#x306E;&#x5FDC;&#x7528;&#x3082;&#x3042;&#x308B;<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all" target="_blank">Promise.all</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/race" target="_blank">Promise.race</a></li>
+</ul>
+</li>
+<li>&#x30B3;&#x30FC;&#x30EB;&#x30D0;&#x30C3;&#x30AF;&#x3092;&#x5229;&#x7528;&#x3057;&#x305F;&#x975E;&#x540C;&#x671F;&#x95A2;&#x6570;&#x3082; Promise &#x3092;&#x8FD4;&#x3059;&#x3088;&#x3046;&#x306B;&#x30E9;&#x30C3;&#x30D7;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308B;<ul>
+<li>&#x4F59;&#x88D5;&#x306E;&#x3042;&#x308B;&#x4EBA;&#x306F;&#x3001;<code>setTimeout</code> &#x3092; Promise &#x5316;&#x3057;&#x3066;&#x3001;&#x30B3;&#x30FC;&#x30EB;&#x30D0;&#x30C3;&#x30AF;&#x6F14;&#x7FD2;&#x306E;&#x8AB2;&#x984C;&#x3092; Promise &#x3067;&#x89E3;&#x6C7A;&#x3057;&#x3066;&#x307F;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;</li>
+<li>&#x3061;&#x306A;&#x307F;&#x306B; Promise &#x5316;&#x3057;&#x305F; <code>setTimeout</code> &#x95A2;&#x6570;&#x306F; <code>sleep</code> &#x3068;&#x3044;&#x3046;&#x540D;&#x524D;&#x304C;&#x3064;&#x3051;&#x3089;&#x308C;&#x308B;&#x3053;&#x3068;&#x304C;&#x591A;&#x3044;&#x5370;&#x8C61;&#x3067;&#x3059;</li>
 </ul>
 </li>
 </ul>
 <h2 id="async-await">async await</h2>
-<pre><code class="lang-js"><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fetchMovieJson</span>(<span class="hljs-params"></span>) </span>{
-  <span class="hljs-keyword">const</span> res = <span class="hljs-keyword">await</span> fetch(<span class="hljs-string">&apos;http://example.com/movies.json&apos;</span>);
-  <span class="hljs-keyword">const</span> myJson = <span class="hljs-keyword">await</span> res.json();
-  <span class="hljs-built_in">console</span>.log(myJson);
+<pre><code class="lang-js"><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">showTokyoWeather</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">const</span> response = <span class="hljs-keyword">await</span> fetch(<span class="hljs-string">&apos;http://weather.livedoor.com/forecast/webservice/json/v1?city=130010&apos;</span>);
+  <span class="hljs-keyword">const</span> json = <span class="hljs-keyword">await</span> response.json();
+  <span class="hljs-built_in">console</span>.log(json.description);
 }
 
-fetchMovieJson();
+showTokyoWeather();
 </code></pre>
 <ul>
 <li>&#x624B;&#x7D9A;&#x304D;&#x7684;&#x306B;&#x975E;&#x540C;&#x671F;&#x51E6;&#x7406;&#x3092;&#x304B;&#x3051;&#x308B;&#x69CB;&#x6587;</li>
-<li>await &#x3067;&#x547C;&#x3073;&#x51FA;&#x3059;&#x95A2;&#x6570;&#x306F;&#x3001;Promise &#x3092;&#x8FD4;&#x3059;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308B;</li>
-<li>await &#x3092;&#x4F7F;&#x7528;&#x3059;&#x308B;&#x95A2;&#x6570;&#x306F;&#x3001;async &#x3092;&#x3064;&#x3051;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308B;</li>
+<li><code>await</code> &#x3067;&#x547C;&#x3073;&#x51FA;&#x3059;&#x95A2;&#x6570;&#x306F;&#x3001;Promise &#x3092;&#x8FD4;&#x3059;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308B;</li>
+<li><code>await</code> &#x3092;&#x4F7F;&#x7528;&#x3059;&#x308B;&#x95A2;&#x6570;&#x306F;&#x3001;<code>async</code> &#x3092;&#x3064;&#x3051;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308B;</li>
 </ul>
 <h3 id="ex9-async-await-&#x6F14;&#x7FD2;">Ex9. async await &#x6F14;&#x7FD2;</h3>
 <ul>
@@ -777,6 +790,7 @@ fetchMovieJson();
   <span class="hljs-keyword">const</span> url = <span class="hljs-string">&apos;https://api.github.com/users/github&apos;</span>;
   <span class="hljs-keyword">const</span> usersResponse = <span class="hljs-keyword">await</span> fetch(url);
   <span class="hljs-keyword">const</span> users = <span class="hljs-keyword">await</span> usersResponse.json();
+
   <span class="hljs-built_in">console</span>.log(users);
 }
 
@@ -788,8 +802,14 @@ fetchFollowers();
 </code></pre>
 <h3 id="async-await-&#x6F14;&#x7FD2;&#x307E;&#x3068;&#x3081;">async await &#x6F14;&#x7FD2;&#x307E;&#x3068;&#x3081;</h3>
 <ul>
-<li>async await &#x306F;&#x975E;&#x5E38;&#x306B;&#x4FBF;&#x5229;</li>
-<li>async await &#x306F;&#x6700;&#x65B0;&#x306E;&#x4ED5;&#x69D8;&#x3067;&#x3042;&#x308B;&#x305F;&#x3081;&#x3001;&#x4F7F;&#x7528;&#x3067;&#x304D;&#x306A;&#x3044;&#x5834;&#x5408;&#x3082;&#x591A;&#x3044;&#x306E;&#x3067;&#x6CE8;&#x610F;</li>
+<li>async await &#x306F;&#x975E;&#x5E38;&#x306B;&#x4FBF;&#x5229;<ul>
+<li>&#x975E;&#x540C;&#x671F;&#x51E6;&#x7406;&#x3092;&#x624B;&#x7D9A;&#x304D;&#x7684;&#x306B;&#x8A18;&#x8FF0;&#x3067;&#x304D;&#x308B;&#x305F;&#x3081;&#x3001;&#x30BD;&#x30FC;&#x30B9;&#x30B3;&#x30FC;&#x30C9;&#x306E;&#x898B;&#x901A;&#x3057;&#x304C;&#x3088;&#x304F;&#x306A;&#x308B;</li>
+</ul>
+</li>
+<li>async await &#x306F; ES2017 &#x3067;&#x63A1;&#x7528;&#x3055;&#x308C;&#x305F;&#x4ED5;&#x69D8;&#x3067;&#x3001;&#x6BD4;&#x8F03;&#x7684;&#x65B0;&#x3057;&#x3044;&#x305F;&#x3081;&#x3001;IE11 &#x3084;&#x53E4;&#x3044; Android &#x7AEF;&#x672B;&#x306E;&#x30D6;&#x30E9;&#x30A6;&#x30B6;&#x306A;&#x3069;&#x30EC;&#x30AC;&#x30B7;&#x30FC;&#x30D6;&#x30E9;&#x30A6;&#x30B6;&#x306E;&#x30B5;&#x30DD;&#x30FC;&#x30C8;&#x304C;&#x5FC5;&#x8981;&#x306A;&#x5834;&#x5408;&#x306F;&#x6CE8;&#x610F;&#x304C;&#x5FC5;&#x8981;<ul>
+<li><a href="https://caniuse.com/#search=async%20await" target="_blank">Can I use async await ?</a></li>
+</ul>
+</li>
 </ul>
 
                                 
@@ -826,7 +846,7 @@ fetchFollowers();
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"JavaScript の非同期処理","level":"1.6","depth":1,"next":{"title":"非同期処理はなぜ必要か？","level":"1.6.1","depth":2,"ref":"","articles":[]},"previous":{"title":"class 構文","level":"1.5.9","depth":2,"ref":"","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"async_handson.md","mtime":"2019-05-22T02:39:16.069Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-22T03:46:50.722Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"JavaScript の非同期処理","level":"1.6","depth":1,"next":{"title":"非同期処理はなぜ必要か？","level":"1.6.1","depth":2,"ref":"","articles":[]},"previous":{"title":"class 構文","level":"1.5.9","depth":2,"ref":"","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"async_handson.md","mtime":"2019-05-22T23:26:25.109Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-22T23:44:27.639Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
