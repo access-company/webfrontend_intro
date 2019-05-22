@@ -1,6 +1,6 @@
 const consoleLog = (msg) => {
   process.stdout.write(msg);
-}
+};
 
 setTimeout(() => {
   consoleLog('Hello');
