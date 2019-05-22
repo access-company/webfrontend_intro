@@ -21,7 +21,7 @@ $ npm install
 
 ```sh
 $ git add -u ${変更したファイル名}
-$ git commit -v ${comment}
+$ git commit -m ${comment}
 $ git push origin head
 ```
 
