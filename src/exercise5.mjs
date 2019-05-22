@@ -1,4 +1,4 @@
-class User {
+export class User {
   constructor(id, name, age) {
     this.name = name;
     this.age = age;
@@ -17,6 +17,8 @@ class User {
     return user1 == user2;
   }
 }
+
+
 const user1 = new User('51ff0475d615329700235136', 'Taro', 14);
 console.log(user1.getName());
 console.log(user1.getAge());
