@@ -1,12 +1,11 @@
-const inspectUser = (user) => { //arrowを使うとfunctionがなくなるだけ?
+const inspectUser = (user) => {
   // const data = user.data;
   // const session = data.session;
-
   const data = user.data
 
-  console.log("id = " + data.id);
-  console.log("key = " + data.session.key);
-  console.log("expiresAt = " + data.session.expiresAt);
+  console.log(`id = ${data.id}`);
+  console.log(`key = ${data.session.key}`);
+  console.log(`expiresAt = ${data.session.expiresAt}`);
 };
 
 inspectUser({
