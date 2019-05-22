@@ -1,12 +1,22 @@
 const inspectUser = function(user) {
-  const data = user.data;
-  const session = data.session;
-  console.log("id = " + data.id);
-  console.log("key = " + session.key);
-  console.log("expiresAt = " + session.expiresAt);
+
+  // destructuring for object
+  // Ref. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+  const {
+    data: {
+      id,
+      session: {key, expiresAt}
+    }
+  } = user
+  
+  console.log("id = " + id);
+  console.log("key = " + key);
+  console.log("expiresAt = " + expiresAt);
 };
 
 inspectUser({
+  email: 'my@email.addr',
+  name: 'Taro Access',
   data: {
     id: "51ff0475d615329700235136",
     session: {
