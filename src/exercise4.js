@@ -8,7 +8,7 @@ const user = {
   name: 'taro yamada',
   age: 14,
 };
-userList.push(user);
-printUserInUpperCase(user);
+userList.push({...user});
+printUserInUpperCase({...user});
 
 console.log(userList[0]);
