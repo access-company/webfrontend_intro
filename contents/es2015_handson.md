@@ -9,7 +9,7 @@
 ## 演習の準備
 
 ```sh
-# このリポジトリをクローン
+# 本リポジトリをクローン
 $ git clone git@github.com:access-company/webfrontend_intro.git
 $ cd webfrontend_intro
 
@@ -31,11 +31,16 @@ $ git commit -v ${comment}
 $ git push origin head
 ```
 
+### REPL (Read-Eval-Print-Loop) の紹介
+
+- JavaScript は性質上、ブラウザで動作する REPL が多いので、ちょっとした動作検証に便利
+  - 一例として [jsin](https://jsbin.com/dogatemogo/edit?js,console)
+
 ## console.log
 
 ```js
-const hello = 'hello world';
-console.log(hello); // ➔ 'hello world'
+const hello = 'こんにちは、世界';
+console.log(hello); // ➔ 'こんにちは、世界'
 
 const warning = 'どこか調子悪いみたい';
 console.warn(warning); // ➔ 'どこか調子悪いみたい' (黄色で表示される)
@@ -64,11 +69,11 @@ console.log('comment out'); // 行末までコメントアウト
 */
 ```
 
-- よくあるコメントアウトで特筆すべき点はない
-- JSON ではコメントアウトのシンタックスはサポートされていないので注意
+- よくある仕様
+- JSON ではコメントアウトのシンタックスはサポートされていないので注意が必要
   - [Can comments be used in JSON ?](https://stackoverflow.com/questions/244777/can-comments-be-used-in-json)
 
-## 配列
+## 配列(Array)
 
 ```js
 const array = [1, 1, 2, 3, 5];
@@ -78,7 +83,7 @@ array[5] = 8;
 console.log(array); // ➔ [1, 1, 2, 3, 5, 8];
 ```
 
-## オブジェクト
+## オブジェクト(Object)
 
 ```js
 const obj = {
@@ -102,7 +107,7 @@ console.log(obj['b']); // ➔ 1024
 console.log(obj.key); // ➔ undefined
 ```
 
-- 連想配列という呼び方をすることがあるが、オブジェクトと呼ぶのが一般的
+- 他言語では連想配列や、dictionary という呼び方をすることがあるが、JavaScript では用途が同様でもオブジェクトと呼ぶのが一般的
 
 ## 無名関数
 
@@ -112,10 +117,15 @@ const sum = function(a, b) {
 };
 
 sum(2, 5); // ➔ 7
+
+(function() {
+  console.log('無名関数を即時実行するぞ'); // ➔ 無名関数を即時実行するぞ
+})();
 ```
 
 - JavaScript では、関数を変数に代入することができる
 - この例の場合、代入されている関数を無名関数という
+- ES2015 以前は、`var` のスコープの問題で、無名関数を即時実行することで、スコープを生成する方法はよく使われていた
 
 # [ECMAScript6(ES2015)](https://github.com/lukehoban/es6features) 演習
 
