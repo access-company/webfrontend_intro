@@ -1,10 +1,16 @@
-const newUser = function(id, firstName, lastName, age) {
-  const fullName = firstName + " " + lastName;
-  return {
-    id: id,
-    name: fullName,
-    age: age,
-  };
-};
-const taro = newUser("51ff0475d615329700235136", "Taro", "Yamada", 14);
-console.log(taro);
+let id = 'userid';
+let firstName = 'Micral';
+let age = 15;
+
+//function(id, firstName, lastName, age) 
+const newUser = {id, firstName, lastName:'Niu', age};
+//   const fullName = firstName + " " + lastName;
+//   return {
+//     id: id,
+//     name: fullName,
+//     age: age,
+//   };
+// };
+
+
+console.log(newUser);
