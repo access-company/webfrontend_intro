@@ -4,6 +4,15 @@ class User {
     this.age = age;
     this.id = id;
   }
+  getName() {
+    return this.name
+  }
+  getAge() {
+    return this.age
+  }
+  static equal(user1, user2) {
+    return user1 === user2
+  }
   // prototypeメソッド getName()を実装する
   // prototypeメソッド getAge()を実装する
   // staticメソッド equal(user1, user2)を実装する

@@ -9,9 +9,9 @@ const filter = function(items, iteratee, context) {
   }
   return values;
 };
-const a = [1, 2, 3];
+let a = [1, 2, 3];
 const filtered = filter(a, function(v) {
   return v === 2;
 });
-const b = filtered[0];
-console.log(b);
+a = filtered[0];
+console.log(a);
