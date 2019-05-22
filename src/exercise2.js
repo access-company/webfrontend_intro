@@ -1,8 +1,10 @@
+const fullname = 'Taro Yamada';
+
 const newUser = function(id, firstName, lastName, age) {
   const fullName = firstName + " " + lastName;
   return {
     id: id,
-    name: fullName,
+    fullName,
     age: age,
   };
 };
