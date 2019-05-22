@@ -1,4 +1,4 @@
-const printUserInUpperCase = user => {
+const printUserInUpperCase = ({...user}) => {
   user.name = user.name.toUpperCase();
   console.log(user);
 };
