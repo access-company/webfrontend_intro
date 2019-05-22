@@ -9,12 +9,22 @@
   - Web Frontend 開発の移り変わり
   - メジャーな周辺ツール
   - Chrome Developer Tools
-- [JavaScript 基礎(ES2015)](./es2015_handson.md)
+- [JavaScript 基礎](./js_foundation.md)
   - console.log
   - コメントアウト
   - 配列
   - オブジェクト
   - 無名関数
+- [ECMAScript6(ES2015) 演習](./es2015_handson.md)
+  - const, let
+  - enhanced object literal
+  - destructuring
+  - arrow function
+  - template strings
+  - rest parameters
+  - spread 構文
+  - export, import
+  - class 構文
 - [JavaScript の非同期処理](./async_handson.md)
   - 非同期処理はなぜ必要か？
   - 非同期処理の実装例

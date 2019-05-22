@@ -1,10 +1,4 @@
-# JavaScript 基礎
-
-## 目的
-
-- JavaScript プログラミングの基礎を知る
-  - 記号で構成される構文は関数と違ってググりにくいため、構文の名前を知っておくと捗る
-  - 知識が 0 ➔ 0.1 でもあれば、行動に移すための心理障壁を超えやすくなる
+# [ECMAScript6(ES2015)](https://github.com/lukehoban/es6features) 演習
 
 ## 演習の準備
 
@@ -31,114 +25,6 @@ $ git commit -v ${comment}
 $ git push origin head
 ```
 
-### REPL (Read-Eval-Print-Loop) の紹介
-
-- JavaScript は性質上、ブラウザで動作する REPL が多いので、ちょっとした動作検証に便利
-  - 一例として [jsin](https://jsbin.com/dogatemogo/edit?js,console)
-
-## console.log
-
-```js
-const hello = 'こんにちは、世界';
-console.log(hello); // ➔ 'こんにちは、世界'
-
-const warning = 'どこか調子悪いみたい';
-console.warn(warning); // ➔ 'どこか調子悪いみたい' (黄色で表示される)
-
-const error = '何かしらの深刻な問題が起きたよ';
-console.error(error); // ➔ '何かしらの深刻な問題が起きたよ' (赤色で表示される)
-```
-
-- 高機能なコンソール出力
-  - オブジェクトを渡すと、プロパティも展開してくれる
-  - 最新だと、console.table, trace などあり[多機能](https://qiita.com/koinori/items/83f119cb2d82c0ca2c1e)
-- デバッグでよく使う
-  - いわゆる printf デバッグ
-- 例外発生時など、エラー出力は `console.error` を使った方が良い
-
-## コメントアウト
-
-```js
-console.log('comment out'); // 行末までコメントアウト
-// console.log('comment out')
-
-/*
-  囲まれているところがコメントアウト
-  console.log('comment out')
-  console.log('comment out')
-*/
-```
-
-- よくある仕様
-- JSON ではコメントアウトのシンタックスはサポートされていないので注意が必要
-  - [Can comments be used in JSON ?](https://stackoverflow.com/questions/244777/can-comments-be-used-in-json)
-
-## 配列(Array)
-
-```js
-const array = [1, 1, 2, 3, 5];
-console.log(array[0], array[4]); // ➔ 1 5
-
-array[5] = 8;
-console.log(array); // ➔ [1, 1, 2, 3, 5, 8];
-```
-
-## オブジェクト(Object)
-
-```js
-const obj = {
-  a: 'hello',
-  b: 1024,
-  c: {
-    // オブジェクトを入れ子にすることもできる
-    d: [1, 2]
-  }
-};
-
-console.log(obj.a); // ➔ 'hello'
-obj.a = 'hello world!';
-
-console.log(obj.a); // ➔ 'hello world'
-console.log(obj.c.d); // ➔ [1, 2]
-
-const key = 'b';
-console.log(obj[key]); // ➔ 1024
-console.log(obj['b']); // ➔ 1024
-console.log(obj.key); // ➔ undefined
-```
-
-- 他言語では連想配列や、dictionary という呼び方をすることがあるが、JavaScript では用途が同様でもオブジェクトと呼ぶのが一般的
-
-## 無名関数
-
-```js
-const sum = function(a, b) {
-  return a + b;
-};
-
-sum(2, 5); // ➔ 7
-
-(function() {
-  console.log('無名関数を即時実行するぞ'); // ➔ 無名関数を即時実行するぞ
-})();
-```
-
-- JavaScript では、関数を変数に代入することができる
-- この例の場合、代入されている関数を無名関数という
-- ES2015 以前は、`var` のスコープの問題で、無名関数を即時実行することで、スコープを生成する方法はよく使われていた
-
-# [ECMAScript6(ES2015)](https://github.com/lukehoban/es6features) 演習
-
-- const, let
-- enhanced object literal
-- destructuring
-- arrow function
-- template strings
-- rest parameters
-- spread 構文
-- export, import
-- class 構文
-
 ## const, let
 
 ```js
@@ -156,21 +42,16 @@ let b = 'fuga'; // エラー
   - 実際にプログラムを書く際はほぼ const のみで実現が可能
   - let を記述する必要がある場合、良くないコードの可能性が高い
 - ES5 では、変数宣言に var を使用していた
-  - var とはスコープも異なるが、今は気にしないでも大丈夫。**利用してはいけないことだけ覚えておく**
+  - var とはスコープも異なるが、今は気にしないでも OK。
+  - **var は既にプログラマが直越記述する機会はなく、利用してはいけないことだけは抑えておく**
   - 気になる人は、関数スコープ、ブロックスコープで調べると良い
 
-### Ex1. const, let 演習
+### 演習問題 (Ex.1)
 
-- 演習問題
-  - ES5 で書かれているコードの var を const と let で書き直してください
-    - 対象コードは、NFA で実際に使用されています。
-  - const が使用できる箇所は、必ず const を使用してください。
-  - const, let 以外にも修正すべき箇所があります。
-- 実行方法
-  ```sh
-  $ node exercise1.js
-  # 2
-  ```
+- ES5 で書かれているコードの var を const と let で書き直してください
+  - 下記は、実際に使用されているソースコードです
+- const が使用できる箇所は、必ず const を使用してください
+- const, let 以外にも修正すべき箇所があります
 
 ```js
 var filter = function(items, iteratee, context) {
@@ -192,27 +73,32 @@ var a = filtered[0];
 console.log(a);
 ```
 
+#### 実行方法
+
+```sh
+$ node exercise1.js
+# 2
+```
+
 ## enhanced object literal
 
 ```js
 const name = 'taro';
 
-const person = { name, age: 25 }; // ➔ { name: name, age: 25 }
-person.name; // ➔ 'taro'
-person.age; // ➔ 25
+const person1 = { name: name, age: 25 };
+person1.name; // ➔ 'taro'
+person1.age; // ➔ 25
+
+const person2 = { name, age: 25 }; // name はプロパティ名と変数名が同一のため略記が可能
+person2.name; // ➔ 'taro'
+person2.age; // ➔ 25
 ```
 
 - オブジェクトのプロパティ名と変数名が一致していた場合に使用できる省略記法
 
-### Ex2. enhanced object literal 演習
+### 演習問題 (Ex.2)
 
-- 演習問題
-  - ES5 で書かれているコードを enhanced object literal で書き直してください
-- 実行方法
-  ```sh
-  $ node exercise2.js
-  # { id: '51ff0475d615329700235136', name: 'Taro Yamada', age: 14 }
-  ```
+- ES5 で書かれているコードを enhanced object literal で書き直してください
 
 ```js
 const newUser = function(id, firstName, lastName, age) {
@@ -223,8 +109,16 @@ const newUser = function(id, firstName, lastName, age) {
     age: age
   };
 };
+
 const taro = newUser('51ff0475d615329700235136', 'Taro', 'Yamada', 14);
 console.log(taro);
+```
+
+#### 実行方法
+
+```sh
+$ node exercise2.js
+# { id: '51ff0475d615329700235136', name: 'Taro Yamada', age: 14 }
 ```
 
 ## destructuring
@@ -237,6 +131,14 @@ const [a, b, c] = [1, 2];
 console.log(a); // ➔ 1
 console.log(b); // ➔ 2
 console.log(c); // ➔ undefined
+
+function createArray() {
+  return [3, 4];
+}
+
+const [d, e] = createArray();
+console.log(d); // ➔ 3
+console.log(e); // ➔ 4
 ```
 
 - 配列やオブジェクトを展開して、値を変数に束縛する
@@ -245,12 +147,8 @@ console.log(c); // ➔ undefined
 
 ### オブジェクト
 
-```js
-const {
-  a,
-  b,
-  c: { d }
-} = { a: 1, b: 2, c: { d: 3 } };
+```c
+const { a, b, c: { d } } = { a: 1, b: 2, c: { d: 3 } };
 
 console.log(a); // ➔ 1
 console.log(b); // ➔ 2
@@ -261,26 +159,20 @@ console.log(c); // ➔ ”ReferenceError: c is not defined”
 - enhanced object literal のように、プロパティ名と変数名をそのまま対応可能
 - ネストしているオブジェクトにも使用できる
 
-### Ex3-1. destructuring 演習
+### 演習問題 (Ex.3-1)
 
-- 演習問題
-  - 次のコードを destructuring で書き直してください
-- 実行方法
-  ```sh
-  $ node exercise3.js
-  # id = 51ff0475d615329700235136
-  # key = NoBtELh82txWnMb5kEQJ
-  # expiresAt = 2013-10-22T10:04:20+00:00
-  ```
+- 次のコードを destructuring で書き直してください
 
 ```js
 const inspectUser = function(user) {
   const data = user.data;
   const session = data.session;
+
   console.log('id = ' + data.id);
   console.log('key = ' + session.key);
   console.log('expiresAt = ' + session.expiresAt);
 };
+
 inspectUser({
   email: 'my@email.addr',
   name: 'Taro Access',
@@ -294,60 +186,87 @@ inspectUser({
 });
 ```
 
+#### 実行方法
+
+```sh
+$ node exercise3.js
+# id = 51ff0475d615329700235136
+# key = NoBtELh82txWnMb5kEQJ
+# expiresAt = 2013-10-22T10:04:20+00:00
+```
+
 ## arrow function
 
 ```js
-const sum = (x, y) => {
+// 従来の無名関数
+const sum1 = function(x, y) {
   return x + y;
 };
-sum(1, 2); // ➔ 3
+sum1(1, 2); // ➔ 3
 
-const sum2 = (x, y) => x + y;
+// arrow function
+const sum2 = (x, y) => {
+  return x + y;
+};
 sum2(1, 2); // ➔ 3
+
+// arrow function の return 省略記法
+const sum3 = (x, y) => x + y;
+sum3(1, 2); // ➔ 3
 ```
 
 - 無名関数の宣言方法の一つ
-  - 通常は、`const sum = function(x, y) { return x + y; };`
-  - 式が一つであれば、return は省略できる。省略しない場合
-    - `const sum = (x, y) => { return x + y; };`
-  - 引数が一つの場合は、括弧を省略できる
-    - `const succ = x => x + 1;`
-- this の扱いが通常の無名関数とは異なる
+  - 上記の sum1, sum2, sum3 は **ほぼ** 同様に振る舞う
+  - 式が 1 つであれば、return は省略できる (sum3)
+  - 引数が 1 つの場合は、括弧を省略できる
+    - `const num = x => x + 1;`
+- this の扱いが通常の無名関数とは異なる (レキシカルスコープ、ダイナミックスコープ)
   - 今は気にしなくても大丈夫
   - JavaScript の this は闇が深い。。
 
-### Ex3-2. arrow function 演習
+### 演習問題 (Ex.3-2)
 
-- 演習問題
-  - Ex3-1 の inspectUser を arrow function で書き直してください
-- 実行方法
-  ```sh
-  $ node exercise3.js
-  # id = 51ff0475d615329700235136
-  # key = NoBtELh82txWnMb5kEQJ
-  # expiresAt = 2013-10-22T10:04:20+00:00
-  ```
+- Ex3-1 の `inspectUser` を arrow function で書き直してください
+
+#### 実行方法
+
+```sh
+$ node exercise3.js
+# id = 51ff0475d615329700235136
+# key = NoBtELh82txWnMb5kEQJ
+# expiresAt = 2013-10-22T10:04:20+00:00
+```
 
 ## template strings
 
 ```js
 const name = 'taro';
+console.log('My name is' + name); // ➔ 'My name is taro'
 console.log(`My name is ${name}`); // ➔ 'My name is taro'
+
+console.log(`
+* template strings は
+  * 改行しても
+  * \n として評価してくれるよ
+`);
 ```
 
 - バッククォートで文字列を生成すると、文字列内に`${}`で変数を挿入できる
+- バッククォート内では改行も可能
+  - インデントを合わせるとスペースとして挿入されてしまうのは注意
 
-### Ex3-3. template strings 演習
+### 演習問題 (Ex.3-3)
 
-- 演習問題
-  - Ex3-2 のコードを template strings で書き直してください
-- 実行方法
-  ```sh
-  $ node exercise3.js
-  # id = 51ff0475d615329700235136
-  # key = NoBtELh82txWnMb5kEQJ
-  # expiresAt = 2013-10-22T10:04:20+00:00
-  ```
+- Ex3-2 のコードを template strings で書き直してください
+
+#### 実行方法
+
+```sh
+$ node exercise3.js
+# id = 51ff0475d615329700235136
+# key = NoBtELh82txWnMb5kEQJ
+# expiresAt = 2013-10-22T10:04:20+00:00
+```
 
 ## rest parameters
 
@@ -356,32 +275,33 @@ const f = (x, ...y) => y;
 f(1, 2, 3); // ➔ [2, 3]
 ```
 
-- 引数を...をつけて宣言すると、可変長引数として配列が受け取れる
-- あまり使用頻度は高くないので、演習は割愛
+- 仮引数に `...` をつけて宣言すると、可変長引数として配列が受け取れる
+- あまり使用頻度は高くないので、演習は割愛(´ᴖωᴖ ｀)
 
 ## spread 構文
 
 ```js
 const a = { x: 1, y: 2 };
-const b = { ...a, x: 3 }; // ➔ { x: a.x, y: a.y, x: 3 }
+
+// 以下例では、property "x" が重複しているが、
+// 後勝ちでパラメータとしては 3 になる点がポイント
+const b1 = { x: a.x, y: a.y, x: 3 };
+const b2 = { ...a, x: 3 }; // ➔ { x: a.x, y: a.y, x: 3 }
+
 console.log(a); // ➔ { x: 1, y: 2 }
-console.log(b); // ➔ { x: 3, y: 2 }
+console.log(b1); // ➔ { x: 3, y: 2 }
+console.log(b2); // ➔ { x: 3, y: 2 }
 ```
 
 - オブジェクトを展開する構文
-- 元のオブジェクトをコピーしたいときによく利用する
+- 元のオブジェクトをコピーしたいときに、非常によく利用する
 - Deep Copy ではなく、Shallow Copy であることに注意
   - 今は気にしなくても大丈夫
 
-### Ex4. spread 構文演習
+### 演習問題 (Ex.4)
 
-- 演習問題
-  - 次のバグっているコードを spread 構文で修正してください
-  - このバグは「破壊的代入」「参照透過性」あたりに関連するものです
-- 実行方法
-  ```sh
-  $ node exercise4.js
-  ```
+- 次のバグっているコードを spread 構文で修正してください
+- このバグは「破壊的代入」「参照透過性」に関連するものです
 
 ```js
 const printUserInUpperCase = user => {
@@ -401,14 +321,20 @@ printUserInUpperCase(user);
 console.log(userList[0]); // name は 'taro yamada' と表示されることを期待
 ```
 
-#### 現在の値
+#### 実行方法
+
+```sh
+$ node exercise4.js
+```
+
+##### 問題の実行結果
 
 ```js
 { id: '51ff0475d615329700235136', name: 'TARO YAMADA', age: 14 }
 { id: '51ff0475d615329700235136', name: 'TARO YAMADA', age: 14 }
 ```
 
-#### 期待値
+##### 期待する実行結果
 
 ```js
 { id: '51ff0475d615329700235136', name: 'TARO YAMADA', age: 14 }
@@ -422,34 +348,33 @@ class Animal {
   constructor(name) {
     this.name = name;
   }
+
   speak() {
     console.log(`${this.name} makes a noise.`);
   }
 }
+
 class Dog extends Animal {
   speak() {
     console.log(`${this.name} barks.`);
   }
 }
-var d = new Dog('ポメラニアス');
+
+const d = new Dog('ポメラニアス');
 d.speak(); // 'ポメラニアス barks.'
 ```
 
 - クラスベースのオブジェクト指向(Java とか）のような書き方ができる構文
+  - `class`, `constructor`, `extends`
+  - JavaScript はプロトタイプベースのオブジェクト指向言語
 - メソッド名の前に static をつけると static メソッド（クラスメソッド）になる
 - つけない場合は、prototype メソッド（インスタンスメソッド）になる
-  - 注：JavaScript はプロトタイプベース
 
-### Ex5. class 構文演習
+### 演習問題 (Ex.5)
 
-- 演習問題
-  - 次のクラスをコメントを元に完成させてください
-    - 現段階では、メソッドがないため実行するとエラーになります。
-    - 次の演習のために、拡張子を mjs にしています。（詳細は後ほど）
-- 実行方法
-  ```sh
-  $ node exercise5.mjs
-  ```
+- 次のクラスをコメントを元に完成させてください
+  - 現段階では、メソッドがないため実行するとエラーになります
+  - 次の演習のために、拡張子を mjs にしています。（詳細は後ほど）
 
 ```js
 class User {
@@ -462,6 +387,7 @@ class User {
   // prototypeメソッド getAge()を実装する
   // staticメソッド equal(user1, user2)を実装する
 }
+
 const user1 = new User('51ff0475d615329700235136', 'Taro', 14);
 console.log(user1.getName());
 console.log(user1.getAge());
@@ -470,7 +396,13 @@ const user2 = new User('74ff0520d615329720235156', 'Hanako', 14);
 console.log(`${user1.name} is ${user2.name}: ${User.equal(user1, user2)}`);
 ```
 
-## export, import
+#### 実行方法
+
+```sh
+$ node exercise5.mjs
+```
+
+## export, import (ESModule)
 
 ### default export, named import
 
@@ -482,12 +414,12 @@ export default sum;
 
 ```js
 /* index.js */
-import sum from './util';
-sum(1, 2); // ➔ 3
+import utilSum from './util'; // import するパラメータの明示は不要、自由に名前をつけられる
+utilSum(1, 2); // ➔ 3
 ```
 
-- 関数、変数を export する
-- それを別のファイルから import して再利用できる
+- 関数、変数を export し、別のファイルから import して再利用できる
+- default で export できるのは 1 つのパラメータのみ
 
 ### named export, named import
 
@@ -495,23 +427,30 @@ sum(1, 2); // ➔ 3
 /* util.js */
 const sum = (x, y) => x + y;
 export sum;
+
+const sub = (x, y) => x - y;
+export sub;
 ```
 
 ```js
 /* index.js */
-import { sum } from './util';
+import { sum, sub } from './util'; // import するパラメータを明示する必要がある
 sum(1, 2); // ➔ 3
+sub(1, 2); // ➔ -1
 ```
 
 - 関数、変数を名前付きで export する
+- 複数パラメータの export が可能
 
-### Ex6. export, import 演習
+### 演習問題 (Ex.6)
 
-- 演習問題
-  - Ex5 の User クラスを export して別のファイル(exercise6.mjs)から利用してみてください
-  - Nodejs では、named export/import が使用できないので、今回の演習では _default export/import を使用してください_
-- 実行方法
-  - `$ node --experimental-modules exercise6.mjs`
-  - exercise6.mjs は空のファイルなので、何も表示されません
-  - Nodejs で、export/import を利用するためには、下記のオプションと mjs 拡張子である必要があります。
-    - webpack を使用する場合は、js 拡張子を使用します
+- Ex5 の User クラスを export して別のファイル(exercise6.mjs)から利用してみてください
+- Nodejs では、named export/import が使用できないので、今回の演習では _default export/import を使用してください_
+
+#### 実行方法
+
+- `$ node --experimental-modules exercise6.mjs`
+- exercise6.mjs は空のファイルなので、何も表示されません
+- Nodejs で、export/import を利用するためには、上記の `--experimental-modules` のオプションを指定し、  
+  さらに、拡張子が `mjs` である必要があります
+  - CLI で動作する Node.js を利用しているための制限で、通常の Web アプリ開発では、js 拡張子で問題ありません。

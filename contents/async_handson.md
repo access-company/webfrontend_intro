@@ -1,4 +1,4 @@
-# JavaScript の非同期処理
+# JavaScript の非同期処理 演習
 
 ## 目的
 
@@ -51,28 +51,29 @@ setTimeout(() => {
   - 例は、タイマーなので結果がない、そのため引数も空
 - 例：タイマー、HTTP リクエスト、ファイルアクセスなど
 - 非同期処理が連鎖しなければ、シンプルで良い
-- _連鎖する場合、困ったことが起こる_
+- **連鎖する場合、困ったことが起こる**
 
 ### Ex7. コールバック演習
 
-- 演習問題
-  - 次のコードを拡張し、以下の要件を満たすように実装してください。
-    - 1 秒後に 'Hello' を出力
-    - さらに 3 秒後に 'World' を出力
-    - さらに 2 秒後に '!' を出力
-    - さらに 1 秒後に '!' を出力
-  - 出力先は、標準出力を利用してください。
-  - インデントは、適切に使用してください。
-- 実行方法
-  ```sh
-  $ node exercise7.js
-  # Hello  (1秒後)
-  ```
+- 次のコードを拡張し、以下の要件を満たすように実装してください。
+  - 1 秒後に 'Hello' を出力
+  - さらに 3 秒後に 'World' を出力
+  - さらに 2 秒後に '!' を出力
+  - さらに 1 秒後に '!' を出力
+- 出力先は、標準出力を利用してください。
+- インデントは、適切に使用してください。
 
 ```js
 setTimeout(() => {
   console.log('Hello');
 }, 1000);
+```
+
+#### 実行方法
+
+```sh
+$ node exercise7.js
+# Hello  (1秒後)
 ```
 
 ### コールバック演習まとめ
@@ -103,15 +104,9 @@ fetch('http://example.com/movies.json')
 
 ### Ex8. Promise 演習
 
-- 演習問題
-  - fetch で以下 URL から JSON を取得し、さらにその中に含まれる followers_url から JSON を取得してください。
-    - http://tama.tok.access-company.com/user/soichiro.isobe/training/fetch/users/github.json
-  - コールバック地獄になっている場合は、Promise を正しく利用できていない可能性があります
-- 実行方法
-  ```sh
-  $ node --experimental-modules exercise8.mjs
-  # { login: 'github',  id: 9919, avatar_url: 'https://avatars1.githubusercontent.com/u/9919?v=4', gravatar_id: '', …}
-  ```
+- fetch で以下 URL から JSON を取得し、さらにその中に含まれる followers_url から JSON を取得してください。
+  - http://tama.tok.access-company.com/user/soichiro.isobe/training/fetch/users/github.json
+- コールバック地獄になっている場合は、Promise を正しく利用できていない可能性があります
 
 ```js
 import fetch from 'node-fetch';
@@ -119,6 +114,13 @@ import fetch from 'node-fetch';
 fetch('https://api.github.com/users/github')
   .then(response => response.json())
   .then(myJson => console.log(myJson));
+```
+
+#### 実行方法
+
+```sh
+$ node --experimental-modules exercise8.mjs
+# { login: 'github',  id: 9919, avatar_url: 'https://avatars1.githubusercontent.com/u/9919?v=4', gravatar_id: '', …}
 ```
 
 ### Promise 演習まとめ
@@ -150,13 +152,7 @@ fetchMovieJson();
 
 ### Ex9. async await 演習
 
-- 演習問題
-  - Promise 演習で作成したコードを async await で書き直してください。
-- 実行方法
-  ```sh
-  $ node --experimental-modules exercise9.mjs
-  # { login: 'github',  id: 9919, avatar_url: 'https://avatars1.githubusercontent.com/u/9919?v=4', gravatar_id: '', …}
-  ```
+- Promise 演習で作成したコードを async await で書き直してください。
 
 ```js
 import fetch from 'node-fetch';
@@ -169,6 +165,13 @@ async function fetchFollowers() {
 }
 
 fetchFollowers();
+```
+
+#### 実行方法
+
+```sh
+$ node --experimental-modules exercise9.mjs
+# { login: 'github',  id: 9919, avatar_url: 'https://avatars1.githubusercontent.com/u/9919?v=4', gravatar_id: '', …}
 ```
 
 ### async await 演習まとめ
