@@ -2,7 +2,7 @@
   "name": "webfrontend_intro",
   "version": "1.0.0",
   "description": "introduction of Web Frontend!",
-  "main": "",
+  "main": "index.js",
   "dependencies": {
     "node-fetch": "^2.5.0"
   },
@@ -11,5 +11,16 @@
     "build": "gitbook build ./contents && rm -rf ./docs && mv ./contents/_book ./docs"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "directories": {
+    "doc": "docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/access-company/webfrontend_intro.git"
+  },
+  "bugs": {
+    "url": "https://github.com/access-company/webfrontend_intro/issues"
+  },
+  "homepage": "https://github.com/access-company/webfrontend_intro#readme"
 }
