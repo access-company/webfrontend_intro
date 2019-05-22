@@ -1,4 +1,4 @@
-const inspectUser = function(user) {
+const inspectUser = user => {
   const { data: {
     id,
     session: {
