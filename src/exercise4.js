@@ -1,6 +1,6 @@
 const printUserInUpperCase = user => {
-  user.name = user.name.toUpperCase();
-  console.log(user);
+  const newuser = {...user, name: user.name.toUpperCase()};
+  console.log(newuser);
 };
 const userList = [];
 const user = {
