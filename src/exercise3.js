@@ -6,12 +6,13 @@ const inspectUser = function(user) {
   console.log("expiresAt = " + session.expiresAt);
 };
 
-inspectUser({
-  data: {
+
+inspectUser( {data: {id, session: {key, expiresAt}}}
+  = {data: {
     id: "51ff0475d615329700235136",
     session: {
       key: "NoBtELh82txWnMb5kEQJ",
-      expiresAt: "2013-10-22T10:04:20+00:00",
-    },
-  },
-});
+      expiresAt: "2013-10-22T10:04:20+00:00"
+    }
+  }}
+);
