@@ -1,9 +1,9 @@
-let id = 'userid';
-let firstName = 'Micral';
-let age = 15;
+let id = '51ff0475d615329700235136';
+let firstName = 'Taro';
+let age = 14;
 
 //function(id, firstName, lastName, age) 
-const newUser = {id, firstName, lastName:'Niu', age};
+const newUser = {id, firstName, lastName:'Yamada', age};
 //   const fullName = firstName + " " + lastName;
 //   return {
 //     id: id,
@@ -11,6 +11,6 @@ const newUser = {id, firstName, lastName:'Niu', age};
 //     age: age,
 //   };
 // };
+const result = {id : newUser.id, name : newUser.firstName + ' ' +newUser.lastName, age : newUser.age};
 
-
-console.log(newUser);
+console.log(result);
