@@ -8,6 +8,7 @@
   },
   "devDependencies": {},
   "scripts": {
+    "start": "gitbook serve ./contents",
     "build": "gitbook build ./contents && rm -rf ./docs && mv ./contents/_book ./docs"
   },
   "author": "",
