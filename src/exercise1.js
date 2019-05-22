@@ -1,6 +1,6 @@
-let filter = function(items, iteratee, context) {
-　let thisArg = context ? context : this;
-  let values = [];
+const filter = function(items, iteratee, context) {
+　const thisArg = context ? context : this;
+  const values = [];
   let i, l;
   for (i = 0, l = items.length; i < l; i++) {
     if (iteratee.call(thisArg, items[i], i, items)) {
@@ -10,7 +10,7 @@ let filter = function(items, iteratee, context) {
   return values;
 };
 let a = [1, 2, 3];
-let filtered = filter(a, function(v) {
+const filtered = filter(a, function(v) {
   return v === 2;
 });
 a = filtered[0];
