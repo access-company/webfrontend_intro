@@ -156,6 +156,26 @@ console.log(d); // ➔ 3
 console.log(c); // ➔ ”ReferenceError: c is not defined”
 ```
 
+```js
+const {
+  name,
+  skillLevel: { TypeScript }
+} = {
+  name: 'diescake',
+  occupation: 'engineer',
+  skillLevel: {
+    JavaScript: 'A',
+    TypeScript: 'B',
+    Swift: 'C',
+    Java: 'B'
+  }
+};
+
+console.log(name); // ➔ 'diescake'
+console.log(TypeScript); // ➔ 'B'
+console.log(skillLevel); // ➔ ”ReferenceError: c is not defined”
+```
+
 - enhanced object literal のように、プロパティ名と変数名をそのまま対応可能
 - ネストしているオブジェクトにも使用できる
 
