@@ -1,8 +1,7 @@
 const newUser = function(id, firstName, lastName, age) {
-  const fullName = firstName + " " + lastName;
   return {
     id: id,
-    name: fullName,
+    name: firstName + " " + lastName,
     age: age,
   };
 };
