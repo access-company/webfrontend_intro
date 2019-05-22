@@ -1,9 +1,10 @@
-const inspectUser = function(user) {
+const inspectUser = (user) => {
   const [data, session] =[user.data, user.data.session];
-  console.log("id = " + data.id);
-  console.log("key = " + session.key);
-  console.log("expiresAt = " + session.expiresAt);
-};
+  console.log(
+  `id = ${data.id}
+key = ${session.key}
+expiresAt = ${session.expiresAt}`)
+  };
 
 inspectUser({
   data: {
