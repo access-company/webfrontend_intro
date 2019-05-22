@@ -1,9 +1,9 @@
-const newUser = function(id, firstName, lastName, age) {
-  const fullName = firstName + " " + lastName;
+const newUser = (id, firstName, lastName, age) => {
+  const fullName = `${firstName} ${lastName}`;
   return {
-    id: id,
+    id,
     name: fullName,
-    age: age,
+    age,
   };
 };
 const taro = newUser("51ff0475d615329700235136", "Taro", "Yamada", 14);
