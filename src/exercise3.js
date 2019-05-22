@@ -1,6 +1,5 @@
 const inspectUser = function(user) {
-  const data = user.data;
-  const session = data.session;
+  const [data, session] =[user.data, user.data.session];
   console.log("id = " + data.id);
   console.log("key = " + session.key);
   console.log("expiresAt = " + session.expiresAt);
