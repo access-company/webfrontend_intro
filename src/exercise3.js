@@ -1,9 +1,9 @@
 const inspectUser = (user) => {
   const {data: {id, session: {key, expiresAt}}} = user
 
-  console.log("id = " + id);
-  console.log("key = " + key);
-  console.log("expiresAt = " + expiresAt);
+  console.log(`id = ${id}`);
+  console.log(`key = ${key}`);
+  console.log(`expiresAt = ${expiresAt}`);
 };
 
 inspectUser({
