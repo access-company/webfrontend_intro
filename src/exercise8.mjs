@@ -1,9 +1,13 @@
 import fetch from 'node-fetch';
 
-fetch('https://api.github.com/users/github')
-  .then(response => response.json())
-  .then(myJson   => myJson.followers_url)
-  .then(url => fetch(url)
-    .then(response => response.json()
-    .then(json => console.log(json)))
-  )
+async function fetchFollowers() {
+  const url = 'https://api.github.com/users/github';
+  const userResponse = await fetch(url);
+  const json = await userResponse.json();
+  const followers = await fetch(json.followers_url);
+  return followers.json();
+}
+
+fetchFollowers().then((response) =>
+  console.log(response)
+);
