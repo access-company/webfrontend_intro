@@ -9,7 +9,18 @@
 $ npm install -g gitbook-cli
 ```
 
+## ドキュメントの動作確認
+
+下記コマンドで開発用 Web サーバが立ち上がるため、ブラウザで `http://localhost:4000` を開く。  
+ドキュメントを更新するとリビルドが走るため live-reload する。
+
+```sh
+$ npm start
+```
+
 ## ドキュメントのビルド/更新
+
+`/contents` 配下の資料を更新後は、`npm run build` を実行し、生成された `/docs` 配下の HTML を一緒にコミットすること。
 
 ```sh
 $ npm run build
