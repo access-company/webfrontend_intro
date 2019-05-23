@@ -9,9 +9,11 @@ const inspectUser = user => {
     }
   } = user
   
-  console.log("id = " + id);
-  console.log("key = " + key);
-  console.log("expiresAt = " + expiresAt);
+  // template strings 、ソースコードで見ると綺麗じゃないなぁ。
+  console.log(`id = ${id}
+key = ${key}
+expiresAt = ${expiresAt}`)
+
 };
 
 inspectUser({
