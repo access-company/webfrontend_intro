@@ -1,5 +1,5 @@
-const inspectUser = function(user) {
 
+const inspectUser = user => {
   // destructuring for object
   // Ref. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
   const {
