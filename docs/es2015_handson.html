@@ -746,6 +746,24 @@ console.<span class="hljs-built_in">log</span>(b); <span class="hljs-comment">//
 console.<span class="hljs-built_in">log</span>(d); <span class="hljs-comment">// &#x2794; 3</span>
 console.<span class="hljs-built_in">log</span>(c); <span class="hljs-comment">// &#x2794; &#x201D;ReferenceError: c is not defined&#x201D;</span>
 </code></pre>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> {
+  name,
+  skillLevel: { TypeScript }
+} = {
+  name: <span class="hljs-string">&apos;diescake&apos;</span>,
+  occupation: <span class="hljs-string">&apos;engineer&apos;</span>,
+  skillLevel: {
+    JavaScript: <span class="hljs-string">&apos;A&apos;</span>,
+    TypeScript: <span class="hljs-string">&apos;B&apos;</span>,
+    Swift: <span class="hljs-string">&apos;C&apos;</span>,
+    Java: <span class="hljs-string">&apos;B&apos;</span>
+  }
+};
+
+<span class="hljs-built_in">console</span>.log(name); <span class="hljs-comment">// &#x2794; &apos;diescake&apos;</span>
+<span class="hljs-built_in">console</span>.log(TypeScript); <span class="hljs-comment">// &#x2794; &apos;B&apos;</span>
+<span class="hljs-built_in">console</span>.log(skillLevel); <span class="hljs-comment">// &#x2794; &#x201D;ReferenceError: c is not defined&#x201D;</span>
+</code></pre>
 <ul>
 <li>enhanced object literal &#x306E;&#x3088;&#x3046;&#x306B;&#x3001;&#x30D7;&#x30ED;&#x30D1;&#x30C6;&#x30A3;&#x540D;&#x3068;&#x5909;&#x6570;&#x540D;&#x3092;&#x305D;&#x306E;&#x307E;&#x307E;&#x5BFE;&#x5FDC;&#x53EF;&#x80FD;</li>
 <li>&#x30CD;&#x30B9;&#x30C8;&#x3057;&#x3066;&#x3044;&#x308B;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306B;&#x3082;&#x4F7F;&#x7528;&#x3067;&#x304D;&#x308B;</li>
@@ -1050,7 +1068,7 @@ sub(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>); <sp
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"ECMAScript6(ES2015) 演習","level":"1.5","depth":1,"next":{"title":"const, let","level":"1.5.1","depth":2,"ref":"","articles":[]},"previous":{"title":"無名関数","level":"1.4.5","depth":2,"ref":"","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"es2015_handson.md","mtime":"2019-05-22T03:46:46.213Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-22T03:46:50.722Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"ECMAScript6(ES2015) 演習","level":"1.5","depth":1,"next":{"title":"const, let","level":"1.5.1","depth":2,"ref":"","articles":[]},"previous":{"title":"無名関数","level":"1.4.5","depth":2,"ref":"","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"es2015_handson.md","mtime":"2019-05-22T23:58:28.999Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-22T23:59:17.553Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
