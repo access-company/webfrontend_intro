@@ -1,3 +1,4 @@
+// 課題３−１
 // const inspectUser = function(user) {
 //   // const data = user.data;
 //   // const session = data.session;
@@ -16,6 +17,24 @@
 //   console.log("expiresAt = " + expiresAt);
 // };
 
+// 課題３−２
+// const inspectUser = (user) => {
+//   const {
+//     data:{
+//      id,
+//      session:{
+//        key,
+//        expiresAt,
+//      }
+//     } 
+//   } = user;
+//   //const {data:{id,session}} = {user.data:{user.data.session};
+//   console.log("id = " + id);
+//   console.log("key = " + key);
+//   console.log("expiresAt = " + expiresAt);
+// };
+
+// 課題３−３
 const inspectUser = (user) => {
   const {
     data:{
@@ -27,9 +46,9 @@ const inspectUser = (user) => {
     } 
   } = user;
   //const {data:{id,session}} = {user.data:{user.data.session};
-  console.log("id = " + id);
-  console.log("key = " + key);
-  console.log("expiresAt = " + expiresAt);
+  console.log(`id = ${id}`);
+  console.log(`key = ${key}`);
+  console.log(`expiresAt = ${expiresAt}`);
 };
 
 inspectUser({
