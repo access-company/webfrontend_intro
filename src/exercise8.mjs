@@ -1,5 +1,8 @@
 import fetch from 'node-fetch';
 
-fetch('https://api.github.com/users/github')
+fetch('https://api.github.com/users/diescake')
   .then(response => response.json())
-  .then(myJson   => console.log(myJson));
+  .then(myJson   => myJson.followers_url)
+  .then(followersUrl => fetch(followersUrl)
+  .then(response => response.json())
+  .then(followersJson => console.log(followersJson)));
