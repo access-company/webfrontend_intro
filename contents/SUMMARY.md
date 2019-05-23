@@ -25,7 +25,7 @@
   - spread 構文
   - export, import
   - class 構文
-- [JavaScript の非同期処理](./async_handson.md)
+- [JavaScript の非同期処理 演習](./async_handson.md)
   - 非同期処理はなぜ必要か？
   - 非同期処理の実装例
   - コールバック

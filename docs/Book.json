@@ -1,0 +1,3 @@
+{
+  "plugins": ["expand-active-chapter", "navigator"]
+}
