@@ -1,14 +1,30 @@
-const inspectUser = function(user) {
-  // const data = user.data;
-  // const session = data.session;
+// const inspectUser = function(user) {
+//   // const data = user.data;
+//   // const session = data.session;
+//   const {
+//      data:{
+//       id,
+//       session:{
+//         key,
+//         expiresAt,
+//       }
+//      } 
+//   } = user;
+//   //const {data:{id,session}} = {user.data:{user.data.session};
+//   console.log("id = " + id);
+//   console.log("key = " + key);
+//   console.log("expiresAt = " + expiresAt);
+// };
+
+const inspectUser = (user) => {
   const {
-     data:{
-      id,
-      session:{
-        key,
-        expiresAt,
-      }
-     } 
+    data:{
+     id,
+     session:{
+       key,
+       expiresAt,
+     }
+    } 
   } = user;
   //const {data:{id,session}} = {user.data:{user.data.session};
   console.log("id = " + id);
@@ -25,3 +41,4 @@ inspectUser({
     },
   },
 });
+
