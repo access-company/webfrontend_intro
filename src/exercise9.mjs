@@ -1,10 +1,11 @@
 import fetch from 'node-fetch';
 
 async function fetchFollowers() {
-  const url           = 'https://api.github.com/users/github';
-  const usersResponse = await fetch(url);
-  const users         = await usersResponse.json();
-  console.log(users);
+  const url           = 'http://tama.tok.access-company.com/user/soichiro.isobe/training/fetch/users/github.json';
+  const response = await fetch(url);
+  const myJson = await response.json();
+  console.log(myJson.followers_url);
 }
 
 fetchFollowers();
+
