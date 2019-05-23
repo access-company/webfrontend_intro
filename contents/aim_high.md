@@ -64,6 +64,9 @@
 - この先の実習では、Vue.js を利用して Stack Overflow Clone の Frontend を実装するため、その予習をする
 - Vue.js の [Getting Started](https://jp.vuejs.org/v2/guide/index.html) を進める
 - Vuex フレームワーク
+- StackOverflow Clone 向けハンズオンを先読みして挑戦するのも良い
+  - 各自チームに対応したリポジトリを参照
+    - https://github.com/aMasakiTakahashi?tab=repositories
 
 ## React.js
 
