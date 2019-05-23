@@ -3,11 +3,27 @@ class User {
     this.name = name;
     this.age = age;
     this.id = id;
+    
+   
+
+  }
+  getName(){
+    return this.name;
+  }
+  getAge(){
+    return this.age;
+  }
+  static equal(user1, user2){
+    if(user1.id==user2.id){
+      return true;
+    }else return false;
   }
   // prototypeメソッド getName()を実装する
   // prototypeメソッド getAge()を実装する
   // staticメソッド equal(user1, user2)を実装する
 }
+export　default  User
+
 const user1 = new User('51ff0475d615329700235136', 'Taro', 14);
 console.log(user1.getName());
 console.log(user1.getAge());
