@@ -19,6 +19,13 @@
   - Web Frontend 界隈では定期的に仕様がアップデートされる他に、ブラウザベンダーが先取りして実装をしたり、政治的な事情で制限をつけている機能があったりする
   - 対象ブラウザが当該機能をサポートしているか確認し、サポートしていない場合は何らかの手段を検討する必要がある
 
+## コーディング規約(coding style)
+
+- チーム開発する上で、何らかのコーディング規約は必須となる
+- チームに応じて、適宜規約を決める場合もあるが、JavaScript に関しては [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript) が非常に有名  
+  多くの OSS はもちろん(要出典)、 ACCESS でも Airbnb のコーディング規約が採用されることが多いので、普段からこの規約に沿った書き方ができると良い
+  - 現場では静的解析チェックツールである ESLint を利用し、Airbnb JavaScript Style Guide に準拠した [eslint-config-airbnb](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb) というルールセットを import して利用する
+
 ## 配列を操作する関数
 
 - [Array.prototype.forEach](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
@@ -35,9 +42,14 @@
 
 - [JavaScript で forEach を使うのは最終手段](https://qiita.com/diescake/items/70d9b0cbd4e3d5cc6fce)
 
-## Promise を完全に理解する
+## Promise を[完全に理解する](https://togetter.com/li/1268851)
 
 - [JavaScript Promise の本](http://azu.github.io/promises-book/)
+
+## Promise [チョットデキル](https://togetter.com/li/1268851)
+
+- ACCESS の現場で Promise を実装した際の知見
+  - [Promise を実装してみよう](https://speakerdeck.com/kumabook/promisewoshi-zhuang-sitemiyou)
 
 ## TypeScript
 
