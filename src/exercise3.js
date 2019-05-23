@@ -5,7 +5,13 @@ const inspectUser = (user) => {
   console.log(`expiresAt = + ${session.expiresAt}`);
 };
 
-inspectUser({
+const inspectUser2 = ({data: {id, session: {key, expiresAt}}}) => {
+  console.log(`id = ${id}`);
+  console.log(`key = ${key}`);
+  console.log(`expiresAt = ${expiresAt}`);
+};3
+
+inspectUser2({
   data: {
     id: "51ff0475d615329700235136",
     session: {
