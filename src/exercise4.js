@@ -9,6 +9,6 @@ const user = {
   age: 14,
 };
 userList.push(user);
-printUserInUpperCase(user);
+printUserInUpperCase({...user});
 
 console.log(userList[0]);
