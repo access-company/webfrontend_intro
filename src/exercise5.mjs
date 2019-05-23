@@ -4,9 +4,20 @@ class User {
     this.age = age;
     this.id = id;
   }
-  // prototypeメソッド getName()を実装する
-  // prototypeメソッド getAge()を実装する
-  // staticメソッド equal(user1, user2)を実装する
+  getName() {
+    return this.name;
+  }
+  getAge() {
+    return this.age;
+  }
+  static equal(user1, user2) {
+    if (user1 == user2) {
+      return 'true';
+    }
+    else {
+      return 'false';
+    }
+  }
 }
 const user1 = new User('51ff0475d615329700235136', 'Taro', 14);
 console.log(user1.getName());
