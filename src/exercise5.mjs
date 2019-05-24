@@ -17,7 +17,7 @@ export default class User {
 
   // staticメソッド equal(user1, user2)を実装する
   static equal(user1, user2) {
-    if (user1 === user2) {
+    if (user1.id === user2.id) {
       return true;
     }
 
