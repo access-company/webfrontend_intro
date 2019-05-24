@@ -66,10 +66,10 @@ request('http://weather.livedoor.com/forecast/webservice/json/v1?city=130010', (
 ### Ex7. コールバック演習
 
 - 次のコードを拡張し、以下の要件を満たすように実装してください。
-  - 1 秒後に 'Hello' を出力
-  - さらに 3 秒後に 'World' を出力
-  - さらに 2 秒後に '!' を出力
-  - さらに 1 秒後に '!' を出力
+  - 1 秒後に `'Hello'` を出力
+  - さらに 3 秒後に `'World'` を出力
+  - さらに 2 秒後に `'!'` を出力
+  - さらに 1 秒後に `'!'` を出力
 - 出力先は、標準出力を利用してください。
 - インデントは、適切に使用してください。
 
@@ -163,7 +163,7 @@ showTokyoWeather();
 
 ### Ex9. async await 演習
 
-- Promise 演習で作成したコードを async await で書き直してください。
+- Promise 演習で作成したコードを `async await` で書き直してください。
 
 ```js
 import fetch from 'node-fetch';
