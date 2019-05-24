@@ -1,5 +1,6 @@
-const inspectUser = user => {
-  const {data: {id, session: {key, expiresAt}}} = user
+//const inspectUser = user => {
+//  const {data: {id, session: {key, expiresAt}}} = user
+const inspectUser = ({data: {id, session: {key, expiresAt}}}) => {
   console.log(`id = ${id}
 key = ${key}
 expiresAt = ${expiresAt}`)};
