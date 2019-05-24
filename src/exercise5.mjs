@@ -16,11 +16,12 @@ class User {
 
   // staticメソッド equal(user1, user2)を実装する
   static equal(user1, user2){
-    if(user1.name == user2.name && user1.age == user2.age && user1.id == user2.id){
-      return true;
-    }else{
-      return false;
-    }
+    // if(user1.name == user2.name && user1.age == user2.age && user1.id == user2.id){
+    //   return true;
+    // }else{
+    //   return false;
+    // }
+    return user1.id == user2.id;
   };
 }
 
