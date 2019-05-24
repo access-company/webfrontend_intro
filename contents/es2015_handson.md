@@ -427,13 +427,13 @@ $ node exercise5.mjs
 ### default export, named import
 
 ```js
-/* util.js */
+/* util.mjs */
 const sum = (x, y) => x + y;
 export default sum;
 ```
 
 ```js
-/* index.js */
+/* index.mjs */
 import utilSum from './util'; // import するパラメータの明示は不要、自由に名前をつけられる
 utilSum(1, 2); // ➔ 3
 ```
@@ -444,7 +444,7 @@ utilSum(1, 2); // ➔ 3
 ### named export, named import
 
 ```js
-/* util.js */
+/* util.mjs */
 const sum = (x, y) => x + y;
 export sum;
 
@@ -453,7 +453,7 @@ export sub;
 ```
 
 ```js
-/* index.js */
+/* index.mjs */
 import { sum, sub } from './util'; // import するパラメータを明示する必要がある
 sum(1, 2); // ➔ 3
 sub(1, 2); // ➔ -1
