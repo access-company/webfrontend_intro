@@ -5,8 +5,20 @@ class User {
     this.id = id;
   }
   // prototypeメソッド getName()を実装する
+  getName(){
+    return this.name;
+  }
   // prototypeメソッド getAge()を実装する
+  getAge(){
+    return this.age;
+  }
   // staticメソッド equal(user1, user2)を実装する
+  static equal(user1, user2){
+    if (user1.id === user2.id)
+      return "True";
+    else
+      return "False";
+  }
 }
 
 export default User;
