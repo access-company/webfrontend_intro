@@ -9,7 +9,7 @@ class User {
   // prototypeメソッド getAge()を実装する
   getAge(){ return this.age }
   // staticメソッド equal(user1, user2)を実装する
-  static equal(user1, user2) {if (user1 == user2){return true}else{return false}}
+  static equal(user1, user2) {if (user1 === user2){return true}else{return false}}
 }
 export default User;
 
