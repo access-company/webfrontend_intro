@@ -14,7 +14,7 @@ constructor(id, name, age) {
   }
   // staticメソッド equal(user1, user2)を実装する
   static equal(user1,user2) {
-    return user1 === user2
+    return user1.id === user2.id
   }
 }
 /*
