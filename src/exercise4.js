@@ -9,6 +9,6 @@ const user = {
   age: 14,
 };
 userList.push(user);
-printUserInUpperCase(JSON.parse(JSON.stringify(user)));
+printUserInUpperCase(user);
 
 console.log(userList[0]);
