@@ -10,18 +10,18 @@ $ npm install -g gitbook-cli
 $ gitbook install contents
 ```
 
-## ドキュメントの動作確認
+## ドキュメントの表示確認
 
-下記コマンドで開発用 Web サーバが立ち上がるため、ブラウザで `http://localhost:4000` を開く。  
-ドキュメントを更新するとリビルドが走るため live-reload する。
+下記コマンドで開発用 Web サーバが立ち上がるので、ブラウザで `http://localhost:4000` を開く。  
+また、ドキュメントを更新すると自動でリビルドされ、ブラウザもライブリロードされる。
 
 ```sh
 $ npm start
 ```
 
-## ドキュメントのビルド/更新
+## ドキュメントのコミット
 
-`/contents` 配下の資料を更新後は、`npm run build` を実行し、生成された `/docs` 配下の HTML を一緒にコミットすること。
+`/contents` 配下の資料を更新後、`npm run build` を実行し、生成された `/docs` 配下の HTML をまとめてコミットする。
 
 ```sh
 $ npm run build
@@ -32,6 +32,6 @@ $ git push origin HEAD
 
 ## 備考
 
-- 既に `gitbook-cli` は既に deprecated であり、依存ライブラリに多数の脆弱性がある。  
-  `devDependencies`とはいえ、利用を避けたかったが、GitHub Pages や Gatsby.js に Table Of Contents をサイドペインに表示可能な良い theme がなかったため採用した。
-- 何か良い theme があれば移行したい。
+- 既に `gitbook-cli` は deprecated であり、依存ライブラリに多数の脆弱性がある。  
+  `devDependencies`とはいえ、利用を避けたかったが、GitHub Pages や Gatsby.js に Table Of Contents をサイドペインに表示可能な適当な theme がなかったため採用した。
+- Gatsby.js + Netlify に移行したい。
