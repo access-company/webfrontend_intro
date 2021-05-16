@@ -1,0 +1,15 @@
+{
+  "name": "typescript-training",
+  "version": "1.0.0",
+  "description": "typescript-training",
+  "author": "hey3",
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^15.0.2",
+    "typescript": "^4.2.4"
+  },
+  "license": "ISC"
+}
