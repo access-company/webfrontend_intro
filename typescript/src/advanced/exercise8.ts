@@ -7,26 +7,28 @@
 * */
 
 // 以下のコードのコメントアウトを外して修正を行う
-// type Entity = {
-//   id: number
-//   name: string
-// }
-//
-// const entity: Entity = {
-//   id: 1,
-//   name: 'taro'
-// }
-//
-// function validateEntity(e?: Entity) {
-//   if (!e) {
-//     throw new Error()
-//   }
-// }
-//
-// function processEntity(e?: Entity) {
-//   validateEntity(e)
-//   const s = e.name
-//   return s
-// }
-//
-// console.log(processEntity(entity))
+type Entity = {
+  id: number
+  name: string
+}
+
+const entity: Entity = {
+  id: 1,
+  name: 'taro'
+}
+
+function validateEntity(e?: Entity) {
+  if (!e) {
+    throw new Error()
+  }
+}
+
+function processEntity(e?: Entity) {
+  validateEntity(e)
+  const s = e!.name
+  return s
+}
+
+console.log(processEntity(entity))
+
+export {}

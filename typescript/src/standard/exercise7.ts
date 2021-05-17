@@ -6,16 +6,24 @@
 * */
 
 // 以下のコードのコメントアウトを外して修正を行う
-// const hgoeUser: { id: number, name: string } = {
-//   id: 1,
-//   name: 'taro'
-// }
-//
-// function updateHogeUserName(user: { id: number, name: string }, newName: string): { id: number, name: string } {
-//   return {
-//     id: user.id,
-//     name: newName
-//   }
-// }
-//
-// console.log(updateHogeUserName(hgoeUser, 'jiro'))
+
+type User = {
+  id: number
+  name: string
+}
+
+const hgoeUser: User = {
+  id: 1,
+  name: 'taro'
+}
+
+function updateHogeUserName(user: User, newName: string): User {
+  return {
+    id: user.id,
+    name: newName
+  }
+}
+
+console.log(updateHogeUserName(hgoeUser, 'jiro'))
+
+export {}

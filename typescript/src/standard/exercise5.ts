@@ -3,6 +3,8 @@
 * */
 
 // 以下のコードのコメントアウトを外して修正を行う
-// function greet(name: string):void {
-//   console.log(`Hello ${name}`)
-// }
+const greet = (name: string):void => {
+  console.log(`Hello ${name}`)
+}
+
+export {}

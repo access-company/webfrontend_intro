@@ -4,15 +4,19 @@
 * このような機能を持つPartiallyPartial<T, K>を定義してください。
 * */
 
-// // 使用例
-//
-// // 元のデータ
-// interface Data {
-//   foo: number
-//   bar: string
-//   baz: string
-// }
-// /*
-//  * T1は { foo?: number; bar?: string; baz: string } 型
-//  */
-// type T1 = PartiallyPartial<Data, 'foo' | 'bar'>
+type PartiallyPartial<T, K extends keyof T> = Partial<Pick<T, K>> & Pick<T, Exclude<keyof T, K>>
+
+// 使用例
+
+// 元のデータ
+interface Data {
+  foo: number
+  bar: string
+  baz: string
+}
+/*
+ * T1は { foo?: number; bar?: string; baz: string } 型
+ */
+type T1 = PartiallyPartial<Data, 'foo' | 'bar'>
+
+export {}

@@ -8,10 +8,12 @@
 * */
 
 // 以下のコードのコメントアウトを外して修正を行う
-// const name = 'taro'
-//
-// const obj = {
-//   name // 省略記法 name: name と同じ
-// }
-//
-// obj.name = 'jiro'
+const name = 'taro' as const
+
+const obj = {
+  name // 省略記法 name: name と同じ
+}
+
+const newObj = { ...obj, name: 'jiro' }
+
+export {}
