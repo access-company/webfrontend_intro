@@ -66,7 +66,7 @@ sum('1', 2) // コンパイルエラー (Argument of type 'string' is not assign
   - esbuild や snowpack など様々なバンドラがあるが、プロダクションではまだ一般的では無いイメージ
 - 本研修ではトランスパイラに `tsc` を使用していきます
 
-<details><summary>Advanced</summary><div>
+<details><summary>Advanced</summary>
 
 - tsc
   - Microsoft純正のTypeScriptトランスパイラ
@@ -83,7 +83,7 @@ sum('1', 2) // コンパイルエラー (Argument of type 'string' is not assign
   - TypeScript の一部機能が制限される
   - 旧 ES への変換が優秀
 
-</div></details>
+</details>
 
 ## TypeScript と JavaScript の学習
 

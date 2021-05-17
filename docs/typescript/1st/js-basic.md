@@ -64,7 +64,7 @@ TypeScript では以下に置き換えて型定義を行います。
   const nullValue: null = null
   ```
 
-<details><summary>Advanced</summary><div>
+<details><summary>Advanced</summary>
 
 - any  
   `any` 型はそれ以降の型チェックはスルーされる  
@@ -141,7 +141,7 @@ TypeScript では以下に置き換えて型定義を行います。
   }
   ```
 
-</div></details>
+</details>
 
 ### リテラル
 
