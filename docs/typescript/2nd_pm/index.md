@@ -70,7 +70,7 @@ const obj2: Hoge & Fuga = { // baz を持っていないのでコンパイルエ
 
 `/typescript/src/advanced/exercise2.ts` を問いてみてください。
 
-<details><summary>Advanced</summary><div>
+<details><summary>Advanced</summary>
 
 - `type` で `interface` の `Declaration Merging` を表現する例
 
@@ -104,7 +104,7 @@ const obj2: THoge & TFuga = {
 }
 ```
 
-</div></details>
+</details>
 
 ### Mapped Types
 
@@ -128,7 +128,7 @@ const obj = {
 
 `/typescript/src/advanced/exercise3.ts` を問いてみてください。
 
-<details><summary>Advanced</summary><div>
+<details><summary>Advanced</summary>
 
 - TypeScript が提供している `Utility Types` の `Partial<T>` は mapped types を用いて実装されている。
 - `Partial<T>` は `T` の全てのパラメータを optional にした型を返す。
@@ -143,7 +143,7 @@ type Hoge = {
 type OptionalHoge = Partial<Hoge> // { foo?: string, bar?: number }
 ```
 
-</div></details>
+</details>
 
 ### Conditional Types
 
