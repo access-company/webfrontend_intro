@@ -1,0 +1,8 @@
+# public/*
+# !public/logo_access.svg
+.cache
+node_modules
+*DS_Store
+*.env
+
+.idea/

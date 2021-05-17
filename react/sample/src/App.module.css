@@ -1,0 +1,7 @@
+.container {
+  display: grid;
+  height: 100vh;
+  width: 100vw;
+  grid-template-columns: 1fr max-content 1fr;
+  grid-template-rows: 1fr max-content 1fr;
+}
