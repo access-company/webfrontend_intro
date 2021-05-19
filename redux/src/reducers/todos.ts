@@ -23,9 +23,10 @@ const todo = (state: Todo[] = [], action: TodoAction) => {
         : { ...todo, id: existingId, completed }
       ))
     }
-    // TODOを削除するための処理を追加してください。
-    // case Type.DELETE_TODO: {
-    // }
+    case Type.DELETE_TODO: {
+      const { id } = action.payload
+      return state.filter(({ id: existingId }) => existingId !== id)
+    }
     default:
       return state
   }
