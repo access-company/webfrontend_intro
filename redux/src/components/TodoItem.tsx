@@ -2,7 +2,7 @@ import { FC, useCallback } from 'react'
 import { useDispatch } from 'react-redux'
 import cx from 'classnames'
 
-import { toggleTodo } from '../actions/todo'
+import { toggleTodo, deleteTodo } from '../actions/todo'
 import { Todo } from '../models/Todo'
 
 interface Props {
@@ -12,12 +12,13 @@ interface Props {
 const TodoItem: FC<Props> = ({ todo }) => {
   const dispatch = useDispatch()
 
+  const handleDelete = useCallback(() => {
+    dispatch(deleteTodo(todo.id))
+  }, [dispatch, todo.id])
+
   const handleToggle = useCallback(() => {
     dispatch(toggleTodo(todo.id))
   }, [dispatch, todo.id])
-
-  // handleDelete を追加してください。
-  // const handleDelete = () => {}
 
   const textClassName = cx(
     'todo-item__text',
@@ -26,8 +27,7 @@ const TodoItem: FC<Props> = ({ todo }) => {
 
   return (
     <li className="todo-item">
-      {/* ❎ボタンに onClick イベントを追加してください。*/}
-      <span>
+      <span onClick={handleDelete}>
         {'❎'}
       </span>
       {' '}

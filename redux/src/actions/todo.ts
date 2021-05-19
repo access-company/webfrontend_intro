@@ -3,7 +3,7 @@ import { Dispatch } from 'redux'
 export const Type = {
   ADD_TODO: 'ADD_TODO',
   TOGGLE_TODO: 'TOGGLE_TODO',
-  // DELETE_TODO: 'DELETE_TODO',
+  DELETE_TODO: 'DELETE_TODO',
 } as const
 
 let nextTodoId = 0
@@ -22,14 +22,10 @@ export const toggleTodo = (id: number) => ({
   payload: { id },
 })
 
-/*
-  deleteTodoを実装してください。
-  引数は id
-  type は DELETE_TODO
-  payload は { id } とする
-*/
-export const deleteTodo = () =>
-  null
+export const deleteTodo = (id: number) => ({
+  type: Type.DELETE_TODO,
+  payload: { id },
+})
 
 /*
   Promise または async/awaitを 用いて非同期な action を追加してください。
@@ -49,4 +45,4 @@ export const importTodo = () => (_dispatch: Dispatch) =>
 export type TodoAction =
   ReturnType<typeof addTodo>
   | ReturnType<typeof toggleTodo>
-  // | ReturnType<typeof deleteTodo>
+  | ReturnType<typeof deleteTodo>
