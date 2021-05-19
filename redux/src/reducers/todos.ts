@@ -23,6 +23,9 @@ const todo = (state: Todo[] = [], action: TodoAction) => {
         : { ...todo, id: existingId, completed }
       ))
     }
+    // TODOを削除するための処理を追加してください。
+    // case Type.DELETE_TODO: {
+    // }
     default:
       return state
   }

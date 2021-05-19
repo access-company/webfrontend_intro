@@ -16,6 +16,9 @@ const TodoItem: FC<Props> = ({ todo }) => {
     dispatch(toggleTodo(todo.id))
   }, [dispatch, todo.id])
 
+  // handleDelete を追加してください。
+  // const handleDelete = () => {}
+
   const textClassName = cx(
     'todo-item__text',
     todo && todo.completed && 'todo-item__text--completed'
@@ -23,6 +26,11 @@ const TodoItem: FC<Props> = ({ todo }) => {
 
   return (
     <li className="todo-item">
+      {/* ❎ボタンに onClick イベントを追加してください。*/}
+      <span>
+        {'❎'}
+      </span>
+      {' '}
       <span className={textClassName} onClick={handleToggle}>
         {todo && todo.completed ? '✅' : '🔴'}
         {' '}
