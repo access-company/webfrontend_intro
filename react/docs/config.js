@@ -47,8 +47,9 @@ const config = {
       '/10_hooks_rule',
       '/11_object_is',
       '/12_effect',
-      '/13_performance',
-      '/14_advanced'
+      '/13_another_hooks',
+      '/14_performance',
+      '/15_advanced'
     ],
     links: [
       {
