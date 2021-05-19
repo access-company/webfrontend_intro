@@ -2,7 +2,7 @@
 
 - プロダクト紹介
 - HTML/CSS
-- React
-- Redux
 - [TypeScript](./typescript/index.md)
+- [React](https://access-company.github.io/webfrontend_intro/react/)
+- Redux
 - 演習
