@@ -33,3 +33,9 @@ ALGOLIA_ADMIN_KEY=
 $ npm run build
 $ npm start
 ```
+
+### Staging (copy)
+
+```shell
+$ npm run stage
+```

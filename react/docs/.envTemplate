@@ -1,5 +1,4 @@
-PATH_PREFIX=/
-#PATH_PREFIX=/webfrontend-intro/react/pages/docs/public
+PATH_PREFIX=/webfrontend_intro/react
 
 GATSBY_ALGOLIA_INDEX_NAME=
 GATSBY_ALGOLIA_APP_ID=
