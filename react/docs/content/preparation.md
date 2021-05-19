@@ -4,8 +4,6 @@ title: "準備"
 
 # 1. Documents
 
-社内サーバへ接続します。VPNに接続してください。
-
 1. 以下のサイトを開く
 https://github.com/access-company/webfrontend_intro
 2. 右上の「Fork」ボタンを押下
@@ -22,7 +20,6 @@ $ yarn start
 
 http://localhost:8000
 ```
-git clone した後は、VPNを切断してください。
 
 
 # 2. MindMap（任意）
@@ -35,7 +32,7 @@ MindMapの表示は、[MindMaster](https://www.edrawsoft.com/jp/mindmaster/) と
 
 MindMapの内容を確認したい方は、MindMasterで react_training.emmx ファイルを開いてください。react_training.emmx の内容は、本研修資料と同じです。
 
-研修中は、react_training.emmx の内容を主に画面共有します。受講生の方々は、本研修資料（ http://localhost:8000 ）を手元で見れるようにしてください。
+研修中は、react_training.emmx の内容を主に画面共有します。受講生の方々は、本研修資料（ https://access-company.github.io/webfrontend_intro/react/ ）を手元で見れるようにしてください。
 
 
 # 3. CodePen
@@ -61,8 +58,8 @@ CodePenの登録（**3-1.**）までを済ませてください。
 3. 「Settings」ボタンを押下して、「JS」メニューを選択する
 4. 「react」を検索して、 **"react"** と **"react-dom"** を追加する
   ```
-  https://cdnjs.cloudflare.com/ajax/libs/react/16.13.1/umd/react.production.min.js
-  https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.13.1/umd/react-dom.production.min.js
+  https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.production.min.js
+  https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.production.min.js
   ```
 5. 「Save & Close」
 
