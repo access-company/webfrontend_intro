@@ -1,0 +1,19 @@
+.container {
+  display: grid;
+  grid-column: 2;
+  grid-row: 2;
+  grid-template-columns: 5rem;
+  grid-template-rows: 1.5rem max-content;
+  margin: .1rem;
+  border-color: #000000;
+  border-style: solid;
+  border-width: .01rem;
+  border-radius: .3rem;
+  padding: .1rem;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: 1rem 1rem 1rem 1rem 1rem;
+  grid-template-rows: 1rem 1rem 1rem 1rem;
+}
