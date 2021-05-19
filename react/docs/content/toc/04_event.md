@@ -104,3 +104,21 @@ function Counter() {
 ## preventDefault + stopPropagation
 
 両方を呼び出すことで、イベントのキャンセルと伝播を止めることができます。
+
+# 【課題4-1】イベントハンドラを追加してみよう！
+
+以下の要件を満たしてください（[Fork](https://codepen.io/ka-clmx/pen/PopbKKB)）。
+
+* 画面上の `<button>` `<div>` にそれぞれ下記を満たす click イベントのハンドラを追加する
+  * `<button>` をクリックした際には `Clicked Button` とコンソールに表示する
+  * `<div>` をクリックした際には `Clicked Div` とコンソールに表示する
+
+
+# 【課題4-2】意図しない動き...
+
+以下の要件を満たしてください（[Fork](https://codepen.io/ka-clmx/pen/ExWNbYO)）。
+
+* 画面上の 2 つの `<div>` にそれぞれ下記を満たす click イベントのハンドラを追加する
+  * 赤い `<div>` をクリックした際には `Clicked Red` のみコンソールに表示する
+  * 青い `<div>` をクリックした際には `Clicked Blue` のみコンソールに表示する
+

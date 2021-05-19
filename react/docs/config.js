@@ -66,7 +66,7 @@ const config = {
     ],
     frontline: true,
     ignoreIndex: true,
-    title: "<div class='greenCircle'></div><span><a href=''>React Training</a></span>", // TODO: ADD STATIC PAGE URL
+    title: "<div class='greenCircle'></div><span><a href='https://access-company.github.io/webfrontend_intro/react/'>React Training</a></span>", // TODO: ADD STATIC PAGE URL
   },
   siteMetadata: {
     title: '',

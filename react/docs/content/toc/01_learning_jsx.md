@@ -169,3 +169,13 @@ const element = (
 # JSX を深く理解する
 
 https://ja.reactjs.org/docs/jsx-in-depth.html
+
+# 【課題1-1】スタイルを当ててみよう！
+
+以下の要件を満たしてください（[Fork](https://codepen.io/ka-clmx/pen/oNZYpZW)）。
+
+* 任意の赤色の物の名前, 緑色の物の名前, 青色の物の名前を JSX 内に追加
+  * それぞれが赤色, 青色, 緑色となるようにスタイルを指定
+  * 並びや位置関係、厳密に物の色が正しいかどうかは不問
+
+![実装イメージ](./01_lesson1-1.png)
