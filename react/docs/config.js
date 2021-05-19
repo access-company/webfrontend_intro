@@ -53,7 +53,7 @@ const config = {
     links: [
       {
         text: '課題解答例',
-        link: 'https://docs.google.com/document/d/1uufzC7jzksvJiS2k62adtUTzOG7i18Kvmgu7-dw8Dpk/edit?usp=sharing',
+        link: 'https://docs.google.com/document/d/1lp5huS7yNKZVibMzCo9wPSEKHOWp9W5NACJRyEWGl_Y/edit?usp=sharing',
       },
       {
         text: 'React公式 スタートガイド',
