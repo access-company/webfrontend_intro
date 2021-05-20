@@ -4,7 +4,7 @@
 
 ## 特徴
 
-`reducer`は`action`と「変更前の`state`」を受け取り、「変更後の`state`」を返す。
+`reducer`は`action`と「古い`state`」を受け取り、「新しい`state`」を返す。
 
 オブジェクトの場合は更新(mutate)するのではなく、コピー(clone)を返す。
 
