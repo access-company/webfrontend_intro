@@ -100,3 +100,13 @@ const [date, setDate] = useState(Date.now());
   * [ヒント] 偶数・奇数の判定は、[剰余(%)演算子](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Arithmetic_Operators#Remainder)を使う
   * [ヒント] `count`が偶数かどうかの状態を持つ `useState` を定義する
 
+## 【課題8-3】イベントとの紐付け
+
+以下の要件を満たしてください。（[Fork](https://codepen.io/ka-clmx/pen/mdWOYdz)）。
+
+* 変数 `power` を State 化する
+  * `boolean` 型として 初期値 `false` とする
+* `Switch` コンポーネントをクリックした際に power の値が切り替わるようにする
+  * `true` -> `false`, `false` -> `true`
+  * [ヒント] `Switch` コンポーネントの `props` にある `onClick` にイベントハンドラを渡すと、`Switch` コンポーネントをクリックした時の振る舞いを定義できる。
+

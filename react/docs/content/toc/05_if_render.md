@@ -86,3 +86,15 @@ ReactDOM.render(
   document.getElementById('root')
 )
 ```
+
+# 【課題5-1】条件分岐をさせよう！
+
+以下の要件を満たしてください。（[Fork](https://codepen.io/ka-clmx/pen/xxqReww)）。
+
+* 画面上に文字列が表示されている
+  * valid な文字列を赤色、そうでない文字列を青色にする
+    * アルファベット3文字, 数字3~4文字と続く文字列を valid とする
+    * 関数 isValidValue が valid かどうか判定
+      * 引数の文字列が valid なら true, そうでなければ false を返す
+* `ListItem` 以外は変更しないこと
+  * [ヒント] 文字列の入った四角形は `ListItem` コンポーネント
