@@ -35,7 +35,8 @@ TODOを色で区別できるようにしたい。
 
 #### localStorageとsessionStorage
 
-[web storage](https://developer.mozilla.org/ja/docs/Web/API/Web_Storage_API)はユーザー側の状態を永続化するために用いられる。
+[web storage](https://developer.mozilla.org/ja/docs/Web/API/Web_Storage_API)はブラウザの記憶領域。
+webアプリではユーザー側の状態を永続化するために用いられる。
 reduxとの違いは、ページを離れても状態が持続することである。
 web storageは、ホストごとにkey(string)とvalue(string)で格納される(key-value store)。
 web storageは以下の2種類に分けられる。
