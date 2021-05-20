@@ -96,5 +96,4 @@ ReactDOM.render(
     * アルファベット3文字, 数字3~4文字と続く文字列を valid とする
     * 関数 isValidValue が valid かどうか判定
       * 引数の文字列が valid なら true, そうでなければ false を返す
-* `ListItem` 以外は変更しないこと
   * [ヒント] 文字列の入った四角形は `ListItem` コンポーネント
