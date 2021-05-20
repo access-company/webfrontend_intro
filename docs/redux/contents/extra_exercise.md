@@ -1,22 +1,60 @@
-# 非同期処理演習
+# 発展演習
 
-代表的な非同期処理として、サーバーとの通信に依存した状態管理を実装する
+## 演習1
 
-## 要件
+「インポート」ボタンを連打できないようにしたい。
 
-TODOがなくて暇なときのために、「暇つぶし」を1件ずつインポートできるようにしたい。
+### 設計
 
-boredapi.com が提供するAPIを使いたい。
+以下の順序で実行する。
+- ボタンを無効化する
+- 通信が終わるのを待つ
+- ボタンを有効化する
 
-## 実装方針
+### 実装方針
 
-非同期な`importTodo` action creatorを実装する
+以下のいずれかの方法で実現してください。
+- 1. storeの構造を修正し、「通信中かどうか」を管理する
+```
+store.todos: array[Todo]
+=>
+store.todos: { data: array[Todo], requesting: boolean }
+```
+- 2. `useReducer`で個別のコンポーネントのために`[state, dispatch]`を生成する
+- 3. `useState`で個別のコンポーネントのために`[enabled, setEnabled]`を生成する
 
-以下の 1-1, 1-2, 2 の3つの処理を`Promise`または`async/await`でチェーンさせる。
+また、その方法を選んだ理由を示してください。
 
-- 1. [Fetch APIの利用例](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#:~:text=http://example.com/movies.json)に従って、JSON APIからTODOを取得する
-  - 1-1. https://www.boredapi.com/api/activity/ にGETリクエストを発行する
-  - 1-2. レスポンスをJSONオブジェクトに変換する
-- 2. 同期処理の`addTodo action`を`dispatch`する
-  - レスポンスの形式は`{ activity: string, … }`である
-  - `addTodo` action creator に`activity`を渡して、 `addTodo` actionを生成する。
+## 演習2
+
+あなたは自社webサービスの技術リーダーです。
+
+顧客から「新しいユーザー層を獲得したい」との相談を受けました。
+
+TODOリストに状態や条件分岐を追加したプロトタイプを作成し、UXの改善案を発表してください。
+
+バックエンドは特定のユーザー層のためのコンテンツを返します。mockで構いません。
+
+mockの例1:
+```
+const seniorExercise = [1,2,3,4]
+const mockSeniorApi = async () => {
+  setTimeout(() => {
+    return {
+      activity: seniorExercise[parseInt(results.length * Math.random(), 10)] || null
+    }
+  }, 2000)
+}
+```
+
+mockの例2:
+```
+const studentChallenge = {...}
+const mockStudentApi = async input => {
+  setTimeout(() => {
+    return {
+      activity: studentChallenge[input] || null
+    }
+  }, 2000)
+}
+```
