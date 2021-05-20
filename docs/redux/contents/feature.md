@@ -2,11 +2,13 @@
 
 ## redux lifecycle
 
-reduxには厳しいルールがある。
+reduxには厳密なルールがある。
 
 それは、UIの状態変化を決められたサイクル(redux lifecycle)で表現するというものである。
 
 このルールを守ることで、依存関係が一方向にのみ伝達されることが保証される。
+
+![](./redux_lifecycle_abstract.png)
 
 ## reduxの思想
 
@@ -31,3 +33,32 @@ redux は長期的な DX (developer's experience) にフォーカスしている
 - 短期的には生産性が低い
   - ルールが多い
   - 学習曲線がゆるい
+
+## 歴史
+
+### MVC
+
+サイクルとしてある
+controller
+model
+view
+
+### MVVM
+
+サイクルではない
+model
+view model
+view
+
+viewと状態を更新する機構(model/view model)が分離されている
+
+### Flux
+
+Facebookが提唱したアーキテクチャー
+依存関係が一方向にのみ伝達される
+イベント駆動
+
+reduxよりも少しstateful
+
+dispatcherがいる
+stateを更新(mutate)する
