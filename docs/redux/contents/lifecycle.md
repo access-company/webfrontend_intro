@@ -21,7 +21,7 @@ reduxでは、依存関係は一方向にのみ伝達される。
   - 2-1. `action`が実行される（[注1](#注1)）。
     - `store.dispatch(action)` が呼ばれる。
   - 2-2. `store.dispatch`は実行された`action`を`reducer`に渡す。
-  - 2-3. `reducer`は`action`と「古い`store state`」をもとにして「新しい`store state`」を返す。
+  - 2-3. `reducer`は`action`と「古い`store state`」を受け取り、「新しい`store state`」を返す。
   - 2-4. `store state`が更新される。
 - 3. `view`が更新される。
 
