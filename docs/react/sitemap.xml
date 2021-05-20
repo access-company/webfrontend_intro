@@ -4,12 +4,10 @@
 <url> <loc>https://www.access-company.com/webfrontend_intro/react/introduction</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.access-company.com/webfrontend_intro/react/toc</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.access-company.com/webfrontend_intro/react/toc/02_element_render</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://www.access-company.com/webfrontend_intro/react/toc/05_if_render</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.access-company.com/webfrontend_intro/react/toc/06_list_key</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.access-company.com/webfrontend_intro/react/why_need_react</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.access-company.com/webfrontend_intro/react/toc/03_components_props</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.access-company.com/webfrontend_intro/react/toc/07_lifecycle</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://www.access-company.com/webfrontend_intro/react/toc/08_state</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.access-company.com/webfrontend_intro/react/toc/10_hooks_rule</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.access-company.com/webfrontend_intro/react/toc/09_multi_state</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.access-company.com/webfrontend_intro/react/toc/11_object_is</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -20,4 +18,6 @@
 <url> <loc>https://www.access-company.com/webfrontend_intro/react/toc/15_advanced</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.access-company.com/webfrontend_intro/react/toc/01_learning_jsx</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://www.access-company.com/webfrontend_intro/react/toc/04_event</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://www.access-company.com/webfrontend_intro/react/toc/05_if_render</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://www.access-company.com/webfrontend_intro/react/toc/08_state</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 </urlset>
