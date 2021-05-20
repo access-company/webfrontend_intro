@@ -2,6 +2,48 @@
 
 ## 演習1
 
+TODOを色で区別できるようにしたい。
+
+### 要件
+
+- TODOアイテムに色を追加することができる。
+- 色でフィルターすることができる。
+
+### 実装方針
+
+- 色の組み合わせを決める。
+- TODOアイテムに色を設定できるようにする。
+  - TodoItemに`<select/>`要素を追加する。
+    - それぞれの色を`<option/>`要素で表す。
+    - 空の値が存在することに注意。
+- TODOアイテムが設定した色の背景色または文字色に見えるよう、スタイルを反映する。
+- 色でフィルターできるようにする。
+  - VisibilityFilterと似たような形で実装する。
+  - 演習なので、統一性にこだわらず、ラジオボタンなどを試しても良い。
+
+## 演習2
+
+セッションごとにTODOリストがリセットされないようにしたい。
+
+### 要件
+
+- ブラウザ(タブ)を閉じても、次回開いたときに同じTODOリストが表示されること。
+
+### 実装方針
+
+[redux-persist](https://github.com/rt2zz/redux-persist#basic-usage)を用いて、reducerをlocalStorageと連動させる。
+
+#### localStorageとsessionStorage
+
+[web storage](https://developer.mozilla.org/ja/docs/Web/API/Web_Storage_API)はユーザー側の状態を永続化するために用いられる。
+reduxとの違いは、ページを離れても状態が持続することである。
+web storageは、ホストごとにkey(string)とvalue(string)で格納される(key-value store)。
+web storageは以下の2種類に分けられる。
+- localStorage: ブラウザ(タブ)を閉じても有効
+- sessionStorage: ブラウザ(タブ)を閉じると無効
+
+## 演習3
+
 「インポート」ボタンを連打できないようにしたい。
 
 ### 設計
@@ -24,37 +66,3 @@ store.todos: { data: array[Todo], requesting: boolean }
 - 3. `useState`で個別のコンポーネントのために`[enabled, setEnabled]`を生成する
 
 また、その方法を選んだ理由を示してください。
-
-## 演習2
-
-あなたは自社webサービスの技術リーダーです。
-
-顧客から「新しいユーザー層を獲得したい」との相談を受けました。
-
-TODOリストに状態や条件分岐を追加したプロトタイプを作成し、UXの改善案を発表してください。
-
-バックエンドは特定のユーザー層のためのコンテンツを返します。mockで構いません。
-
-mockの例1:
-```
-const seniorExercise = [1,2,3,4]
-const mockSeniorApi = async () => {
-  setTimeout(() => {
-    return {
-      activity: seniorExercise[parseInt(results.length * Math.random(), 10)] || null
-    }
-  }, 2000)
-}
-```
-
-mockの例2:
-```
-const studentChallenge = {...}
-const mockStudentApi = async input => {
-  setTimeout(() => {
-    return {
-      activity: studentChallenge[input] || null
-    }
-  }, 2000)
-}
-```
