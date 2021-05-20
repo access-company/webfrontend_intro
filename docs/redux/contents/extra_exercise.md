@@ -47,6 +47,11 @@ web storageは以下の2種類に分けられる。
 - localStorage: ブラウザ(タブ)を閉じても有効
 - sessionStorage: ブラウザ(タブ)を閉じると無効
 
+### 確認事項
+
+- 要件を満たしているか。
+- Chrome dev toolのApplicationからlocalStorageを参照する。TODOの一覧が格納されているか。
+
 ## 演習3
 
 「インポート」ボタンを連打できないようにしたい。
