@@ -31,6 +31,29 @@ ReactDOM.render(
 )
 ```
 
+## selector
+
+`selector`は`state`を受け取り、`view`が必要とするデータを抽出する純関数。
+
+### 例
+
+`store state`が`{ counter: 0 }`のとき、<br/>
+`counter`を取得するための`selector`は<br/>
+`const selector = state => state.counter`<br/>
+となる。
+
+## useSelector
+
+`useSelector`は`selector`を受け取って、`selector`を実行して、`state`から抽出されたデータを返す。
+
+### 例
+
+`store state`が`{ counter: 0 }`のとき、<br/>
+`const count = useSelector(selector)`<br/>
+の結果は<br/>
+`count === 0`<br/>
+となる。
+
 ## useDispatch
 
 `useDispatch`は、`store.dispatch`にあたる関数`dispatch`を返す。
@@ -43,17 +66,3 @@ ReactDOM.render(
 とすると
 `dispatch(action)`
 と`action`を実行できる。
-
-## useSelector
-
-`useSelector`は、`store state`の一部を返す。
-
-`useSelector`の引数`selector`は純関数で、`store state`を受け取って、結果を返す。
-
-### 例
-
-`store state`が`{ counter: 0 }`のとき、<br/>
-`const count = useSelector(state => state.counter)`<br/>
-の結果は<br/>
-`count === 0`<br/>
-となる。
