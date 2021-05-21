@@ -1,10 +1,10 @@
 # Redux
 
-Redux演習用のTODOアプリです。
+Redux演習用のTODOアプリ
 
 ## 準備
 
-webfrontend_intro からこのフォルダに移動し、
+`webfrontend_intro`からこのフォルダに移動し、
 パッケージをインストールする。
 
 ```sh
@@ -14,8 +14,9 @@ yarn
 
 ## 動作確認
 
-http://0.0.0.0:3000 が自動的に開き TODO アプリが表示されます。
-以降は hot reloading により、コードの修正が即座に反映されます。
+http://0.0.0.0:3000 が自動的に開き、TODOアプリが表示される。
+
+以降は`hot reloading`により、コードの修正が即座に反映される。
 
 ```sh
 yarn start
@@ -32,6 +33,7 @@ redux_thunk_answer: 基礎課題2の答え
 ## ファイルレイアウト
 
 Todo: TODOリストのアイテム
+
 VisibilityFilter: TODOの検索条件
 
 ```
