@@ -87,15 +87,15 @@ const count = useSelector(selector)
 
 ### 例2
 
-`store state`が`{ todos: [{ id: 1, text: 'learn redux' }] }`<br/>
-`selector`が`state => state.todos`<br/>
+`store state`が`{ todo: { id: 1, text: 'learn redux' } }`<br/>
+`selector`が`state => state.todo`<br/>
 とする。<br/>
 ```
 import { useSelector, shallowEqual } from 'react-redux'
-const todos = useSelector(selector, shallowEqual)
+const todo = useSelector(selector, shallowEqual)
 ```
 の結果<br/>
-`todos`は`[{ id: 1, text: 'learn redux' }]`<br/>
+`todo`は`{ id: 1, text: 'learn redux' }`<br/>
 となる。
 
 `text`が`'learn redux'` => `'learn redux'`と同じ値に更新されても、`view`の更新は起こらない。
