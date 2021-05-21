@@ -58,17 +58,19 @@ selectorの結果が変化しないと判定された場合は、`store.getState
 
 #### デフォルト値
 
-デフォルト値は`(a, b) => a === b`である。
+プリミティブ型(`boolean`, `number`, `string`), `null`, `undefined`の比較はデフォルトで提供される。
 
-デフォルトの`equalityFn`で比較できるのは基本的にプリミティブ型(`boolean`, `number`, `string`), `null`, `undefined`のみである。
-
-reducerが生成するオブジェクトはcloneなので、異なる値と判定され、毎回`getState`が呼ばれてしまう。
+`equalityFn`のデフォルト値は`(a, b) => a === b`である。
 
 #### shallowEqual
 
-react-reduxは`shallowEqual`という関数を提供している。
+shallow object(プリミティブ型をvalueとする連想配列)の比較は`react-redux`の`shallowEqual`で実現できる。
 
-これは値が同じオブジェクトを同じ値とみなすため、`store.getState`の呼び出しを省略することができる。
+#### deepEqual
+
+deep object(オブジェクトをvalueとする連想配列）の比較には`deepEqual`にあたる関数が必要になるが、`react-redux`では提供していない。
+
+[lodashのisEqual](https://lodash.com/docs/4.17.15#isEqual)などを用いるか、そもそもselectorの時点でshallow objectしか返さないようにして、`shallowEqual`を用いる。
 
 ### 例1
 
