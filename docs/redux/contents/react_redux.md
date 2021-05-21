@@ -6,9 +6,11 @@ store が変化するたびに、必要に応じて React コンポーネント�
 
 ## Provider
 
-`Provider`はReact componentの一種で、内側にあるReact componentの状態を監視する。
+`Provider`は`react-redux`が提供するReactコンポーネント。
 
-通常、React component全体を`Provider`で囲む。
+`Provider`は、内側にあるReactコンポーネント(children)の状態を監視する。
+
+通常、全てのReactコンポーネントを`Provider`で囲む。
 
 `Provider`は`props`として`store`を受け取る。
 
@@ -43,6 +45,8 @@ ReactDOM.render(
 となる。
 
 ## useSelector
+
+`useSelector`は、`react-redux`が提供するReact hooksの一つ。
 
 `useSelector`は、`state`からデータを抽出して返す。
 
@@ -103,6 +107,8 @@ const todo = useSelector(selector, shallowEqual)
 `text`が`'learn redux'` => `'learn redux'`と同じ値に更新されても、`view`の更新は起こらない。
 
 ## useDispatch
+
+`useDispatch`は、`react-redux`が提供するReact hooksの一つ。
 
 `useDispatch`は、`store.dispatch`にあたる関数`dispatch`を返す。
 
