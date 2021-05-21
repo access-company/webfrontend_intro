@@ -2,7 +2,8 @@
 
 ## 環境構築
 
-- [環境構築](../../redux/README.md)
+- [環境構築](../../redux/README.md#環境構築)
+- [動作確認](../../redux/README.md#動作確認)
 
 ## 目次
 
