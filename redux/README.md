@@ -47,8 +47,8 @@ yarn start
   - [index.tsx](./src/index.tsx) - webアプリのroot
   - [models/](./src/models/) - リソース(Todo, 検索条件)の型
   - [pages/](./src/pages/) - ページ
-  - [reducers/](./src/reducers/) - reducer - redux storeの次の状態を生成するための関数
-  - [selectors/](./src/selectors/) - selector - redux storeからデータを取得するための関数
+  - [reducers/](./src/reducers/) - reducer - storeの次の状態を生成するための関数
+  - [selectors/](./src/selectors/) - selector - storeから状態を取得するための関数
   - [store.ts](./src/store.ts) - store - UIの状態を保持するオブジェクト
   - [styles.css](./src/styles.css) - スタイルシート
 
