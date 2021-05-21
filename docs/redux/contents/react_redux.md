@@ -44,15 +44,59 @@ ReactDOM.render(
 
 ## useSelector
 
-`useSelector`は`selector`を受け取って、`selector`を実行して、`state`から抽出されたデータを返す。
+`useSelector`は、`state`からデータを抽出して返す。
 
-### 例
+`selector`および`equalityFn`を受け取って、`selector`を実行する。
 
-`store state`が`{ counter: 0 }`のとき、<br/>
-`const count = useSelector(selector)`<br/>
+### equalityFn
+
+selectorの結果が変化するかどうかを判定する関数。
+
+selectorの結果が変化しないと判定された場合は、`store.getState`の呼び出しを省略する。
+
+適切な関数を選ぶことで、パフォーマンスの最適化につながる。
+
+#### デフォルト値
+
+デフォルト値は`(a, b) => a === b`である。
+
+デフォルトの`equalityFn`で比較できるのは基本的にプリミティブ型(`boolean`, `number`, `string`), `null`, `undefined`のみである。
+
+reducerが生成するオブジェクトはcloneなので、異なる値と判定され、毎回`getState`が呼ばれてしまう。
+
+#### shallowEqual
+
+react-reduxは`shallowEqual`という関数を提供している。
+
+これは値が同じオブジェクトを同じ値とみなすため、`store.getState`の呼び出しを省略することができる。
+
+### 例1
+
+`store state`が`{ counter: 0 }`<br/>
+`selector`が`state => state.counter`<br/>
+のとき、
+```
+import { useSelector } from 'react-redux'
+const count = useSelector(selector)
+```
 の結果は<br/>
 `count === 0`<br/>
 となる。
+
+### 例2
+
+`store state`が`{ todos: [{ id: 1, text: 'learn redux' }] }`<br/>
+`selector`が`state => state.todos`<br/>
+とする。<br/>
+```
+import { useSelector, shallowEqual } from 'react-redux'
+const todos = useSelector(selector, shallowEqual)
+```
+の結果<br/>
+`todos`は`[{ id: 1, text: 'learn redux' }]`<br/>
+となる。
+
+`text`が`'learn redux'` => `'learn redux'`と同じ値に更新されても、`view`の更新は起こらない。
 
 ## useDispatch
 
