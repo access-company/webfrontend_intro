@@ -10,7 +10,7 @@ webアプリにおける非同期処理 ≒ サーバーとの通信
 
 ## redux-thunk
 
-reducで非同期処理を実現するためのライブラリ
+reduxで非同期処理を実現するためのライブラリ
 
 ### thunkとは
 
@@ -18,24 +18,21 @@ reducで非同期処理を実現するためのライブラリ
 
 ### 役割
 
-action creatorの自由度を増やす。
+action creatorの自由度を増やすことで同期処理と非同期処理の両方を書けるようにする。
 
 #### 同期処理の場合
 
-`action creator`は`action`を返す
+`action creator`は`action`を返す関数である。
 
-`dispatch`を知らないので、その場で実行されてしまう
+`action creator`は`dispatch`を知らず、`dispatch`された時点で完了してしまう。
 
 #### 非同期処理
 
 `action creator`は`thunk`を返す
-`Promise`や`async/await`と組み合わせることで、他の処理を待って実行(`dispatch`)することができる
 
-### 原理
+`action creator`は`dispatch`を知っているため、「いつ」実行するかを決められる。
 
-redux-thunkの実体はmiddlewareである。<br/>
-middlewareは、dispatchを受け取って別のdispatchを返す関数。<br/>
-dispatchの性質を変化させることで、同期処理と非同期処理の違いを意識せずに済む。
+`Promise`や`async/await`と組み合わせることで、`dispatch`を遅らせることができる。
 
 ### 例
 
@@ -50,3 +47,12 @@ const incrementAsync = () => async dispatch => {
   setTimeout(() => { return dispatch(increment()) }, 2000)
 }
 ```
+
+### 原理
+
+redux-thunkの実体は[middleware](./middleware.md)である。<br/>
+`dispatch`の性質を変化させることで、同期処理と非同期処理の違いを意識せずに済む。
+
+redux-thunkの本体コードはとても短い。
+少々難しいが、何が起こるか予測してみると面白いかもしれない。
+https://github.com/reduxjs/redux-thunk/blob/master/src/index.js
