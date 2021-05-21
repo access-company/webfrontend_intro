@@ -58,7 +58,7 @@ selectorの結果が変化しないと判定された場合は、`store.getState
 
 #### デフォルト値
 
-プリミティブ型(`boolean`, `number`, `string`), `null`, `undefined`の比較はデフォルトで提供される。
+プリミティブ型(`boolean`, `number`, `string`), `null`, `undefined`の比較はデフォルトで提供されるため、`equalityFn`を省略できる。
 
 `equalityFn`のデフォルト値は`(a, b) => a === b`である。
 
