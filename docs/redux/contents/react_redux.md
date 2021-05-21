@@ -64,11 +64,11 @@ selectorの結果が変化しないと判定された場合は、`store.getState
 
 #### shallowEqual
 
-shallow object(プリミティブ型をvalueとする連想配列)の比較は`react-redux`の`shallowEqual`で実現できる。
+shallow object（プリミティブ型をvalueとする配列 or 連想配列）の比較は`react-redux`の`shallowEqual`で実現できる。
 
 #### deepEqual
 
-deep object(オブジェクトをvalueとする連想配列）の比較には`deepEqual`にあたる関数が必要になるが、`react-redux`では提供していない。
+deep object（オブジェクトをvalueとする配列 or 連想配列）の比較には`deepEqual`にあたる関数が必要になるが、`react-redux`では提供していない。
 
 [lodashのisEqual](https://lodash.com/docs/4.17.15#isEqual)などを用いるか、そもそもselectorの時点でshallow objectしか返さないようにして、`shallowEqual`を用いる。
 
