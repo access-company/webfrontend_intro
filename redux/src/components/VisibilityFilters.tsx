@@ -1,4 +1,4 @@
-import { FC, useCallback } from 'react'
+import React, { FC } from 'react'
 import cx from 'classnames'
 import { useSelector, useDispatch } from 'react-redux'
 
@@ -11,9 +11,9 @@ const VisibilityFilters: FC = () => {
   const selectedVisibilityFilter = useSelector(getVisibilityFilter)
   const dispatch = useDispatch()
 
-  const handleChange = useCallback((visibilityFilter: keyof typeof VisibilityFilter) => () => {
+  const handleChange = (visibilityFilter: keyof typeof VisibilityFilter) => (_event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
     dispatch(setFilter(visibilityFilter))
-  }, [dispatch])
+  }
 
   return (
     <div className="visibility-filters">

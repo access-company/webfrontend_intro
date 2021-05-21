@@ -1,4 +1,4 @@
-import { FC, useState, useCallback } from 'react'
+import React, { FC, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { addTodo } from '../actions/todo'
 import { words } from '../constants'
@@ -7,16 +7,16 @@ const AddTodo: FC = () => {
   const [input, setInput] = useState<string>('')
   const dispatch = useDispatch()
 
-  const handleChangeInput = useCallback(event => {
+  const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInput(event.target.value)
-  }, [])
+  }
 
-  const handleAddTodo = useCallback(() => {
+  const handleAddTodo = (_event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     if (input) {
       dispatch(addTodo(input))
       setInput('')
     }
-  }, [dispatch, input])
+  }
 
   return (
     <div>

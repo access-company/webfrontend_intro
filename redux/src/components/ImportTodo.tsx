@@ -1,4 +1,4 @@
-import { FC, useCallback } from 'react'
+import React, { FC } from 'react'
 import { useDispatch } from 'react-redux'
 import { importTodo } from '../actions/todo'
 import { words } from '../constants'
@@ -6,9 +6,9 @@ import { words } from '../constants'
 const ImportTodo: FC = () => {
   const dispatch = useDispatch()
 
-  const handleImportTodo = useCallback(() => {
+  const handleImportTodo = (_event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     dispatch(importTodo())
-  }, [dispatch])
+  }
 
   return (
     <button className="import-todo" onClick={handleImportTodo}>

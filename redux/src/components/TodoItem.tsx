@@ -1,4 +1,4 @@
-import { FC, useCallback } from 'react'
+import React, { FC } from 'react'
 import { useDispatch } from 'react-redux'
 import cx from 'classnames'
 
@@ -12,9 +12,9 @@ interface Props {
 const TodoItem: FC<Props> = ({ todo }) => {
   const dispatch = useDispatch()
 
-  const handleToggle = useCallback(() => {
+  const handleToggle = (_event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
     dispatch(toggleTodo(todo.id))
-  }, [dispatch, todo.id])
+  }
 
   // handleDelete を追加してください。
   // const handleDelete = () => {}
