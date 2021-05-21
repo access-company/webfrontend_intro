@@ -12,7 +12,7 @@ store が変化するたびに、必要に応じて React コンポーネント�
 
 `Provider`は`props`として`store`を受け取る。
 
-あとは、`Provider`より内側のcomponentで`useDispatch`/`useSelector`を呼べば、どこからでも`store`にアクセスすることができる。
+あとは、`Provider`より内側のcomponentで`useSelector`/`useDispatch`を呼べば、どこからでも`store`にアクセスすることができる。
 
 例 (redux/src/index.tsx):
 
