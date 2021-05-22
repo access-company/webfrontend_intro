@@ -1,10 +1,14 @@
 # reduxライフサイクルの観察
 
+reduxがUIにどのようにして影響を与えているかを検証する。
+
+`action`が発行されることによる`state`の変化に注目する。
+
 - http://0.0.0.0:3000/ にアクセスする。
 - redux devtoolを開く。
   - devtoolの画面がすぐに消えてしまう場合は、アイコンを右クリック(または2本指タップなど)し、Open in a Panel を選択する。
 
-## 1. store の state
+## 1. store state
 
   - State => Raw の順で選択する。
     - 以下のようになっていればOK。
@@ -47,38 +51,7 @@
       }
       ```
 
-## 3. toggleTodo action
-
-  - 2.で追加したTODOの文字列部分をクリックし、🔴(未完了) => ✅(完了)と切り替える（または逆）。
-  - action一覧にTOGGLE_TODOが追加されればOK。
-
-  - TOGGLE_TODO => Action => Raw の順で選択する。
-    - 以下のようになっていればOK。
-      ```js
-      {
-        type: 'TOGGLE_TODO',
-        payload: {
-          id: 1
-        }
-      }
-      ```
-
-  - State => Raw の順で選択する。
-    - `completed`が変化していればOK。
-      ```js
-      {
-        todos: [
-          {
-            text: 'a',
-            id: 1,
-            completed: true
-          }
-        ],
-        visibilityFilter: 'all'
-      }
-      ```
-
-## 4. setFilter action
+## 3. setFilter action
 
   - TODOの検索条件を「全て」 => 「未完了」or「完了」と切り替える（または逆）。
   - action一覧にSET_FILTERが追加されればOK。
