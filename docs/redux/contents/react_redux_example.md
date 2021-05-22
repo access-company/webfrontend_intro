@@ -7,9 +7,9 @@ redux/src以下の代表的なファイルを見ていく。
 ## ファイルレイアウト
 
 - src/
-  - [index.tsx](#index.tsx) - webアプリのroot
+  - [index.tsx](#indextsx) - webアプリのroot
   - redux側
-    - [store.ts](#store.ts) - store - UIの状態を保持するオブジェクト
+    - [store.ts](#storets) - store - UIの状態を保持するオブジェクト
     - actions/ - action - UIのイベントを表すオブジェクト
       - [actions/todo.ts](#actionstodots) - TODOリストのデータに関するもの
     - reducers/ - reducer - storeの次の状態を生成するための関数
@@ -20,7 +20,7 @@ redux/src以下の代表的なファイルを見ていく。
       - [models/Todo.ts](#modelstodots) - TODOリストのアイテム
   - React側
     - pages/ - ページ
-      - [pages/TodoApp.tsx](#pagestodaopptsx) - Todoリストのページ
+      - [pages/TodoApp.tsx](#pagestodoapptsx) - Todoリストのページ
     - components/ - Reactコンポーネント
       - [components/TodoList.tsx](#componentstodolisttsx) - Todoリスト本体
       - [components/AddTodo.tsx](#componentsaddtodotsx) - Todo追加フォーム
