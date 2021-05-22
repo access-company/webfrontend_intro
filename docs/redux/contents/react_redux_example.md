@@ -10,15 +10,22 @@ redux/src以下の代表的なファイルを見ていく。
   - [index.tsx](#index.tsx) - webアプリのroot
   - redux側
     - [store.ts](#store.ts) - store - UIの状態を保持するオブジェクト
-    - [actions/](#actions/) - action - UIのイベントを表すオブジェクト
-    - [reducers/](#reducers/) - reducer - storeの次の状態を生成するための関数
-    - [selectors/](#selectors/) - selector - storeから状態を取得するための関数
-    - [models/](#models/) - リソース(Todo, 検索条件)の型
+    - actions/ - action - UIのイベントを表すオブジェクト
+      - [actions/todo.ts](#actionstodots) - TODOリストのデータに関するもの
+    - reducers/ - reducer - storeの次の状態を生成するための関数
+      - [reducers/todos.ts](#reducerstodosts) - TODOリストのデータに関するもの
+    - selectors/ - selector - storeから状態を取得するための関数
+      - [selectors/todo.ts](#selectorstodots) - TODOリストのデータに関するもの
+    - models/ - リソース(Todo, 検索条件)の型
+      - [models/Todo.ts](#modelstodots) - TODOリストのアイテム
   - React側
-    - [pages/](#pages/) - ページ
-    - [components/](#components/) - Reactコンポーネント
-    - [constants.tsx](#constants.tsx) - 日本語の文字列
-    - [styles.css](#styles.css) - スタイルシート
+    - pages/ - ページ
+      - [pages/TodoApp.tsx](#pagestodaopptsx) - Todoリストのページ
+    - components/ - Reactコンポーネント
+      - [components/TodoList.tsx](#componentstodolisttsx) - Todoリスト本体
+      - [components/AddTodo.tsx](#componentsaddtodotsx) - Todo追加フォーム
+    - [constants.tsx](#constantstsx) - 日本語の文字列
+    - [styles.css](#stylescss) - スタイルシート
 
 ## [index.tsx](../../../redux/src/index.tsx)
 
@@ -47,13 +54,13 @@ storeには以下の要素があるが、直接は見えていない。
 
 ### [actions/todo.ts](../../../redux/src/actions/todo.ts)
 
-UIのイベントを表すオブジェクト。
+UIのイベントを表すオブジェクトのうち、TODOリストのデータに関するもの。
 actionを生成する関数であるaction creatorが並んでいる。
 actionは`{ type, payload }`という構造でイベントの内容を記述している。
 
-### [reducers/todo.ts](../../../redux/src/reducers/todo.ts)
+### [reducers/todos.ts](../../../redux/src/reducers/todos.ts)
 
-`store`の次の状態を生成するための関数。
+`store`の次の状態を生成するための関数のうち、TODOリストのデータに関するもの。
 
 `action`と「古い`state`」を受け取り、「新しい`state`」を返す。
 
@@ -63,7 +70,7 @@ actionは`{ type, payload }`という構造でイベントの内容を記述し�
 
 ### [selectors/todo.ts](../../../redux/src/selectors/todo.ts)
 
-storeから状態を取得するための関数。
+storeから状態を取得するための関数のうち、TODOリストのデータに関するもの。
 
 storeを受け取り、必要なデータを抽出している。
 
@@ -71,25 +78,25 @@ Reactコンポーネントの側でuseSelectorが呼び出される段階で実�
 
 ### [models/Todo.ts](../../../redux/src/models/Todo.ts)
 
-リソースの型。
+リソースの型のうち、TODOリストのアイテム。
 
 interfaceまたはenumで定義されている。
 
 ## React側
 
-### [pages/TodoApp.jsx](../../../redux/src/pages/TodoApp.tsx)
+### [pages/TodoApp.tsx](../../../redux/src/pages/TodoApp.tsx)
 
 Todoリストのページ。
 
 各コンポーネントが読み込まれている。
 
-### [components/TodoList.jsx](../../../redux/src/components/TodoList.tsx)
+### [components/TodoList.tsx](../../../redux/src/components/TodoList.tsx)
 
 Todoリスト本体。
 
 useSelectorでTODOの一覧を取得している。
 
-### [components/AddTodo.jsx](../../../redux/src/components/AddTodo.tsx)
+### [components/AddTodo.tsx](../../../redux/src/components/AddTodo.tsx)
 
 Todo追加フォーム。
 
