@@ -14,7 +14,7 @@ Reactとreduxを接続するための処理を確認する。
 
 ## 実装方針
 
-- src/redux/actions.js
+- src/redux/actions/todo.js
   - `Type`に`DELETE_TODO`を追加する。
   - `deleteTodo` action creator を定義する。
     - deleteTodo action creator  の引数は `id` とする。
