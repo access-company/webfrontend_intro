@@ -108,7 +108,7 @@ useDispatchでdispatchを生成し、dispatchを使ってイベントハンド�
 
 今回は日本語の文字列を格納している。
 
-多言語対応(i18n)については、stackoverflow_clone本体の構成の方が正しい。
+多言語対応(i18n)については、[stackoverflow_clone本体の構成](https://github.com/access-company/stackoverflow_clone/blob/master/web/static/assets/strings/ja.ts)の方が正しい。
 
 ### [styles.css](../../../redux/src/styles.css)
 
