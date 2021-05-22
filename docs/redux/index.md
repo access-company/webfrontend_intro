@@ -16,6 +16,7 @@
   - [store](./contents/lifecycle_store.md)
   - [例](./contents/lifecycle_example.md)
 - [Reactとの連携](./contents/react_redux.md)
+  - [例](./contents/react_redux_example.md)
   - [演習1](./contents/react_redux_exercise.md)
 - [非同期処理](./contents/async.md)
   - [演習2](./contents/async_exercise.md)
