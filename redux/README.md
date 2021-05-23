@@ -58,9 +58,16 @@ yarn start
 
 `VisibilityFilter`: TODOの検索条件
 
-## Reactコンポーネント
+## アプリの構成
 
 ![](./react_components.png)
+
+- ImportTodo: インポートボタンを押すと、リモートからTODOリストのアイテムを取得できる。（未実装）
+- AddTodo: 追加ボタンを押すと、TODOリストのアイテムを追加できる。
+- TodoItem
+  - Xをクリックすると、アイテムを削除できる。（未実装）
+  - テキスト部分をクリックすると、アイテムの状態（完了/未完了）を切り替えられる。
+- VisibilityFilter: TODOリストの検索条件（全て/完了/未完了）を切り替えられる。
 
 ## ブランチの内容
 
