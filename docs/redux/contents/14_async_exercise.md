@@ -15,11 +15,11 @@ boredapi.com が提供するAPIを使いたい。
 
 非同期な`importTodo` action creatorを実装する
 
-以下の 1-1, 1-2, 2 の3つの処理を`Promise`または`async/await`でチェーンさせる。
+以下の a-1, a-2, b の3つの処理を`Promise`または`async/await`でチェーンさせる。
 
-- 1. [Fetch APIの利用例](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#:~:text=http://example.com/movies.json)に従って、JSON APIからTODOを取得する
-  - 1-1. https://www.boredapi.com/api/activity/ にGETリクエストを発行する
-  - 1-2. レスポンスをJSONオブジェクトに変換する
-- 2. 同期処理の`addTodo action`を`dispatch`する
+- a. [Fetch APIの利用例](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#:~:text=http://example.com/movies.json)に従って、JSON APIからTODOを取得する
+  - a-1. https://www.boredapi.com/api/activity/ にGETリクエストを発行する
+  - a-2. レスポンスをJSONオブジェクトに変換する
+- b. 同期処理の`addTodo action`を`dispatch`する
   - レスポンスの形式は`{ activity: string, … }`である
   - `addTodo` action creator に`activity`を渡して、 `addTodo` actionを生成する。

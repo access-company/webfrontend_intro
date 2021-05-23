@@ -68,13 +68,13 @@ web storageは以下の2種類に分けられる。
 ### 実装方針
 
 以下のいずれかの方法で実現してください。
-- 1. storeの構造を修正し、「通信中かどうか」を管理する
+- a. storeの構造を修正し、「通信中かどうか」を管理する
 ```
 store.todos: array[Todo]
 =>
 store.todos: { data: array[Todo], requesting: boolean }
 ```
-- 2. `useReducer`で個別のコンポーネントのために`[state, dispatch]`を生成する
-- 3. `useState`で個別のコンポーネントのために`[enabled, setEnabled]`を生成する
+- b. `useReducer`で個別のコンポーネントのために`[state, dispatch]`を生成する
+- c. `useState`で個別のコンポーネントのために`[enabled, setEnabled]`を生成する
 
 また、その方法を選んだ理由を示してください。
