@@ -7,12 +7,12 @@
 
 redux は web アプリを以下の要素に分割する。
 
-- [`store`](./lifecycle_store.md)
+- [`action`](./05_lifecycle_action.md): UIのイベント
+- [`reducer`](./06_lifecycle_reducer.md): UIの状態遷移
+- [`store`](./07_lifecycle_store.md)
   - `dispatch`: イベントを実行するメソッド
   - `getState`: UIの状態を取得するメソッド
     - `state`: UIの状態（`getState`でしか取得できない）
-- [`action`](./lifecycle_action.md): UIのイベント
-- [`reducer`](./lifecycle_reducer.md): UIの状態遷移
 - `view`: (React)コンポーネント
 
 ## 全体の流れ
