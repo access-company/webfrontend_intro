@@ -1,5 +1,9 @@
 # middleware
 
+*Back: [非同期処理](./async.md)*
+-
+*Next: [非同期処理演習](./async_exercise.md)*
+
 ## 定義
 
 `middleware`は、`dispatch`を受け取って別の`dispatch`を返す関数である。

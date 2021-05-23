@@ -2,7 +2,7 @@
 
 *Back: [React/redux演習](./react_redux_exercise.md)*
 -
-*Next: [非同期処理演習](./async_exercise.md)*
+*Next: [middleware](./middleware.md)*
 
 ## 非同期処理とは
 

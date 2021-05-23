@@ -19,6 +19,7 @@
   - [実例](./contents/react_redux_example.md)
   - [演習](./contents/react_redux_exercise.md)
 - [非同期処理](./contents/async.md)
+  - [middleware](./contents/middleware.md)
   - [演習](./contents/async_exercise.md)
 - [発展演習](./contents/extra_exercise.md)
 
