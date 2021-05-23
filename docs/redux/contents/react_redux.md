@@ -1,8 +1,7 @@
 # React/redux
 
-*Back: [reduxライフサイクルの実例](./lifecycle_example.md)*
--
-*Next: [React/reduxの実例](./react_redux_example.md)*
+- *Back: [reduxライフサイクルの実例](./lifecycle_example.md)*
+- *Next: [React/reduxの実例](./react_redux_example.md)*
 
 React から redux への副作用を定義するために、[react-redux](https://react-redux.js.org/tutorials/connect)ライブラリを使用する。
 

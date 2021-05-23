@@ -1,8 +1,7 @@
 # middleware
 
-*Back: [非同期処理](./async.md)*
--
-*Next: [非同期処理演習](./async_exercise.md)*
+- *Back: [非同期処理](./async.md)*
+- *Next: [非同期処理演習](./async_exercise.md)*
 
 ## 定義
 

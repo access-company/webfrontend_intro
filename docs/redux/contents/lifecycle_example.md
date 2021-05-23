@@ -1,8 +1,7 @@
 # reduxライフサイクルの観察
 
-*Back: [reduxライフサイクル - store](./lifecycle_store.md)*
--
-*Next: [React/redux](./react_redux.md)*
+- *Back: [reduxライフサイクル - store](./lifecycle_store.md)*
+- *Next: [React/redux](./react_redux.md)*
 
 reduxがUIにどのようにして影響を与えているかを検証する。
 
