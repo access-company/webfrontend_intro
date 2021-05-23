@@ -15,7 +15,7 @@
   - [reducer](./contents/lifecycle_reducer.md)
   - [store](./contents/lifecycle_store.md)
   - [実例](./contents/lifecycle_example.md)
-- [React/redux](./contents/react_redux.md)
+- [React/reduxの構成](./contents/react_redux.md)
   - [実例](./contents/react_redux_example.md)
   - [演習](./contents/react_redux_exercise.md)
 - [非同期処理](./contents/async.md)

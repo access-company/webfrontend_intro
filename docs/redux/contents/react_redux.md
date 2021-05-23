@@ -1,4 +1,4 @@
-# React/redux
+# React/reduxの構成
 
 - *Back: [reduxライフサイクルの実例](./lifecycle_example.md)*
 - *Next: [React/reduxの実例](./react_redux_example.md)*
