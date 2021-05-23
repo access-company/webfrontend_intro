@@ -1,4 +1,8 @@
-# webアプリのしくみ
+# 2. webアプリのしくみ
+
+- *Up: [目次](../index.md)*
+- *Back: [1. はじめに](./01_intro.md)*
+- *Next: [3. reduxの特徴](./03_feature.md)*
 
 ## 3層アーキテクチャー
 

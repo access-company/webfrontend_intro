@@ -1,4 +1,8 @@
-# React/reduxの実例
+# 10. React/reduxの実例
+
+- *Up: [目次](../index.md)*
+- *Back: [9. React/reduxの構成](./09_react_redux.md)*
+- *Next: [11. React/redux演習](./11_react_redux_exercise.md)*
 
 redux/src以下の代表的なファイルを見ていく。
 
@@ -13,11 +17,11 @@ redux/src以下の代表的なファイルを見ていく。
 - src/
   - [index.tsx](#indextsx) - webアプリのroot
   - redux側
-    - [store.ts](#storets) - store - UIの状態を保持するオブジェクト
     - actions/ - action - UIのイベントを表すオブジェクト
       - [actions/todo.ts](#actionstodots) - TODOリストのデータに関するもの
     - reducers/ - reducer - storeの次の状態を生成するための関数
       - [reducers/todos.ts](#reducerstodosts) - TODOリストのデータに関するもの
+    - [store.ts](#storets) - store - UIの状態を保持するオブジェクト
     - selectors/ - selector - storeから状態を取得するための関数
       - [selectors/todo.ts](#selectorstodots) - TODOリストのデータに関するもの
     - models/ - リソース(Todo, 検索条件)の型
@@ -43,19 +47,6 @@ redux/src以下の代表的なファイルを見ていく。
 
 ## redux側
 
-### [store.ts](../../../redux/src/store.ts)
-
-UIの状態を保持するオブジェクト。
-
-createStoreに以下の要素を渡し、storeを生成している。
-- reducer
-- 非同期処理のためのthunkMiddleware(後述)
-
-storeには以下の要素があるが、直接は見えていない。
-- `state`: UIの状態
-- `store.dispatch`: `action`を実行するためのメソッド
-- `store.getState`: `state`を取得するためのメソッド
-
 ### [actions/todo.ts](../../../redux/src/actions/todo.ts)
 
 UIのイベントを表すオブジェクトのうち、TODOリストのデータに関するもの。
@@ -71,6 +62,19 @@ actionは`{ type, payload }`という構造でイベントの内容を記述し�
 ここでいう`state`は、`state`全体の中では一部分にすぎない。
 
 `createStore`での定義に従い、`state.todo`以下に格納される。
+
+### [store.ts](../../../redux/src/store.ts)
+
+UIの状態を保持するオブジェクト。
+
+createStoreに以下の要素を渡し、storeを生成している。
+- reducer
+- 非同期処理のためのthunkMiddleware(後述)
+
+storeには以下の要素があるが、直接は見えていない。
+- `state`: UIの状態
+- `store.dispatch`: `action`を実行するためのメソッド
+- `store.getState`: `state`を取得するためのメソッド
 
 ### [selectors/todo.ts](../../../redux/src/selectors/todo.ts)
 

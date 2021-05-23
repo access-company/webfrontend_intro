@@ -1,4 +1,8 @@
-# reduxの特徴
+# 3. reduxの特徴
+
+- *Up: [目次](../index.md)*
+- *Back: [2. webアプリのしくみ](./02_web_app.md)*
+- *Next: [4. reduxライフサイクルの構成](./04_lifecycle.md)*
 
 ## redux lifecycle
 
