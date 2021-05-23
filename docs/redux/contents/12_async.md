@@ -1,7 +1,8 @@
-# 非同期処理
+# 12. 非同期処理
 
-- *Back: [React/redux演習](./11_react_redux_exercise.md)*
-- *Next: [middleware](./13_middleware.md)*
+- *Up: [目次](../index.md)*
+- *Back: [11. React/redux演習](./11_react_redux_exercise.md)*
+- *Next: [13. middleware](./13_middleware.md)*
 
 ## 非同期処理とは
 

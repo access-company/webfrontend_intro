@@ -1,7 +1,8 @@
-# 非同期処理演習
+# 14. 非同期処理演習
 
-- *Back: [middleware](./13_middleware.md)*
-- *Next: [発展演習](./15_extra_exercise.md)*
+- *Up: [目次](../index.md)*
+- *Back: [13. middleware](./13_middleware.md)*
+- *Next: [15. 発展演習](./15_extra_exercise.md)*
 
 代表的な非同期処理として、サーバーとの通信に依存した状態管理を実装する
 

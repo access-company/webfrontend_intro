@@ -1,7 +1,8 @@
-# React/redux演習
+# 11. React/redux演習
 
-- *Back: [React/reduxの実例](./10_react_redux_example.md)*
-- *Next: [非同期処理](./12_async.md)*
+- *Up: [目次](../index.md)*
+- *Back: [10. React/reduxの実例](./10_react_redux_example.md)*
+- *Next: [12. 非同期処理](./12_async.md)*
 
 削除機能を実装しよう
 

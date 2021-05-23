@@ -1,6 +1,7 @@
-# 発展演習
+# 15. 発展演習
 
-- *Back: [非同期処理演習](./14_async_exercise.md)*
+- *Up: [目次](../index.md)*
+- *Back: [14. 非同期処理演習](./14_async_exercise.md)*
 
 ## 演習1
 
