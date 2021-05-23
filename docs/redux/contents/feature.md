@@ -1,5 +1,9 @@
 # reduxの特徴
 
+*Back: [webアプリのしくみ](./web_app.md)*
+-
+*Next: [reduxライフサイクルの構成](./lifecycle.md)*
+
 ## redux lifecycle
 
 reduxには厳密なルールがある。

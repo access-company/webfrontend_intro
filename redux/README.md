@@ -73,6 +73,6 @@ yarn start
 
 `master`: 修正前のアプリ
 
-`redux_delete_answer`: 基礎課題1の答え
+`redux_delete_answer`: [React/redux演習](../docs/redux/contents/react_redux_exercise.md)の答え
 
-`redux_thunk_answer`: 基礎課題2の答え
+`redux_thunk_answer`: [非同期処理演習](../docs/redux/contents/async_exercise.md)の答え

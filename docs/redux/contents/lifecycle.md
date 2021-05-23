@@ -1,5 +1,9 @@
 # reduxライフサイクル
 
+*Back: [reduxの特徴](./contents/feature.md)*
+-
+*Next: [reduxライフサイクル - action](./contents/lifecycle_action.md)*
+
 ## 概要
 
 redux は web アプリを以下の要素に分割する。

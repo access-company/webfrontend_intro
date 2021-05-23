@@ -1,5 +1,9 @@
 # React/reduxの実例
 
+*Back: [React/redux](./contents/react_redux.md)*
+-
+*Next: [React/redux演習](./contents/react_redux_exercise.md)*
+
 redux/src以下の代表的なファイルを見ていく。
 
 必要なモジュールを参照していることを確認する。

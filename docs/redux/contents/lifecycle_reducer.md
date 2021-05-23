@@ -1,5 +1,9 @@
 # reduxライフサイクル - reducer
 
+*Back: [reduxライフサイクル - action](./contents/lifecycle_action.md)*
+-
+*Next: [reduxライフサイクル - store](./contents/lifecycle_store.md)*
+
 `reducer`は純関数で、UIの状態遷移を表す。
 
 ## 特徴

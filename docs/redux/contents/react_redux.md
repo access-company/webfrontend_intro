@@ -1,5 +1,9 @@
 # React/redux
 
+*Back: [reduxライフサイクルの実例](./contents/lifecycle_example.md)*
+-
+*Next: [React/reduxの実例](./contents/react_redux_example.md)*
+
 React から redux への副作用を定義するために、[react-redux](https://react-redux.js.org/tutorials/connect)ライブラリを使用する。
 
 store が変化するたびに、必要に応じて React コンポーネントが再描画される。

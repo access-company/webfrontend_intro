@@ -1,5 +1,9 @@
 # reduxライフサイクル - store
 
+*Back: [reduxライフサイクル - reducer](./contents/lifecycle_reducer.md)*
+-
+*Next: [reduxライフサイクルの実例](./contents/lifecycle_example.md)*
+
 `store`はUIの状態の全てを知っている (Single source of truth)。
 
 `store`の主な要素
