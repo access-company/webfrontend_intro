@@ -1,7 +1,7 @@
 # reduxの特徴
 
-- *Back: [webアプリのしくみ](./web_app.md)*
-- *Next: [reduxライフサイクルの構成](./lifecycle.md)*
+- *Back: [webアプリのしくみ](./02_web_app.md)*
+- *Next: [reduxライフサイクルの構成](./04_lifecycle.md)*
 
 ## redux lifecycle
 

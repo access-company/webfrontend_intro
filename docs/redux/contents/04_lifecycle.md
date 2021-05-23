@@ -1,7 +1,7 @@
 # reduxライフサイクルの構成
 
-- *Back: [reduxの特徴](./feature.md)*
-- *Next: [reduxライフサイクル - action](./lifecycle_action.md)*
+- *Back: [reduxの特徴](./03_feature.md)*
+- *Next: [reduxライフサイクル - action](./05_lifecycle_action.md)*
 
 ## 概要
 

@@ -1,7 +1,7 @@
 # reduxライフサイクル - action
 
-- *Back: [reduxライフサイクルの構成](./lifecycle.md)*
-- *Next: [reduxライフサイクル - reducer](./lifecycle_reducer.md)*
+- *Back: [reduxライフサイクルの構成](./04_lifecycle.md)*
+- *Next: [reduxライフサイクル - reducer](./06_lifecycle_reducer.md)*
 
 `action`は UI のイベントを表すオブジェクト。
 `action`を生成する関数を`action creator`と呼ぶ。

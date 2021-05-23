@@ -1,7 +1,7 @@
 # reduxライフサイクルの実例
 
-- *Back: [reduxライフサイクル - store](./lifecycle_store.md)*
-- *Next: [React/reduxの構成](./react_redux.md)*
+- *Back: [reduxライフサイクル - store](./07_lifecycle_store.md)*
+- *Next: [React/reduxの構成](./09_react_redux.md)*
 
 reduxがUIにどのようにして影響を与えているかを検証する。
 

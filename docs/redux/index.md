@@ -7,21 +7,21 @@
 
 ## 目次
 
-- [はじめに](./contents/intro.md)
-- [webアプリのしくみ](./contents/web_app.md)
-- [reduxの特徴](./contents/feature.md)
-- [reduxライフサイクルの構成](./contents/lifecycle.md)
-  - [action](./contents/lifecycle_action.md)
-  - [reducer](./contents/lifecycle_reducer.md)
-  - [store](./contents/lifecycle_store.md)
-  - [実例](./contents/lifecycle_example.md)
-- [React/reduxの構成](./contents/react_redux.md)
-  - [実例](./contents/react_redux_example.md)
-  - [演習](./contents/react_redux_exercise.md)
-- [非同期処理](./contents/async.md)
-  - [middleware](./contents/middleware.md)
-  - [演習](./contents/async_exercise.md)
-- [発展演習](./contents/extra_exercise.md)
+- [はじめに](./contents/01_intro.md)
+- [webアプリのしくみ](./contents/02_web_app.md)
+- [reduxの特徴](./contents/03_feature.md)
+- [reduxライフサイクルの構成](./contents/04_lifecycle.md)
+  - [action](./contents/05_lifecycle_action.md)
+  - [reducer](./contents/06_lifecycle_reducer.md)
+  - [store](./contents/07_lifecycle_store.md)
+  - [実例](./contents/08_lifecycle_example.md)
+- [React/reduxの構成](./contents/09_react_redux.md)
+  - [実例](./contents/10_react_redux_example.md)
+  - [演習](./contents/11_react_redux_exercise.md)
+- [非同期処理](./contents/12_async.md)
+  - [middleware](./contents/13_middleware.md)
+  - [演習](./contents/14_async_exercise.md)
+- [発展演習](./contents/15_extra_exercise.md)
 
 ## 公式ドキュメント
 

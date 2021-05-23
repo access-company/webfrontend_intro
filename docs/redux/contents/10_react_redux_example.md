@@ -1,7 +1,7 @@
 # React/reduxの実例
 
-- *Back: [React/reduxの構成](./react_redux.md)*
-- *Next: [React/redux演習](./react_redux_exercise.md)*
+- *Back: [React/reduxの構成](./09_react_redux.md)*
+- *Next: [React/redux演習](./11_react_redux_exercise.md)*
 
 redux/src以下の代表的なファイルを見ていく。
 

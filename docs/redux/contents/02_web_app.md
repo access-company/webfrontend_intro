@@ -1,7 +1,7 @@
 # webアプリのしくみ
 
-- *Back: [はじめに](./intro.md)*
-- *Next: [reduxの特徴](./feature.md)*
+- *Back: [はじめに](./01_intro.md)*
+- *Next: [reduxの特徴](./03_feature.md)*
 
 ## 3層アーキテクチャー
 
