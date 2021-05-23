@@ -1,8 +1,8 @@
 # reduxライフサイクル
 
-*Back: [reduxの特徴](./contents/feature.md)*
+*Back: [reduxの特徴](./feature.md)*
 -
-*Next: [reduxライフサイクル - action](./contents/lifecycle_action.md)*
+*Next: [reduxライフサイクル - action](./lifecycle_action.md)*
 
 ## 概要
 
