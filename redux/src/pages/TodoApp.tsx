@@ -2,6 +2,7 @@ import ImportTodo from '../components/ImportTodo'
 import AddTodo from '../components/AddTodo'
 import TodoList from '../components/TodoList'
 import VisibilityFilters from '../components/VisibilityFilters'
+import ColorFilters from '../components/ColorFilters'
 import '../styles.css'
 import { words } from '../constants'
 
@@ -13,6 +14,7 @@ export default function TodoApp() {
       <AddTodo />
       <TodoList />
       <VisibilityFilters />
+      <ColorFilters />
     </div>
   )
 }

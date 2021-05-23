@@ -29,6 +29,15 @@
   text-decoration: line-through;
   color: lightgray;
 }
+.todo-item__color-select--red {
+  color: red;
+}
+.todo-item__color-select--green {
+  color: green;
+}
+.todo-item__color-select--blue {
+  color: blue;
+}
 
 /** visibility filters **/
 .filter {

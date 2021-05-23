@@ -2,8 +2,10 @@ import React, { FC } from 'react'
 import { useDispatch } from 'react-redux'
 import cx from 'classnames'
 
-import { toggleTodo, deleteTodo } from '../actions/todo'
+import { toggleTodo, deleteTodo, changeColor } from '../actions/todo'
 import { Todo } from '../models/Todo'
+import { colors, Color } from '../models/ColorFilter'
+import { words } from '../constants'
 
 interface Props {
   todo: Todo
@@ -11,6 +13,10 @@ interface Props {
 
 const TodoItem: FC<Props> = ({ todo }) => {
   const dispatch = useDispatch()
+
+  const handleChangeColor = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    dispatch(changeColor(todo.id, event.target.value as Color))
+  }
 
   const handleDelete = (_event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
     dispatch(deleteTodo(todo.id))
@@ -27,6 +33,19 @@ const TodoItem: FC<Props> = ({ todo }) => {
 
   return (
     <li className="todo-item">
+      <select
+        defaultValue={todo.color}
+        onChange={handleChangeColor}
+        className={`todo-item__color-select--${todo.color}`.toLowerCase()}
+      >
+        {
+          colors.map(color => (
+            <option value={color}>
+              {(words.COLOR_FILTERS as any)[color]}
+            </option>
+        　))
+        }
+      </select>
       <span onClick={handleDelete}>
         {'❎'}
       </span>

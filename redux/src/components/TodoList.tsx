@@ -2,12 +2,12 @@ import { FC } from 'react'
 import { useSelector } from 'react-redux'
 
 import TodoItem from './TodoItem'
-import { getTodosByVisibilityFilter } from '../selectors/todo'
+import { getTodosByFilters } from '../selectors/todo'
 import { words } from '../constants'
 import { Todo } from '../models/Todo'
 
 const TodoList: FC = () => {
-  const todos = useSelector(getTodosByVisibilityFilter)
+  const todos = useSelector(getTodosByFilters)
   return (
     <ul className="todo-list">
       {todos && todos.length

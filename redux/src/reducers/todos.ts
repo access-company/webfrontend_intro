@@ -1,4 +1,5 @@
 import { Todo } from '../models/Todo'
+import { colors } from '../models/ColorFilter'
 import { Type, TodoAction } from '../actions/todo'
 
 const todo = (state: Todo[] = [], action: TodoAction) => {
@@ -12,6 +13,7 @@ const todo = (state: Todo[] = [], action: TodoAction) => {
           text,
           link,
           completed: false,
+          color: colors[0],
         },
       ]
     }
@@ -21,6 +23,14 @@ const todo = (state: Todo[] = [], action: TodoAction) => {
         existingId === id
         ? { ...todo, id: existingId, completed: !completed }
         : { ...todo, id: existingId, completed }
+      ))
+    }
+    case Type.CHANGE_COLOR: {
+      const { id, color } = action.payload
+      return state.map(({ id: existingId, ...todo }) => (
+        existingId === id
+        ? { ...todo, id: existingId, color }
+        : { ...todo, id: existingId }
       ))
     }
     case Type.DELETE_TODO: {

@@ -1,19 +1,29 @@
 import { Todo } from '../models/Todo'
 import { VisibilityFilter } from '../models/VisibilityFilter'
+import { ColorFilter } from '../models/ColorFilter'
 import { RootState } from '../store'
 
 export const getTodos = (state: RootState) =>
   state.todos as Todo[]
 
-export const getTodosByVisibilityFilter = (state: RootState) => {
+export const getTodosByFilters = (state: RootState) => {
   const allTodos = getTodos(state)
-  switch (state.visibilityFilter) {
+  console.log(state)
+  return filterByColor(filterByVisibilityFilter(allTodos, state.visibilityFilter), state.colorFilter)
+}
+
+const filterByVisibilityFilter = (todos: Todo[], visibilityFilter: VisibilityFilter) => {
+  switch (visibilityFilter) {
     case VisibilityFilter.COMPLETED:
-      return allTodos.filter((todo: Todo) => todo.completed)
+      return todos.filter((todo: Todo) => todo.completed)
     case VisibilityFilter.INCOMPLETE:
-      return allTodos.filter((todo: Todo) => !todo.completed)
+      return todos.filter((todo: Todo) => !todo.completed)
     case VisibilityFilter.ALL:
     default:
-      return allTodos
+      return todos
   }
+}
+
+const filterByColor = (todos: Todo[], colors: ColorFilter) => {
+  return todos.filter((todo: Todo) => colors[todo.color])
 }

@@ -1,9 +1,11 @@
 import { Dispatch } from 'redux'
+import { Color } from '../models/ColorFilter'
 
 export const Type = {
   ADD_TODO: 'ADD_TODO',
   TOGGLE_TODO: 'TOGGLE_TODO',
   DELETE_TODO: 'DELETE_TODO',
+  CHANGE_COLOR: 'CHANGE_COLOR'
 } as const
 
 let nextTodoId = 0
@@ -34,7 +36,13 @@ export const importTodo = () => (dispatch: Dispatch) =>
     addTodo(activity, link)
   ))
 
+export const changeColor = (id: number, color: Color) => ({
+  type: Type.CHANGE_COLOR,
+  payload: { id, color },
+})
+
 export type TodoAction =
   ReturnType<typeof addTodo>
   | ReturnType<typeof toggleTodo>
   | ReturnType<typeof deleteTodo>
+  | ReturnType<typeof changeColor>

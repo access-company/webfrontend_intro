@@ -8,4 +8,9 @@ export const words = {
     COMPLETED: '完了',
     INCOMPLETE: '未完了',
   },
+  COLOR_FILTERS: {
+    RED: '萬子',
+    BLUE: '筒子',
+    GREEN: '索子',
+  },
 }
