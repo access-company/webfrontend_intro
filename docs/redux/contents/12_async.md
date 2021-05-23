@@ -53,7 +53,7 @@ const incrementAsync = () => async dispatch => {
 
 ### 原理
 
-redux-thunkの実体は[middleware](./middleware.md)である。<br/>
+redux-thunkの実体は[middleware](./13_middleware.md)である。<br/>
 `dispatch`の性質を変化させることで、同期処理と非同期処理の違いを意識せずに済む。
 
 redux-thunkの本体コードはとても短い。
