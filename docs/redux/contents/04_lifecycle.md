@@ -21,14 +21,14 @@ reduxでは、依存関係は一方向にのみ伝達される。
 
 ![](./redux_lifecycle.png)
 
-- 1. `view`でイベントが発生する。
-- 2. redux内部が更新される。
-  - 2-1. `action`が実行される（[注1](#注1)）。
+- a. `view`でイベントが発生する。
+- b. redux内部が更新される。
+  - b-1. `action`が実行される（[注1](#注1)）。
     - `store.dispatch(action)` が呼ばれる。
-  - 2-2. `store.dispatch`は実行された`action`を`reducer`に渡す。
-  - 2-3. `reducer`は`action`と「古い`store state`」を受け取り、「新しい`store state`」を返す。
-  - 2-4. `store state`が更新される。
-- 3. `view`が更新される。
+  - b-2. `store.dispatch`は実行された`action`を`reducer`に渡す。
+  - b-3. `reducer`は`action`と「古い`store state`」を受け取り、「新しい`store state`」を返す。
+  - b-4. `store state`が更新される。
+- c. `view`が更新される。
 
 ###### 注1
 
