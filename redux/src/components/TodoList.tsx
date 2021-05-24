@@ -5,22 +5,25 @@ import { ReactSortable } from "react-sortablejs";
 import TodoItem from './TodoItem'
 import { sortTodos } from '../actions/todo'
 import { getTodosByFilters } from '../selectors/todo'
+import { getColorFilter } from '../selectors/colorFilter'
 import { words } from '../constants'
 import { Todo } from '../models/Todo'
 
 const TodoList: FC = () => {
   const todos = useSelector(getTodosByFilters)
+  const colorFilter = useSelector(getColorFilter)
   const dispatch = useDispatch()
-  const sort = useCallback((todos: Todo[]) => dispatch(sortTodos(todos)), [dispatch])
+  const sort = useCallback((todos: Todo[]) => dispatch(sortTodos(todos, colorFilter)), [dispatch, colorFilter])
   return (
     <ul className="todo-list">
-      <ReactSortable list={todos} setList={sort}>
       {todos && todos.length
-        ? todos.map((todo: Todo) =>
-            <TodoItem key={`todo-${todo.id}`} todo={todo} />
-          )
-        : words.NO_TODO_LEFT}
-      </ReactSortable>
+        ? <ReactSortable list={todos} setList={sort}>
+            {todos.map((todo: Todo) =>
+              <TodoItem key={`todo-${todo.id}`} todo={todo} />
+            )}
+          </ReactSortable>
+        : words.NO_TODO_LEFT
+      }
     </ul>
   )
 }

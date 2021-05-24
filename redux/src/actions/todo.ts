@@ -1,7 +1,7 @@
 import { Dispatch } from 'redux'
 
 import { Todo } from '../models/Todo'
-import { Color } from '../models/ColorFilter'
+import { Color, ColorFilter } from '../models/ColorFilter'
 
 export const Type = {
   ADD_TODO: 'ADD_TODO',
@@ -44,9 +44,9 @@ export const changeColor = (id: number, color: Color) => ({
   payload: { id, color },
 })
 
-export const sortTodos = (todos: Todo[]) => ({
+export const sortTodos = (todos: Todo[], colorFilter: ColorFilter) => ({
   type: Type.SORT_TODOS,
-  payload: { todos },
+  payload: { todos, colorFilter },
 })
 
 export type TodoAction =

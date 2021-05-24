@@ -38,8 +38,16 @@ const todo = (state: Todo[] = [], action: TodoAction) => {
       return state.filter(({ id: existingId }) => existingId !== id)
     }
     case Type.SORT_TODOS: {
-      const { todos } = action.payload
-      return todos
+      const { todos, colorFilter } = action.payload
+      const filteredIndexes = state.flatMap(({ color }, index) => colorFilter[color] ? [index] : [])
+      return state.map((todo, index) => {
+        const filteredIndex = filteredIndexes.indexOf(index)
+        if (filteredIndex === -1) {
+          return { ...todo }
+        } else {
+          return { ...todos[filteredIndex] }
+        }
+      })
     }
     default:
       return state
