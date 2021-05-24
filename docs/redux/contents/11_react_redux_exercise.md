@@ -28,5 +28,5 @@ Reactとreduxを接続するための処理を確認する。
     - `store.todos`からIDが一致するアイテムを除外する。
       - `store.todos`は`Todo`の配列である。
 - src/components/Todo.js
-  - `useCallback`を用いて`handleDeleteTodo`を定義する。
+  - `handleDeleteTodo`を定義する。
   - `<span>❎<span>`に`onClick`イベントを追加する。
