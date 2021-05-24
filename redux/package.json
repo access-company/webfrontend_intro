@@ -16,6 +16,7 @@
     "redux-devtools-extension": "^2.13.9",
     "redux-persist": "^6.0.0",
     "redux-thunk": "^2.3.0",
+    "sortablejs": "^1.13.0",
     "typescript": "^4.1.2"
   },
   "scripts": {
@@ -41,5 +42,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/sortablejs": "^1.10.6"
   }
 }
