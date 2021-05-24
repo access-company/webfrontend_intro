@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import cx from 'classnames'
 import { useSelector, useDispatch } from 'react-redux'
 
-import { setFilter } from '../actions/visibilityFilter'
+import { setVisibilityFilter } from '../actions/visibilityFilter'
 import { getVisibilityFilter } from '../selectors/visibilityFilter'
 import { words } from '../constants'
 import { VisibilityFilter } from '../models/VisibilityFilter'
@@ -12,7 +12,7 @@ const VisibilityFilters: FC = () => {
   const dispatch = useDispatch()
 
   const handleChange = (visibilityFilter: keyof typeof VisibilityFilter) => (_event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
-    dispatch(setFilter(visibilityFilter))
+    dispatch(setVisibilityFilter(visibilityFilter))
   }
 
   return (
