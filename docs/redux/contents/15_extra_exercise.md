@@ -85,6 +85,9 @@ store.todos: { data: array[Todo], requesting: boolean }
 TODOリストのアイテムを drag & drop して、順序を入れ替える機能を追加してください。
 
 必要に応じてライブラリを導入してください。
+
 （迷うようであれば、latest commitが最近で、GitHub starが多いものを推奨しておきます）
+
 https://qiita.com/sugasaki/items/30e4725268a68c53e218
+
 https://github.com/brillout/awesome-react-components#sortable-list
