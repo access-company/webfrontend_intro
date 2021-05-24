@@ -37,6 +37,10 @@ const todo = (state: Todo[] = [], action: TodoAction) => {
       const { id } = action.payload
       return state.filter(({ id: existingId }) => existingId !== id)
     }
+    case Type.SORT_TODOS: {
+      const { todos } = action.payload
+      return todos
+    }
     default:
       return state
   }
