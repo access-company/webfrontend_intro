@@ -6,7 +6,7 @@ const config = {
     trailingSlash: false,
   },
   header: {
-    logo: 'logo_access.svg',
+    logo: 'https://access-company.github.io/webfrontend_intro/react/logo_access.svg',
     logoLink: 'https://www.access-company.com/',
     title: '',
     githubUrl: '',
@@ -49,7 +49,8 @@ const config = {
       '/12_effect',
       '/13_another_hooks',
       '/14_performance',
-      '/15_advanced'
+      '/15_advanced',
+      '/99_appendix'
     ],
     links: [
       {

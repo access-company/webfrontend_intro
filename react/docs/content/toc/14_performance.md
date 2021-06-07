@@ -25,3 +25,17 @@ const MemoizedMyComponent = React.memo(function MyComponent(props) {
 
 
 参照: https://ja.reactjs.org/docs/react-api.html#reactmemo
+
+
+## 【課題14-1】 描画パフォーマンスを改善しよう！
+
+（[Fork](https://codepen.io/aseijiurushihara/pen/zYZNoBw?editors=1111)）
+
+はじめに、CodePenの左下の "Console" タブを選択して、コンソールログを表示してください。
+Startボタン押下するとカウントを開始します。Stopボタンを押下すると、カウントを一時停止します。
+HTML出力画面の count= xxxxx の数字とコンソールログの Counter と CounterButton の数字を
+確認してください。
+
+**課題内容**
+
+CounterとCounterButtonのコンソールログのカウント数を最適化してください。
