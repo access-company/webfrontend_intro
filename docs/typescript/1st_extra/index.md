@@ -1,13 +1,13 @@
-# 2日目(午後) TypeScript Deep Dive
+# 1 日目(午後,Extra) TypeScript Deep Dive
 
 ## 目次
 
 - [Basic Types](#Basic-Types)
-  - [Union Type](#Union-Type)
-  - [Intersection Type](#Intersection-Type)
-  - [Mapped Type](#Mapped-Type)
-  - [Conditional Type](#Conditional-Type)
-- [Generics](#Generics)
+  - [Union Type](#Union-Types)
+  - [Intersection Type](#Intersection-Types)
+    - [Mapped Type](#Mapped-Type)
+    - [Conditional Type](#Conditional-Type)
+    - [Generics](#Generics)
 - [先行して使える構文](#先行して使える構文)
   - [Optional and Default Parameters](#Optional-and-Default-Parameters)
     - [Optional Parameters](#Optional-Parameters)
@@ -15,11 +15,10 @@
   - [Non-null assertion](#Non-null-assertion)
   - [Optional Chaining](#Optional-Chaining)
   - [Nullish Coalescing](#Nullish-Coalescing)
-- [時間が余った時用](#時間が余った時用)
-  
+
 ## Basic Types
 
-TypeScriptの型システムを使用すると、さまざまな演算子を使用して、既存の型から新しい型を構築できます。  
+TypeScript の型システムを使用すると、さまざまな演算子を使用して、既存の型から新しい型を構築できます。  
 いくつかピックアップして解説していきます。
 
 ### Union Types
@@ -28,11 +27,11 @@ TypeScriptの型システムを使用すると、さまざまな演算子を使�
 `|` で繋いで表現をします。
 
 ```ts
-let value: string | number // value は文字列型か数値型を持つ
+let value: string | number; // value は文字列型か数値型を持つ
 
-value = 'taro' //OK
-value = 1 // OK
-value = true // コンパイルエラー
+value = "taro"; //OK
+value = 1; // OK
+value = true; // コンパイルエラー
 ```
 
 #### 演習問題
@@ -46,24 +45,25 @@ value = true // コンパイルエラー
 
 ```ts
 type Hoge = {
-  foo: string
-  bar: boolean
-}
+  foo: string;
+  bar: boolean;
+};
 type Fuga = {
-  foo: string
-  baz: number
-}
+  foo: string;
+  baz: number;
+};
 
 const obj1: Hoge & Fuga = {
-  foo: 'taro',
+  foo: "taro",
   bar: false,
-  baz: 1
-}
+  baz: 1,
+};
 
-const obj2: Hoge & Fuga = { // baz を持っていないのでコンパイルエラー
-  foo: 'jiro',
-  bar: true
-}
+const obj2: Hoge & Fuga = {
+  // baz を持っていないのでコンパイルエラー
+  foo: "jiro",
+  bar: true,
+};
 ```
 
 #### 演習問題
@@ -77,31 +77,31 @@ const obj2: Hoge & Fuga = { // baz を持っていないのでコンパイルエ
 ```ts
 // interface の場合
 interface IHoge {
-  foo: string
-  bar: boolean
+  foo: string;
+  bar: boolean;
 }
 interface IHoge {
-  baz: number
+  baz: number;
 }
 const obj1: IHoge = {
-  foo: 'taro',
+  foo: "taro",
   bar: false,
-  baz: 1
-}
+  baz: 1,
+};
 
 // type の場合
 type THoge = {
-  foo: string
-  bar: boolean
-}
+  foo: string;
+  bar: boolean;
+};
 type TFuga = {
-  baz: number
-}
+  baz: number;
+};
 const obj2: THoge & TFuga = {
-  foo: 'taro',
+  foo: "taro",
   bar: false,
-  baz: 1
-}
+  baz: 1,
+};
 ```
 
 </details>
@@ -113,12 +113,12 @@ const obj2: THoge & TFuga = {
 `K` は string の部分型である必要があります。
 
 ```ts
-type Hoge = {[P in 'foo' | 'bar']: string}
+type Hoge = { [P in "foo" | "bar"]: string };
 
 const obj = {
-  foo: 'taro',
-  bar: 'jiro'
-}
+  foo: "taro",
+  bar: "jiro",
+};
 ```
 
 `K` 型の値として可能な各文字列 `P` に対して、型 `T` を持つプロパティ `P` が存在するようなオブジェクトの型を意味しています。  
@@ -136,11 +136,11 @@ const obj = {
 
 ```ts
 type Hoge = {
-  foo: string
-  bar: number
-}
+  foo: string;
+  bar: number;
+};
 
-type OptionalHoge = Partial<Hoge> // { foo?: string, bar?: number }
+type OptionalHoge = Partial<Hoge>; // { foo?: string, bar?: number }
 ```
 
 </details>
@@ -150,11 +150,11 @@ type OptionalHoge = Partial<Hoge> // { foo?: string, bar?: number }
 型レベルの条件分岐が可能な型です。  
 `T extends U ? X : Y` のようにして表現します。  
 この型は `T` が `U` の部分型ならば `X` に、そうでなければ `Y` になります。  
-三項演算子と同様の記法を用います。  
+三項演算子と同様の記法を用います。
 
 ```ts
-type Diff<T, U> = T extends U ? never : T
-type RequiredKeys = Diff<'age' | 'name', 'age'> // 'name'
+type Diff<T, U> = T extends U ? never : T;
+type RequiredKeys = Diff<"age" | "name", "age">; // 'name'
 ```
 
 上記の例は `Conditional Type` を用いて、 `T` に指定した型から、 `U` に指定した型を取り除く型 `Diff` を定義しています。  
@@ -165,21 +165,21 @@ type RequiredKeys = Diff<'age' | 'name', 'age'> // 'name'
 
 ```ts
 type Diff =
-  ('age' extends 'age' ? never : 'age') |
-  ('name' extends 'age' ? never : 'name')
+  | ("age" extends "age" ? never : "age")
+  | ("name" extends "age" ? never : "name");
 ```
 
 `'age'` は `'age'` 型 なので `never` が返って来ます。  
 `'name'` は `'age'` 型 ではないので `'name'` が返って来ます。
 
 ```ts
-type Diff = never | 'name'
+type Diff = never | "name";
 ```
 
 `never` は union 型からは除外されるようになっているため
 
 ```ts
-type Diff = 'name'
+type Diff = "name";
 ```
 
 となり、 `RequiredKeys` の型は `'name'` となります。
@@ -195,14 +195,14 @@ type Diff = 'name'
 
 ```ts
 type Foo<S, T> = {
-  foo: S,
-  bar: T
-}
+  foo: S;
+  bar: T;
+};
 
 const obj: Foo<string, number> = {
-  foo: 'foo',
-  bar: 1
-}
+  foo: "foo",
+  bar: 1,
+};
 ```
 
 上記コードのようにすると、 `Foo` は２つの型変数 `S`, `T` を持ち、 `foo` , `bar` が型変数 `S`, `T` の型となる object の型を表します。  
@@ -218,20 +218,20 @@ const obj: Foo<string, number> = {
 
 #### Optional Parameters
 
-`?` を用いる事でパラメータを省略可能であると表せます。   
+`?` を用いる事でパラメータを省略可能であると表せます。  
 optional なパラメータは required なパラメータの最後に記述しなければなりません。  
 optional なパラメータは実質 `undefined` との Union Types となります
 
 ```ts
 function log(message: string, userName?: string): void {
   if (!userName) {
-    console.log(`guest: ${message}`)
+    console.log(`guest: ${message}`);
   }
-  console.log(`${userName}: ${message}`)
+  console.log(`${userName}: ${message}`);
 }
 
-log('hello') // OK -> guest: hello
-log('hello', 'taro') // OK -> taro: hello
+log("hello"); // OK -> guest: hello
+log("hello", "taro"); // OK -> taro: hello
 ```
 
 ##### 演習問題
@@ -240,17 +240,17 @@ log('hello', 'taro') // OK -> taro: hello
 
 #### Default Parameters
 
-関数の引数の後に `= ***` で引数のデフォルト値を指定出来ます。   
+関数の引数の後に `= ***` で引数のデフォルト値を指定出来ます。  
 関数の引数の場合、デフォルトパラメータを指定しておく場合も多いです。  
 デフォルトパラメータを指定する場合、順序に決まりはありません。
 
 ```ts
-function log(message: string, userName: string = 'guest'): void {
-  console.log(`${userName}: ${message}`)
+function log(message: string, userName: string = "guest"): void {
+  console.log(`${userName}: ${message}`);
 }
 
-log('hello') // OK -> guest: hello
-log('hello', 'jiro') // OK -> jiro: hello
+log("hello"); // OK -> guest: hello
+log("hello", "jiro"); // OK -> jiro: hello
 ```
 
 ##### 演習問題
@@ -263,13 +263,13 @@ log('hello', 'jiro') // OK -> jiro: hello
 要素の後ろに `!` を記述して表現します。
 
 ```ts
-const message1 = 'hello' as string | null
-const message2 = 'hello' as string | null
-const message3 = null as string | null
+const message1 = "hello" as string | null;
+const message2 = "hello" as string | null;
+const message3 = null as string | null;
 
-message1.toUpperCase() // コンパイルエラーになるが、ランタイムエラーにならない
-message2!.toUpperCase() // コンパイルエラーにならず、ランタイムエラーにならない
-message3!.toUpperCase() // コンパイルエラーにならず、ランタイムエラーになる
+message1.toUpperCase(); // コンパイルエラーになるが、ランタイムエラーにならない
+message2!.toUpperCase(); // コンパイルエラーにならず、ランタイムエラーにならない
+message3!.toUpperCase(); // コンパイルエラーにならず、ランタイムエラーになる
 ```
 
 コンパイラに「この要素は存在する」と伝えるため、 要素が `null` であることによるコンパイルエラーが発生しません。  
@@ -281,23 +281,23 @@ message3!.toUpperCase() // コンパイルエラーにならず、ランタイ�
 
 ### Optional Chaining
 
-null/undefinedのチェックを楽に書ける記法です。  
+null/undefined のチェックを楽に書ける記法です。  
 null/undefined になり得る要素の後ろに `?` を記述して表現します。
 
 ```ts
 type Hoge = {
   foo?: {
-    bar: string
-  }
-}
+    bar: string;
+  };
+};
 
 const obj: Hoge = {
   foo: {
-    bar: 'taro'
-  }
-}
+    bar: "taro",
+  },
+};
 
-const string = obj.foo?.bar
+const string = obj.foo?.bar;
 // Optional Chaining を使わない場合
 // const string = obj.foo && obj.foo.bar // 論理演算子を使っている
 ```
@@ -316,9 +316,9 @@ const string = obj.foo?.bar
 
 ```ts
 // javascript での例
-const result = foo || bar
+const result = foo || bar;
 // これは以下と同義
-const result = foo ? foo : bar
+const result = foo ? foo : bar;
 ```
 
 この場合 `foo` が空文字列や `0` の場合でも `bar` を返してしまいます。  
@@ -326,20 +326,20 @@ const result = foo ? foo : bar
 
 ```ts
 // Nullish Coalescing を用いて、空文字列、0の場合も foo を返せるようにする
-const result = foo ?? bar
+const result = foo ?? bar;
 ```
 
 #### 演習問題
 
 `/typescript/src/advanced/exercise10.ts` を問いてみてください。
 
-## 時間が余った時用
+<!-- ## 時間が余った時用
 
-`/typescript/src/sp` に研修振り返り用の問題を用意しています。  
+`/typescript/src/sp` に研修振り返り用の問題を用意しています。
 問いてみてください。
 
-問題は拝借してきたものです。  
-教え切れてない内容もあるのでググってもOK、ただし答えを探すのはNG！
+問題は拝借してきたものです。
+教え切れてない内容もあるのでググっても OK、ただし答えを探すのは NG！
 
 ## level1
 
@@ -360,4 +360,4 @@ const result = foo ?? bar
 - 脱入門のレベル
 - 解ければ TypeScript の基礎は完全に理解出来てそう
 
-問題は、 `/typescript/src/sp/level3/` にあります。今までの演習問題同様に実行して確認して下さい。
+問題は、 `/typescript/src/sp/level3/` にあります。今までの演習問題同様に実行して確認して下さい。 -->

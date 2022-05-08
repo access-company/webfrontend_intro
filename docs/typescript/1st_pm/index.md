@@ -1,4 +1,4 @@
-# 2日目(午前) TypeScript 基礎演習
+# 1 日目(午後) TypeScript 基礎演習
 
 TypeScript で簡単なコードを書いてみよう
 
@@ -24,7 +24,7 @@ TypeScript を JavaScript にトランスパイルし、トランスパイルさ
 
 ```shell
 # トランスパイル
-$ yarn build # tsc 実行
+$ yarn build  # tsc 実行
 # node で実行
 $ node ./dist/standard/{対象の.jsファイル名} # 相対パスで指定
 ```
