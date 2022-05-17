@@ -1,0 +1,27 @@
+.table {
+  border-spacing: 0px;
+  font-family:'Times New Roman', Times, serif;
+}
+
+.thead > tr {
+  background-color: #0CF;
+}
+.thead > tr > th {
+  padding: 5px;
+}
+.thead > tr > :not(:last-child) {
+  border-right: 1px solid #666;
+}
+
+.tbody > :nth-child(odd) {
+  background-color: #0FF;
+}
+.tbody > :nth-child(even) {
+  background-color: #CFF;
+}
+.tbody > tr > td {
+  padding: 5px;
+}
+.tbody > tr > :not(:last-child) {
+  border-right: 1px solid #666;
+}
