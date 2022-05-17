@@ -8,8 +8,8 @@ import {
   incrementAsync,
   incrementIfOdd,
   selectCount,
-} from './counterSlice';
-import styles from './Counter.module.css';
+} from '../../slices/counter';
+import styles from './style.module.css';
 
 export function Counter() {
   const count = useAppSelector(selectCount);
