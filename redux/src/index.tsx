@@ -1,15 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+
 import { store } from './app/store';
 import Home from './pages/Home';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
+import AuthorsPage from './pages/AuthorsPage';
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <Home />
+      <BrowserRouter>
+        <Switch>
+          <Route path="/authors">
+            <AuthorsPage />
+          </Route>
+          <Route path="/" />
+            <Home />
+          </Route>
+        </Switch>
+      </BrowserRouter>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

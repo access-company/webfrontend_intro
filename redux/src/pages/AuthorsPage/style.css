@@ -1,0 +1,13 @@
+.AuthorsPage {
+  text-align: center;
+}
+
+.AuthorsTable {
+  display: flex;
+  justify-content: center;
+}
+
+.AuthorCreateForm {
+  display: flex;
+  justify-content: center;
+}
