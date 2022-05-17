@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
 import AuthorsPage from './pages/AuthorsPage';
+import BooksPage from './pages/BooksPage';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -16,6 +17,9 @@ ReactDOM.render(
         <Switch>
           <Route path="/authors">
             <AuthorsPage />
+          </Route>
+          <Route path="/books">
+            <BooksPage />
           </Route>
           <Route path="/" />
             <Home />
@@ -26,8 +30,3 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

@@ -1,0 +1,13 @@
+.BooksPage {
+  text-align: center;
+}
+
+.BooksTable {
+  display: flex;
+  justify-content: center;
+}
+
+.BookCreateForm {
+  display: flex;
+  justify-content: center;
+}
