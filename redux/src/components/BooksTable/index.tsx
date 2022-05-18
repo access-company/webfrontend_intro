@@ -1,38 +1,46 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import { Author } from '../../models/Author';
 
-import { useAppSelector, useAppDispatch } from '../../app/hooks';
-import { fetchAuthorsAsync, selectAuthors, selectAuthorsStatus } from '../../slices/authors';
-import {
-  fetchBooksAsync,
-  selectBooks,
-  selectBooksStatus,
-} from '../../slices/books';
-import { Presenter } from './Presenter';
+import { Book } from '../../models/Book';
+import styles from './style.module.css';
 
-export function BooksTable() {
-  const authors = useAppSelector(selectAuthors);
-  const authorsStatus = useAppSelector(selectAuthorsStatus);
-  const books = useAppSelector(selectBooks);
-  const booksStatus = useAppSelector(selectBooksStatus);
-  const dispatch = useAppDispatch();
+interface Props {
+  states: {
+    authors: Author[]
+    books: Book[]
+  }
+}
 
-  useEffect(() => {
-    if (authorsStatus === 'initial') {
-      dispatch(fetchAuthorsAsync())
-    }
-    if (booksStatus === 'initial') {
-      dispatch(fetchBooksAsync())
-    }
-  }, [dispatch, authorsStatus, booksStatus])
-
-  return (<Presenter
-    {
-      ...{
-        states: {
-          authors,
-          books,
-        }
-      }
-    }
-  />)
+export function BooksTable(props: Props) {
+  const {
+    states: {
+      authors,
+      books,
+    },
+  } = props
+  return (
+    <table className={styles.table}>
+      <thead className={styles.thead}>
+        <tr>
+          <th>Id</th>
+          <th>Title</th>
+          <th>First name</th>
+          <th>Last name</th>
+        </tr>
+      </thead>
+      <tbody className={styles.tbody}>
+        {books.map(({ id, title, authorId }) => {
+          const author = authors.find(({ id }) => id === authorId)
+          return (
+            <tr key={id}>
+              <td>{id}</td>
+              <td>{title}</td>
+              <td>{author?.firstName}</td>
+              <td>{author?.lastName}</td>
+            </tr>
+          )
+        })}
+      </tbody>
+    </table>
+  );
 }
