@@ -12,14 +12,20 @@ export function BookCreateForm() {
   const authorsStatus = useAppSelector(selectAuthorsStatus);
   const dispatch = useAppDispatch();
 
+  const [title, setTitle] = useState('')
+  const [authorId, setAuthorId] = useState<number>(authors[0]?.id)
+
   useEffect(() => {
     if (authorsStatus === 'initial') {
       dispatch(fetchAuthorsAsync())
     }
   }, [dispatch, authorsStatus])
 
-  const [title, setTitle] = useState('')
-  const [authorId, setAuthorId] = useState<number | undefined>(undefined)
+  useEffect(() => {
+    if (authorId == null) {
+      setAuthorId(authors[0]?.id)
+    }
+  }, [authorId, authors])
 
   const createBook = (title: string, authorId: number) => { dispatch(createBookAsync({ title, authorId })) }
 

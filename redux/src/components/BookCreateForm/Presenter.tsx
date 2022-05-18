@@ -6,7 +6,7 @@ import styles from './style.module.css';
 interface Props {
   states: {
     title: string
-    authorId?: number
+    authorId: number
     authors: Author[]
   }
   actions: {
@@ -38,7 +38,7 @@ export function Presenter(props: Props) {
       </div>
       <div>
         <span>Author</span>
-        <select name="authorId" onChange={e => setAuthorId(Number(e.target.value) || 0)} value={authorId == null ? authors[0]?.id : authorId}>
+        <select name="authorId" onChange={e => setAuthorId(Number(e.target.value))} value={authorId}>
           {
             authors.map(({ id, firstName, lastName }) => (
               <option key={id} value={id}>
