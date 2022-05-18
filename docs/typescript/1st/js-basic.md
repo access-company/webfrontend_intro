@@ -10,7 +10,7 @@
   - [let](#let)
   - [var](#var)
 - [関数](#関数)
-  - [アロー関数](<#Arrow-function(ES2015)>)
+  - [アロー関数](#arrow-functiones2015)
 - [演算子](#演算子)
   - [基本的な二項演算子](#基本的な二項演算子)
   - [比較演算子](#比較演算子)
@@ -178,6 +178,10 @@ TypeScript では以下に置き換えて型定義を行います。
 - 正規表現  
   正規表現リテラルは `/`（スラッシュ）と `/`（スラッシュ）で正規表現のパターン文字列を囲みます。
 
+ #### 演習問題
+
+`/typescript/src/standard/exercise３.ts` を問いてみてください。
+
 ## 変数宣言
 
 JavaScript の変数宣言の種類
@@ -262,6 +266,11 @@ ES2015 で追加された `const` , `let` はこれらの問題が解消され�
 `var` を人間が使わなければならない場面は無いので、原則使わないようにしましょう。  
 ※ 今でも `var` が残っているのは後方互換のためです。
 
+
+#### 演習問題
+
+`/typescript/src/standard/exercise1.ts` を問いてみてください。
+
 ## 関数
 
 関数とは、ある一連の手続き（文の集まり）を 1 つの処理としてまとめる機能です。  
@@ -290,7 +299,7 @@ function sum(num1: number, num2: number): number {
 }
 ```
 
-### Arrow function(ES2015)
+### Arrow-function(ES2015)
 
 関数式には `function` キーワードを使った方法以外に、`Arrow Function` と呼ばれる書き方があります。  
 名前のとおり矢印のような `=>（イコールと大なり記号）` を使い、匿名関数を定義する構文です。
@@ -417,6 +426,10 @@ obj1["obj2"]["method"]();
 
 </details>
 
+#### 演習問題
+
+`/typescript/src/standard/exercise5.ts` を問いてみてください。
+
 ## 演算子
 
 算子はよく利用する演算処理を記号などで表現したものです。  
@@ -483,6 +496,10 @@ obj1["obj2"]["method"]();
 
 TypeScript の場合も、これらの演算子の使い方は同じです。
 
+#### 演習問題
+
+`/typescript/src/standard/exercise2.ts` を問いてみてください。
+
 ## 暗黙的な型変換
 
 「ある処理において、その処理過程で行われる明示的ではない型変換」のことを暗黙的な型変換と言います。  
@@ -525,7 +542,7 @@ TypeScript で返り値の型を縛る事で、実装者が意図しない型変
 
 条件分岐を使うことで、特定の条件を満たすかどうかで行う処理を変更できます。
 
-### if 文
+### if文
 
 if 文を使うことで、プログラム内に条件分岐を書けます。  
 if 文は次のような構文が基本形となります。 `条件式` の評価結果が `true` であるならば、 `実行する文` が実行されます。
@@ -574,7 +591,7 @@ if (num > 10) {
 
 TypeScript の場合も、使い方は同じです。
 
-### switch 文
+### switch文
 
 switch 文は、次のような構文で `式` の評価結果が指定した値である場合に行う処理を並べて書きます。
 
@@ -617,7 +634,7 @@ getECMAScriptName("ES6"); // => 'ECMAScript 2015'
 
 TypeScript の場合も、使い方は同じです。
 
-## ループ
+## ループ 
 
 反復処理には `for文` や `while文`, 配列のインスタンスメソッドなどがあります。
 
@@ -636,6 +653,10 @@ const result = array.map((item) => {
 この「新しい配列を生成する」部分が重要で、基の `array` には変更が加えられず、新しい配列 `result` が定義されます。
 
 TypeScript の場合も、使い方は同じです。
+
+#### 演習問題
+
+`/typescript/src/standard/exercise4.ts` を問いてみてください。
 
 ## 非同期処理
 
@@ -763,3 +784,13 @@ async function asyncMain() {
   console.log("この行は非同期処理が完了後に実行される");
 }
 ```
+
+#### 演習問題
+
+`/typescript/src/standard/exercise6.ts` を問いてみてください。
+
+#### 残る問題解いてみよう
+
+`/typescript/src/standard/exercise7.ts`
+
+`/typescript/src/standard/exercise8.ts`
