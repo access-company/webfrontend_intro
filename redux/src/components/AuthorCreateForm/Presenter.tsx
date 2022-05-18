@@ -10,7 +10,7 @@ interface Props {
   actions: {
     setFirstName: (firstName: string) => void
     setLastName: (lastName: string) => void
-    createAuthor: Function
+    createAuthor: (firstName: string, lastName: string) => void
   }
 }
 

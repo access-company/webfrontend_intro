@@ -12,7 +12,7 @@ interface Props {
   actions: {
     setTitle: (title: string) => void
     setAuthorId: (authorId: number) => void
-    createBook: Function
+    createBook: (title: string, authorId: number) => void
   }
 }
 
