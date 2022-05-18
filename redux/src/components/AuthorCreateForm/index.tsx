@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 
-import { useAppDispatch } from '../../app/hooks';
-import {
-  createAuthorAsync,
-} from '../../slices/authors';
 import { Presenter } from './Presenter';
 
-export function AuthorCreateForm() {
-  const dispatch = useAppDispatch()
+interface Props {
+  actions: {
+    createAuthor: (firstName: string, lastName: string) => void
+  }
+}
 
+export function AuthorCreateForm(props: Props) {
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
 
-  const createAuthor = (firstName: string, lastName: string) => { dispatch(createAuthorAsync({ firstName, lastName })) }
+  const { actions: { createAuthor } } = props
 
   return (<Presenter
     {
