@@ -16,25 +16,23 @@ export function Presenter(props: Props) {
     },
   } = props
   return (
-    <div>
-      <table className={styles.table}>
-        <thead className={styles.thead}>
-          <tr>
-            <th>Id</th>
-            <th>First name</th>
-            <th>Last name</th>
+    <table className={styles.table}>
+      <thead className={styles.thead}>
+        <tr>
+          <th>Id</th>
+          <th>First name</th>
+          <th>Last name</th>
+        </tr>
+      </thead>
+      <tbody className={styles.tbody}>
+        {authors.map(({ id, firstName, lastName }) => (
+          <tr key={id}>
+            <td>{id}</td>
+            <td>{firstName}</td>
+            <td>{lastName}</td>
           </tr>
-        </thead>
-        <tbody className={styles.tbody}>
-          {authors.map(({ id, firstName, lastName }) => (
-            <tr key={id}>
-              <td>{id}</td>
-              <td>{firstName}</td>
-              <td>{lastName}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+        ))}
+      </tbody>
+    </table>
   );
 }
