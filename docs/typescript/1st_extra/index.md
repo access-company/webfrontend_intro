@@ -1,13 +1,13 @@
-# 1 日目(午後,Extra) TypeScript Deep Dive
+# TypeScript Deep Dive
 
 ## 目次
 
 - [Basic Types](#Basic-Types)
   - [Union Type](#Union-Types)
   - [Intersection Type](#Intersection-Types)
-    - [Mapped Type](#Mapped-Type)
-    - [Conditional Type](#Conditional-Type)
-    - [Generics](#Generics)
+    - [Mapped Type](#mapped-types)
+    - [Conditional Type](#conditional-types)
+    - [Generics](#generics)
 - [先行して使える構文](#先行して使える構文)
   - [Optional and Default Parameters](#Optional-and-Default-Parameters)
     - [Optional Parameters](#Optional-Parameters)
@@ -16,12 +16,12 @@
   - [Optional Chaining](#Optional-Chaining)
   - [Nullish Coalescing](#Nullish-Coalescing)
 
-## Basic Types
+## Basic-Types
 
 TypeScript の型システムを使用すると、さまざまな演算子を使用して、既存の型から新しい型を構築できます。  
 いくつかピックアップして解説していきます。
 
-### Union Types
+### Union-Types
 
 値が複数の型のどれかに当てはまるような型を表します。  
 `|` で繋いで表現をします。
@@ -38,7 +38,7 @@ value = true; // コンパイルエラー
 
 `/typescript/src/advanced/exercise1.ts` を問いてみてください。
 
-### Intersection Types
+### Intersection-Types
 
 指定した型の両方を満たす型を表します。  
 `&` で繋いで表現をします。
@@ -106,7 +106,7 @@ const obj2: THoge & TFuga = {
 
 </details>
 
-### Mapped Types
+### Mapped-Types
 
 (半)動的に型を生成出来ます。  
 `{[P in K]: T}` のようにして表現します。  
@@ -145,7 +145,7 @@ type OptionalHoge = Partial<Hoge>; // { foo?: string, bar?: number }
 
 </details>
 
-### Conditional Types
+### Conditional-Types
 
 型レベルの条件分岐が可能な型です。  
 `T extends U ? X : Y` のようにして表現します。  
@@ -214,7 +214,7 @@ const obj: Foo<string, number> = {
 
 ## 先行して使える構文
 
-### Optional and Default Parameters
+### Optional-and-Default-Parameters
 
 #### Optional Parameters
 

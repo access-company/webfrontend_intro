@@ -1,10 +1,11 @@
-# 1 日目 TypeScript について知る
+# TypeScript について知る
 
 ## 目次
 
 - [TypeScript とは何か](#TypeScript-とは何か)
 - [トランスパイラ](#トランスパイラ)
 - [TypeScript と JavaScript の学習](#TypeScript-と-JavaScript-の学習)
+- [演習関連](#演習関連)
 
 ## TypeScript とは何か
 
@@ -98,5 +99,32 @@ TypeScript で配列をソートしたい場合はどうしたら良い？とい
 本研修では、その点の補足をしつつ、 **TypeScript ベースで JavaScript の学習を行う**と考えてください。
 
 Deep Dive に関しては、午後に時間が許す範囲で行います。
+
+## 演習関連
+
+### 準備
+
+リポジトリの `/typescript` ディレクトリに移動し、 TypeScript の開発環境を用意し、実際に TypeScript を書いてみましょう。
+
+```shell
+# /typescript ディレクトリへ移動
+$ cd typescript
+# パッケージをインストール
+$ yarn
+```
+
+演習問題は、 `/typescript/src/standard` にあります。  
+`exercise1` から順番に問いていってみてください。
+
+### 動作確認方法
+
+TypeScript を JavaScript にトランスパイルし、トランスパイルされた JavaScript を実行して動作確認を行います。
+
+```shell
+# トランスパイル
+$ yarn build  # tsc 実行
+# node で実行
+$ node ./dist/standard/{対象の.jsファイル名} # 相対パスで指定
+```
 
 次 [JavaScript(TypeScript) 基礎](./js-basic.md)
