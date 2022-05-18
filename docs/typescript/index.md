@@ -13,17 +13,16 @@
 
 ## 目次
 
-- [1日目](./1st/index.md)  
+- [1 日目(午前)](./1st/index.md)  
   座学メイン
   - TypeScript とは何か？
-  - JavaScript(TypeScript)の基礎 
-- [2日目(午前)](./2nd_am/index.md)  
-  演習メイン
-  - TypeScript 基礎演習
-    - TypeScript で簡単なコードを書いてみよう
-- [2日目(午後)](./2nd_pm/index.md)  
-  座学・演習
-  - 午前の演習解説
+  - JavaScript(TypeScript)の基礎
+- [1 日目(午後)](./1st_pm/index.md)  
+   演習メイン
+  - TypeScript 基礎演習 - TypeScript で簡単なコードを書いてみよう
+  - 演習解説
+- [1 日目(時間が余った場合)](./1st_extra/index.md)
+  - 座学・演習
   - TypeScript Deep Dive
     - Basic Types
     - TypeScript が先行している構文
