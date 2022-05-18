@@ -1,22 +1,33 @@
-import React from 'react';
 
-import { AuthorsTable } from '../../components/AuthorsTable';
-import { AuthorCreateForm } from '../../components/AuthorCreateForm';
-import { Header } from '../../components/Header';
+import React, { useEffect } from 'react';
+
+import { useAppSelector, useAppDispatch } from '../../app/hooks';
+import {
+  fetchAuthorsAsync,
+  createAuthorAsync,
+  selectAuthors,
+  selectAuthorsStatus,
+} from '../../slices/authors';
+import Presenter from './Presenter';
 import './style.css';
 
-function AuthorsPage() {
-  return (
-    <div className="AuthorsPage">
-      <Header />
-      <div className="AuthorsTable">
-        <AuthorsTable />
-      </div>
-      <div className="AuthorCreateForm">
-        <AuthorCreateForm />
-      </div>
-    </div>
-  );
+export function AuthorsPage() {
+  const authors = useAppSelector(selectAuthors)
+  const authorsStatus = useAppSelector(selectAuthorsStatus);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    if (authorsStatus === 'initial') {
+      dispatch(fetchAuthorsAsync())
+    }
+  }, [dispatch, authorsStatus])
+
+  const createAuthor = (firstName: string, lastName: string) => { dispatch(createAuthorAsync({ firstName, lastName })) }
+
+  return <Presenter
+    states={{ authors }}
+    actions={{ createAuthor }}
+  />
 }
 
 export default AuthorsPage;
