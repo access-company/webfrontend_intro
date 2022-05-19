@@ -32,33 +32,62 @@ CodeSandboxは、オンラインで複数ファイルを含むwebアプリを実
 ## ファイルレイアウト
 
 - src/
-  - [actions/](./src/actions/) - action - UIのイベントを表すオブジェクト
   - [components/](./src/components/) - Reactコンポーネント
-  - [constants.tsx](./src/constants.tsx) - 日本語の文字列
   - [index.tsx](./src/index.tsx) - webアプリのroot
-  - [models/](./src/models/) - リソース(Todo, 検索条件)の型
+  - [models/](./src/models/) - リソース(作家/本)の型
   - [pages/](./src/pages/) - ページ
-  - [reducers/](./src/reducers/) - reducer - storeの次の状態を生成するための関数
-  - [selectors/](./src/selectors/) - selector - storeから状態を取得するための関数
-  - [store.ts](./src/store.ts) - store - UIの状態を保持するオブジェクト
-  - [styles.css](./src/styles.css) - スタイルシート
-
-## リソース名
-
-`Todo`: TODOリストのアイテム
-
-`VisibilityFilter`: TODOの検索条件
+  - [slices/](./src/slices/) - slice - storeの状態遷移を定義するモジュール（後述）
+  - app/
+    - [store.ts](./src/app/store.ts) - store - UIの状態を保持するオブジェクト
 
 ## アプリの構成
 
-![](./react_components.png)
+### 概要
 
-- ImportTodo: インポートボタンを押すと、リモートからTODOリストのアイテムを取得できる。（未実装）
-- AddTodo: 追加ボタンを押すと、TODOリストのアイテムを追加できる。
-- TodoItem
-  - Xをクリックすると、アイテムを削除できる。（未実装）
-  - テキスト部分をクリックすると、アイテムの状態（完了/未完了）を切り替えられる。
-- VisibilityFilter: TODOリストの検索条件（全て/完了/未完了）を切り替えられる。
+作家の一覧と本の一覧を管理するアプリ。
+
+### ER図
+
+- `Author`: 作家
+- `book`: 本
+
+`Author` `1`: `Book` `0-n` の親子関係がある。
+
+```mermaid
+erDiagram
+    AUTHOR ||--o{ BOOK : writes
+    AUTHOR {
+        int id PK
+        string firstName
+        string lastName
+    }
+    BOOK {
+        int id PK
+        int authorId FK
+        string title
+    }
+```
+
+### 画面イメージ
+
+以下のような関係でコンポーネントを組み合わせている。
+
+- pages/AuthorsPage - 作家(author)一覧・追加画面
+  - components/Header - ヘッダー
+  - components/AuthorsTable - 作家一覧
+  - components/AuthorCreateForm - 作家追加フォーム
+- pages/BooksPage - 本(book)一覧・追加画面
+  - components/Header - ヘッダー
+  - components/BooksTable - 本一覧
+  - components/BookCreateForm - 本追加フォーム
+
+#### 作家(author)一覧・追加画面
+
+![image](https://user-images.githubusercontent.com/32472129/168813800-4e26addd-4cce-4163-bce3-91088bfa0865.png)
+
+#### 本(book)一覧・追加画面
+
+![image](https://user-images.githubusercontent.com/32472129/168813812-f6da3e6d-066b-4465-bb19-30b84d87faa5.png)
 
 ## ブランチの内容
 
