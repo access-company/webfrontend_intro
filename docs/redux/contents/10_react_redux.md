@@ -1,8 +1,8 @@
-#  9. React/reduxの構成
+# 10. React/reduxの構成
 
 - *Up: [目次](../index.md)*
-- *Back: [8. reduxライフサイクルの実例](./08_lifecycle_example.md)*
-- *Next: [10. React/reduxの実例](./10_react_redux_example.md)*
+- *Back: [9. reduxライフサイクルの実例](./09_lifecycle_example.md)*
+- *Next: [11. React/reduxの実例](./11_react_redux_example.md)*
 
 React から redux への副作用を定義するために、[react-redux](https://react-redux.js.org/tutorials/connect)ライブラリを使用する。
 

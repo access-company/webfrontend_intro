@@ -1,9 +1,8 @@
-# 12. 非同期処理
+# 13. 非同期処理
 
 - *Up: [目次](../index.md)*
-- *Back: [11. React/redux演習](./11_react_redux_exercise.md)*
-- *Next: [13. middleware](./13_middleware.md)*
-
+- *Back: [12. React/redux演習](./12_react_redux_exercise.md)*
+- *Next: [14. middleware](./14_middleware.md)*
 ## 非同期処理とは
 
 同期処理: 前の処理を待って実行される処理 (blocking)

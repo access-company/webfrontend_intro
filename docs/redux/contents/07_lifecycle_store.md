@@ -2,7 +2,7 @@
 
 - *Up: [目次](../index.md)*
 - *Back: [6. reduxライフサイクル - reducer](./06_lifecycle_reducer.md)*
-- *Next: [8. reduxライフサイクルの実例](./08_lifecycle_example.md)*
+- *Next: [8. redux toolkit](./08_lifecycle_toolkit.md)*
 
 `store`はUIの状態の全てを知っている (Single source of truth)。
 

@@ -1,8 +1,8 @@
-# 10. React/reduxの実例
+# 11. React/reduxの実例
 
 - *Up: [目次](../index.md)*
-- *Back: [9. React/reduxの構成](./09_react_redux.md)*
-- *Next: [11. React/redux演習](./11_react_redux_exercise.md)*
+- *Back: [10. React/reduxの構成](./10_react_redux.md)*
+- *Next: [12. React/redux演習](./12_react_redux_exercise.md)*
 
 redux/src以下の代表的なファイルを見ていく。
 
