@@ -10,7 +10,7 @@
 
 ## 講義の位置
 
-[2021フロントエンド技術ロードマップ](https://roadmap.sh/frontend)
+[2022フロントエンド技術ロードマップ](https://roadmap.sh/frontend)
 reduxは、Reactとともに「フレームワーク選定」に属している。
 
 ![](./frontend_loadmap.png)
