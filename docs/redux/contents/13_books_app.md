@@ -11,7 +11,7 @@
 
 ## ソース
 
-[booksアプリ](https://codesandbox.io/s/runtime-breeze-k7ku4h)
+[booksアプリ](https://codesandbox.io/s/redux-training-2022-books-app-3tdyzk)
 
 右上の`fork`ボタンをクリックして、自分用のコピーを作成してください。
 

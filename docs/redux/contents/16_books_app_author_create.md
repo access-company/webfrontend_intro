@@ -9,12 +9,12 @@
 作家追加機能の流れを確認する。
 
 - 非同期actionを定義する。
-  - [src/slices/authors.ts]()
+  - [src/slices/authors.ts](https://codesandbox.io/s/redux-training-2022-books-app-3tdyzk?file=/src/slices/authors.ts)
 - sliceに関連づける。
-  - [src/slices/authors.ts]()
+  - [src/slices/authors.ts](https://codesandbox.io/s/redux-training-2022-books-app-3tdyzk?file=/src/slices/authors.ts)
 - 作家追加フォームのcontainer componentにイベントハンドラ(createAuthor)を取り込む。
-  - [src/components/AuthorsTable/index.ts]()
+  - [src/components/AuthorCreateForm/index.ts](https://codesandbox.io/s/redux-training-2022-books-app-3tdyzk?file=/src/components/AuthorCreateForm/index.ts)
 - Presenterにイベントハンドラ(createAuthor)を渡す。
-  - [src/components/AuthorsTable/index.tsx]()
+  - [src/components/AuthorCreateForm/index.ts](https://codesandbox.io/s/redux-training-2022-books-app-3tdyzk?file=/src/components/AuthorCreateForm/index.ts)
 - Presenterはイベントハンドラ(createAuthor)をonClickイベントに紐づける。
-  - [src/components/AuthorsTable/Presenter.tsx]()
+  - [src/components/AuthorCreateForm/Presenter.tsx](https://codesandbox.io/s/redux-training-2022-books-app-3tdyzk?file=/src/components/AuthorCreateForm/Presenter.tsx)
