@@ -7,6 +7,9 @@
 ## 演習2(本追加)
 
 BookCreateFormにreduxが導入されていますが、本を作成するイベントが発行できていません。
+
 BookCreateFormに
+```
 action.createBook(title: string, authorId: number)
+```
 というpropsを追加し、本を作成できるように修正してください。
