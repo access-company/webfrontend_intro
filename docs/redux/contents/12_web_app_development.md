@@ -20,7 +20,7 @@ pageは複数のcomponentからなる。
 
 pageはcomponentにpropsを渡すことができる。
 
-routerはcontextパターンの一つで、react-domのbrowserHistoryを知っている。
+routerは[History API](https://developer.mozilla.org/en-US/docs/Web/API/History_API)に依存する。
 
 page、componentは純関数。
 
