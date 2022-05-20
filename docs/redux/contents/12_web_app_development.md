@@ -15,10 +15,13 @@
 router - page - component
 
 routerは複数のpageからなる。
+
 pageは複数のcomponentからなる。
+
 pageはcomponentにpropsを渡すことができる。
 
 routerはcontextパターンの一つで、react-domのbrowserHistoryを知っている。
+
 page、componentは純関数。
 
 ## SPA(React-redux)
