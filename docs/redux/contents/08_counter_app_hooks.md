@@ -2,7 +2,7 @@
 
 - *Up: [目次](../index.md)*
 - *Back: [7. counterアプリ - store](./07_counter_app_store.md)*
-- *Next: [9. React/reduxの実例](./11_react_redux_example.md)*
+- *Next: [9. counterアプリ - 実習](./09_counter_app_exercise.md)*
 
 reduxをReactコンポーネントに反映するために、[react-redux](https://react-redux.js.org/tutorials/connect)ライブラリを使用する。
 
