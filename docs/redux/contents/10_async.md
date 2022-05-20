@@ -1,9 +1,20 @@
-# 13. 非同期処理
+# 10. 非同期処理
 
 - *Up: [目次](../index.md)*
-- *Back: [12. React/redux演習](./12_react_redux_exercise.md)*
-- *Next: [14. middleware](./14_middleware.md)*
-## 非同期処理とは
+- *Back: [09. counterアプリ - 実習](./09_counter_app_exercise.md)*
+- *Next: [11. middleware](./11_middleware.md)*
+
+## 説明
+
+非同期なcounterアプリを用いて非同期処理の説明を行う。
+
+## ソース
+
+[非同期counterアプリ](https://codesandbox.io/s/runtime-breeze-k7ku4h)
+
+右上の`fork`ボタンをクリックして、自分用のコピーを作成してください。
+
+## 非同期処理とは（復習）
 
 同期処理: 前の処理を待って実行される処理 (blocking)
 
@@ -39,21 +50,13 @@ action creatorの自由度を増やすことで同期処理と非同期処理の
 
 ### 例
 
-```js
-// 同期処理
-const increment = () => ({
-  type: 'INCREMENT'
-})
-
-// 非同期処理
-const incrementAsync = () => async dispatch => {
-  setTimeout(() => { return dispatch(increment()) }, 2000)
-}
-```
+- [非同期actionの定義](https://codesandbox.io/s/redux-training-2022-counter-async-w0nn0q?file=/src/slice.ts:244-292)
+- [sliceへの適用](https://codesandbox.io/s/redux-training-2022-counter-async-w0nn0q?file=/src/slice.ts:800-832)
+- [viewへの適用](https://codesandbox.io/s/redux-training-2022-counter-async-w0nn0q?file=/src/App.tsx:460-531)
 
 ### 原理
 
-redux-thunkの実体は[middleware](./13_middleware.md)である。<br/>
+redux-thunkの実体は[middleware](./11_middleware.md)である。<br/>
 `dispatch`の性質を変化させることで、同期処理と非同期処理の違いを意識せずに済む。
 
 redux-thunkの本体コードはとても短い。
