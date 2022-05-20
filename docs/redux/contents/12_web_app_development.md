@@ -24,6 +24,8 @@ routerはcontextパターンの一つで、react-domのbrowserHistoryを知っ�
 
 page、componentは純関数。
 
+![](./spa_react_only.png)
+
 ## SPA(React-redux)
 
 大規模なwebアプリでは、reduxを用いた構成になる。
@@ -38,6 +40,8 @@ Providerはcontextパターンの一つで、reduxを知っている。
 
 - pageのロジック部分をpage containerとpage presenterに分離する。
 - (and/or) componentのロジック部分をcomponent containerとcomponent presenterに分離する。
+
+![](./spa_react_redux.png)
 
 ### redux reducer と react reducer
 
