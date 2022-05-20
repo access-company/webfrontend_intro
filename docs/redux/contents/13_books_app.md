@@ -2,7 +2,7 @@
 
 - *Up: [目次](../index.md)*
 - *Back: [12. web開発とredux](./12_web_app_development.md)*
-- *Next: [14. 非同期処理](./14_async.md)*
+- *Next: [14. booksアプリ - 作家一覧](./14_books_app_author_table.md)*
 
 ## 説明
 

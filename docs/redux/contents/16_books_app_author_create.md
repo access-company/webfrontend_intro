@@ -2,7 +2,7 @@
 
 - *Up: [目次](../index.md)*
 - *Back: [15. booksアプリ - 本一覧](./15_books_app_book_table.md)*
-- *Next: [17. 本追加](./16_advanced_exercise.md)*
+- *Next: [17. booksアプリ - 本追加](./16_advanced_exercise.md)*
 
 ## 説明
 
