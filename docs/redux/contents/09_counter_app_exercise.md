@@ -13,7 +13,7 @@ counterアプリの内部動作を確認する。
 
   - actionの一覧から`@@INIT`を選択する。
   - State => Raw の順で選択する。
-  ```json
+  ```js
   {
     counter: {
       value: 0
@@ -26,13 +26,13 @@ counterアプリの内部動作を確認する。
   - `+` ボタンをクリックする。
   - actionの一覧から`counter/increment`を選択する。
   - Action => Raw の順で選択する。
-    ```json
+    ```js
     {
-      type: 'counter/increment',
+      type: 'counter/increment'
     }
     ```
   - State => Raw の順で選択する。
-    ```json
+    ```js
     {
       counter: {
         value: 1
