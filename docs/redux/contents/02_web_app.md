@@ -80,9 +80,9 @@ webアプリは3層アーキテクチャーで理解することができる。
 #### データの流れ
 
 - リクエスト
-  - View => Action => Backend
+  - View => Action( => Backend)
 - レスポンス
-  - Backend => Action => Dispatcher => Store => View
+  - (Backend => )Action => Dispatcher => Store => View
 - どうなるか？
   - View は Store をsubscribeしている（直接Backendではない）
 
@@ -105,11 +105,10 @@ webアプリは3層アーキテクチャーで理解することができる。
 #### データの流れ
 
 - リクエスト
-  - View => Action => Backend
+  - View => Action( => Backend)
 - レスポンス
-  - Backend => Action => Reducer => Store => View
+  - (Backend => )Action => Reducer => Store => View
 - どうなるか？
   - View は Store をsubscribeしている（直接Backendではない）
 
 ![](./redux_abstract.png)
-
