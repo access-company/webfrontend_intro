@@ -32,7 +32,7 @@ page、componentは純関数。
 
 Provider(router - page - component)
 
-Providerはcontextパターンの一つで、reduxを知っている。
+Providerはreduxを知っている。
 
 ### ロジックと見た目の分離
 
