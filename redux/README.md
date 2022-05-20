@@ -22,12 +22,12 @@ CodeSandboxは、オンラインで複数ファイルを含むwebアプリを実
 
 #### 手順
 
-[こちらのアプリ](https://codesandbox.io/s/runtime-breeze-k7ku4h)にアクセスしてください。
+[codesandbox](https://codesandbox.io/signin)にアクセスしてください。
 
 ログインしていない場合は、githubアカウントでログインorユーザー登録してください。
 (googleでもできますが、開発ツールなのでgithubで統一した方が良いかもしれません)
 
-右上の`fork`ボタンをクリックして、自分用のコピーを作成してください。
+講師が示したsandboxを編集したい場合は、右上の`fork`ボタンをクリックして、自分用のコピーを作成してください。
 
 ## ファイルレイアウト
 
@@ -88,11 +88,3 @@ erDiagram
 #### 本(book)一覧・追加画面
 
 ![image](https://user-images.githubusercontent.com/32472129/168813812-f6da3e6d-066b-4465-bb19-30b84d87faa5.png)
-
-## ブランチの内容
-
-`master`: 修正前のアプリ
-
-`redux_delete_answer`: [React/redux演習](../docs/redux/contents/11_react_redux_exercise.md)の答え
-
-`redux_thunk_answer`: [非同期処理演習](../docs/redux/contents/14_async_exercise.md)の答え
