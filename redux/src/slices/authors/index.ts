@@ -7,12 +7,12 @@ import Action from '../../util/models/Action';
 
 export interface AuthorsState {
   value: Author[];
-  status: 'initial' | 'idle' | 'loading' | 'failed';
+  status: 'idle' | 'loading' | 'failed';
 }
 
 const initialState: AuthorsState = {
   value: [],
-  status: 'initial',
+  status: 'idle',
 };
 
 export const fetchAuthorsAsync = createAsyncThunk(

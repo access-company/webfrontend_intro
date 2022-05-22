@@ -8,12 +8,12 @@ import Action from '../../util/models/Action';
 
 export interface BooksState {
   value: Book[];
-  status: 'initial' | 'idle' | 'loading' | 'failed';
+  status: 'idle' | 'loading' | 'failed';
 }
 
 const initialState: BooksState = {
   value: [],
-  status: 'initial',
+  status: 'idle',
 };
 
 export const fetchBooksAsync = createAsyncThunk(
