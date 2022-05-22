@@ -16,10 +16,8 @@ export function BookCreateForm() {
   const [authorId, setAuthorId] = useState<number>(authors[0]?.id)
 
   useEffect(() => {
-    if (authorsStatus === 'initial') {
-      dispatch(fetchAuthorsAsync())
-    }
-  }, [dispatch, authorsStatus])
+    dispatch(fetchAuthorsAsync())
+  }, [dispatch])
 
   useEffect(() => {
     if (authorId == null) {
