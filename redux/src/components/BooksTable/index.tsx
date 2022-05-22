@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-import { useAppSelector, useAppDispatch } from '../../app/hooks';
+import { useSelector, useDispatch } from '../../app/hooks';
 import { fetchAuthorsAsync, selectAuthors } from '../../slices/authors';
 import { fetchBooksAsync, selectBooks } from '../../slices/books';
 import { Presenter } from './Presenter';

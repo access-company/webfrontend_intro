@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 
-import { useAppDispatch } from '../../app/hooks';
+import { useDispatch } from '../../app/hooks';
 import {
   createAuthorAsync,
 } from '../../slices/authors';
 import { Presenter } from './Presenter';
 
 export function AuthorCreateForm() {
-  const dispatch = useAppDispatch()
+  const dispatch = useDispatch()
 
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')

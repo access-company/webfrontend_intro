@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { useDispatch, useSelector } from '../../app/hooks';
 import { fetchAuthorsAsync, selectAuthors, selectAuthorsStatus } from '../../slices/authors';
 import {
   createBookAsync,
@@ -8,8 +8,8 @@ import {
 import { Presenter } from './Presenter';
 
 export function BookCreateForm() {
-  const authors = useAppSelector(selectAuthors);
-  const dispatch = useAppDispatch();
+  const authors = useSelector(selectAuthors);
+  const dispatch = useDispatch();
 
   const [title, setTitle] = useState('')
   const [authorId, setAuthorId] = useState<number>(authors[0]?.id)

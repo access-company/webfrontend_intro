@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-import { useAppSelector, useAppDispatch } from '../../app/hooks';
+import { useSelector, useDispatch } from '../../app/hooks';
 import {
   fetchAuthorsAsync,
   selectAuthors,
@@ -8,8 +8,8 @@ import {
 import { Presenter } from './Presenter';
 
 export function AuthorsTable() {
-  const authors = useAppSelector(selectAuthors);
-  const dispatch = useAppDispatch();
+  const authors = useSelector(selectAuthors);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchAuthorsAsync())
