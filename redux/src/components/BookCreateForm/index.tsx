@@ -9,7 +9,6 @@ import { Presenter } from './Presenter';
 
 export function BookCreateForm() {
   const authors = useAppSelector(selectAuthors);
-  const authorsStatus = useAppSelector(selectAuthorsStatus);
   const dispatch = useAppDispatch();
 
   const [title, setTitle] = useState('')
@@ -25,7 +24,9 @@ export function BookCreateForm() {
     }
   }, [authorId, authors])
 
-  const createBook = (title: string, authorId: number) => { dispatch(createBookAsync({ title, authorId })) }
+  const createBook = (title: string, authorId: number) => {
+    // 本を作成する処理を追加してください。
+  }
 
   return (<Presenter
     {

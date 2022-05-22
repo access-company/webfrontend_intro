@@ -6,21 +6,24 @@ import { fetchBooksAsync, selectBooks } from '../../slices/books';
 import { Presenter } from './Presenter';
 
 export function BooksTable() {
-  const authors = useAppSelector(selectAuthors);
-  const books = useAppSelector(selectBooks);
-  const dispatch = useAppDispatch();
+  // useSelectorでデータを取得するロジックを指定してください。
+  const authors = []
+  const books = []
+
+  // useDispatchでdispatchを参照してください。
+  const dispatch = null
 
   useEffect(() => {
-    dispatch(fetchAuthorsAsync())
-    dispatch(fetchBooksAsync())
+    // 初回読み込み時にデータを取得してください。
+    // dispatch(action)を追加してください。
   }, [dispatch])
 
   return (<Presenter
     {
       ...{
         states: {
-          authors,
-          books,
+          authors: [],
+          books: [],
         }
       }
     }
