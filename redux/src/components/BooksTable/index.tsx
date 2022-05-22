@@ -1,14 +1,15 @@
 import React, { useEffect } from 'react';
 
-import { useSelector, useDispatch } from '../../app/hooks';
-import { fetchAuthorsAsync, selectAuthors } from '../../slices/authors';
-import { fetchBooksAsync, selectBooks } from '../../slices/books';
+// hooksとactionをimportしてください。
+// import { useSelector, useDispatch } from '../../app/hooks';
+// import { fetchAuthorsAsync, selectAuthors } from '../../slices/authors';
+// import { fetchBooksAsync, selectBooks } from '../../slices/books';
 import { Presenter } from './Presenter';
 
 export function BooksTable() {
   // useSelectorでデータを取得するロジックを指定してください。
-  const authors = []
-  const books = []
+  // const authors = ...
+  // const books = ...
 
   // useDispatchでdispatchを参照してください。
   const dispatch = null

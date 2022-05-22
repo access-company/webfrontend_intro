@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react';
 
 import { useDispatch, useSelector } from '../../app/hooks';
-import { fetchAuthorsAsync, selectAuthors, selectAuthorsStatus } from '../../slices/authors';
-import {
-  createBookAsync,
-} from '../../slices/books';
+import { fetchAuthorsAsync, selectAuthors } from '../../slices/authors';
+
+// createBookAsync actionをimportしてください。
+
+// import {
+//   createBookAsync,
+// } from '../../slices/books';
+
 import { Presenter } from './Presenter';
 
 export function BookCreateForm() {
