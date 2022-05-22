@@ -1,5 +1,4 @@
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { WritableDraft } from 'immer/dist/internal';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 import { fetchBooks, createBook } from '../../apis/books';
 import { RootState } from '../../app/store';
