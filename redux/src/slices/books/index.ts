@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { Stream } from 'stream';
 
 import { fetchBooks, createBook } from '../../apis/books';
 import { RootState } from '../../app/store';
@@ -36,28 +37,36 @@ export const booksSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(fetchBooksAsync.pending, (state) => {
-        state.status = 'loading';
-      })
-      .addCase(fetchBooksAsync.fulfilled, (state, action) => {
-        state.status = 'idle';
-        state.value = action.payload;
-      })
-      .addCase(fetchBooksAsync.rejected, (state) => {
-        state.status = 'failed';
-      })
-      .addCase(createBookAsync.pending, (state) => {
-        state.status = 'loading';
-      })
+      .addCase(fetchBooksAsync.pending, (state) => ({
+        ...state,
+        status: 'loading',
+      }))
+      .addCase(fetchBooksAsync.fulfilled, (state, action) => ({
+        ...state,
+        status: 'idle',
+        value: action.payload,
+      }))
+      .addCase(fetchBooksAsync.rejected, (state) => ({
+        ...state,
+        status: 'failed',
+      }))
+      .addCase(createBookAsync.pending, (state) => ({
+        ...state,
+        status: 'loading',
+      }))
       .addCase(createBookAsync.fulfilled, (state, action) => {
-        state.status = 'idle';
         const sortedBooks = [...state.value].sort(({ id: id1 }, { id: id2 }) => id1 < id2 ? -1 : 1)
         const newId = [...sortedBooks].reverse()[0]?.id + 1 || 0
-        state.value = [...sortedBooks, { ...action.payload, id: newId }];
+        return {
+          ...state,
+          status: 'idle',
+          value: [...sortedBooks, { ...action.payload, id: newId }],
+        }
       })
-      .addCase(createBookAsync.rejected, (state) => {
-        state.status = 'failed';
-      });
+      .addCase(createBookAsync.rejected, (state) => ({
+        ...state,
+        status: 'failed',
+      }));
   },
 });
 

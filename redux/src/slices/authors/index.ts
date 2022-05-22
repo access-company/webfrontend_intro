@@ -36,28 +36,36 @@ export const authorsSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(fetchAuthorsAsync.pending, (state) => {
-        state.status = 'loading';
-      })
-      .addCase(fetchAuthorsAsync.fulfilled, (state, action) => {
-        state.status = 'idle';
-        state.value = action.payload;
-      })
-      .addCase(fetchAuthorsAsync.rejected, (state) => {
-        state.status = 'failed';
-      })
-      .addCase(createAuthorAsync.pending, (state) => {
-        state.status = 'loading';
-      })
+      .addCase(fetchAuthorsAsync.pending, (state) => ({
+        ...state,
+        status: 'loading',
+      }))
+      .addCase(fetchAuthorsAsync.fulfilled, (state, action) => ({
+        ...state,
+        status: 'idle',
+        value: action.payload,
+      }))
+      .addCase(fetchAuthorsAsync.rejected, (state) => ({
+        ...state,
+        status: 'failed',
+      }))
+      .addCase(createAuthorAsync.pending, (state) => ({
+        ...state,
+        status: 'loading',
+      }))
       .addCase(createAuthorAsync.fulfilled, (state, action) => {
-        state.status = 'idle';
         const sortedAuthors = [...state.value].sort(({ id: id1 }, { id: id2 }) => id1 < id2 ? -1 : 1)
         const newId = [...sortedAuthors].reverse()[0]?.id + 1 || 0
-        state.value = [...sortedAuthors, { ...action.payload, id: newId }];
+        return {
+          ...state,
+          status: 'idle',
+          value: [...sortedAuthors, { ...action.payload, id: newId }],
+        }
       })
-      .addCase(createAuthorAsync.rejected, (state) => {
-        state.status = 'failed';
-      });
+      .addCase(createAuthorAsync.rejected, (state) => ({
+        ...state,
+        status: 'failed',
+      }));
   },
 });
 
