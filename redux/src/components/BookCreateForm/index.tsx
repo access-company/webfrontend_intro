@@ -1,25 +1,26 @@
 import React, { useEffect, useState } from 'react';
 
-import { useAppDispatch, useAppSelector } from '../../app/hooks';
-import { fetchAuthorsAsync, selectAuthors, selectAuthorsStatus } from '../../slices/authors';
-import {
-  createBookAsync,
-} from '../../slices/books';
+import { useDispatch, useSelector } from '../../app/hooks';
+import { fetchAuthorsAsync, selectAuthors } from '../../slices/authors';
+
+// createBookAsync actionをimportしてください。
+
+// import {
+//   createBookAsync,
+// } from '../../slices/books';
+
 import { Presenter } from './Presenter';
 
 export function BookCreateForm() {
-  const authors = useAppSelector(selectAuthors);
-  const authorsStatus = useAppSelector(selectAuthorsStatus);
-  const dispatch = useAppDispatch();
+  const authors = useSelector(selectAuthors);
+  const dispatch = useDispatch();
 
   const [title, setTitle] = useState('')
   const [authorId, setAuthorId] = useState<number>(authors[0]?.id)
 
   useEffect(() => {
-    if (authorsStatus === 'initial') {
-      dispatch(fetchAuthorsAsync())
-    }
-  }, [dispatch, authorsStatus])
+    dispatch(fetchAuthorsAsync())
+  }, [dispatch])
 
   useEffect(() => {
     if (authorId == null) {
@@ -27,7 +28,9 @@ export function BookCreateForm() {
     }
   }, [authorId, authors])
 
-  const createBook = (title: string, authorId: number) => { dispatch(createBookAsync({ title, authorId })) }
+  const createBook = (title: string, authorId: number) => {
+    // 本を作成する処理を追加してください。
+  }
 
   return (<Presenter
     {

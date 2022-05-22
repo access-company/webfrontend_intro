@@ -1,18 +1,18 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { Stream } from 'stream';
 
 import { fetchBooks, createBook } from '../../apis/books';
 import { RootState } from '../../app/store';
 import { Book, BookCreateRequest } from '../../models/Book';
+import Action from '../../util/models/Action';
 
 export interface BooksState {
   value: Book[];
-  status: 'initial' | 'idle' | 'loading' | 'failed';
+  status: 'idle' | 'loading' | 'failed';
 }
 
 const initialState: BooksState = {
   value: [],
-  status: 'initial',
+  status: 'idle',
 };
 
 export const fetchBooksAsync = createAsyncThunk(
@@ -31,25 +31,30 @@ export const createBookAsync = createAsyncThunk(
   }
 );
 
+const mockFetchBooks =
+  (fn: ((state: BooksState, action?: Action<Book[]>) => BooksState)) =>
+  (state: BooksState, action?: Action<Book[]>) =>
+  state.value.length ? state : fn(state, action)
+
 export const booksSlice = createSlice({
   name: 'books',
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(fetchBooksAsync.pending, (state) => ({
+      .addCase(fetchBooksAsync.pending, mockFetchBooks((state) => ({
         ...state,
         status: 'loading',
-      }))
-      .addCase(fetchBooksAsync.fulfilled, (state, action) => ({
+      })))
+      .addCase(fetchBooksAsync.fulfilled, mockFetchBooks((state, action) => ({
         ...state,
         status: 'idle',
-        value: action.payload,
-      }))
-      .addCase(fetchBooksAsync.rejected, (state) => ({
+        value: action?.payload as Book[],
+      })))
+      .addCase(fetchBooksAsync.rejected, mockFetchBooks((state) => ({
         ...state,
         status: 'failed',
-      }))
+      })))
       .addCase(createBookAsync.pending, (state) => ({
         ...state,
         status: 'loading',

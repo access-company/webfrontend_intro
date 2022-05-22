@@ -3,15 +3,16 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { fetchAuthors, createAuthor } from '../../apis/authors';
 import { RootState } from '../../app/store';
 import { Author, AuthorCreateRequest } from '../../models/Author';
+import Action from '../../util/models/Action';
 
 export interface AuthorsState {
   value: Author[];
-  status: 'initial' | 'idle' | 'loading' | 'failed';
+  status: 'idle' | 'loading' | 'failed';
 }
 
 const initialState: AuthorsState = {
   value: [],
-  status: 'initial',
+  status: 'idle',
 };
 
 export const fetchAuthorsAsync = createAsyncThunk(
@@ -30,25 +31,30 @@ export const createAuthorAsync = createAsyncThunk(
   }
 );
 
+const mockFetchAuthors =
+  (fn: ((state: AuthorsState, action?: Action<Author[]>) => AuthorsState)) =>
+  (state: AuthorsState, action?: Action<Author[]>) =>
+  state.value.length ? state : fn(state, action)
+
 export const authorsSlice = createSlice({
   name: 'authors',
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(fetchAuthorsAsync.pending, (state) => ({
+      .addCase(fetchAuthorsAsync.pending, mockFetchAuthors((state) => ({
         ...state,
         status: 'loading',
-      }))
-      .addCase(fetchAuthorsAsync.fulfilled, (state, action) => ({
+      })))
+      .addCase(fetchAuthorsAsync.fulfilled, mockFetchAuthors((state, action) => ({
         ...state,
         status: 'idle',
-        value: action.payload,
-      }))
-      .addCase(fetchAuthorsAsync.rejected, (state) => ({
+        value: action?.payload as Author[],
+      })))
+      .addCase(fetchAuthorsAsync.rejected, mockFetchAuthors((state) => ({
         ...state,
         status: 'failed',
-      }))
+      })))
       .addCase(createAuthorAsync.pending, (state) => ({
         ...state,
         status: 'loading',

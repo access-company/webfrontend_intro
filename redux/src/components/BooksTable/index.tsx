@@ -1,36 +1,30 @@
 import React, { useEffect } from 'react';
 
-import { useAppSelector, useAppDispatch } from '../../app/hooks';
-import { fetchAuthorsAsync, selectAuthors, selectAuthorsStatus } from '../../slices/authors';
-import {
-  fetchBooksAsync,
-  selectBooks,
-  selectBooksStatus,
-} from '../../slices/books';
+// hooksとactionをimportしてください。
+// import { useSelector, useDispatch } from '../../app/hooks';
+// import { fetchAuthorsAsync, selectAuthors } from '../../slices/authors';
+// import { fetchBooksAsync, selectBooks } from '../../slices/books';
 import { Presenter } from './Presenter';
 
 export function BooksTable() {
-  const authors = useAppSelector(selectAuthors);
-  const authorsStatus = useAppSelector(selectAuthorsStatus);
-  const books = useAppSelector(selectBooks);
-  const booksStatus = useAppSelector(selectBooksStatus);
-  const dispatch = useAppDispatch();
+  // useSelectorでデータを取得するロジックを指定してください。
+  // const authors = ...
+  // const books = ...
+
+  // useDispatchでdispatchを参照してください。
+  const dispatch = null
 
   useEffect(() => {
-    if (authorsStatus === 'initial') {
-      dispatch(fetchAuthorsAsync())
-    }
-    if (booksStatus === 'initial') {
-      dispatch(fetchBooksAsync())
-    }
-  }, [dispatch, authorsStatus, booksStatus])
+    // 初回読み込み時にデータを取得してください。
+    // dispatch(action)を追加してください。
+  }, [dispatch])
 
   return (<Presenter
     {
       ...{
         states: {
-          authors,
-          books,
+          authors: [],
+          books: [],
         }
       }
     }
