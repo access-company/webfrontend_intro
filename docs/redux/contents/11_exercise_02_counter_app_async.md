@@ -61,7 +61,7 @@
       meta: {...}
     }
     ```
-　- State => Raw の順で選択する。
+  - State => Raw の順で選択する。
     ```js
     {
       counter: {
