@@ -9,12 +9,12 @@
 作家追加機能の流れを確認する。
 
 - 非同期actionを定義する。
-  - [src/slices/authors.ts](https://codesandbox.io/s/books-m7xgxj?file=/src/slices/authors.ts)
+  - [src/slices/authors/index.ts](https://codesandbox.io/s/books-m7xgxj?file=/src/slices/authors/index.ts)
 - sliceに関連づける。
-  - [src/slices/authors.ts](https://codesandbox.io/s/books-m7xgxj?file=/src/slices/authors.ts)
+  - [src/slices/authors/index.ts](https://codesandbox.io/s/books-m7xgxj?file=/src/slices/authors/index.ts)
 - 作家追加フォームのcontainer componentにイベントハンドラ(createAuthor)を取り込む。
-  - [src/components/AuthorCreateForm/index.ts](https://codesandbox.io/s/books-m7xgxj?file=/src/components/AuthorCreateForm/index.ts)
+  - [src/components/AuthorCreateForm/index.tsx](https://codesandbox.io/s/books-m7xgxj?file=/src/components/AuthorCreateForm/index.tsx)
 - Presenterにイベントハンドラ(createAuthor)を渡す。
-  - [src/components/AuthorCreateForm/index.ts](https://codesandbox.io/s/books-m7xgxj?file=/src/components/AuthorCreateForm/index.ts)
+  - [src/components/AuthorCreateForm/index.tsx](https://codesandbox.io/s/books-m7xgxj?file=/src/components/AuthorCreateForm/index.tsx)
 - Presenterはイベントハンドラ(createAuthor)をonClickイベントに紐づける。
   - [src/components/AuthorCreateForm/Presenter.tsx](https://codesandbox.io/s/books-m7xgxj?file=/src/components/AuthorCreateForm/Presenter.tsx)
