@@ -59,8 +59,3 @@ redux-thunkの実体は[middleware](./12_middleware.md)である。
 
 `dispatch`の性質を変化させることで、同期処理と非同期処理の違いを意識せずに済む。
 
-redux-thunkの本体コードはとても短い。
-
-少々難しいが、何が起こるか予測してみると面白いかもしれない。
-
-https://github.com/reduxjs/redux-thunk/blob/master/src/index.js
