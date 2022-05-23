@@ -2,27 +2,11 @@
 
 - *Up: [目次](../index.md)*
 - *Back: [2. webアプリのしくみ](./02_web_app.md)*
-- *Next: [4. reduxライフサイクルの構成](./04_lifecycle.md)*
+- *Next: [4. reduxライフサイクル](./04_lifecycle.md)*
 
-## redux lifecycle
+## 概要
 
-reduxには厳密なルールがある。
-
-それは、UIの状態変化を決められたサイクル(redux lifecycle)で表現するというものである。
-
-このルールを守ることで、依存関係が一方向にのみ伝達されることが保証される。
-
-![](./redux_lifecycle_abstract.png)
-
-## reduxの思想
-
-redux は長期的な DX (developer's experience) にフォーカスしている。
-
-例えば、redux は以下のような原則で理解することができる。
-- [繰り返しの排除 (DRY)](https://ja.wikipedia.org/wiki/Don%27t_repeat_yourself)
-  - 例: action creator
-- [関心の分離](https://ja.wikipedia.org/wiki/%E9%96%A2%E5%BF%83%E3%81%AE%E5%88%86%E9%9B%A2)
-  - 例: 非同期処理のカプセル化
+reduxの特徴を説明する。
 
 ## 長所
 
