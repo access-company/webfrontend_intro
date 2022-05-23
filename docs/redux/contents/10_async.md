@@ -1,7 +1,7 @@
 # 10. 非同期処理
 
 - *Up: [目次](../index.md)*
-- *Back: [09. 基本演習1 - counterアプリ](./09_exercise_01_counter_app.md)*
+- *Back: [9. 基本演習1 - counterアプリ](./09_exercise_01_counter_app.md)*
 - *Next: [11. 基本演習2 - counterアプリ(非同期処理)](./11_exercise_02_counter_app_async.md)*
 
 ## 概要
