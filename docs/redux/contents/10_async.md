@@ -1,18 +1,16 @@
 # 10. 非同期処理
 
 - *Up: [目次](../index.md)*
-- *Back: [09. counterアプリ - 実習](./09_counter_app_exercise.md)*
-- *Next: [11. middleware](./11_middleware.md)*
+- *Back: [09. 基本演習1 - counterアプリ](./09_exercise_01_counter_app.md)*
+- *Next: [11. 基本演習2 - counterアプリ(非同期処理)](./11_exercise_02_counter_app_async.md)*
 
-## 説明
+## 概要
 
-非同期なcounterアプリを用いて非同期処理の説明を行う。
+reduxの非同期処理について説明する。
 
 ## ソース
 
-[非同期counterアプリ](https://codesandbox.io/s/runtime-breeze-k7ku4h)
-
-右上の`fork`ボタンをクリックして、自分用のコピーを作成してください。
+[counterアプリ(非同期処理)](https://codesandbox.io/s/counter-async-w0nn0q)
 
 ## 非同期処理とは（復習）
 
@@ -50,9 +48,10 @@ action creatorの自由度を増やすことで同期処理と非同期処理の
 
 ### 例
 
-- [非同期actionの定義](https://codesandbox.io/s/redux-training-2022-counter-async-w0nn0q?file=/src/slice.ts:244-292)
-- [sliceへの適用](https://codesandbox.io/s/redux-training-2022-counter-async-w0nn0q?file=/src/slice.ts:800-832)
-- [viewへの適用](https://codesandbox.io/s/redux-training-2022-counter-async-w0nn0q?file=/src/App.tsx:460-531)
+- counterアプリ(非同期処理)
+  - [非同期actionの定義](https://codesandbox.io/s/counter-async-w0nn0q?file=/src/slice.ts)
+  - [sliceへの適用](https://codesandbox.io/s/counter-async-w0nn0q?file=/src/slice.ts)
+  - [viewへの適用](https://codesandbox.io/s/counter-async-w0nn0q?file=/src/App.tsx)
 
 ### 原理
 

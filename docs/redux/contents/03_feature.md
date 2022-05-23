@@ -4,6 +4,10 @@
 - *Back: [2. webアプリのしくみ](./02_web_app.md)*
 - *Next: [4. reduxライフサイクル](./04_lifecycle.md)*
 
+## 概要
+
+reduxの特徴を説明する。
+
 ## 長所
 
 - redux lifecycleのルール通りに実装すれば迷いにくい

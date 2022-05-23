@@ -4,9 +4,10 @@
 - *Back: [5. counterアプリ](./05_counter_app.md)*
 - *Next: [7. counterアプリ - store](./07_counter_app_store.md)*
 
-## 説明
+## 概要
 
 `slice`は、`redux-toolkit`というライブラリの機能。
+
 `action`と`reducer`をまとめて定義するためのオブジェクト。
 
 ## 構成要素
@@ -19,4 +20,5 @@
 
 ## 使用例
 
-[sliceの定義](https://codesandbox.io/s/redux-training-2022-counter-0k1109?file=/src/slice.ts)
+- counterアプリ
+  - [sliceの定義](https://codesandbox.io/s/counter-0k1109?file=/src/slice.ts)

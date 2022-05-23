@@ -1,19 +1,16 @@
-# 13. booksアプリ
+# 14. booksアプリ
 
 - *Up: [目次](../index.md)*
-- *Back: [12. web開発とredux](./12_web_app_development.md)*
-- *Next: [14. booksアプリ - 作家一覧](./14_books_app_author_table.md)*
+- *Back: [13. web開発とredux](./13_web_app_development.md)*
+- *Next: [15. booksアプリ - 作家一覧](./15_books_app_author_table.md)*
 
-## 説明
+## 概要
 
-複数ページを持つwebアプリのルールを考えるため、
-本を管理するアプリを用いて実習を行う。
+複数ページを持つwebアプリのルールを考えるため、本を管理するアプリを用いて実習を行う。
 
 ## ソース
 
-[booksアプリ](https://codesandbox.io/s/redux-training-2022-books-app-3tdyzk)
-
-右上の`fork`ボタンをクリックして、自分用のコピーを作成してください。
+[booksアプリ](https://codesandbox.io/s/books-m7xgxj)
 
 ## ファイルレイアウト
 

@@ -2,7 +2,11 @@
 
 - *Up: [目次](../index.md)*
 - *Back: [7. counterアプリ - store](./07_counter_app_store.md)*
-- *Next: [9. counterアプリ - 実習](./09_counter_app_exercise.md)*
+- *Next: [9. 基本演習1 - counterアプリ(同期処理)](./09_exercise_01_counter_app.md)*
+
+## 概要
+
+reduxのhooksについて説明する。
 
 reduxをReactコンポーネントに反映するために、[react-redux](https://react-redux.js.org/tutorials/connect)ライブラリを使用する。
 
@@ -16,7 +20,8 @@ childrenの状態を監視するコンポーネント。
 
 ### 使用例
 
-- [Provider](https://codesandbox.io/s/redux-training-2022-counter-0k1109?file=/src/index.tsx)
+- counterアプリ
+  - [Provider](https://codesandbox.io/s/redux-training-2022-counter-0k1109?file=/src/index.tsx)
 
 ## useSelector
 
@@ -30,8 +35,9 @@ childrenの状態を監視するコンポーネント。
 
 ##### 使用例
 
-- [`state`から`value`を抽出する](https://codesandbox.io/s/redux-training-2022-counter-0k1109?file=/src/slice.ts:630-693)
-- [componentに`value`を読み込む](https://codesandbox.io/s/redux-training-2022-counter-0k1109?file=/src/App.tsx:178-224)
+- counterアプリ
+  - [`state`から`value`を抽出する](https://codesandbox.io/s/redux-training-2022-counter-0k1109?file=/src/slice.ts)
+  - [componentに`value`を読み込む](https://codesandbox.io/s/redux-training-2022-counter-0k1109?file=/src/App.tsx)
 
 #### equalityFn
 
@@ -51,5 +57,6 @@ childrenの状態を監視するコンポーネント。
 
 ### 使用例
 
-- [componentに`dispatch`を読み込む](https://codesandbox.io/s/redux-training-2022-counter-0k1109?file=/src/App.tsx:224-258)
-- [buttonのonClickイベントを紐づける](https://codesandbox.io/s/redux-training-2022-counter-0k1109?file=/src/App.tsx:318-444)
+- counterアプリ
+  - [componentに`dispatch`を読み込む](https://codesandbox.io/s/counter-0k1109?file=/src/App.tsx)
+  - [buttonのonClickイベントを紐づける](https://codesandbox.io/s/counter-0k1109?file=/src/App.tsx)

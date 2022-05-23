@@ -4,10 +4,12 @@
 - *Back: [6. counterアプリ - slice](./06_counter_app_slice.md)*
 - *Next: [8. counterアプリ - hooks](./08_counter_app_hooks.md)*
 
-## 説明
+## 概要
 
 `store`は、reduxの基本となるオブジェクト。
+
 UIの状態を一元管理する。
+
 全体で一つしか存在しない (Single source of truth)。
 
 ## 構成要素
@@ -24,4 +26,5 @@ UIの状態を一元管理する。
 
 ## 使用例
 
-- [storeの定義](https://codesandbox.io/s/redux-training-2022-counter-0k1109?file=/src/store.ts)
+- counterアプリ
+  - [storeの定義](https://codesandbox.io/s/counter-0k1109?file=/src/store.ts)

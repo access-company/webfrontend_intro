@@ -1,8 +1,12 @@
-# 11. middleware
+# 12. middleware
 
 - *Up: [目次](../index.md)*
-- *Back: [10. 非同期処理](./10_async.md)*
-- *Next: [12. web開発とredux](./12_web_app_development.md)*
+- *Back: [11. 基本演習2 - counterアプリ(非同期処理)](./11_exercise_02_counter_app_async.md)*
+- *Next: [13. web開発とredux](./13_web_app_development.md)*
+
+## 概要
+
+reduxのmiddlewareについて説明する。
 
 ## 定義
 

@@ -2,9 +2,9 @@
 
 - *Up: [8. counterアプリ - hooks](./08_counter_app_hooks.md)*
 
-### 説明
+### 概要
 
-`useSelector(selector, equalityFn)`の`equalityFn`について
+`useSelector(selector, equalityFn)`の`equalityFn`について説明する。
 
 #### equalityFn
 

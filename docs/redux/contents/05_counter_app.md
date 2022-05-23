@@ -10,9 +10,7 @@
 
 ## ソース
 
-[counterアプリ](https://codesandbox.io/s/redux-training-2022-counter-0k1109)
-
-右上の`fork`ボタンをクリックして、自分用のコピーを作成してください。
+[counterアプリ](https://codesandbox.io/s/counter-0k1109)
 
 ## ファイルレイアウト
 

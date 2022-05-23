@@ -35,7 +35,10 @@ reduxでは、依存関係は一方向にのみ伝達される。
 
 ###### 注1
 
-viewだけがactionを実行するわけではない。<br />
-`store.dispatch`と`action`に特殊な性質を与えることで、<br />
-`action`の実行を遅らせたり、複数の`action`を連鎖的に実行したりすることができる。<br />
-詳しくは[middleware](./11_middleware.md)を参照。
+viewだけがactionを実行するわけではない。
+
+`store.dispatch`と`action`に特殊な性質を与えることで、
+
+`action`の実行を遅らせたり、複数の`action`を連鎖的に実行したりすることができる。
+
+詳しくは[middleware](./12_middleware.md)を参照。

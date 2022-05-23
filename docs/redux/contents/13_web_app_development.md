@@ -1,10 +1,10 @@
-# 12. web開発とredux
+# 13. web開発とredux
 
 - *Up: [目次](../index.md)*
-- *Back: [11. middleware - hooks](./11_middleware.md)*
-- *Next: [13. booksアプリ](./13_books_app.md)*
+- *Back: [12. middleware](./12_middleware.md)*
+- *Next: [14. booksアプリ](./14_books_app.md)*
 
-## 説明
+## 概要
 
 実際のweb開発にreduxを適用するときの考え方を説明する。
 

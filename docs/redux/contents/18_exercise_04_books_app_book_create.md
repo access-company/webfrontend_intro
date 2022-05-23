@@ -1,10 +1,10 @@
-# 17. booksアプリ - 本追加
+# 18. 基本演習4(booksアプリ - 本追加)
 
 - *Up: [目次](../index.md)*
-- *Back: [16. booksアプリ - 作家追加](./16_books_app_author_create.md)*
-- *Next: [18. 発展課題](./18_advanced_exercise.md)*
+- *Back: [17. booksアプリ - 作家追加](./17_books_app_author_create.md)*
+- *Next: [19. 発展課題](./19_advanced_exercise.md)*
 
-## 演習2(本追加)
+## 概要
 
 BookCreateFormにreduxが導入されていますが、本を作成するイベントが発行できていません。
 
