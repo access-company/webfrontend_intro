@@ -7,6 +7,10 @@
 
 booksアプリをさらに修正することでreduxに慣れる。
 
+## ソース
+
+[booksアプリ(+基本演習の答え)](https://codesandbox.io/s/books-answer-jwbox9)
+
 ## 発展演習1(booksアプリ - 連打)
 
 booksアプリの以下のバグを修正してください。
