@@ -45,7 +45,7 @@ childrenの状態を監視するコンポーネント。
 
 適切な関数を選ぶことで、パフォーマンスの最適化につながる(`useCallback`などと同じ考え方)。
 
-[詳細]('./08_01_counter_app_hooks_equalityfn.md')
+[詳細](./08_01_counter_app_hooks_equalityfn.md)
 
 ## useDispatch
 
