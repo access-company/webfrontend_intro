@@ -2,7 +2,7 @@
 
 - *Up: [目次](../index.md)*
 - *Back: [7. counterアプリ - store](./07_counter_app_store.md)*
-- *Next: [9. 基本演習1 - counterアプリ(同期処理)](./09_exercise_01_counter_app.md)*
+- *Next: [9. 基本演習1 - counterアプリ](./09_exercise_01_counter_app.md)*
 
 ## 概要
 
