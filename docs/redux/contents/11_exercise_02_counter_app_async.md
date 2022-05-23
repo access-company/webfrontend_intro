@@ -54,19 +54,19 @@
   }
   ```
 - actionの一覧から`counter/incrementAsync/fulfilled`を選択する。
-　- Action => Raw の順で選択する。
-　  ```js
-　  {
-　    type: 'counter/incrementAsync/fulfilled',
-　    meta: {...}
-　  }
-　  ```
+  - Action => Raw の順で選択する。
+    ```js
+    {
+      type: 'counter/incrementAsync/fulfilled',
+      meta: {...}
+    }
+    ```
 　- State => Raw の順で選択する。
-  　```js
-  　{
-  　  counter: {
-  　    status: 'idle',
-  　    value: 1
-  　  }
-  　}
-  　```
+    ```js
+    {
+      counter: {
+        status: 'idle',
+        value: 1
+      }
+    }
+    ```
