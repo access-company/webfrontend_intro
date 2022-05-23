@@ -2,7 +2,7 @@
 
 - *Up: [目次](../index.md)*
 - *Back: [17. booksアプリ - 作家追加](./17_books_app_author_create.md)*
-- *Next: [19. 発展課題](./19_advanced_exercise.md)*
+- *Next: [19. 発展演習](./19_advanced_exercise.md)*
 
 ## 概要
 
