@@ -51,3 +51,29 @@ booksアプリに本をstar/unstarする機能を追加してください。
 アプリの見た目と動作は任意です。
 
 「スターのためにカラムを追加する」or「背景色を変える」などが考えられますが、何でも構いません。
+
+## 発展演習4(booksアプリ - web storage)
+
+セッションごとにリストがリセットされないようにしてください。
+
+### 要件
+
+- ブラウザ(タブ)を閉じても、次回開いたときに同じリストが表示されること。
+
+### 実装方針
+
+[redux-persist](https://github.com/rt2zz/redux-persist#basic-usage)を用いて、reducerをlocalStorageと連動させる。
+
+#### localStorageとsessionStorage
+
+[web storage](https://developer.mozilla.org/ja/docs/Web/API/Web_Storage_API)はブラウザの記憶領域。
+
+webアプリではユーザー側の状態を永続化するために用いられる。
+
+reduxとの違いは、ページを離れても状態が持続することである。
+
+web storageは、ホストごとにkey(string)とvalue(string)で格納される(key-value store)。
+
+web storageは以下の2種類に分けられる。
+- localStorage: ブラウザ(タブ)を閉じても有効
+- sessionStorage: ブラウザ(タブ)を閉じると無効
