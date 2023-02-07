@@ -9,14 +9,14 @@ https://github.com/access-company/webfrontend_intro
 2. 右上の「Fork」ボタンを押下
 3. 自身のアカウントを選択
 
-自身のアカウントへリポジトリがForkされます。任意のディレクトリに移動して、**Forkされたリポジトリ** （`https://github.com/[YourGitAccountName]/webfrontend_intro.git`）を git clone してください。clone後に依存モジュールをインストール（1回のみ）した後、yarn start コマンドを実行して、本研修資料を開いてください。
+自身のアカウントへリポジトリがForkされます。任意のディレクトリに移動して、**Forkされたリポジトリ** （`https://github.com/[YourGitAccountName]/webfrontend_intro.git`）を git clone してください。clone後に依存モジュールをインストール（1回のみ）した後、npm start コマンドを実行して、本研修資料を開いてください。
 
 ```bash
 $ cd (任意のディレクトリ)
 $ git clone https://github.com/[YourGitAccountName]/webfrontend_intro.git   // Your account repository
 $ cd webfrontend-intro/react/docs
-$ yarn install
-$ yarn start
+$ npm install
+$ npm start
 
 http://localhost:8000
 ```
@@ -80,42 +80,42 @@ React のサンプルとして用意した電卓アプリ。
 Current directory が docs (webfrontend-intro/react/docs) の時、
 ```
 cd ../sample
-yarn install
+npm install
 ```
 
 ### 4-1-2. Working check
 
 各コマンドを打って動作するかチェック  
 
-* `yarn test`
+* `npm test`
   * 初期状態ではテストケースがないため、jest だけが動作する
-* `yarn start`
+* `npm start`
   * webpack-dev-server が起動し、ブラウザにコンテンツが表示される
-* `yarn storybook`
+* `npm run storybook`
   * storybook が起動し、3 種類のコンポーネントがリストに表示される
-* `yarn lint`
+* `npm run lint`
   * ESLint と prettier が動作し waring が多数出る
 
-## 4-2. yarn Commands
+## 4-2. npm Commands
 
-### yarn start
+### npm start
 
 webpack-dev-server を起動してビルドしたコンテンツを http://localhost:3000 に表示します。  
 コードを変更すると自動的に更新されます。
 
-### yarn test
+### npm test
 
 ユニットテストを実行します。
 
-### yarn build
+### npm run build
 
 ソースファイルをビルドします。
 
-### yarn storybook
+### npm run storybook
 
 Storybook を起動します。
 
-### yarn lint
+### npm run lint
 
 ESLint と prettier によるコードスタイルのチェックが実行されます。
 
@@ -134,9 +134,9 @@ Addon も豊富で, 用途や目的に合わせて Storybook に様々な機能�
 
 ### Run storybook
 
-1. `yarn install`  
+1. `npm install`  
 (初回セットアップをしていない場合)
-2. `yarn storybook`
+2. `npm run storybook`
 
 ##### NOTE
 

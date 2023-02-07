@@ -4,7 +4,7 @@
 
 ```shell
 // install dependencies
-$ yarn
+$ npm i
 ```
 
 ## ディレクトリ構成
@@ -20,7 +20,7 @@ $ yarn
 ## 動作確認
 
 ```shell
-$ yarn build
+$ npm run build
 
 $ node ./dist/standard|advanced/{対象の.jsファイル名} # 相対パスで指定
 ```
