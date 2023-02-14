@@ -59,3 +59,43 @@ setInterval(tick, 1000)
 ```
 
 [CodePen](https://codepen.io/aseijiurushihara/pen/NWGzOar)
+
+
+<details><summary>Advanced</summary>
+
+もしも React に頼らず vanillajs で記述すると、このようになります。
+
+```javascript
+function tick() {
+  const h1_text = "Hello, world!"
+  const h2_text = `It is ${new Date().toLocaleTimeString()}.`
+
+  const root = document.getElementById('root')
+  if ( root.children.length === 1 ) {
+    const [div] = root.children
+    if ( div.children.length === 2 ) {
+      const [h1, h2] = div.children
+      if ( h1.textContent !== h1_text ) { h1.textContent = h1_text }
+      if ( h2.textContent !== h2_text ) { h2.textContent = h2_text }
+    }
+  } else {
+    const div = document.createElement("div")
+
+    const h1 = document.createElement("h1")
+    h1.textContent = h1_text
+
+    const h2 = document.createElement("h2")
+    h2.textContent = h2_text
+
+    div.appendChild(h1)
+    div.appendChild(h2)
+
+    root.appendChild(div)
+  }
+}
+
+setInterval(tick, 1000)
+```
+
+
+</details>
