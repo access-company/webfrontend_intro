@@ -13,13 +13,31 @@ ECMAScript では、上記のような構文は定義されていません。
 
 **JSX** と呼ばれる JavaScript の拡張構文です。ただし、これはそのままブラウザ上では動作しないので注意が必要です。Reactのtoolchainを使って、JSXを使わない、通常のJavaScriptへ変換します。
 
-# JSXを使う理由
+# コンポーネント（３章）
 
 通常のHTML/CSS/JavaScriptのWebアプリケーション開発では、マークアップとロジックを別々のファイルに
 書いて人為的に技術を分離します。一方、Reactは、マークアップとロジックの両方を含む疎結合の
 「 **コンポーネント** 」という単位を導入して、関心を分離します。
 
-この疎結合のコンポーネントを導入することで、宣言的なプログラミングを実現します。
+通常のHTMLタグ以外に、Reactプログラマが定義したコンポーネントをJSXに記載することができます。
+Reactは、この疎結合のコンポーネントを導入することで、宣言的なプログラミングを実現します。これについては３章で学びます。
+
+
+### 通常のHTMLタグで書くJSX
+
+```javascript
+const element = <h1>Hello, world!</h1>
+```
+
+### コンポーネントで書くJSX
+
+```javascript
+function Hello({ name }) {
+  return <h1>Hello, { name }</h1>
+}
+
+const element = <Hello name="world!"/>
+```
 
 
 # JSX に式を埋め込む
