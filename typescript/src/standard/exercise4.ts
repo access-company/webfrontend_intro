@@ -4,19 +4,21 @@
 * */
 
 // 以下のコードのコメントアウトを外して修正を行う
-// const list = [
-//   {
-//     price: 100
-//   },
-//   {
-//     price: 250
-//   },
-//   {
-//     price: 500
-//   },
-// ]
-//
-// let total = 0
-// list.forEach(item => {
-//   total += item.price
-// })
+// {
+//   const list = [
+//     {
+//       price: 100
+//     },
+//     {
+//       price: 250
+//     },
+//     {
+//       price: 500
+//     },
+//   ]
+
+//   let total = 0
+//   list.forEach(item => {
+//     total += item.price
+//   })
+// }

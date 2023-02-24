@@ -3,10 +3,12 @@
 * */
 
 // 以下のコードのコメントアウトを外して修正を行う
-// const log = (message: string, name?: string): void => {
-//   const userName = name || 'guest'
-//   console.log(`${name}: ${message}`)
+// {
+//   const log = (message: string, name?: string): void => {
+//     const userName = name || 'guest'
+//     console.log(`${name}: ${message}`)
+//   }
+  
+//   log('hello', 'taro') // taro: hello
+//   log('hello') // guest: hello
 // }
-//
-// log('hello', 'taro') // taro: hello
-// log('hello') // guest: hello

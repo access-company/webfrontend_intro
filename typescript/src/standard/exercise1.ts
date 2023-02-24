@@ -5,19 +5,21 @@
 * */
 
 // 以下のコードのコメントアウトを外して修正を行う
-// const name: any = 'taro'
-//
-// const price: any = 100
-//
-// const isValid: any = true
-//
-// const items: any[] = ['hoge', 'fuga', 'piyo']
-//
-// const sum = (num1: any, num2: any): any => {
-//   return num1 + num2
-// }
-//
-// const obj: { id: any, title: any } = {
-//   id: 1,
-//   title: 'hoge'
+// {
+//   const name: any = 'taro'
+
+//   const price: any = 100
+
+//   const isValid: any = true
+
+//   const items: any[] = ['hoge', 'fuga', 'piyo']
+
+//   const sum = (num1: any, num2: any): any => {
+//     return num1 + num2
+//   }
+
+//   const obj: { id: any, title: any } = {
+//     id: 1,
+//     title: 'hoge'
+//   }
 // }
