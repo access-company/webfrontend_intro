@@ -6,15 +6,16 @@
 * */
 
 // 以下のコードのコメントアウトを外して修正を行う
-
-// type User = {id: number, name: string}
-// const hgoeUser: User = {
+// const hgoeUser: { id: number, name: string } = {
 //   id: 1,
 //   name: 'taro'
 // }
-
-// function updateHogeUserName(user: User, newName: string): User {
-//   return {...user, name: newName}
+//
+// function updateHogeUserName(user: { id: number, name: string }, newName: string): { id: number, name: string } {
+//   return {
+//     id: user.id,
+//     name: newName
+//   }
 // }
-
+//
 // console.log(updateHogeUserName(hgoeUser, 'jiro'))
