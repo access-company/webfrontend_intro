@@ -1,5 +1,5 @@
 /*
-* 以下のコードは同じオブジェクトリテラルの肩が使われています。
+* 以下のコードは同じオブジェクトリテラルの型が使われています。
 * これは冗長かつ、一箇所の変更に対して変更漏れが発生する懸念があります。
 * interface を用いて最適な形に修正してください。
 * interface: https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#interfaces

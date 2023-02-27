@@ -1,5 +1,5 @@
 /*
-* 以下の User 型 に companyId: string のプロパティを追加で持つ Admin 型を定義してください
+* 以下の User 型 に companyName: string のプロパティを追加で持つ Admin 型を定義してください
 * 余裕があれば User 型と Admin 型を interface で定義した場合もやってみてください
 * */
 
