@@ -180,7 +180,7 @@ TypeScript では以下に置き換えて型定義を行います。
 
  #### 演習問題
 
-`/typescript/src/standard/exercise３.ts` を問いてみてください。
+`/typescript/src/standard/exercise1.ts` を問いてみてください。
 
 ## 変数宣言
 
@@ -269,7 +269,7 @@ ES2015 で追加された `const` , `let` はこれらの問題が解消され�
 
 #### 演習問題
 
-`/typescript/src/standard/exercise1.ts` を問いてみてください。
+`/typescript/src/standard/exercise2.ts` を問いてみてください。
 
 ## 関数
 
@@ -428,7 +428,7 @@ obj1["obj2"]["method"]();
 
 #### 演習問題
 
-`/typescript/src/standard/exercise5.ts` を問いてみてください。
+`/typescript/src/standard/exercise3.ts` を問いてみてください。
 
 ## 演算子
 
@@ -498,7 +498,7 @@ TypeScript の場合も、これらの演算子の使い方は同じです。
 
 #### 演習問題
 
-`/typescript/src/standard/exercise2.ts` を問いてみてください。
+`/typescript/src/standard/exercise4.ts` を問いてみてください。
 
 ## 暗黙的な型変換
 
@@ -656,7 +656,7 @@ TypeScript の場合も、使い方は同じです。
 
 #### 演習問題
 
-`/typescript/src/standard/exercise4.ts` を問いてみてください。
+`/typescript/src/standard/exercise5.ts` を問いてみてください。
 
 ## 非同期処理
 
