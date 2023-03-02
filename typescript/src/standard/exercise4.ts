@@ -1,22 +1,12 @@
 /*
-* 以下のコードを const を使った記述に修正してください。
-* Array.prototype.reduce(): https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce
+* 以下のコードは関数の返り値として number 型を返すとして定義しています。
+* しかし、関数の実装者は間違った型を返り値として返しているため、コンパイルエラーが発生しています。
+* 正しく number 型を返す sum() 関数として修正してください。
 * */
 
 // 以下のコードのコメントアウトを外して修正を行う
-// const list = [
-//   {
-//     price: 100
-//   },
-//   {
-//     price: 250
-//   },
-//   {
-//     price: 500
-//   },
-// ]
-//
-// let total = 0
-// list.forEach(item => {
-//   total += item.price
-// })
+// {
+//   function sum(num1: number, num2: number):number {
+//     return `${num1} + ${num2}`
+//   }
+// }

@@ -3,23 +3,25 @@
 * */
 
 // 以下のコードのコメントアウトを外して修正を行う
-// type Hoge = {
-//   foo?: {
-//     bar: string
+// {
+//   type Hoge = {
+//     foo?: {
+//       bar: string
+//     }
 //   }
-// }
-//
-// const obj: Hoge = {
-//   foo: {
-//     bar: 'taro'
+  
+//   const obj: Hoge = {
+//     foo: {
+//       bar: 'taro'
+//     }
 //   }
-// }
-//
-// function getBar(obj: Hoge) {
-//   if(obj.foo) {
-//     return obj.foo.bar
+  
+//   function getBar(obj: Hoge) {
+//     if(obj.foo) {
+//       return obj.foo.bar
+//     }
+//     return
 //   }
-//   return
+  
+//   console.log(getBar(obj))
 // }
-//
-// console.log(getBar(obj))

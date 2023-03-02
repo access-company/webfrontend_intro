@@ -4,13 +4,15 @@
 * */
 
 // 以下のコードのコメントアウトを外して修正を行う
-// function isPositive(num) {
-//   return num >= 0
+// {
+//   function isPositive(num) {
+//     return num >= 0
+//   }
+
+//   // 使用例
+//   isPositive(3)
+
+//   // エラー例
+//   isPositive('123')
+//   const numVar: number = isPositive(-5)
 // }
-//
-// // 使用例
-// isPositive(3)
-//
-// // エラー例
-// isPositive('123')
-// const numVar: number = isPositive(-5)

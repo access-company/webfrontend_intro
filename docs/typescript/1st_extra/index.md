@@ -191,7 +191,7 @@ type Diff = "name";
 ## Generics
 
 型定義の中で型変数を持てます。  
-名前の後に `< >` で囲った名前の列を与えて表現をします。 (例. `Hoge<T>`
+名前の後に `< >` で囲った名前の列を与えて表現をします。
 
 ```ts
 type Foo<S, T> = {
@@ -199,14 +199,20 @@ type Foo<S, T> = {
   bar: T;
 };
 
-const obj: Foo<string, number> = {
+const obj1: Foo<string, number> = {
   foo: "foo",
   bar: 1,
 };
+
+const obj2: Foo<number, string> = {
+  foo: 2,
+  bar: "foo",
+}
 ```
 
 上記コードのようにすると、 `Foo` は２つの型変数 `S`, `T` を持ち、 `foo` , `bar` が型変数 `S`, `T` の型となる object の型を表します。  
-そのため、 `Foo<string, number>` とすると、その型を持つ変数は `foo: string` , `bar: number` を持つ object となります。
+そのため、 `Foo<string, number>` とすると、その型を持つ変数は `foo: string` , `bar: number` を持つ object となります。  
+このように動的に型を指定することができるので、より再利用性が高い柔軟なコードを書くことができます。
 
 ### 演習問題
 

@@ -4,15 +4,18 @@
 * このような機能を持つPartiallyPartial<T, K>を定義してください。
 * */
 
-// // 使用例
-//
-// // 元のデータ
-// interface Data {
-//   foo: number
-//   bar: string
-//   baz: string
+// 以下のコードのコメントアウトを外して修正を行う
+// {
+//   // 使用例
+  
+//   // 元のデータ
+//   interface Data {
+//     foo: number
+//     bar: string
+//     baz: string
+//   }
+//   /*
+//    * T1は { foo?: number; bar?: string; baz: string } 型
+//    */
+//   type T1 = PartiallyPartial<Data, 'foo' | 'bar'>
 // }
-// /*
-//  * T1は { foo?: number; bar?: string; baz: string } 型
-//  */
-// type T1 = PartiallyPartial<Data, 'foo' | 'bar'>

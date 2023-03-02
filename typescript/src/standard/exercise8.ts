@@ -6,17 +6,18 @@
 * */
 
 // 以下のコードのコメントアウトを外して修正を行う
-
-// const hogeUser: { id: number, name: string } = {
-//   id: 1,
-//   name: 'taro'
-// }
-//
-// function updateFugaUserName(user: { id: number, name: string }, newName: string): { id: number, name: string } {
-//   return {
-//     id: user.id,
-//     name: newName
+// {
+//   const hogeUser: { id: number, name: string } = {
+//     id: 1,
+//     name: 'taro'
 //   }
+  
+//   function updateFugaUserName(user: { id: number, name: string }, newName: string): { id: number, name: string } {
+//     return {
+//       id: user.id,
+//       name: newName
+//     }
+//   }
+  
+//   console.log(updateFugaUserName(hogeUser, 'jiro'))
 // }
-//
-// console.log(updateFugaUserName(hogeUser, 'jiro'))

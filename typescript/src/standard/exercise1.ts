@@ -1,23 +1,19 @@
 /*
-* 以下のコードはすべて any 型で定義されており、 TypeScript の恩恵を受けられていません。
-* 正しい型注釈を行うように修正してください。
-* この時、代入している値の型のみを持つものとする。
+* 以下のコードは widening の挙動により、定義したオブジェクトのプロパティの値が書き換えられています。
+* non widening literal を使用し、オブジェクトのプロパティを書き換えられないように修正してください。
+* 修正後にプロパティを書き換えている箇所は削除しましょう。
+* 余裕がある場合は、オブジェクトリテラルと spread構文を用いて obj.name が 'jiro' である新しいオブジェクト(newObj)を生成するように修正してみてください。
+* const assertion: https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-4.html#const-assertions
+* spread構文: https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Spread_syntax
 * */
 
 // 以下のコードのコメントアウトを外して修正を行う
-// const name: any = 'taro'
-//
-// const price: any = 100
-//
-// const isValid: any = true
-//
-// const items: any[] = ['hoge', 'fuga', 'piyo']
-//
-// const sum = (num1: any, num2: any): any => {
-//   return num1 + num2
-// }
-//
-// const obj: { id: any, title: any } = {
-//   id: 1,
-//   title: 'hoge'
+// {
+//   const name = 'taro'
+
+//   const obj = {
+//     name // 省略記法 name: name と同じ
+//   }
+
+//   obj.name = 'jiro'
 // }

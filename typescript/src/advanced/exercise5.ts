@@ -4,15 +4,17 @@
 * */
 
 // 以下のコードのコメントアウトを外して修正を行う
-// function greetString(message: string): void {
-//   // some process
-//   console.log(message)
+// {
+//   function greetString(message: string): void {
+//     // some process
+//     console.log(message)
+//   }
+  
+//   function greetNumber(message: number): void {
+//     // some process
+//     console.log(message)
+//   }
+  
+//   greetString('hello')
+//   greetNumber(1)
 // }
-//
-// function greetNumber(message: number): void {
-//   // some process
-//   console.log(message)
-// }
-//
-// greetString('hello')
-// greetNumber(1)

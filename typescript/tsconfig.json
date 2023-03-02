@@ -2,7 +2,7 @@
   "compilerOptions": {
     "rootDir": "./src",
     "outDir": "./dist",
-    "target": "es5",
+    "target": "es2015",
     "lib": ["esnext"],
     "module": "esnext",
     "moduleResolution": "node",
