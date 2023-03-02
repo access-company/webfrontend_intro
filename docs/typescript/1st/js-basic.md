@@ -327,7 +327,7 @@ const fnA = () => {
 const fnB = (x) => {
   /* 仮引数が1つのみのとき */
 };
-const fnC = (x) => {
+const fnC = x => {
   /* 仮引数が1つのみのときは()を省略可能 */
 };
 const fnD = (x, y) => {

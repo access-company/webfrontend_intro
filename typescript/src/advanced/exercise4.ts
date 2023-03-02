@@ -8,5 +8,5 @@
 // // 配列であれば要素の型を抜き出す
 // type Str = Flatten<string[]> // type Str = string
 //
-// // 配列でなkればそのままの型を抜き出す
+// // 配列でなければそのままの型を抜き出す
 // type Num = Flatten<number> // type Num = number

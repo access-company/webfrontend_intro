@@ -25,8 +25,7 @@
 //
 // function processEntity(e?: Entity) {
 //   validateEntity(e)
-//   const s = e.name
-//   return s
+//   return e.name
 // }
 //
 // console.log(processEntity(entity))
