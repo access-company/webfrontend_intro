@@ -13,13 +13,55 @@ ECMAScript では、上記のような構文は定義されていません。
 
 **JSX** と呼ばれる JavaScript の拡張構文です。ただし、これはそのままブラウザ上では動作しないので注意が必要です。Reactのtoolchainを使って、JSXを使わない、通常のJavaScriptへ変換します。
 
-# JSXを使う理由
+# コンポーネント（→３章）
 
 通常のHTML/CSS/JavaScriptのWebアプリケーション開発では、マークアップとロジックを別々のファイルに
 書いて人為的に技術を分離します。一方、Reactは、マークアップとロジックの両方を含む疎結合の
 「 **コンポーネント** 」という単位を導入して、関心を分離します。
 
-この疎結合のコンポーネントを導入することで、宣言的なプログラミングを実現します。
+通常のHTMLタグ以外に、Reactプログラマが定義したコンポーネントをJSXに記載することができます。
+Reactは、この疎結合のコンポーネントを導入することで、宣言的なプログラミングを実現します。これについては３章で学びます。
+
+
+### 通常のHTMLタグで書くJSX
+
+```javascript
+const element = <h1>Hello, world!</h1>
+```
+
+### コンポーネントで書くJSX
+
+```javascript
+function Hello({ name }) {
+  return <h1>Hello, { name }</h1>
+}
+
+const element = <Hello name="world!"/>
+```
+
+<details><summary>Advanced</summary>
+
+もしJSXの助けを得ずに記述すると、このようになります。
+
+```javascript
+import React from "react"
+
+const element = React.createElement("h1", null, "Hello, world!")
+```
+
+```javascript
+import React from "react"
+
+function Hello({ name }) {
+  return React.createElement("h1", null, `Hello, ${name}`)
+}
+
+const element = React.createElement(Hello, { name: "world!" })
+```
+
+
+</details>
+
 
 
 # JSX に式を埋め込む
@@ -61,6 +103,24 @@ const element = (
 ```
 
 
+<details><summary>Advanced</summary>
+
+もしJSXの助けを得ずに記述すると、このようになります。
+
+```javascript
+import React from "react"
+
+const element = (
+  React.createElement("h1",null,
+    "Hello, ", formatName(user)
+  )
+)
+```
+
+
+</details>
+
+
 # JSXも式である
 
 変数への代入はもちろん、
@@ -81,6 +141,27 @@ function getGreeting(user) {
 }
 ```
 
+<details><summary>Advanced</summary>
+
+もしJSXの助けを得ずに記述すると、このようになります。
+
+```javascript
+import React from "react"
+
+function getGreeting(user) {
+  if (user) {
+    return React.createElement("h1",null,
+      "Hello, ", formatName(user)
+    )
+  }
+  return React.createElement("h1",null,
+    "Hello, guest."
+  )
+```
+
+
+</details>
+
 
 # JSXに属性を指定する
 
@@ -100,6 +181,21 @@ JavaScript式をJSXに埋め込むために中括弧`{}`を使用します。
 const element = <div tabIndex={getIndex()}></div>
 ```
 
+<details><summary>Advanced</summary>
+
+もしJSXの助けを得ずに記述すると、このようになります。
+
+```javascript
+import React from "react"
+
+const element = React.createElement("div", { tabIndex: "0" })
+const element = React.createElement("div", { tabIndex: getIndex() })
+```
+
+
+</details>
+
+
 ## スプレッド演算子を利用した属性の展開
 
 コンポーネントに渡すオブジェクトをスプレッド演算子として使用することで、
@@ -117,6 +213,27 @@ function App2() {
   return <Greeting {...props} />
 }
 ```
+
+<details><summary>Advanced</summary>
+
+もしJSXの助けを得ずに記述すると、このようになります。
+
+```javascript
+import React from "react"
+
+function App1() {
+  return React.createElement(Greeting, { firstName: "Seiji", lastName: "Urushihara" })
+}
+
+function App2() {
+  const props = {firstName: 'Seiji', lastName: 'Urushihara'}
+  return React.createElement(Greeting, {...props})
+}
+```
+
+
+</details>
+
 
 ## すべてのHTML属性をサポート
 
@@ -166,11 +283,25 @@ const element = (
 ```
 
 
+# 空の要素
+
+JSXは、空要素を表現することができます。上記のような構造を表現するとき、余分な div を使わずに済ませることができます。
+
+```javascript
+const element = (
+  <>
+    <h1>Hello!</h1>
+    <h2>Good to see you here.</h2>
+  </>
+)
+```
+
+
 # JSX を深く理解する
 
 https://ja.reactjs.org/docs/jsx-in-depth.html
 
-# 【課題1-1】スタイルを当ててみよう！
+# 【課題1-1】スタイルを指定してみよう！
 
 以下の要件を満たしてください（[Fork](https://codepen.io/ka-clmx/pen/oNZYpZW)）。
 

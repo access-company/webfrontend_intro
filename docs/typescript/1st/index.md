@@ -62,9 +62,7 @@ sum("1", 2); // コンパイルエラー (Argument of type 'string' is not assig
     - WebAssembly に関しては研修では触れません
   - ブラウザによってサポート出来ている ES バージョンは異なる
     - IE のようなゾンビブラウザでは、古い EcmaScript の構文しかサポートしていないため、IE での動作も保証する場合には必要だったりする
-  - tsc, webpack(ts-loader), babel などがある
-- フロントエンド開発の場では、 webpack(bundler) + babel(トランスパイラ) + tsc(型チェック)という構成が良いかなと個人的には思っている
-  - esbuild や snowpack など様々なバンドラがあるが、プロダクションではまだ一般的では無いイメージ
+  - tsc, webpack(ts-loader), vite, babel などがある
 - 本研修ではトランスパイラに `tsc` を使用していきます
 
 <details><summary>Advanced</summary>
@@ -72,17 +70,24 @@ sum("1", 2); // コンパイルエラー (Argument of type 'string' is not assig
 - tsc
   - Microsoft 純正の TypeScript トランスパイラ
   - 最新バージョンの TypeScript に対応したり、言語すべての機能を利用することができる
-  - 旧 ES への互換性は低い
+  - es2015以前の ES への互換性は低い
   - `--noEmit` option で型チェックのみを行うことも可能
-- webpack(ts-loader)
-  - webpack で使える TypeScript をトランスパイル可能な loader
+- webpack
+  - ts-loader を使い TypeScript をトランスパイル可能
   - 言語全ての機能を利用することができる
-  - 多少パフォーマンスが低い（ option の指定やプラグインの活用で調整可能
+  - 多少パフォーマンスが低い
+    - Turbopack に期待が集まる
+- vite
+  - TypeScript をトランスパイル可能
+  - 言語全ての機能を利用することができる
+  - パフォーマンスが高い
+    - ビルド構造に ES module を用いている
 - babel
   - モダン JavaScript をコンパイルするためのコンパイラ
   - typeScript のトランスパイルには `@babel/preset-typescript` が必要
   - TypeScript の一部機能が制限される
   - 旧 ES への変換が優秀
+    - IEにどうしても対応するなど
 
 </details>
 
@@ -110,7 +115,7 @@ Deep Dive に関しては、午後に時間が許す範囲で行います。
 # /typescript ディレクトリへ移動
 $ cd typescript
 # パッケージをインストール
-$ yarn
+$ npm i
 ```
 
 演習問題は、 `/typescript/src/standard` にあります。  
@@ -122,7 +127,7 @@ TypeScript を JavaScript にトランスパイルし、トランスパイルさ
 
 ```shell
 # トランスパイル
-$ yarn build  # tsc 実行
+$ npm run build  # tsc 実行
 # node で実行
 $ node ./dist/standard/{対象の.jsファイル名} # 相対パスで指定
 ```

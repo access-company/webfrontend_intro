@@ -721,11 +721,14 @@ TypeScript の場合も、使い方は同じです。
 
 `Promise` は、ES2015 で導入された非同期処理を扱うビルトインオブジェクトです。  
 `Promise` は、オブジェクトという形にして非同期処理を統一的なインターフェースで扱うことを目的にしています。  
-`Promise` は、ビルトインオブジェクトであるためさまざまなメソッドを持っています。(`then`, `catch`, `finally`)
+`Promise` は、オブジェクトであるためさまざまなメソッドを持っています。(`then`, `catch`, `finally`)
 
 `Promise` は `new` 演算子で `Promise` のインスタンスを作成して利用します。  
 このときのコンストラクタには `resolve` と `reject` の 2 つの引数を取る `executor` と呼ばれる関数を渡します。  
 `executor` 関数の中で非同期処理を行い、非同期処理が成功した場合は `resolve` 関数を呼び、失敗した場合は `reject` 関数を呼び出します。
+
+`resolve` 関数は後述する`then`に渡されるべき、非同期処理の結果を受け付けます。
+`reject` 関数は後述する`catch`に渡されるべき、非同期処理のエラー結果を受け付けます。エラー結果は Error インスタンスであるべきです。
 
 ```js
 const executor = (resolve, reject) => {
@@ -735,7 +738,7 @@ const executor = (resolve, reject) => {
 const promise = new Promise(executor);
 ```
 
-`Promise#then` メソッドの第一引数には `resolve（成功）` 時に呼ばれるコールバック関数、第二引数には `reject（失敗）` 時に呼ばれるコールバック関数を渡します。  
+`Promise#then` メソッドの第一引数には `resolve（成功）` 時に呼ばれるコールバック関数、第二引数には `reject（失敗）` 時に呼ばれるコールバック関数を渡します。
 `Promise#catch` メソッドの引数には `reject（失敗）` 時に呼ばれるコールバック関数を渡します。
 
 次のコードでは `then` メソッドと `catch` メソッドで失敗時のエラー処理をしていますが、どちらも同じ意味となります。  
@@ -759,7 +762,7 @@ errorPromise("catchでエラーハンドリング").catch((error) => {
 
 ### Async Function(ES2017)
 
-ES2017 では、 `Async Function` という非同期処理を行う関数を定義する構文が導入されました。  
+ES2017 以降、 `Async Function` という非同期処理を行う関数を定義する構文が導入されました。  
 `Async Function` は通常の関数とは異なり、必ず `Promise` インスタンスを返す関数を定義する構文です。
 
 ```js
@@ -786,6 +789,26 @@ async function asyncMain() {
   console.log("この行は非同期処理が完了後に実行される");
 }
 ```
+<details><summary>Promise で書くと…</summary>
+
+```js
+function doAsync() {
+  return new Promise((resolve, reject) => {
+    // 非同期処理
+    resolve();
+  })
+}
+function asyncMain() {
+  // doAsyncの非同期処理が完了するまでまつ
+  doAsync().then(()=>{
+    // 次の行はdoAsyncの非同期処理が完了されるまで実行されない
+    console.log("この行は非同期処理が完了後に実行される");
+  });
+}
+```
+
+</details>
+
 
 #### 演習問題
 

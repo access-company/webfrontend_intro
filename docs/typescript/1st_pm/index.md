@@ -12,7 +12,7 @@ TypeScript で簡単なコードを書いてみよう
 # /typescript ディレクトリへ移動
 $ cd typescript
 # パッケージをインストール
-$ yarn
+$ npm i
 ```
 
 演習問題は、 `/typescript/src/standard` にあります。  
@@ -24,7 +24,7 @@ TypeScript を JavaScript にトランスパイルし、トランスパイルさ
 
 ```shell
 # トランスパイル
-$ yarn build  # tsc 実行
+$ npm run build  # tsc 実行
 # node で実行
 $ node ./dist/standard/{対象の.jsファイル名} # 相対パスで指定
 ```

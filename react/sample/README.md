@@ -18,23 +18,23 @@ React + Typescript 環境を学習するための簡単な電卓です。
 
 ## コマンド
 
-### `yarn start (or npm run start)`
+### `npm start`
 
 webpack-dev-server を起動してビルドしたコンテンツを http://localhost:3000 に表示します。  
 コードを変更すると自動的に更新されます。
 
-### `yarn test (or npm run test)`
+### `npm test`
 
 ユニットテストを実行します。
 
-### `yarn build (or npm run build)`
+### `npm run build`
 
 ソースファイルをビルドします。
 
-### `yarn storybook (or npm run storybook)`
+### `npm run storybook`
 
 Storybook を起動します。
 
-### `yarn lint (or npm run lint)`
+### `npm run lint`
 
 ESLint と prettier によるコードスタイルのチェックが実行されます。
