@@ -332,6 +332,8 @@ const CardPair: FC = () => {
 ```
 </details>
 
+例示したコードは、画面表示直後には「Loading...」と描画し、``https://example.com/api/cards.json``の受信直後にCardコンポーネントが再描画されます。
+
 
 ## 【課題12-1】Web API（Dummy）から取得したユーザプロファイルを表示する
 
