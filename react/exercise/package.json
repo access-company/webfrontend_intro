@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "dev": "vite $TARGET --open"
+    "dev": "vite --config vite.config.ts"
   },
   "repository": {
     "type": "git",
