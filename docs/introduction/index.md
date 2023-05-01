@@ -6,13 +6,17 @@
 - WF 研修では、その WebAPI を WebFronend で Request して、Response として返ってきたデータと UI を Web ブラウザに反映させるために必要な知識と技術を学びます
 - その他、HTML、CSS、TypeScript、React の基礎的な学習と応用を学ぶことを目的とします
 
+---
+
 ## Frontend のロードマップ
 
 - Frontend 開発の初心者から上級者までが行う、学習の流れを示しています
 - 開発する上で多種多様の技術が必要であることを示しています
 - WF 研修では、そのなかでも主要な技術をピックアップして講義します。あくまでも全てを網羅することはできませんのでご承知おきください
 
-![23c29676-42bd-4453-8223-8ec21c9d26ac.jpg](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d6a7249e-4c25-47d2-8886-5ba36c9e61e3/23c29676-42bd-4453-8223-8ec21c9d26ac.jpg)
+![23c29676-42bd-4453-8223-8ec21c9d26ac](https://user-images.githubusercontent.com/70614554/235435431-cbfaedee-de53-489f-8938-54225f7d4df0.jpg)
+
+---
 
 ## HTML と CSS
 
@@ -29,6 +33,8 @@ HTML はタグと呼ばれる特殊な記号で要素を囲み、その要素の
 などの HTML タグを適材適所で指定します。
 
 ※HTML とは、「HyperText Markup Language」の略です。
+
+---
 
 CSS とは、Web ページのデザインやスタイルを設定するための言語です。
 
@@ -52,6 +58,8 @@ WF 研修で扱う React はユーザインターフェース構築のための 
 
 その UI の基本構成要素は HTML と CSS で表現されるので、HTML と CSS 研修で学習したことが、この後の React 研修、実習に繋がります。
 
+---
+
 ## TypeScript
 
 TypeScript は、JavaScript のスーパーセット（上位互換）言語で、静的型付け言語です。
@@ -69,6 +77,8 @@ Typescirpt 研修では、TypeScript と JavaScript 両方の学習を行いま�
 React は TypeScript(JavaScript)で構築されており、React アプリケーションの基本的な構造やロジックは TypeScript(JavaScript)を用いて記述されます。
 
 さらに UI コンポーネントとして分割するファイルが.tsx となるので、TypeScript 研修で学習したことが、この後の React 研修、実習に繋がります。
+
+---
 
 ## React
 
@@ -90,6 +100,8 @@ React で作成したコンポーネントファイルに、Server 研修で作�
 
 その上で、Web ブラウザが読み取るためのコンパイルを行います。(コンパイルはビルドツールで自動的に行うので特に開発は行いません)
 
+---
+
 ## 今回の研修に含まれてない内容
 
 - React 以外のユーザインターフェース構築のための JavaScript ライブラリー
@@ -97,6 +109,8 @@ React で作成したコンポーネントファイルに、Server 研修で作�
 - ユニットテスト
 - End-to-End テスト(cypress 等)
 - Next.js
+
+---
 
 以上となります。
 
