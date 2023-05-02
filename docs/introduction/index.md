@@ -3,7 +3,7 @@
 ## 目的
 
 - Server 研修では学習の成果として、WebAPI を作成しました
-- WF 研修では、その WebAPI を WebFronend で Request して、Response として返ってきたデータと UI を Web ブラウザに反映させるために必要な知識と技術を学びます
+- WF 研修では、その WebAPI を WebFrontend で Request して、Response として返ってきたデータと UI を Web ブラウザに反映させるために必要な知識と技術を学びます
 - その他、HTML、CSS、TypeScript、React の基礎的な学習と応用を学ぶことを目的とします
 
 ---
@@ -62,7 +62,7 @@ WF 研修で扱う React はユーザインターフェース構築のための 
 
 ## TypeScript
 
-TypeScript は、JavaScript のスーパーセット（上位互換）言語で、静的型付け言語です。
+TypeScript は、JavaScript のスーパーセット（上位互換）言語で、静的型付け言語となります。さらに WebFrontend だけではなく、例えば AWS Lambda などの Backend 側の開発でも利用されます。
 
 JavaScript のスーパーセット（上位互換）言語の TypeScript は
 
@@ -70,7 +70,7 @@ JavaScript のスーパーセット（上位互換）言語の TypeScript は
 - 動的型付け言語の JavaScript にはない機能として、コンパイル時に型チェックが行われる静的に型付けする言語です
 - TypeScript を使うことで、JavaScript の柔軟性を維持しつつ、より堅牢で安全なコードを書くことができます
 
-Typescirpt 研修では、TypeScript と JavaScript 両方の学習を行います。
+TypeScript 研修では、TypeScript と JavaScript 両方の学習を行います。
 
 ### ポイント
 
@@ -98,7 +98,7 @@ React 研修では、基礎的な知識や応用について座学と課題を�
 
 React で作成したコンポーネントファイルに、Server 研修で作成した WebAPI を Request して、Response として返ってきたデータを扱います。さらに HTML、CSS をベースとした UI も構築します。
 
-その上で、Web ブラウザが読み取るためのコンパイルを行います。(コンパイルはビルドツールで自動的に行うので特に開発は行いません)
+その上で、Web ブラウザが読み取るためのコンパイルを行います。(コンパイルはビルドツールで自動的に行うので、特に開発作業はしません)
 
 ---
 
@@ -114,6 +114,6 @@ React で作成したコンポーネントファイルに、Server 研修で作�
 
 以上となります。
 
-簡単ではありますが、WF 研修で学習する各研修の概要とポイントをまとめまさせていただきました。
+簡単ではありますが、WF 研修で学習する各研修の概要とポイントをまとめました。
 
 これからの数日間、短い間ですが最後までどうぞ宜しくお願いします。
