@@ -2,7 +2,7 @@
 
 Web ブラウザの Google Chrome で「表示 → 開発/管理 → デベロッパーツール」を押すと開発者ツールが表示されます。
 
-そこで、開発者にとって非常に有用なそのツールで、利用頻度の高い機能と簡単な用途について説明します。
+そこで、開発者にとって非常に有用なそのツールのなかで、特に利用頻度の高い機能と簡単な用途について説明します。
 
 ※説明画像は、すべて Twitter を開いたときのものとなります。
 
@@ -66,23 +66,23 @@ Web ブラウザの Google Chrome で「表示 → 開発/管理 → デベロ�
 
 ## Redux
 
-- 利用するには Chrome 拡張機能「[Redux DevTools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=ja)」から install します。
+- 利用するには Chrome 拡張機能「[Redux DevTools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=ja)」を install します。
 - Redux を使った JavaScript アプリケーションの状態管理をデバッグできます。
 - 左ペインで Action を選択すると、アプリケーションで dispatch された Action のリストが表示されます。Action が dispatch された時点のアプリケーションの状態や、状態の変化を順番に追ってデバッグできます。
 - 右ペインの Action タブで、左ペインで選択した Action の type や payload の情報を確認できます。
-- 右ペインの State タブで、、左ペインで選択した Action 時の Store の State を確認できます。
-- 右ペインの Diff タブで、左ペインで選択した Action によって状態がどのように変更されたかを確認できます。変更前後の状態を比較して、reducer が正しく機能しているかを確認できます。
+- 右ペインの State タブで、左ペインで選択した Action 時の Store の State を確認できます。
+- 右ペインの Diff タブで、左ペインで選択した Action によって状態がどのように変更されたかを確認できます。変更前後の state を比較して、reducer が正しく機能しているかを確認できます。
 
 <img width="1660" alt="redux" src="https://user-images.githubusercontent.com/70614554/235632558-121696b1-25f2-4875-ab75-6aafb1b7a3ed.png">
 
 ## Components
 
-- 利用するには Chrome 拡張機能「[React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=ja)」から install します。
-- React のコンポーネントの階層構造をツリーで視覚的に確認できます。
+- 利用するには Chrome 拡張機能「[React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=ja)」を install します。
+- React のコンポーネントの階層構造をツリー上で視覚的に確認できます。
 - コンポーネントツリー内の特定のコンポーネントを選択すると、そのコンポーネントの state や props を確認できます。
-- 左ペインの右上の「設定」アイコンを押下して、「Highlight updates when components render.」をチェックすると、画面表示や UI 操作によってレンダリングされた Component を確認できます。
+- 左ペインの右上の「設定」アイコンをクリックして、「Highlight updates when components render.」をチェックすると、画面表示や UI 操作によってレンダリングされた Component を確認できます。
 
 <img width="1668" alt="components" src="https://user-images.githubusercontent.com/70614554/235632603-972d5f8b-75e7-4770-b0fa-871c1057973b.png">
 
 以上となります。
-簡単ではありますが、Chrome 開発者ツールで利用頻度の高い機能とその説明になります。
+簡単ではありますが、Chrome 開発者ツールで利用頻度の高い機能とその説明でした。
