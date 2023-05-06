@@ -1,3 +1,12 @@
+// Q3-1
+// 前の実装例(Q3-Sample-3)に、「Reply」「Retweet」「Favorite」のUIを追加してください。
+// その際、以下の要件を満たしてください。
+// * 「Reply」「Retweet」「Favorite」のラベル（名前）を受け取る、再利用可能なコンポーネントを一つ追加する
+// * 「Reply」「Retweet」「Favorite」それぞれを配置する
+// なお、現段階では以下の要件を満たす必要はありません。
+// * 「Reply」「Retweet」「Favorite」を選択したときのイベント実装
+// * デザイン性（要件を満たしていればOKとします）
+//
 import { createRoot } from "react-dom/client";
 import "./style.css";
 
