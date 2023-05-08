@@ -67,7 +67,7 @@ createRoot(document.getElementById('root')!).render(<Counter />);
 
 ```bash
 # react/exercise にて
-$ TARGET=C8/Sample1 npm run dev
+$ TARGET=C08/Sample1 npm run dev
 ```
 
 ## 【課題 8-1】increment/decrement ボタンを作る
@@ -82,7 +82,7 @@ $ TARGET=C8/Sample1 npm run dev
 
 ```bash
 # react/exercise にて
-$ TARGET=C8/Q1 npm run dev
+$ TARGET=C08/Q1 npm run dev
 ```
 
 # 複数の state を扱う
@@ -120,5 +120,5 @@ const [date, setDate] = useState(Date.now());
 
 ```bash
 # react/exercise にて
-$ TARGET=C8/Q3 npm run dev
+$ TARGET=C08/Q3 npm run dev
 ```
