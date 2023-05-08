@@ -14,15 +14,20 @@ import "./style.css";
 
 // 赤い部分を押したら 'Clicked Red', 青い部分を押したら 'Clicked Blue' のみ表示されるようにする
 
-const onClickInner = (e: React.MouseEvent<HTMLDivElement>) => {};
+const onClickInner = (e: React.MouseEvent<HTMLDivElement>) => {
+  console.log("Clicked Blue");
+  e.stopPropagation();
+};
 
-const onClickOuter = (e: React.MouseEvent<HTMLDivElement>) => {};
+const onClickOuter = () => {
+  console.log("Clicked Red");
+};
 
 const ChildComponent: FC = () => {
   return (
     <div className="subContainer">
-      <div className="outer" onClick={}>
-        <div className="inner" onClick={}>
+      <div className="outer" onClick={onClickOuter}>
+        <div className="inner" onClick={onClickInner}>
           Matryoshka
         </div>
       </div>
