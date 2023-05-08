@@ -6,4 +6,18 @@
 //
 import { createRoot } from "react-dom/client";
 
-createRoot(document.body).render(<h1>Hello, world!</h1>);
+interface User {
+  firstName: string;
+  lastName: string;
+}
+
+function formatName(user: User) {
+  return `${user.firstName} ${user.lastName}`;
+}
+
+const user = {
+  firstName: "Kensuke",
+  lastName: "Takahara",
+};
+
+createRoot(document.body).render(<h1>{formatName(user)}</h1>);
