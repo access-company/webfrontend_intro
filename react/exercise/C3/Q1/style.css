@@ -45,3 +45,25 @@ body {
   color: gray;
   font-size: 1.4rem;
 }
+
+.actionGroup {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem 0 0 0;
+}
+
+.actionButton {
+  border: none;
+  width: 7rem;
+}
+
+.actionButton:focus {
+  outline: 0.1rem solid blue;
+}
+
+.actionButton:hover {
+  cursor: pointer;
+}
