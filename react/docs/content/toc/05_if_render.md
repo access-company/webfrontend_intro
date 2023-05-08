@@ -23,7 +23,7 @@ createRoot(document.getElementById('root')!).render(
 
 ```bash
 # react/exercise にて
-$ TARGET=C5/Sample1 npm run dev
+$ TARGET=C05/Sample1 npm run dev
 ```
 
 もちろん、条件付きレンダーを変数に格納することもできます。
@@ -88,5 +88,5 @@ createRoot(document.getElementById("root")!).render(
 
 ```bash
 # react/exercise にて
-$ TARGET=C5/Q1 npm run dev
+$ TARGET=C05/Q1 npm run dev
 ```
