@@ -10,7 +10,7 @@ import { FC } from "react";
 import { createRoot } from "react-dom/client";
 
 type ListItemProps = {
-  value: number;
+  value: string;
 };
 
 type NumberListProps = {
@@ -23,9 +23,10 @@ const NumberList: FC<NumberListProps> = (props) => {
   const { numbers } = props;
   return (
     <ul>
-      {numbers.map((num: number) => (
-        <ListItem key={num.toString()} value={num} />
-      ))}
+      {numbers.map((num: number) => {
+        const value = `item ${num * 2}`;
+        return <ListItem key={num.toString()} value={value} />;
+      })}
     </ul>
   );
 };
