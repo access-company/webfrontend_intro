@@ -111,7 +111,7 @@ createRoot(document.getElementById('root')!).render(<App />);
 
 ```bash
 # react/exercise にて
-$ TARGET=C3/Sample1 npm run dev
+$ TARGET=C03/Sample1 npm run dev
 ```
 
 典型的な React アプリケーションは、上記のような `App` コンポーネントをルートとして、様々なコンポーネントを組み合わせて作られます。
@@ -168,7 +168,7 @@ createRoot(document.getElementById('root')!).render(
 
 ```bash
 # react/exercise にて
-$ TARGET=C3/Sample2 npm run dev
+$ TARGET=C03/Sample2 npm run dev
 ```
 
 どのように抽出・分割していくかは、コンポーネントの抽象度をどうするかは、アプリの構造に依存します。
@@ -276,7 +276,7 @@ createRoot(document.getElementById("root")!).render(
 
 ```bash
 # react/exercise にて
-$ TARGET=C3/Sample3 npm run dev
+$ TARGET=C03/Sample3 npm run dev
 ```
 
 `Comment`コンポーネントがシンプルになりました。
@@ -311,5 +311,5 @@ https://bradfrost.com/blog/post/atomic-web-design/
 
 ```bash
 # react/exercise にて
-$ TARGET=C3/Q1 npm run dev
+$ TARGET=C03/Q1 npm run dev
 ```

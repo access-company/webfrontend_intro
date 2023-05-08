@@ -1,5 +1,5 @@
-// C3/Q1
-// 前の実装例(C3/Sample3)に、「Reply」「Retweet」「Favorite」のUIを追加してください。
+// C03/Q1
+// 前の実装例(C03/Sample3)に、「Reply」「Retweet」「Favorite」のUIを追加してください。
 // その際、以下の要件を満たしてください。
 // * 「Reply」「Retweet」「Favorite」のラベル（名前）を受け取る、再利用可能なコンポーネントを一つ追加する
 // * 「Reply」「Retweet」「Favorite」それぞれを配置する
