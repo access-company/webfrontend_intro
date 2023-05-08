@@ -21,7 +21,7 @@ $ npm start
 http://localhost:8000
 ```
 
-# 2. MindMap（任意）
+<!-- # 2. MindMap（任意）
 
 MindMap の表示は、[MindMaster](https://www.edrawsoft.com/jp/mindmaster/) というソフトウェアを使っています。
 
@@ -31,9 +31,9 @@ MindMap の表示は、[MindMaster](https://www.edrawsoft.com/jp/mindmaster/) �
 
 MindMap の内容を確認したい方は、MindMaster で react_training.emmx ファイルを開いてください。react_training.emmx の内容は、本研修資料と同じです。
 
-研修中は、react_training.emmx の内容を主に画面共有します。受講生の方々は、本研修資料（ https://access-company.github.io/webfrontend_intro/react/ ）を手元で見れるようにしてください。
+研修中は、react_training.emmx の内容を主に画面共有します。受講生の方々は、本研修資料（ https://access-company.github.io/webfrontend_intro/react/ ）を手元で見れるようにしてください。 -->
 
-# 3. 演習問題
+# 2. 演習問題
 
 React 研修の演習問題は webfrontend_intro/react/exercise 内に格納されています。
 
@@ -53,13 +53,13 @@ $ npm install
 $ TARGET=C01/Q1 npm run dev
 ```
 
-# 4. サンプル： 電卓アプリ
+# 3. サンプル： 電卓アプリ
 
 React のサンプルとして用意した電卓アプリ。
 
-## 4-1. Setup
+## 3-1. Setup
 
-### 4-1-1. Install
+### 3-1-1. Install
 
 Current directory が docs (webfrontend-intro/react/docs) の時、
 
@@ -68,7 +68,7 @@ cd ../sample
 npm install
 ```
 
-### 4-1-2. Working check
+### 3-1-2. Working check
 
 各コマンドを打って動作するかチェック
 
@@ -81,7 +81,7 @@ npm install
 - `npm run lint`
   - ESLint と prettier が動作し waring が多数出る
 
-## 4-2. npm Commands
+## 3-2. npm Commands
 
 ### npm start
 
@@ -104,7 +104,7 @@ Storybook を起動します。
 
 ESLint と prettier によるコードスタイルのチェックが実行されます。
 
-## 4-3. Storybook
+## 3-3. Storybook
 
 ### What is Storybook?
 
