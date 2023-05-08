@@ -12,6 +12,6 @@ const Greeting: FC<GreetingProps> = (props) => {
 };
 
 createRoot(document.getElementById("root")!).render(
-  // Try changing to isLoggedIn={true}:
+  // Try changing to isLoggedIn={false}:
   <Greeting isLoggedIn={true} />
 );
