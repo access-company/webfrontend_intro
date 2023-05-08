@@ -1,48 +1,55 @@
 ---
-title: "第10章　Hooksのルール"
+title: '第10章　Hooksのルール'
 ---
 
-Hooks API は2つのルールに従う必要があります。
-
+Hooks API は 2 つのルールに従う必要があります。
 
 # Hooks を呼び出すのはトップレベルのみ
 
-**Hookを `if`文や`for`文、クロージャー（ネストされた関数）内で定義してはいけません。**
+**Hook を `if`文や`for`文、クロージャー（ネストされた関数）内で定義してはいけません。**
 
-```javascript
-function Counter(props) {
+```typescript
+interface Props {
+  initCount: number;
+}
+function Counter(props: Props) {
   let arr;
   if (props.initCount === 0) {
-    arr = useState(props.initCount)  // NG
+    arr = useState(props.initCount); // NG
   }
 
   // 略
 }
 ```
+
 ```javascript
-function Counter(props) {
+interface Props {
+  data: string;
+}
+function Counter(props: Props) {
   let arr;
   for (const element of props.data) {
-    arr = useState(0)   // NG
+    arr = useState(0); // NG
   }
 
   // 略
 }
 ```
+
 ```javascript
 function Counter() {
   let arr;
 
   function handleClick() {
-    arr = useState(0)   // NG
+    arr = useState(0); // NG
   }
 
   // 略
 }
 ```
 
-# Hooks を呼び出すのはReactの関数内のみ
+# Hooks を呼び出すのは React の関数内のみ
 
-**Hookを通常のJavaScript関数から呼び出さないでください。**
-[カスタムHook](https://ja.reactjs.org/docs/hooks-custom.html) は、一種のJavaScript関数ですが、最終的にReactの関数（コンポーネント）内
+**Hook を通常の JavaScript 関数から呼び出さないでください。**
+[カスタム Hook](https://ja.reactjs.org/docs/hooks-custom.html) は、一種の JavaScript 関数ですが、最終的に React の関数（コンポーネント）内
 から呼び出されるので問題ありません。
