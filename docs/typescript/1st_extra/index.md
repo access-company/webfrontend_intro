@@ -36,7 +36,7 @@ value = true; // コンパイルエラー
 
 #### 演習問題
 
-`/typescript/src/advanced/exercise1.ts` を問いてみてください。
+`/typescript/src/advanced/exercise1.ts` を解いてみてください。
 
 ### Intersection-Types
 
@@ -68,7 +68,7 @@ const obj2: Hoge & Fuga = {
 
 #### 演習問題
 
-`/typescript/src/advanced/exercise2.ts` を問いてみてください。
+`/typescript/src/advanced/exercise2.ts` を解いてみてください。
 
 <details><summary>Advanced</summary>
 
@@ -126,7 +126,7 @@ const obj = {
 
 #### 演習問題
 
-`/typescript/src/advanced/exercise3.ts` を問いてみてください。
+`/typescript/src/advanced/exercise3.ts` を解いてみてください。
 
 <details><summary>Advanced</summary>
 
@@ -186,7 +186,7 @@ type Diff = "name";
 
 #### 演習問題
 
-`/typescript/src/advanced/exercise4.ts` を問いてみてください。
+`/typescript/src/advanced/exercise4.ts` を解いてみてください。
 
 ## Generics
 
@@ -216,7 +216,7 @@ const obj2: Foo<number, string> = {
 
 ### 演習問題
 
-`/typescript/src/advanced/exercise5.ts` を問いてみてください。
+`/typescript/src/advanced/exercise5.ts` を解いてみてください。
 
 ## 先行して使える構文
 
@@ -242,7 +242,7 @@ log("hello", "taro"); // OK -> taro: hello
 
 ##### 演習問題
 
-`/typescript/src/advanced/exercise6.ts` を問いてみてください。
+`/typescript/src/advanced/exercise6.ts` を解いてみてください。
 
 #### Default Parameters
 
@@ -261,7 +261,7 @@ log("hello", "jiro"); // OK -> jiro: hello
 
 ##### 演習問題
 
-`/typescript/src/advanced/exercise7.ts` を問いてみてください。
+`/typescript/src/advanced/exercise7.ts` を解いてみてください。
 
 ### Non-null assertion
 
@@ -283,7 +283,7 @@ message3!.toUpperCase(); // コンパイルエラーにならず、ランタイ�
 
 #### 演習問題
 
-`/typescript/src/advanced/exercise8.ts` を問いてみてください。
+`/typescript/src/advanced/exercise8.ts` を解いてみてください。
 
 ### Optional Chaining
 
@@ -310,7 +310,7 @@ const string = obj.foo?.bar;
 
 #### 演習問題
 
-`/typescript/src/advanced/exercise9.ts` を問いてみてください。
+`/typescript/src/advanced/exercise9.ts` を解いてみてください。
 
 ### Nullish Coalescing
 
@@ -337,12 +337,12 @@ const result = foo ?? bar;
 
 #### 演習問題
 
-`/typescript/src/advanced/exercise10.ts` を問いてみてください。
+`/typescript/src/advanced/exercise10.ts` を解いてみてください。
 
 <!-- ## 時間が余った時用
 
 `/typescript/src/sp` に研修振り返り用の問題を用意しています。
-問いてみてください。
+解いてみてください。
 
 問題は拝借してきたものです。
 教え切れてない内容もあるのでググっても OK、ただし答えを探すのは NG！
