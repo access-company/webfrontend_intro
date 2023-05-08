@@ -1,65 +1,68 @@
 ---
-title: "第2章　要素のレンダー"
+title: '第2章　要素のレンダー'
 ---
 
-# React要素をルートDOMにレンダリングする
+# React 要素をルート DOM にレンダリングする
 
-React要素は、JavaScriptの関数です。ただの関数であるため、ブラウザのDOMに描画するための API を利用する必要があります。ブラウザのDOMに描画するには、react-domライブラリが提供する `ReactDOM.render()` を利用します。
+React 要素は、JavaScript の関数です。ただの関数であるため、ブラウザの DOM に描画するための API を利用する必要があります。ブラウザの DOM に描画するには、react-dom ライブラリが提供する `ReactDOM.createRoot().render()` を利用します。
 
-HTMLファイルにマークアップされた `id`属性の値が`root`の`div`要素に対して、「Hello, world!」を描画する例は以下の通りです。
+HTML ファイルにマークアップされた `id`属性の値が`root`の`div`要素に対して、「Hello, world!」を描画する例は以下の通りです。
 
 ```html
 <div id="root"></div>
 ```
 
 ```javascript
-ReactDOM.render(
-  <h1>Hello, world!</h1>,
-  document.getElementById('root')
-)
+ReactDOM.createRoot(document.getElementById("root")!).render(<h1>Hello, world!</h1>);
 ```
-[CodePen](https://codepen.io/aseijiurushihara/pen/XWmmKPw)
 
+# 【課題 2-1】 自分の氏名を表示してみよう！
 
-# 【課題2-1】 自分の氏名を表示してみよう！
+以下の要件を満たしてください。
 
-以下の要件を満たしてください（[Fork](https://codepen.io/aseijiurushihara/pen/XWmmKPw?editable=true&editors=0010)）。
+- 画面に「Hello, FirstName LastName!」を出力する
+  - （注: FirstName LastName は各自の名前）
+- `ReactDOM.render` の第 1 引数の一部を式（関数）に置き換える
+  - 氏名を格納したオブジェクトを関数の引数に渡す
 
-* 画面に「Hello, FirstName LastName!」を出力する
-  * （注: FirstName LastName は各自の名前）
-* `ReactDOM.render` の第1引数の一部を式（関数）に置き換える
-  * 氏名を格納したオブジェクトを関数の引数に渡す
+```bash
+# react/exercise にて
+$ TARGET=C02/Q1 npm run dev
+```
 
+編集対象ファイル: `react/exercise/C02/Q1/index.tsx`
 
-# Reactは再描画が必要な箇所のみ更新する
+# React は再描画が必要な箇所のみ更新する
 
-DOM APIを使って実装した場合、開発者自身が値の変更箇所を検知する仕組みを用意し、
+DOM API を使って実装した場合、開発者自身が値の変更箇所を検知する仕組みを用意し、
 描画の更新を明示的にプログラミングしていく必要があります。
 
-Reactでは、明示的に要素の更新箇所を制御する必要はありません。再描画が必要な箇所は、
-Reactが面倒を見ます。結果、DOM API を扱うよりもパフォーマンスに優れた実装が可能となります。
+React では、明示的に要素の更新箇所を制御する必要はありません。再描画が必要な箇所は、
+React が面倒を見ます。結果、DOM API を扱うよりもパフォーマンスに優れた実装が可能となります。
 もちろん、例外はありますが、多くのケースでは気にする必要はありません。
-
 
 「秒刻みで動く時計」のサンプルで、再描画が必要な箇所のみ更新されていることを確認します。
 
-
 ```javascript
+import { createRoot } from 'react-dom/client';
+
 function tick() {
   const element = (
     <div>
       <h1>Hello, world!</h1>
       <h2>It is {new Date().toLocaleTimeString()}.</h2>
     </div>
-  )
-  ReactDOM.render(element, document.getElementById('root'))
+  );
+  createRoot(document.body).render(element);
 }
 
-setInterval(tick, 1000)
+setInterval(tick, 1000);
 ```
 
-[CodePen](https://codepen.io/aseijiurushihara/pen/NWGzOar)
-
+```bash
+# react/exercise にて
+$ TARGET=C02/Time npm run dev
+```
 
 <details><summary>Advanced</summary>
 
@@ -67,35 +70,38 @@ setInterval(tick, 1000)
 
 ```javascript
 function tick() {
-  const h1_text = "Hello, world!"
-  const h2_text = `It is ${new Date().toLocaleTimeString()}.`
+  const h1_text = 'Hello, world!';
+  const h2_text = `It is ${new Date().toLocaleTimeString()}.`;
 
-  const root = document.getElementById('root')
-  if ( root.children.length === 1 ) {
-    const [div] = root.children
-    if ( div.children.length === 2 ) {
-      const [h1, h2] = div.children
-      if ( h1.textContent !== h1_text ) { h1.textContent = h1_text }
-      if ( h2.textContent !== h2_text ) { h2.textContent = h2_text }
+  const root = document.getElementById('root');
+  if (root.children.length === 1) {
+    const [div] = root.children;
+    if (div.children.length === 2) {
+      const [h1, h2] = div.children;
+      if (h1.textContent !== h1_text) {
+        h1.textContent = h1_text;
+      }
+      if (h2.textContent !== h2_text) {
+        h2.textContent = h2_text;
+      }
     }
   } else {
-    const div = document.createElement("div")
+    const div = document.createElement('div');
 
-    const h1 = document.createElement("h1")
-    h1.textContent = h1_text
+    const h1 = document.createElement('h1');
+    h1.textContent = h1_text;
 
-    const h2 = document.createElement("h2")
-    h2.textContent = h2_text
+    const h2 = document.createElement('h2');
+    h2.textContent = h2_text;
 
-    div.appendChild(h1)
-    div.appendChild(h2)
+    div.appendChild(h1);
+    div.appendChild(h2);
 
-    root.appendChild(div)
+    root.appendChild(div);
   }
 }
 
-setInterval(tick, 1000)
+setInterval(tick, 1000);
 ```
-
 
 </details>

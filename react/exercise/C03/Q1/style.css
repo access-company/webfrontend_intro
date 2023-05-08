@@ -1,0 +1,47 @@
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6em;
+}
+
+.comment,
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.comment {
+  width: 30rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: #f6f6f6;
+  box-shadow: 0.1rem 0.1rem 0.4rem #aaa;
+}
+
+.comment:hover {
+  outline: 0.1rem solid gray;
+  border-radius: 0.5rem;
+}
+
+.avatar {
+  width: 14rem;
+  height: 14rem;
+  border-radius: 0.5rem;
+}
+
+.userInfo-name {
+  font-weight: bold;
+  padding: 1rem;
+}
+
+.comment-text {
+}
+
+.comment-date {
+  color: gray;
+  font-size: 1.4rem;
+}

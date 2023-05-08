@@ -1,0 +1,23 @@
+.subContainer {
+  display: grid;
+  grid-template-columns: 200px 200px;
+  column-gap: 20px;
+}
+
+.area {
+  box-sizing: border-box;
+  height: 200px;
+  width: 200px;
+  border: 1px solid black;
+  background-color: lightcyan;
+  line-height: 200px;
+  text-align: center;
+  user-select: none;
+  font-size: 20px;
+}
+
+.button {
+  height: 200px;
+  width: 200px;
+  font-size: 20px;
+}

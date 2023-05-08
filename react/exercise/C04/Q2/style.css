@@ -1,0 +1,25 @@
+.outer {
+  display: flex;
+  box-sizing: border-box;
+  height: 300px;
+  width: 300px;
+  border: 1px solid black;
+  background-color: #faa;
+  line-height: 300px;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  font-size: 20px;
+}
+
+.inner {
+  box-sizing: border-box;
+  height: 150px;
+  width: 150px;
+  border: 1px solid black;
+  background-color: #aaf;
+  line-height: 150px;
+  text-align: center;
+  user-select: none;
+  font-size: 20px;
+}
