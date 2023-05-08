@@ -116,7 +116,7 @@ function Counter() {
 
 ```bash
 # react/exercise にて
-$ TARGET=C4/Q1 npm run dev
+$ TARGET=C04/Q1 npm run dev
 ```
 
 # 【課題 4-2】意図しない動き...
@@ -129,5 +129,5 @@ $ TARGET=C4/Q1 npm run dev
 
 ```bash
 # react/exercise にて
-$ TARGET=C4/Q2 npm run dev
+$ TARGET=C04/Q2 npm run dev
 ```
