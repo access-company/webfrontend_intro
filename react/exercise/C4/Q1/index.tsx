@@ -14,11 +14,23 @@ import "./style.css";
 
 // Button を押したら 'Clicked Button', Div を押したら 'Clicked Div' と表示されるようにする
 
+const onClickButton = () => {
+  console.log("Clicked Button");
+};
+
+const onClickDiv = () => {
+  console.log("Clicked Div");
+};
+
 const ChildComponent: FC = () => {
   return (
     <div className="subContainer">
-      <button className="button">Button</button>
-      <div className="area">Div</div>
+      <button className="button" onClick={onClickButton}>
+        Button
+      </button>
+      <div className="area" onClick={onClickDiv}>
+        Div
+      </div>
     </div>
   );
 };
