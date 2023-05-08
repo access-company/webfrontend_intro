@@ -6,7 +6,6 @@
 // * countが 0 のとき、decrement(-)ボタンを disabled（ボタン押下できない状態）にする
 //   * [ヒント] button要素に `disabled` 属性（boolean）を付与する
 //
-
 import { FC, useState } from "react";
 import { createRoot } from "react-dom/client";
 import "./style.css";
