@@ -27,7 +27,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(<h1>Hello, world!</
 
 ```bash
 # react/exercise にて
-$ TARGET=C2/Q1 npm run dev
+$ TARGET=C02/Q1 npm run dev
 ```
 
 # React は再描画が必要な箇所のみ更新する
@@ -59,7 +59,7 @@ setInterval(tick, 1000);
 
 ```bash
 # react/exercise にて
-$ TARGET=C2/Time npm run dev
+$ TARGET=C02/Time npm run dev
 ```
 
 <details><summary>Advanced</summary>
