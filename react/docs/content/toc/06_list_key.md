@@ -44,7 +44,7 @@ const NumberList: FC<NumberListProps> = (props) => {
 
 ```bash
 # react/exercise にて
-$ TARGET=C6/Sample1 npm run dev
+$ TARGET=C06/Sample1 npm run dev
 ```
 
 ### 【課題 6-1】
@@ -59,7 +59,7 @@ $ TARGET=C6/Sample1 npm run dev
 
 ```bash
 # react/exercise にて
-$ TARGET=C6/Q1 npm run dev
+$ TARGET=C06/Q1 npm run dev
 ```
 
 ## React のリストのルール
