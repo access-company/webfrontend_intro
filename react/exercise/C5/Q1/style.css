@@ -1,0 +1,34 @@
+.subContainer {
+  display: grid;
+  grid-template-columns: 150px;
+  grid-template-rows: repeat(50px);
+  column-gap: 10px;
+  row-gap: 10px;
+}
+
+.normal {
+  width: 150px;
+  height: 50px;
+  border: 1px solid black;
+  color: black;
+  line-height: 50px;
+  text-align: center;
+}
+
+.red {
+  width: 150px;
+  height: 50px;
+  border: 1px solid black;
+  color: red;
+  line-height: 50px;
+  text-align: center;
+}
+
+.blue {
+  width: 150px;
+  height: 50px;
+  border: 1px solid black;
+  color: blue;
+  line-height: 50px;
+  text-align: center;
+}
