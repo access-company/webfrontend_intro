@@ -1,0 +1,41 @@
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 1.6em;
+}
+
+p {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+span:nth-child(2) {
+  font-weight: bold;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 1rem;
+  background-color: #f4f4f4;
+  box-shadow: 0 0.2rem 0.8rem #444;
+}
+
+.container:hover {
+  cursor: pointer;
+  outline: 0.2rem solid red;
+}
+
+.avatar {
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+}
+
+.profile {
+  padding: 0 1rem 0 1rem;
+}
