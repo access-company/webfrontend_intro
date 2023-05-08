@@ -49,7 +49,7 @@ const [currentState, dispatch] = useReducer(reducer, initialState);
 
 ```bash
 # react/exercise にて
-$ TARGET=C9/Sample1 npm run dev
+$ TARGET=C09/Sample1 npm run dev
 ```
 
 ```typescript
@@ -114,5 +114,5 @@ createRoot(document.getElementById("root")!).render(<Counter />);
 
 ```bash
 # react/exercise にて
-$ TARGET=C9/Q1 npm run dev
+$ TARGET=C09/Q1 npm run dev
 ```
