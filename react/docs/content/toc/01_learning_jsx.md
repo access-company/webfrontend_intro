@@ -296,7 +296,7 @@ https://ja.reactjs.org/docs/jsx-in-depth.html
 
 ```bash
 # react/exercise にて
-$ TARGET=C1/Q1 npm run dev
+$ TARGET=C01/Q1 npm run dev
 ```
 
 ![実装イメージ](./01_lesson1-1.png)

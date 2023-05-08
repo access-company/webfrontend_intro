@@ -49,8 +49,8 @@ $ npm install
 演習問題ファイルは react/exercise/$TARGET に格納されています。
 
 ```bash
-# 演習問題ファイルは react/exercise/C1/Q1 に入っている
-$ TARGET=C1/Q1 npm run dev
+# 演習問題ファイルは react/exercise/C01/Q1 に入っている
+$ TARGET=C01/Q1 npm run dev
 ```
 
 # 4. サンプル： 電卓アプリ
