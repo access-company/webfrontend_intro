@@ -62,6 +62,8 @@ $ TARGET=C06/Sample1 npm run dev
 $ TARGET=C06/Q1 npm run dev
 ```
 
+編集対象ファイル: `react/exercise/C06/Q1/index.tsx`
+
 ## React のリストのルール
 
 どの React 要素が変更、追加もしくは削除されたかを認識するために`key`属性を必ず与える必要があります。また、`key`属性の値は、一意の値である必要があります。

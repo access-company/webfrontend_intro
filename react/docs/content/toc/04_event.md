@@ -119,6 +119,8 @@ function Counter() {
 $ TARGET=C04/Q1 npm run dev
 ```
 
+編集対象ファイル: `react/exercise/C04/Q1/index.tsx`
+
 # 【課題 4-2】意図しない動き...
 
 以下の要件を満たしてください。
@@ -131,3 +133,5 @@ $ TARGET=C04/Q1 npm run dev
 # react/exercise にて
 $ TARGET=C04/Q2 npm run dev
 ```
+
+編集対象ファイル: `react/exercise/C04/Q2/index.tsx`

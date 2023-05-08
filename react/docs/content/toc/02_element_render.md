@@ -30,6 +30,8 @@ ReactDOM.createRoot(document.getElementById("root")!).render(<h1>Hello, world!</
 $ TARGET=C02/Q1 npm run dev
 ```
 
+編集対象ファイル: `react/exercise/C02/Q1/index.tsx`
+
 # React は再描画が必要な箇所のみ更新する
 
 DOM API を使って実装した場合、開発者自身が値の変更箇所を検知する仕組みを用意し、

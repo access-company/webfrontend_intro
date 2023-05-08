@@ -85,6 +85,8 @@ $ TARGET=C08/Sample1 npm run dev
 $ TARGET=C08/Q1 npm run dev
 ```
 
+編集対象ファイル: `react/exercise/C08/Q1/index.tsx`
+
 # 複数の state を扱う
 
 複数の `state`を扱うこともできます。下記のように複数の Primitive Type の state を
@@ -122,3 +124,5 @@ const [date, setDate] = useState(Date.now());
 # react/exercise にて
 $ TARGET=C08/Q3 npm run dev
 ```
+
+編集対象ファイル: `react/exercise/C08/Q3/index.tsx`

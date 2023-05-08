@@ -39,3 +39,5 @@ Counter と CounterButton のコンソールログのカウント数を最適化
 # react/exercise にて
 $ TARGET=C14/Q1 npm run dev
 ```
+
+編集対象ファイル: `react/exercise/C14/Q1/index.tsx`

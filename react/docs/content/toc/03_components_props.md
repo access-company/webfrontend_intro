@@ -313,3 +313,5 @@ https://bradfrost.com/blog/post/atomic-web-design/
 # react/exercise にて
 $ TARGET=C03/Q1 npm run dev
 ```
+
+編集対象ファイル: `react/exercise/C03/Q1/index.tsx`

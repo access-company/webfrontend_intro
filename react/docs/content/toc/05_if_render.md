@@ -90,3 +90,5 @@ createRoot(document.getElementById("root")!).render(
 # react/exercise にて
 $ TARGET=C05/Q1 npm run dev
 ```
+
+編集対象ファイル: `react/exercise/C05/Q1/index.tsx`

@@ -128,6 +128,8 @@ createRoot(document.getElementById("root")!).render(<CountDown />);
 $ TARGET=C13/Q2 npm run dev
 ```
 
+編集対象ファイル: `react/exercise/C13/Q2/index.tsx`
+
 **ヒント**
 
 カウントを下げる場合は、`setCount(count => count - 1);` を使います。

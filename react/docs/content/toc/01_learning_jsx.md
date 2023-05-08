@@ -299,4 +299,6 @@ https://ja.reactjs.org/docs/jsx-in-depth.html
 $ TARGET=C01/Q1 npm run dev
 ```
 
+編集対象ファイル: `react/exercise/C01/Q1/index.tsx`
+
 ![実装イメージ](./01_lesson1-1.png)
