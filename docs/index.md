@@ -5,5 +5,4 @@
 - HTML/CSS
 - [TypeScript](./typescript/index.md)
 - [React](https://access-company.github.io/webfrontend_intro/react/)
-- [Redux](./redux/index.md)
 - 演習
