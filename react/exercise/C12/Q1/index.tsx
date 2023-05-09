@@ -18,7 +18,7 @@ type User = {
   avatar: string;
 };
 
-function fetchDummyProfile<T>(): Promise<T> {
+function fetchDummyProfile(): Promise<User> {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve({
