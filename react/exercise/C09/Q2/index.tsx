@@ -32,18 +32,18 @@ const CarIndicator: FC<CarIndicatorProps> = (props) => {
   return (
     <div className="carIndicator">
       <div className={launched ? 'carLaunched' : 'carStopped'}>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        className="icon icon-tabler icon-tabler-car"
-        width="56"
-        height="56"
-        viewBox="0 0 24 24"
-        strokeWidth="1.5"
-        stroke={fulfilled ? '#009988' : '#999999'}
-        fill="none"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="icon icon-tabler icon-tabler-car"
+          width="56"
+          height="56"
+          viewBox="0 0 24 24"
+          strokeWidth="1.5"
+          stroke={fulfilled ? '#009988' : '#999999'}
+          fill="none"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
           <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
           <circle cx="7" cy="17" r="2" />
           <circle cx="17" cy="17" r="2" />
