@@ -33,38 +33,39 @@ function fetchDummyProfile(): Promise<User> {
 }
 
 const UserProfile: FC = () => {
-  const user: User = {
-    name: "anonymous",
-    age: 0,
-    gender: "female",
-    email: "anonymous@gmail.com",
-    avatar:
-      "data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==",
-  };
+  const [user, setUser] = useState<User | null>(null);
+
+  useEffect(() => {
+    fetchDummyProfile().then((resp) => setUser(resp));
+  }, []);
 
   return (
     <>
-      <div className="container">
-        <img src={user.avatar} className="avatar" alt="avatar" />
-        <div className="profile">
-          <p>
-            <span>Name: </span>
-            <span>{user.name}</span>
-          </p>
-          <p>
-            <span>Age: </span>
-            <span>{user.age}</span>
-          </p>
-          <p>
-            <span>Gender: </span>
-            <span>{user.gender}</span>
-          </p>
-          <p>
-            <span>Email: </span>
-            <span>{user.email}</span>
-          </p>
+      {user ? (
+        <div className="container">
+          <img src={user.avatar} className="avatar" alt="avatar" />
+          <div className="profile">
+            <p>
+              <span>Name: </span>
+              <span>{user.name}</span>
+            </p>
+            <p>
+              <span>Age: </span>
+              <span>{user.age}</span>
+            </p>
+            <p>
+              <span>Gender: </span>
+              <span>{user.gender}</span>
+            </p>
+            <p>
+              <span>Email: </span>
+              <span>{user.email}</span>
+            </p>
+          </div>
         </div>
-      </div>
+      ) : (
+        <p>Loading...</p>
+      )}
     </>
   );
 };
