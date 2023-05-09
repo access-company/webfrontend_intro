@@ -70,83 +70,113 @@ declare type ChildComponentState = {
 
 // 必要なActionは全部でいくつ？
 declare type ChildComponentActions = {
-  type: 'SET_FUEL_AMOUNT'; // これ以外にもActionのtypeは必要です。
+  type: 'SET_FUEL_AMOUNT' | 'SET_OPENED' | 'SET_LAUNCHED' |'RESET';
   payload?: number;
 }
 
-const SET_FUEL_AMOUNT = 'SET_FUEL_AMOUNT'; // これ以外にもActionのtypeは必要です。
+// アクションは全部で4つあればよい
+const SET_FUEL_AMOUNT = 'SET_FUEL_AMOUNT';
+const SET_OPENED = 'SET_OPENED';
+const SET_LAUNCHED = 'SET_LAUNCHED';
+const RESET = 'RESET';
 
-// reducer の本体
 const reducer = (state: ChildComponentState, action: ChildComponentActions): ChildComponentState => {
-  // 実装を追加しましょう
   switch(action.type) {
+    // 計４アクション分の返り値を定義
     case SET_FUEL_AMOUNT: {
-      return state;
+      const fuelAmount = action.payload || 0;
+      // 燃料が max になる時だけ、 mode を切り替える
+      return {
+        ...state,
+        fuelAmount,
+        mode: fuelAmount > 99 ? CurrentMode.FULFILLED : CurrentMode.INITIAL,
+      };
+    }
+    case SET_OPENED: {
+      return {
+        ...state,
+        mode: CurrentMode.OPENED,
+      };
+    }
+    case SET_LAUNCHED: {
+      return {
+        ...state,
+        mode: CurrentMode.LAUNCHED,
+      };
+    }
+    // Reset 処理
+    // initialState の定義位置を少し変えてここに渡しても良い
+    case RESET: {
+      return {
+        fuelAmount: 0,
+        mode: CurrentMode.INITIAL,
+      };
     }
     default:
       return state;
   }
 }
 
-// reducer 用の初期値を入れましょう
-const initialState = {};
+const initialState = {
+  fuelAmount: 0,
+  mode: CurrentMode.INITIAL,
+}
 
 const ChildComponent: FC = () => {
-  // useState が乱立しているので useReducer を用いてまとめましょう
-  // Range Control
-  const [fuelAmount, setFuelAmount] = useState<number>(0);
-  // State
-  const [fulfilled, setFulfilled] = useState<boolean>(false);
-  const [opened, setOpened] = useState<boolean>(false);
-  const [launched, setLaunched] = useState<boolean>(false);
+  const [state, dispatch] = useReducer(reducer, initialState);
   
-  // Event Handler
-  // 各関数の実装を useReducer を用いるものに変更しましょう
+  // 以下のように先に書いてしまって、state 内の値を使うのもあり。
+  // const { mode, fuelAmount } = state;
+
+  // e.target.value の値を渡すのを忘れずに
   const onChangeFuel = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // Input Range control
-    const amount = Number(e.target.value);
-    setFuelAmount(amount);
-    
-    // Set State
-    if (amount > 99) {
-      setFulfilled(true);
-    }
+    dispatch({
+      type: SET_FUEL_AMOUNT,
+      payload: Number(e.target.value),
+    });
   };
   
   const onClickLaunch = () => {
-    setLaunched(true);
+    dispatch({
+      type: SET_LAUNCHED,
+    });
   };
   
   const onClickOpen = () => {
-    setOpened(true);
+    dispatch({
+      type: SET_OPENED,
+    });
   };
   
   const onClickReset = () => {
-    setFuelAmount(0);
-    setFulfilled(false);
-    setOpened(false);
-    setLaunched(false);
+    dispatch({
+      type: RESET,
+    });
   };
   
   // Disalbled flags
-  // useReducer の state を活用するようにしましょう
-  const fuelRangeDisabled = fulfilled;
-  const openButtonDisalbled = !fuelRangeDisabled || opened;
-  const launchButtonDisabled = !fuelRangeDisabled || !openButtonDisalbled || launched;
+  // state.mode を使って簡略化
+  // Destructuring していれば mode !== ... で書ける
+  const fuelRangeDisabled = state.mode !== CurrentMode.INITIAL;
+  const openButtonDisalbled = state.mode !== CurrentMode.FULFILLED;
+  const launchButtonDisabled = state.mode !== CurrentMode.OPENED;
   const resetButtonDisabled = !fuelRangeDisabled;
   
   // Fuel Range Label
-  // useReducer の state を活用するようにしましょう
-  const fuelLabelText = `Fuel: ${String(fuelAmount).padStart(3, '0')}%`;
+  // state.fuelAmount に変えるだけ
+  // Destructuring していれば変更不要
+  const fuelLabelText = `Fuel: ${String(state.fuelAmount).padStart(3, '0')}%`;
 
   // Render
-  // 変更内容を適用するようにしましょう
+  // CarIndicator に渡す値を state.mode を使って生成
+  // input に state.fuelAmount を渡す
+  // Destructuring していれば少しシンプルになる
   return (
     <div className="subContainer">
       <CarIndicator
-        fulfilled={fulfilled}
-        opened={opened}
-        launched={launched}
+        fulfilled={state.mode >= CurrentMode.FULFILLED}
+        opened={state.mode >= CurrentMode.OPENED}
+        launched={state.mode >= CurrentMode.LAUNCHED}
       />
       <input
          type="range"
@@ -155,7 +185,7 @@ const ChildComponent: FC = () => {
          min="0"
          max="100"
          step="1"
-         value={fuelAmount}
+         value={state.fuelAmount}
          onChange={onChangeFuel}
          disabled={fuelRangeDisabled}
       />
