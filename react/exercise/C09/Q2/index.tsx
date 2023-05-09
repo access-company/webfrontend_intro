@@ -14,6 +14,7 @@
 //
 import { FC, useReducer, useState } from "react";
 import { createRoot } from "react-dom/client";
+import "./style.css";
 
 declare type CarIndicatorProps = {
 	fulfilled: boolean;
