@@ -12,7 +12,7 @@ const CarIndicator: FC<CarIndicatorProps> = (props) => {
 	return (
 		<div className="carIndicator">
 		  <div className={launched ? 'carLaunched' : 'carStopped'}>
-		    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-car" width="56" height="56" viewBox="0 0 24 24" stroke-width="1.5" stroke={fulfilled ? '#009988' : '#999999'} fill="none" stroke-linecap="round" stroke-linejoin="round">
+		    <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-car" width="56" height="56" viewBox="0 0 24 24" strokeWidth="1.5" stroke={fulfilled ? '#009988' : '#999999'} fill="none" strokeLinecap="round" strokeLinejoin="round">
 					<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
 					<circle cx="7" cy="17" r="2" />
 					<circle cx="17" cy="17" r="2" />
@@ -70,9 +70,9 @@ const ChildComponent: FC = () => {
 	
   // Event Handler
 	// 各関数の実装を useReducer を用いるものに変更しましょう
-	const onChangeFuel = (e: React.InputEvent) => {
+	const onChangeFuel = (e: React.ChangeEvent<HTMLInputElement>) => {
 		// Input Range control
-		const amount = e.target.value;
+		const amount = Number(e.target.value);
 		setFuelAmount(amount);
 		
 		// Set State
@@ -127,7 +127,7 @@ const ChildComponent: FC = () => {
          onChange={onChangeFuel}
          disabled={fuelRangeDisabled}
       />
-			<label for="fuel">
+			<label htmlFor="fuel">
 				{fuelLabelText}
 			</label>
 			<button
