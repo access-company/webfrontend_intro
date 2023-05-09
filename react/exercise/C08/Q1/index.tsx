@@ -13,11 +13,15 @@ import "./style.css";
 const Counter: FC = () => {
   const [count, setCount] = useState<number>(0);
   const increment = () => setCount(count + 1);
+  const decrement = () => setCount(count - 1);
 
   return (
     <div>
       <p>Counter: {count}</p>
       <button onClick={increment}>+</button>
+      <button onClick={decrement} disabled={count === 0}>
+        -
+      </button>
     </div>
   );
 };
