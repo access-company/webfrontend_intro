@@ -8,9 +8,7 @@ type ControlButtonProps = {
   onPush: () => void;
 };
 
-const ControlButton: FC<ControlButtonProps> = (
-  props: ControlButtonProps
-) => {
+const ControlButton: FC<ControlButtonProps> = (props) => {
   const { assignedKey, text, disabled, onPush } = props;
   const [pressed, setPressedValue] = useState<boolean>(false);
 

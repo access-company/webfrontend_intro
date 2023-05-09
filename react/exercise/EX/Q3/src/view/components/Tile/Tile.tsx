@@ -27,7 +27,7 @@ const getClassName = (type?: MatchType): string => {
   }
 };
 
-const Tile: FC<TileProps> = memo(function Tile(props: TileProps) {
+const Tile: FC<TileProps> = memo(function Tile(props) {
   const { text, type, selected } = props;
 
   const className = `${styles.tile} ${getClassName(type)} ${
