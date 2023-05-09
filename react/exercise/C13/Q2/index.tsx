@@ -11,7 +11,7 @@ const INIT_COUNT = 10;
 function CountDown() {
   const [count, setCount] = useState(INIT_COUNT);
 
-  // TODO: useRef を使う
+  // TODO: useRef を使う (型は NodeJS.Timer | null)
 
   const start = () => {
     // TODO： setInterval を使う
