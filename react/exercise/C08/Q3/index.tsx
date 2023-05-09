@@ -32,7 +32,7 @@ const LightBulb: FC<LightBulbProps> = (props) => {
           height="44"
           viewBox="0 0 24 24"
           stroke-width="1.5"
-          stroke="#ffffff"
+          stroke="#2c3e50"
           fill="none"
           stroke-linecap="round"
           stroke-linejoin="round"
@@ -48,7 +48,7 @@ const LightBulb: FC<LightBulbProps> = (props) => {
           height="44"
           viewBox="0 0 24 24"
           stroke-width="1.5"
-          stroke="#2c3e50"
+          stroke="#ffffff"
           fill="none"
           stroke-linecap="round"
           stroke-linejoin="round"
@@ -73,7 +73,7 @@ const Switch: FC<SwitchProps> = (props) => {
         height="44"
         viewBox="0 0 24 24"
         stroke-width="1.5"
-        stroke={power ? "#ffffff" : "#2c3e50"}
+        stroke={power ? "#2c3e50" : "#ffffff"}
         fill="none"
         stroke-linecap="round"
         stroke-linejoin="round"
