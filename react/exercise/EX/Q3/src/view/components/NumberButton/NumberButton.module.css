@@ -1,0 +1,81 @@
+.button {
+  height: 0.6rem;
+  width: 0.4rem;
+  border-radius: 0.1rem;
+  font-size: 0.4rem;
+  line-height: 0.6rem;
+  text-align: center;
+  user-select: none;
+  border: solid 0.01rem #00000055;
+}
+
+.default {
+  background: #aaaaaa;
+  color: #000000;
+}
+
+/* Clicked */
+.default:active {
+  background: #cccccc;
+  color: #222222;
+}
+
+/* Key pressed */
+.default.pressed {
+  background: #cccccc;
+  color: #222222;
+}
+
+/* Green */
+.green {
+  background: #34cc44;
+  color: #000000;
+}
+
+.green:active {
+  background: #56cc66;
+  color: #222222;
+}
+
+.green.pressed {
+  background: #56cc66;
+  color: #222222;
+}
+
+/* yellow */
+.yellow {
+  background: #cccc44;
+  color: #000000;
+}
+
+.yellow:active {
+  background: #cccc66;
+  color: #222222;
+}
+
+.yellow.pressed {
+  background: #cccc66;
+  color: #222222;
+}
+
+/* dark */
+.dark {
+  background: #555555;
+  color: #ffffff;
+}
+
+.dark:active {
+  background: #777777;
+  color: #ffffff;
+}
+
+.dark.pressed {
+  background: #777777;
+  color: #ffffff;
+}
+
+/* disabled */
+.disabled {
+  background: #dddddd;
+  color: #aaaaaa;
+}
