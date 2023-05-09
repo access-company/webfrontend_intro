@@ -118,3 +118,30 @@ $ TARGET=C09/Q1 npm run dev
 ```
 
 編集対象ファイル: `react/exercise/C09/Q1/index.tsx`
+
+# 【課題 9-2】 (optional) 車のアニメーション
+
+`useReducer` で車のアニメーションを実装しましょう。
+
+アニメーションは以下の順で遷移します。
+- Fuel ゲージを満タンにする。
+- Open the gate ボタンでゲートを開く。
+- Launch ボタンで車を発進させる。
+- Reset ボタンで初期状態に戻る。
+
+以下の 4 つの状態を `useState` で管理しています。
+- `fuelAmount`: 燃料ゲージ
+- `fulfilled`: 燃料が満タンかどうか
+- `opened`: ゲートが開いたかどうか
+- `launched`: 車が発進したかどうか
+
+`reducer` を実装し、 `useState` を `useReducer` に置き換えてください。
+
+`action` は必要に応じて追加してください。
+
+```bash
+# react/exercise にて
+$ TARGET=C09/Q2 npm run dev
+```
+
+編集対象ファイル: `react/exercise/C09/Q2/index.tsx`

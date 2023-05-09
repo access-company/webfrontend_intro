@@ -1,0 +1,155 @@
+.subContainer {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.carIndicator {
+  position: relative;
+  width: 450px;
+  height: 50px;
+  margin: 10px;
+  border: 1px solid black;
+  overflow: hidden;
+}
+
+.gateOpened {
+  position: absolute;
+  left: 20%;
+  bottom: 60px;
+  width: 3px;
+  height: 35px;
+  border-radius: 1px;
+  background-color: black;
+  transition: bottom ease-in 0.5s;
+}
+
+.gateClosed {
+  position: absolute;
+  left: 20%;
+  bottom: 7.5px;
+  width: 3px;
+  height: 35px;
+  border-radius: 1px;
+  background-color: black;
+  transition: bottom ease-out 0.25s;
+}
+
+@keyframes dropped {
+  0% { 
+    transform: translateY(-200%)
+  }
+  5% {
+    transform: translateY(-175%)
+  }
+  10% {
+    transform: translateY(-125%)
+  }
+  15% {
+    transform: translateY(-50%)
+  }
+  17% {
+    transform: translateY(0%)
+  }
+  18% {
+    transform: translateY(0%)
+  }
+  20% {
+    transform: translateY(-20%)
+  }
+  24% {
+    transform: translateY(-35%)
+  }
+  28% {
+    transform: translateY(-45%)
+  }
+  32% {
+    transform: translateY(-50%)
+  }
+  33% { 
+    transform: translateY(-50%)
+  }
+  36% {
+    transform: translateY(-45%)
+  }
+  40% {
+    transform: translateY(-35%)
+  }
+  44% {
+    transform: translateY(-20%)
+  }
+  47% {
+    transform: translateY(-0%)
+  }
+  48% {
+    transform: translateY(-5%)
+  }
+  51% {
+    transform: translateY(-9%)
+  }
+  54% {
+    transform: translateY(-12%)
+  }
+  57% {
+    transform: translateY(-14%)
+  }
+  60% {
+    transform: translateY(-15%)
+  }
+  63% {
+    transform: translateY(-15%)
+  }
+  66% {
+    transform: translateY(-14%)
+  }
+  69% {
+    transform: translateY(-12%)
+  }
+  72% {
+    transform: translateY(-9%)
+  }
+  75% {
+    transform: translateY(-5%)
+  }
+  78% {
+    transform: translateY(0%)
+  }
+  89% {
+    transform: translateY(-2%)
+  }
+  90% {
+    transform: translateY(-3%)
+  }
+  91% {
+    transform: translateY(-2%)
+  }
+  92% {
+    transform: translateY(0%)
+  }
+  100% {
+    transform: translateY(0%)
+  }
+}
+
+.carStopped {
+  position: absolute;
+  left: 10px;
+  bottom: -10px;
+  animation: dropped 0.5s ease-in 0s 1;
+}
+
+.carLaunched {
+  position: absolute;
+  left: 900px;
+  bottom: -10px;
+  transition: left ease-in 1.5s;
+}
+
+button {
+  margin: 5px;
+  height: 25px;
+  width: 200px;
+  font-size: 16px;
+}
