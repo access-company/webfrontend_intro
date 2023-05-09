@@ -7,8 +7,19 @@ import { useReducer } from "react";
 import { createRoot } from "react-dom/client";
 import "./style.css";
 
-type State = {};
-type Action = {};
+type State = {
+  count1: number;
+  count2: number;
+};
+type Action = {
+  type:
+    | "increment1"
+    | "decrement1"
+    | "reset1"
+    | "increment2"
+    | "decrement2"
+    | "reset2";
+};
 
 const initialState: State = {
   count1: 0,
@@ -16,14 +27,20 @@ const initialState: State = {
 };
 
 function reducer(state: State, action: Action) {
-  const { count1 } = state;
+  const { count1, count2 } = state;
   switch (action.type) {
     case "increment1":
-      return { count1: count1 + 1 };
+      return { ...state, count1: count1 + 1 };
     case "decrement1":
-      return { count1: count1 - 1 };
+      return { ...state, count1: count1 - 1 };
     case "reset1":
-      return initialState;
+      return { ...state, count1: initialState.count1 };
+    case "increment2":
+      return { ...state, count2: count2 + 1 };
+    case "decrement2":
+      return { ...state, count2: count2 - 1 };
+    case "reset2":
+      return { ...state, count2: initialState.count2 };
     default:
       throw new Error();
   }
