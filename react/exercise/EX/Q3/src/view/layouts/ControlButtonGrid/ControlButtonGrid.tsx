@@ -5,9 +5,7 @@ type ControlButtonGridProps = {
   children?: ReactNode;
 };
 
-const ControlButtonGrid: FC<ControlButtonGridProps> = (
-  props: ControlButtonGridProps
-) => {
+const ControlButtonGrid: FC<ControlButtonGridProps> = (props) => {
   const { children } = props;
 
   return (

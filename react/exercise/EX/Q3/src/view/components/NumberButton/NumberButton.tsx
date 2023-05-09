@@ -32,9 +32,7 @@ const getClassName = (disabled?: boolean, type?: MatchType): string => {
   }
 };
 
-const NumberButton: FC<NumberButtonProps> = (
-  props: NumberButtonProps
-) => {
+const NumberButton: FC<NumberButtonProps> = (props) => {
   const { assignedKey, disabled, text, type, onPush } = props;
   const [pressed, setPressedValue] = useState<boolean>(false);
 
