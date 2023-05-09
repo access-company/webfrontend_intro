@@ -123,8 +123,13 @@ $ TARGET=C09/Q1 npm run dev
 
 `useReducer` で車のアニメーションを実装しましょう。
 
-以下の 4 つの状態を `useState` で管理しています。
+アニメーションは以下の順で遷移します。
+- Fuel ゲージを満タンにする。
+- Open the gate ボタンでゲートを開く。
+- Launch ボタンで車を発進させる。
+- Reset ボタンで初期状態に戻る。
 
+以下の 4 つの状態を `useState` で管理しています。
 - `fuelAmount`: 燃料ゲージ
 - `fulfilled`: 燃料が満タンかどうか
 - `opened`: ゲートが開いたかどうか
