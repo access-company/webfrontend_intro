@@ -56,16 +56,17 @@ const CarIndicator: FC<CarIndicatorProps> = (props) => {
 }
 
 // ヒント: この WebApp の状態は全部で４段階
-declare type CurrentMode = 0 | 1 | 2 | 3;
+const CurrentMode = {
+  INITIAL: 0,
+  FULFILLED: 1,
+  OPENED: 2,
+  LAUNCHED: 3,
+} as const
+
 declare type ChildComponentState = {
   fuelAmount: number;
-  mode: CurrentMode;
+  mode: typeof CurrentMode[keyof typeof CurrentMode];
 }
-
-const MODE_INITIAL = 0;
-const MODE_FULFILLED = 1;
-const MODE_OPENED = 2;
-const MODE_LAUNCHED = 3;
 
 // 必要なActionは全部でいくつ？
 declare type ChildComponentActions = {
