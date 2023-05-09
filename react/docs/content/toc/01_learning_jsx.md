@@ -204,7 +204,7 @@ const element = React.createElement('div', { tabIndex: getIndex() });
 コンポーネントに渡すオブジェクトをスプレッド演算子として使用することで、
 オブジェクトのパラメータを属性として展開できます。
 
-なお、`...rest演算子` で props の再構築を行うことで、必要な props のみを追加することができます。
+なお、スプレッド演算子で残余引数が定義できます。例: `const { isDisplay, ...rest } = props;`
 
 下記の例は、等価です。
 
