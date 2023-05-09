@@ -1,0 +1,7 @@
+.grid {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  row-gap: 0.05rem;
+  font-size: 0.18rem;
+}

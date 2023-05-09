@@ -1,0 +1,38 @@
+.tile {
+  height: 0.6rem;
+  width: 0.6rem;
+  border-radius: 0.1rem;
+  font-size: 0.4rem;
+  line-height: 0.6rem;
+  text-align: center;
+  user-select: none;
+  border: solid 0.01rem #00000055;
+}
+
+.default {
+  background: #aaaaaa;
+  color: #000000;
+}
+
+/* Green */
+.green {
+  background: #34cc44;
+  color: #000000;
+}
+
+/* yellow */
+.yellow {
+  background: #cccc44;
+  color: #000000;
+}
+
+/* dark */
+.dark {
+  background: #555555;
+  color: #ffffff;
+}
+
+.selected {
+  background: #aae;
+  color: #000000;
+}
