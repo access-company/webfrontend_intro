@@ -61,18 +61,6 @@ class Welcom extends Component {
 React 公式ガイドでは、互換性の観点からクラスコンポーネントを使った説明が多く残されていますが、
 これからのフロントエンド開発では、クラスコンポーネントを使う場面は非常に少なくなります。
 
-### 高階コンポーネントについて
-
-高階コンポーネント (higher-order component; HOC) はコンポーネントのロジックを再利用するための React における応用テクニックです。
-
-HOC それ自体は React の API の一部ではありません。HOC は、React のコンポジションの性質から生まれる設計パターンです。
-
-具体的には、高階コンポーネントとは、あるコンポーネントを受け取って新規のコンポーネントを返すような関数です。
-
-```tsx
-const EnhancedComponent = higherOrderComponent(WrappedComponent);
-```
-
 # props について
 
 コンポーネントの引数のことを、`props`と呼びます。
