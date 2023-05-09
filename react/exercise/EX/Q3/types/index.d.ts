@@ -1,4 +1,5 @@
 type MatchType = 'default' | 'unused' | 'used' | 'matched'
+
 type MatchResult = {
   value?: string
   type?: MatchType
