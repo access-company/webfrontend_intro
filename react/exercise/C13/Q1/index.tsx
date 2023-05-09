@@ -9,20 +9,21 @@ import { useCallback, useState, useRef, FC } from "react";
 import { createRoot } from "react-dom/client";
 
 const ChildComponent: FC = () => {
-  // TODO
+  const countRef = useRef<number>(0);
+  const [count, setCount] = useState<number>(0);
 
   const onClickState = () => {
-    // TODO
+    setCount((count) => count + 1);
   };
   const onClickRef = () => {
-    // TODO
+    countRef.current = countRef.current + 1;
   };
 
   return (
     <>
       <p>useState & useRef</p>
-      <button onClick={onClickState}>{`state: `}</button>
-      <button onClick={onClickRef}>{`ref: `}</button>
+      <button onClick={onClickState}>{`state: ${count}`}</button>
+      <button onClick={onClickRef}>{`ref: ${countRef.current}`}</button>
     </>
   );
 };
