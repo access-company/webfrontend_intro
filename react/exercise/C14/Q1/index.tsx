@@ -75,7 +75,7 @@ interface CounterButtonProps {
   label: string;
 }
 
-const CounterButton = (props: CounterButtonProps) => {
+const CounterButton = memo(function CounterButton(props: CounterButtonProps) {
   const { id, onClick, disabled, label } = props;
 
   // --- 計測用 ---
@@ -88,7 +88,7 @@ const CounterButton = (props: CounterButtonProps) => {
       {label}
     </button>
   );
-};
+});
 
 interface CounterProps {
   handleCustomStartCount: (e: React.MouseEvent<HTMLButtonElement>) => void;
@@ -103,32 +103,38 @@ const Counter: FC<CounterProps> = (props) => {
 
   const { handleCustomStartCount, handleCustomStopCount } = props;
   const [count, setCount] = useState<number>(0);
-  const [frameId, setFrameId] = useState<number>(0);
+  const frameRef = useRef<number>(0);
 
   function loop() {
     setCount((count) => count + 1);
     const id = window.requestAnimationFrame(loop);
-    setFrameId(id);
+    frameRef.current = id;
     return id;
   }
 
   function stop() {
-    window.cancelAnimationFrame(frameId);
+    window.cancelAnimationFrame(frameRef.current);
   }
 
-  const handleStartCount = (e: React.MouseEvent<HTMLButtonElement>) => {
-    if (typeof handleCustomStartCount === "function") {
-      handleCustomStartCount(e);
-    }
-    loop();
-  };
+  const handleStartCount = useCallback(
+    (e: React.MouseEvent<HTMLButtonElement>) => {
+      if (typeof handleCustomStartCount === "function") {
+        handleCustomStartCount(e);
+      }
+      loop();
+    },
+    []
+  );
 
-  const handleStopCount = (e: React.MouseEvent<HTMLButtonElement>) => {
-    if (typeof handleCustomStopCount === "function") {
-      handleCustomStopCount(e);
-    }
-    stop();
-  };
+  const handleStopCount = useCallback(
+    (e: React.MouseEvent<HTMLButtonElement>) => {
+      if (typeof handleCustomStopCount === "function") {
+        handleCustomStopCount(e);
+      }
+      stop();
+    },
+    []
+  );
 
   return (
     <>
