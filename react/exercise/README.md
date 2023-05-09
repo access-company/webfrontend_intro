@@ -12,5 +12,5 @@ npm install
 TARGET={対象課題フォルダ名} npm run dev
 
 # 例
-TARGET=Q1-1 npm run dev
+TARGET=C01/Q1 npm run dev
 ```
