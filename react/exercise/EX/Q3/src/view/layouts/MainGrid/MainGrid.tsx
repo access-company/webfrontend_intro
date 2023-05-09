@@ -1,12 +1,12 @@
-import { FC, ReactChild } from 'react';
+import { FC, ReactNode } from 'react';
 import styles from './MainGrid.module.css';
 
 type MainGridProps = {
-  children: ReactChild[];
+  children: ReactNode[];
 };
 
 // 実はただ Grid 使っているだけなのでコワクナイヨ
-const MainGrid: FC<MainGridProps> = (props: MainGridProps) => {
+const MainGrid: FC<MainGridProps> = (props) => {
   const { children } = props;
 
   return (
