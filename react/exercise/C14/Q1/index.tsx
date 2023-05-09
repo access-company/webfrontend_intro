@@ -93,7 +93,6 @@ const CounterButton = (props: CounterButtonProps) => {
 interface CounterProps {
   handleCustomStartCount: (e: React.MouseEvent<HTMLButtonElement>) => void;
   handleCustomStopCount: (e: React.MouseEvent<HTMLButtonElement>) => void;
-  handleCustomResetCount: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 const Counter: FC<CounterProps> = (props) => {
@@ -102,11 +101,7 @@ const Counter: FC<CounterProps> = (props) => {
   incrementPerformanceCounter("Counter");
   // --- 計測用 ---
 
-  const {
-    handleCustomStartCount,
-    handleCustomStopCount,
-    handleCustomResetCount,
-  } = props;
+  const { handleCustomStartCount, handleCustomStopCount } = props;
   const [count, setCount] = useState<number>(0);
   const [frameId, setFrameId] = useState<number>(0);
 
