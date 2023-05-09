@@ -101,7 +101,11 @@ ReactDOM.createRoot(document.body).render(element);
 TSX の構文を複数行に分けて記述する場合は、括弧`()` で囲んでください。
 
 ```typescript
-const element = <h1>Hello, {formatName(user)}</h1>;
+const element = (
+  <div>
+    <h1>Hello, {formatName(user)}</h1>
+  </div>
+);
 ```
 
 <details><summary>Advanced</summary>
@@ -191,6 +195,8 @@ const element = React.createElement('div', { tabIndex: getIndex() });
 コンポーネントに渡すオブジェクトをスプレッド演算子として使用することで、
 オブジェクトのパラメータを属性として展開できます。
 
+なお、スプレッド演算子で残余引数が定義できます。例: `const { isDisplay, ...rest } = props;`
+
 下記の例は、等価です。
 
 ```typescript
@@ -201,6 +207,12 @@ function App1() {
 function App2() {
   const props = { firstName: 'Seiji', lastName: 'Urushihara' };
   return <Greeting {...props} />;
+}
+
+function App3() {
+  const props = { firstName: 'Seiji', lastName: 'Urushihara', isDisplay: true };
+  const { isDisplay, ...rest } = props;
+  return isDisplay && <Greeting {...rest} />;
 }
 ```
 
@@ -269,16 +281,31 @@ const element = (
 );
 ```
 
-# 空の要素
+# 空の要素(Fragment)
 
-TSX は、空要素を表現することができます。上記のような構造を表現するとき、余分な div を使わずに済ませることができます。
+React のコンポーネントでは DOM 要素を返すとき 1 つの要素しか返せません。コンポーネントが複数の要素を返すには、Fragment(`<>`)を使用すると、DOM に余分なノードを追加することなく、子要素のリストをグループ化することができます。
+
+なお、`<>` は `<React.Fragment>` のシンタックスシュガーになります。
+
+1. Fragment は、余分な DOM ノードを作成しないので、少し速く、より少ないメモリを使用します。これは、非常に大きく深いツリーでこそ真価を発揮します。
+2. Flexbox や CSS Grid などの CSS の仕組みには、特殊な親子関係があり、途中に div を追加すると、望ましいレイアウトを維持するのが難しくなります。
+3. DOM インスペクタが乱雑にならずに済みます
+
+たとえば、上記のような構造を表現するとき、余分な div を使わずに済ませることができます。
 
 ```typescript
-const element = (
+const element1 = (
   <>
     <h1>Hello!</h1>
     <h2>Good to see you here.</h2>
   </>
+);
+
+const element2 = (
+  <React.Fragment>
+    <h1>Hello!</h1>
+    <h2>Good to see you here.</h2>
+  </React.Fragment>
 );
 ```
 
