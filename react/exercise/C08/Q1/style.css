@@ -11,3 +11,7 @@ button {
   font-size: 2rem;
   padding: 0 1rem 0 1rem;
 }
+
+.evenNumber {
+  color: red;
+}
