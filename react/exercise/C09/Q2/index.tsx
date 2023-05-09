@@ -1,3 +1,17 @@
+// C9/Q2
+// `useReducer` で車のアニメーションを実装しましょう。
+//
+// 以下の 4 つの状態を `useState` で管理しています。
+//
+// - `fuelAmount`: 燃料ゲージ
+// - `fulfilled`: 燃料が満タンかどうか
+// - `opened`: ゲートが開いたかどうか
+// - `launched`: 車が発進したかどうか
+//
+// `reducer` を実装し、 `useState` を `useReducer` に置き換えてください。
+//
+// `action` は必要に応じて追加してください。
+//
 import { FC, useReducer, useState } from "react";
 import { createRoot } from "react-dom/client";
 
