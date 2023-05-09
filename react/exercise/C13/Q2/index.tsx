@@ -10,22 +10,32 @@ const INIT_COUNT = 10;
 
 function CountDown() {
   const [count, setCount] = useState(INIT_COUNT);
-
-  // TODO: useRef を使う
+  const intervalRef = useRef<NodeJS.Timer | null>(null);
+  console.log(count);
 
   const start = () => {
-    // TODO： setInterval を使う
-    // @see https://developer.mozilla.org/ja/docs/Web/API/WindowOrWorkerGlobalScope/setInterval
+    if (intervalRef.current !== null) {
+      return;
+    }
+    if (count === 0) {
+      reset();
+    }
+
+    intervalRef.current = setInterval(() => {
+      setCount((count) => count - 1);
+    }, 1000);
   };
 
   const stop = () => {
-    // TODO： clearInterval を使う
-    // @see https://developer.mozilla.org/ja/docs/Web/API/WindowOrWorkerGlobalScope/clearInterval
+    if (intervalRef.current === null) {
+      return;
+    }
+    clearInterval(intervalRef.current);
+    intervalRef.current = null;
   };
   const reset = () => {
     stop();
-
-    // TODO: カウントをINIT_COUNTにリセット
+    setCount(INIT_COUNT);
   };
 
   if (count === 0) {
