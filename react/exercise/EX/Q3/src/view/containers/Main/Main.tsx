@@ -1,4 +1,4 @@
-import { FC, useCallback, useMemo, useState } from 'react';
+import { FC, useState } from 'react';
 import styles from './Main.module.css';
 // ゲームに関係する定数
 import { DIGITS, RADIX, MAX_ATTEMPTS } from '../../../constants';
@@ -125,7 +125,6 @@ const Main: FC = () => {
   const numButtons = numKeyValues.map((value) => (
     <NumberButton
       assignedKey={`${value}`}
-      key={value}
       onPush={() => {
         if (inputValues.length < DIGITS) {
           setInputValues([...inputValues, `${value}`])
