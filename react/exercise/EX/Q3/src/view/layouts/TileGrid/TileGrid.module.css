@@ -4,6 +4,6 @@
   align-items: center;
   grid-template-columns: repeat(5, minmax(0, auto));
   grid-template-rows: repeat(5, minmax(0, auto));
-  row-gap: 0.025rem;
-  column-gap: 0.025rem;
+  row-gap: 0.25rem;
+  column-gap: 0.25rem;
 }
