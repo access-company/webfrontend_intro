@@ -1,12 +1,12 @@
 .button {
-  height: 0.6rem;
-  width: 1.5rem;
-  border-radius: 0.1rem;
-  font-size: 0.25rem;
-  line-height: 0.6rem;
+  height: 6rem;
+  width: 15rem;
+  border-radius: 1rem;
+  font-size: 2.5rem;
+  line-height: 6rem;
   text-align: center;
   user-select: none;
-  border: solid 0.01rem #00000055;
+  border: solid 0.1rem #00000055;
 }
 
 .default {
