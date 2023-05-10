@@ -46,11 +46,11 @@ export const compare = (
   const indexMap = (
     [...new Array(RADIX)] as FiniteArray<typeof RADIX, Array<string>>
   ).map((): Array<string> => []);
+
   answer.forEach((value, index) => {
     console.info(`value: ${value}, index: ${index}`);
     const answerValue = Number.parseInt(value);
     indexMap[answerValue].push(`${index}`);
-    return indexMap;
   });
 
   // 重みの高い MatchType を優先して input と上記を比較して MatchType の配列を生成して返す

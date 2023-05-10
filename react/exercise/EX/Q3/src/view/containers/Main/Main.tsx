@@ -113,11 +113,6 @@ const Main: FC = () => {
   const { results, inputValues, buttonState, isGameOver, message } = state;
 
   /* Methods */
-  //数字ボタンを押した時
-  const onPushNumber = useCallback((assignedKey: string) => {
-    dispatch({ type: ACTIONS.ADD_NUMBER, payload: assignedKey });
-  }, []);
-
   // Guess ボタンを押した時
   const onPushGuess = useCallback(() => {
     dispatch({ type: ACTIONS.GUESS });
@@ -171,12 +166,12 @@ const Main: FC = () => {
       <NumberButton
         assignedKey={`${value}`}
         key={value}
-        onPush={onPushNumber}
+        onPush={() => dispatch({ type: ACTIONS.ADD_NUMBER, payload: `${value}` })}
         type={buttonState[value]}
         disabled={isGameOver}
       />
     ));
-  }, [isGameOver, buttonState, onPushNumber]);
+  }, [isGameOver, buttonState]);
 
   return (
     <div className={styles.container}>
@@ -185,7 +180,11 @@ const Main: FC = () => {
         <TileGrid>{tiles}</TileGrid>
         <NumberButtonGrid>{numButtons}</NumberButtonGrid>
         <ControlButtonGrid>
-          <ControlButton assignedKey="r" text="Reset" onPush={onPushReset} />
+          <ControlButton
+            assignedKey="r"
+            text="Reset"
+            onPush={onPushReset}
+          />
           <ControlButton
             assignedKey="BackSpace"
             text="Delete"
