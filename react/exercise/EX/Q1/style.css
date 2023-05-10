@@ -1,0 +1,99 @@
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6em;
+}
+
+.toggleBtn {
+  display: inline-block;
+  outline: 0;
+  width: 14rem;
+  height: 6rem;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  background: #fbfbfb;
+  border-radius: 4rem;
+  padding: 0.4rem;
+  transition: all 0.4s ease;
+  border: 0.2rem solid #e8eae9;
+}
+
+.toggleInput:focus + .toggleBtn::after,
+.toggleBtn:active::after {
+  box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.1), 0 0.4rem 0 rgba(0, 0, 0, 0.08),
+    inset 0px 0px 0px 0.3rem #9c9c9c;
+}
+
+.toggleBtn::after {
+  left: 0;
+  position: relative;
+  display: block;
+  content: "";
+  width: 50%;
+  height: 100%;
+  border-radius: 5rem;
+  background: #fbfbfb;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    padding 0.3s ease, margin 0.3s ease;
+  box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.1), 0 0.4rem 0 rgba(0, 0, 0, 0.08);
+}
+
+.toggleBtn.toggleBtnOn::after {
+  left: 50%;
+}
+
+.toggleBtn.toggleBtnOn {
+  background: #7bc3ff; /* #86d993; */
+}
+
+.toggleBtn.toggleBtnOn:active {
+  box-shadow: none;
+}
+
+.toggleBtn.toggleBtnOn:active::after {
+  margin-left: -1.6em;
+}
+
+.toggleBtn:active::after {
+  padding-right: 1.6em;
+}
+
+.toggleInput {
+  position: absolute;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 0.1rem;
+  margin: -0.1rem;
+  overflow: hidden;
+  padding: 0;
+  width: 0.1rem;
+  white-space: nowrap;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+button {
+  line-height: 3rem;
+  border-radius: 0.4rem;
+  font-size: 1.8rem;
+  padding: 0.2rem 1rem 0.2rem 1rem;
+  width: 16rem;
+}
+
+button:focus {
+  outline: 0.1rem solid blue;
+}
+
+.toggleGroup {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
