@@ -106,6 +106,8 @@ const reducer = (state: GameState, action: GameActionType): GameState => {
 /* key 生成 */
 const generateKey = (col: number, row: number) => `c${col}r${row}`;
 
+const numKeyValues = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
 const Main: FC = () => {
   const [state, dispatch] = useReducer(reducer, initialGameState);
   const { results, inputValues, buttonState, isGameOver, message } = state;
@@ -165,11 +167,12 @@ const Main: FC = () => {
 
   // Button コンポーネントをまとめて生成
   const numButtons = useMemo(() => {
-    return [...new Array(RADIX)].map((_, index) => (
+    return numKeyValues.map((value) => (
       <NumberButton
-        assignedKey={`${index}`}
+        assignedKey={`${value}`}
+        key={value}
         onPush={onPushNumber}
-        type={buttonState[index]}
+        type={buttonState[value]}
         disabled={isGameOver}
       />
     ));
