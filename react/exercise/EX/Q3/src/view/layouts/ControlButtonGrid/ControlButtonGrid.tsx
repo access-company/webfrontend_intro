@@ -2,7 +2,7 @@ import { FC, ReactNode } from 'react';
 import styles from './ControlButtonGrid.module.css';
 
 type ControlButtonGridProps = {
-  children?: ReactNode;
+  children: ReactNode;
 };
 
 const ControlButtonGrid: FC<ControlButtonGridProps> = (props) => {

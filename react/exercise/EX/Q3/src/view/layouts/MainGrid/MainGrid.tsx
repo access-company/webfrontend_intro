@@ -2,7 +2,7 @@ import { FC, ReactNode } from 'react';
 import styles from './MainGrid.module.css';
 
 type MainGridProps = {
-  children: ReactNode[];
+  children: ReactNode;
 };
 
 // 実はただ Grid 使っているだけなのでコワクナイヨ
