@@ -51,10 +51,6 @@ const ControlButton: FC<ControlButtonProps> = (props) => {
   useEffect(() => {
     window.addEventListener('keydown', onKeyDown);
     window.addEventListener('keyup', onKeyUp);
-    return (): void => {
-      window.removeEventListener('keydown', onKeyDown);
-      window.removeEventListener('keyup', onKeyUp);
-    };
   }, []);
   // キーボードイベント ここまで
 
