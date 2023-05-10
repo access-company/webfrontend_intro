@@ -88,7 +88,6 @@ const NumberButton: FC<NumberButtonProps> = (props) => {
       className={className}
       onClick={onClick}
       data-testid="number-button"
-      key={assignedKey}
     >
       {text || assignedKey}
     </div>
