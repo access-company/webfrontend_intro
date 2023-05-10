@@ -2,24 +2,25 @@ import { FC, useReducer, useState, useCallback } from "react";
 import { createRoot } from "react-dom/client";
 import "./style.css";
 
-type ActionTypes = { [P in "toggle" | "on" | "off"]: string };
+type ActionTypes = { [P in "toggle" | "on" | "off" | "reset"]: string };
 const actionTypes: ActionTypes = {
   toggle: "TOGGLE",
   on: "ON",
   off: "OFF",
+  reset: "RESET",
 };
 
 const TOO_MANY_CLICKS = 4;
-const initialState = { on: false };
+const initialState = { on: false, cnt: 0 };
 
 const toggleSwitchReducer = (state, action) => {
   switch (action.type) {
     case actionTypes.toggle:
-      return { on: !state.on };
+      return { ...state, on: !state.on };
     case actionTypes.on:
-      return { on: true };
+      return { ...state, on: true };
     case actionTypes.off:
-      return { on: false };
+      return { ...state, on: false };
     default:
       throw new Error(`unknown action type: ${action.type}`);
   }
@@ -27,26 +28,30 @@ const toggleSwitchReducer = (state, action) => {
 
 function useToggleSwitch({ reducer = toggleSwitchReducer } = {}): [
   boolean,
+  number,
+  () => void,
   () => void,
   () => void,
   () => void
 ] {
-  const [{ on }, dispatch] = useReducer(reducer, initialState);
+  const [{ on, cnt }, dispatch] = useReducer(reducer, initialState);
 
   const toggle = () => dispatch({ type: actionTypes.toggle });
   const setON = () => dispatch({ type: actionTypes.on });
   const setOFF = () => dispatch({ type: actionTypes.off });
+  const reset = () => dispatch({ type: actionTypes.reset });
 
-  return [on, toggle, setON, setOFF];
+  return [on, cnt, toggle, setON, setOFF, reset];
 }
 
 type Props = {
   on: boolean;
   onClick: () => void;
+  disabled: boolean;
 };
 
 const ToggleSwitch: FC<Props> = (props) => {
-  const { on, onClick } = props;
+  const { on, onClick, disabled } = props;
   const toggleStyle = ["toggleBtn", on ? "toggleBtnOn" : "toggleBtnOff"]
     .filter(Boolean)
     .join(" ");
@@ -58,6 +63,7 @@ const ToggleSwitch: FC<Props> = (props) => {
         checked={on}
         className="toggleInput"
         onClick={onClick}
+        disabled={disabled}
       />
       <span className={toggleStyle}></span>
     </label>
@@ -67,14 +73,22 @@ const ToggleSwitch: FC<Props> = (props) => {
 const TestApp: FC = () => {
   const [clicksSinceReset, setClicksSinceReset] = useState<number>(0);
 
-  const [on, toggle, setON, setOFF] =
-    useToggleSwitch(/*{
-    reducer(currentState, action) {
-      // 課題: reducerをカスタマイズしてください
-      // TODO: トグルアクションが TOO_MANY_CLICKS 回以上のとき、on状態を固定化する
-      // TODO: ON, OFFアクション時は、制限なしとする
-    }
-  }*/);
+  const [on, cnt, toggle, setON, setOFF, reset] = useToggleSwitch({
+    reducer: (state, action) => {
+      switch (action.type) {
+        case actionTypes.toggle:
+          return { on: !state.on, cnt: state.cnt + 1 };
+        case actionTypes.on:
+          return { ...state, on: true };
+        case actionTypes.off:
+          return { ...state, on: false };
+        case actionTypes.reset:
+          return { ...state, cnt: 0 };
+        default:
+          throw new Error(`unknown action type: ${action.type}`);
+      }
+    },
+  });
 
   const handleClick = useCallback(() => {
     toggle();
@@ -86,11 +100,15 @@ const TestApp: FC = () => {
       <p className="formGroup">
         <button onClick={setOFF}>OFF</button>
         <button onClick={setON}>ON</button>
-        {/* TODO: TOO_MANY_CLICKS 回以上のとき Reset ボタンを表示する */}
+        {cnt >= TOO_MANY_CLICKS && <button onClick={reset}>Reset</button>}
       </p>
 
       <p className="toggleGroup">
-        <ToggleSwitch on={on} onClick={handleClick} />
+        <ToggleSwitch
+          on={on}
+          onClick={handleClick}
+          disabled={cnt >= TOO_MANY_CLICKS}
+        />
       </p>
     </>
   );
