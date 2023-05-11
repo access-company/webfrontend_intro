@@ -15,11 +15,11 @@
 
 ```shell
 # src を忘れずに!!!
-TARGET=EX/Q3/src npm run dev
+TARGET=EX/Q2/src npm run dev
 ```
 
 ### Storybook
 
 ```shell
-TARGET=EX/Q3 npm run storybook
+TARGET=EX/Q2 npm run storybook
 ```
