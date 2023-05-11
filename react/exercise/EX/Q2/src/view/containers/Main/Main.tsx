@@ -108,6 +108,22 @@ const generateKey = (col: number, row: number) => `c${col}r${row}`;
 
 const numKeyValues = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
+// Tile コンポーネントに描画したい内容を(列/行)で取得するためのメソッド
+const getTileInfo = (col: number, row: number, results: Array<Array<MatchResult>>, inputValues: Array<string>): MatchResult => {
+  // results に存在していれば results から
+  if (results.length > row) {
+    return results[row][col];
+  }
+  // inputValues から取れそうであれば inputValues から
+  if (results.length === row) {
+    return {
+      value: inputValues[col] || undefined,
+    };
+  }
+  // まだ未操作ものであれば空を
+  return {};
+};
+
 const Main: FC = () => {
   const [state, dispatch] = useReducer(reducer, initialGameState);
   const { results, inputValues, buttonState, isGameOver, message } = state;
@@ -128,27 +144,11 @@ const Main: FC = () => {
     dispatch({ type: ACTIONS.RESET });
   }, []);
 
-  // Tile コンポーネントに描画したい内容を(列/行)で取得するためのメソッド
-  const getTileInfo = (col: number, row: number): MatchResult => {
-    // results に存在していれば results から
-    if (results.length > row) {
-      return results[row][col];
-    }
-    // inputValues から取れそうであれば inputValues から
-    if (results.length === row) {
-      return {
-        value: inputValues[col] || undefined,
-      };
-    }
-    // まだ未操作ものであれば空を
-    return {};
-  };
-
   // Tile コンポーネントをまとめて生成
   const tiles = [...new Array(DIGITS * MAX_ATTEMPTS)].map((_, index) => {
     const col = index % DIGITS;
     const row = Math.floor(index / DIGITS);
-    const { value, type } = getTileInfo(col, row);
+    const { value, type } = getTileInfo(col, row, results, inputValues);
     const selected = results.length === row && inputValues.length === col;
     return (
       <Tile
@@ -189,13 +189,13 @@ const Main: FC = () => {
             assignedKey="BackSpace"
             text="Delete"
             onPush={onPushDelete}
-            disabled={isGameOver}
+            disabled={isGameOver || !inputValues.length}
           />
           <ControlButton
             assignedKey="Enter"
             text="Guess"
             onPush={onPushGuess}
-            disabled={isGameOver}
+            disabled={isGameOver || inputValues.length < DIGITS}
           />
         </ControlButtonGrid>
       </MainGrid>
