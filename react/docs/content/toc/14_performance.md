@@ -26,7 +26,7 @@ const MemoizedMyComponent = React.memo(function MyComponent(props) {
 
 ## 【課題 14-1】 描画パフォーマンスを改善しよう！
 
-はじめに、CodePen の左下の "Console" タブを選択して、コンソールログを表示してください。
+はじめに、Chrome Dev Tools を開き、Console の項目（コンソールログ）を表示してください。
 Start ボタン押下するとカウントを開始します。Stop ボタンを押下すると、カウントを一時停止します。
 HTML 出力画面の count= xxxxx の数字とコンソールログの Counter と CounterButton の数字を
 確認してください。
