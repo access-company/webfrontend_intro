@@ -1,0 +1,33 @@
+.button {
+  height: 6rem;
+  width: 15rem;
+  border-radius: 1rem;
+  font-size: 2.5rem;
+  line-height: 6rem;
+  text-align: center;
+  user-select: none;
+  border: solid 0.1rem #00000055;
+}
+
+.default {
+  background: #8787dd;
+  color: #000000;
+}
+
+/* Clicked */
+.default:active {
+  background: #9a9aff;
+  color: #222222;
+}
+
+/* Key pressed */
+.default.pressed {
+  background: #9a9aff;
+  color: #222222;
+}
+
+/* disabled */
+.disabled {
+  background: #dddddd;
+  color: #aaaaaa;
+}
