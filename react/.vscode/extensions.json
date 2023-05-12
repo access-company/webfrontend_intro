@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "pkief.material-icon-theme",
+    "dbaeumer.vscode-eslint",
+    "shardulm94.trailing-spaces",
+    "stylelint.vscode-stylelint",
+    "dsznajder.es7-react-js-snippets"
+  ]
+}

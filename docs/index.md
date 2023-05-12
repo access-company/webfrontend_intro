@@ -5,7 +5,6 @@
 - HTML/CSS
 - [TypeScript](./typescript/index.md)
 - [React](https://access-company.github.io/webfrontend_intro/react/)
-- [Redux](./redux/index.md)
 - ミニ講義
   - [Chrome 開発者ツールの主な使い方](./miniLecture/chromeDeveloperTool/index.md)
 - 演習

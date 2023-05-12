@@ -1,20 +1,21 @@
 ---
-title: "第11章　値の同一性を理解する"
+title: '第11章　値の同一性を理解する'
 ---
 
-Reactは、`props`と`state`が変化した時に描画を更新する仕組みを持っています。
+React は、`props`と`state`が変化した時に描画を更新する仕組みを持っています。
 `props`と`state`の値の変化を正しく理解するには、**値の同一性** についての理解が欠かせません。
 
-React内部では、値の比較に `Object.is(value1, value2)`（[参照: MDN](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Object/is)） という JavaScript API を使います。
+React 内部では、値の比較に `Object.is(value1, value2)`（[参照: MDN](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Object/is)） という JavaScript API を使います。
 
-後々、Reactコンポーネントの実装やHooks APIを扱う上で値の同一性を意識する場面がでてきます。値の同一性は、Reactを理解する上でも重要なポイントです。
+後々、React コンポーネントの実装や Hooks API を扱う上で値の同一性を意識する場面がでてきます。値の同一性は、React を理解する上でも重要なポイントです。
 
 それでは、それぞれの型において、値の比較を行った際の挙動の違いを見ていきます。
-実際に、Nodeコマンドまたは、ブラウザのDevToolsのConsoleで実際に動かしてみると理解が深まることでしょう。
+実際に、Node コマンドまたは、ブラウザの DevTools の Console で実際に動かしてみると理解が深まることでしょう。
 
 # Primitive Type の値の比較
 
 ## string
+
 ```javascript
 > Object.is('foo', 'foo')
 true
@@ -24,6 +25,7 @@ false
 ```
 
 ## number
+
 ```javascript
 > Object.is(0, 0)
 true
@@ -33,6 +35,7 @@ false
 ```
 
 ## boolean
+
 ```javascript
 > Object.is(false, false)
 true
@@ -42,12 +45,14 @@ false
 ```
 
 ## null
+
 ```javascript
 > Object.is(null, null)
 true
 ```
 
 ## undefined
+
 ```javascript
 > Object.is(undefined, undefined)
 true
@@ -55,8 +60,8 @@ true
 
 # 値の比較に注意が必要な型
 
-Primitive Typeとは異なって、
-Object、Array、Functionは、それぞれの単純な比較で同値にならない特性をもっています。
+Primitive Type とは異なって、
+Object、Array、Function は、それぞれの単純な比較で同値にならない特性をもっています。
 
 それぞれの型の動作を確認していきます。
 
@@ -102,7 +107,6 @@ false
 true
 ```
 
-
 ## Function
 
 ```javascript
@@ -125,54 +129,55 @@ true
 
 下記コードは、エラー無く動作しますが、値の同一性の考慮がなされていません。
 
-```javascript
-import React, {FC, MouseEvent} from 'react'
-import Avatar from './Avatar'
-import DetailButton from './DetailButton'
-import {doSomething} from './util'
-
+```typescript
+import React, { FC, MouseEvent } from 'react';
+import Avatar from './Avatar';
+import DetailButton from './DetailButton';
+import { doSomething } from './util';
 
 type UserProfileProps = {
-  url: string,
-  name: string,
-  age: number,
-}
+  url: string;
+  name: string;
+  age: number;
+};
 
-const UserProfile: FC<UserProfileProps> = props => {
-  const { url, name, age } = props
+const UserProfile: FC<UserProfileProps> = (props) => {
+  const { url, name, age } = props;
 
   const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
-    doSomething(e)
-  }
+    doSomething(e);
+  };
 
   return (
     <>
       <Avatar url={url} />
       <p>
-        <span>Name: </span><span>{name}</span>
+        <span>Name: </span>
+        <span>{name}</span>
       </p>
       <p>
-        <span>Age: </span><span>{age}</span>
+        <span>Age: </span>
+        <span>{age}</span>
       </p>
       <DetailButton onClick={handleClick}>Detail</DetailButton>
     </>
-  )
-}
+  );
+};
 ```
 
 値の同一性が考慮されていない箇所は、`handleClick`です。
 
 ```javascript
-  const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
-    doSomething(e)
-  }
+const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
+  doSomething(e);
+};
 ```
 
-`handleClick`は関数オブジェクト（Function型）ですが、前の説明の通り、
+`handleClick`は関数オブジェクト（Function 型）ですが、前の説明の通り、
 `UserProfile`コンポーネントが再描画されるたびに、`DetailButton`へ渡す
 `handleClick`の値の同一性が失われていることに気づくことでしょう。
 
-Reactでは、この問題を解決する Hooks API として `useCallback` を用意しています。
+React では、この問題を解決する Hooks API として `useCallback` を用意しています。
 
 # useCallback の導入
 
@@ -181,70 +186,72 @@ Reactでは、この問題を解決する Hooks API として `useCallback` を�
 下記のようなメモ化されていない関数オブジェクトを例にメモ化の仕方について説明します。
 
 ```javascript
-const callback = e => {
-  handleEvent(e)
-  doSomething(dep1, dep2)
-}
+const callback = (e) => {
+  handleEvent(e);
+  doSomething(dep1, dep2);
+};
 ```
 
-上記`callback`関数は、メモ化されていません。そのほか、`doSomething`関数は、`callback`関数のスコープ外にある`dep1`と`dep2`の2つの変数に依存していることがわかります。
+上記`callback`関数は、メモ化されていません。そのほか、`doSomething`関数は、`callback`関数のスコープ外にある`dep1`と`dep2`の 2 つの変数に依存していることがわかります。
 
-`callback`関数をメモ化する場合、元の関数を`useCallback`の第1引数に指定して、
-第2引数に関数内の依存変数を配列に列挙します。
+`callback`関数をメモ化する場合、元の関数を`useCallback`の第 1 引数に指定して、
+第 2 引数に関数内の依存変数を配列に列挙します。
 
 ```javascript
-const memoizedCallback = useCallback(e => {
-  handleEvent(e)
-  doSomething(dep1, dep2)
-}, [dep1, dep2])
+const memoizedCallback = useCallback(
+  (e) => {
+    handleEvent(e);
+    doSomething(dep1, dep2);
+  },
+  [dep1, dep2]
+);
 ```
 
-関数内にスコープ外の依存変数が存在しないときは、第2引数の依存リストを空の配列としてください。
+関数内にスコープ外の依存変数が存在しないときは、第 2 引数の依存リストを空の配列としてください。
 
 ```javascript
-const memoizedCallback = useCallback(e => {
-  handleEvent(e)
-}, [])
+const memoizedCallback = useCallback((e) => {
+  handleEvent(e);
+}, []);
 ```
 
-注意事項として、`useCallback`の第2引数（依存リスト）は省略してはいけません。
+注意事項として、`useCallback`の第 2 引数（依存リスト）は省略してはいけません。
 
 # 値の同一性を考慮した実装の例
 
-
-```javascript
-import React, {useCallback, FC, MouseEvent} from 'react'
-import Avatar from './Avatar'
-import DetailButton from './DetailButton'
-import {doSomething} from './util'
-
+```typescript
+import React, { useCallback, FC, MouseEvent } from 'react';
+import Avatar from './Avatar';
+import DetailButton from './DetailButton';
+import { doSomething } from './util';
 
 type UserProfileProps = {
-  url: string
-  name: string
-  age: number
-}
-const UserProfile: FC<UserProfileProps> = props => {
-  const { url, name, age } = props
+  url: string;
+  name: string;
+  age: number;
+};
+const UserProfile: FC<UserProfileProps> = (props) => {
+  const { url, name, age } = props;
 
   const handleClick = useCallback((e: MouseEvent<HTMLButtonElement>) => {
-    console.log(e)
-  }, [])
-
+    console.log(e);
+  }, []);
 
   return (
     <>
       <Avatar url={url} />
       <p>
-        <span>Name: </span><span>{name}</span>
+        <span>Name: </span>
+        <span>{name}</span>
       </p>
       <p>
-        <span>Age: </span><span>{age}</span>
+        <span>Age: </span>
+        <span>{age}</span>
       </p>
       <DetailButton onClick={handleClick}>Detail</DetailButton>
     </>
-  )
-}
+  );
+};
 ```
 
 # メモ化の不要の関数オブジェクト
@@ -260,7 +267,7 @@ const UserProfile: FC<UserProfileProps> = props => {
 
 ```javascript
 function doSomething(e) {
-  // 略 
+  // 略
 }
 
 const App: FC = () => {
@@ -271,15 +278,15 @@ const App: FC = () => {
 ## Hooks API が返す関数オブジェクト
 
 Hooks API が返す関数オブジェクトは、値の同一性が保証されています。
-Hooks APIが返す関数オブジェクトとは、以下の2つのことを指します。
+Hooks API が返す関数オブジェクトとは、以下の 2 つのことを指します。
 
-* `useState` の setter関数
-* `useReducer` の `dispatch` 関数
+- `useState` の setter 関数
+- `useReducer` の `dispatch` 関数
 
 上記関数をさらに `useCallback` を使ってメモ化する必要はありません。
 
 ## plain な要素
 
-plainな要素とは、HTMLが定義する `div`要素、`p`要素、`span`要素、`input`要素、`a`要素などを指します。plainな要素であって、厳密にはコンポーネントではありません。
+plain な要素とは、HTML が定義する `div`要素、`p`要素、`span`要素、`input`要素、`a`要素などを指します。plain な要素であって、厳密にはコンポーネントではありません。
 
-plainな要素の属性の値に対して、メモ化する必要はありません。
+plain な要素の属性の値に対して、メモ化する必要はありません。

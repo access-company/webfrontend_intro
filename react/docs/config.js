@@ -1,6 +1,6 @@
 const config = {
   gatsby: {
-    pathPrefix: process.env.PATH_PREFIX || '/',
+    pathPrefix: '/webfrontend_intro/react',
     siteUrl: 'https://www.access-company.com/',
     gaTrackingId: null,
     trailingSlash: false,
@@ -16,8 +16,8 @@ const config = {
     links: [
       {
         text: 'MindMap',
-        link: 'https://drive.google.com/open?id=1XNs1w0YVVRLVVV03vuULRP-_WNv6nM4-'
-      }
+        link: 'https://drive.google.com/open?id=1XNs1w0YVVRLVVV03vuULRP-_WNv6nM4-',
+      },
     ],
     search: {
       enabled: false,
@@ -50,7 +50,7 @@ const config = {
       '/13_another_hooks',
       '/14_performance',
       '/15_advanced',
-      '/99_appendix'
+      '/99_appendix',
     ],
     links: [
       {
@@ -68,7 +68,8 @@ const config = {
     ],
     frontline: true,
     ignoreIndex: true,
-    title: "<div class='greenCircle'></div><span><a href='https://access-company.github.io/webfrontend_intro/react/'>React Training</a></span>", // TODO: ADD STATIC PAGE URL
+    title:
+      "<div class='greenCircle'></div><span><a href='https://access-company.github.io/webfrontend_intro/react/'>React Training</a></span>", // TODO: ADD STATIC PAGE URL
   },
   siteMetadata: {
     title: '',
