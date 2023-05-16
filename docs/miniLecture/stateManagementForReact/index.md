@@ -81,7 +81,7 @@ Redux-saga、Redux-Thunk は、Redux アプリケーションで非同期処理�
 
 それらを使用した場合の処理は、Redux のデータフローにおける Action と Reducer の間で行われます。
 
-すなわち、View 側で Action を dispatch した後、非同期処理が行われて完了したら、その結果（成功または失敗）を含む新しい Action を disptach します。そうすると Action と現在のアプリケーションの状態を引数として Reducer が呼ばれて、Store の更新、View の更新へと処理が行われます。
+すなわち、View 側で Action を dispatch した後、非同期処理が行われて完了したら、その結果（成功または失敗）を含む新しい Action を dispatch します。そうすると Action と現在のアプリケーションの状態を引数として Reducer が呼ばれて、Store の更新、View の更新へと処理が行われます。
 
 ### Redux Toolkit について
 
