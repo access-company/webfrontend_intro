@@ -75,7 +75,7 @@ Redux は JavaScript アプリケーションのための予測可能な状態�
 
 さらに、一方向のデータフローはコードの可読性と保守性を向上させます。
 
-### Redux-Sga、Redux-Thunk で非同期処理を扱う
+### Redux-Saga、Redux-Thunk で非同期処理を扱う
 
 Redux-saga、Redux-Thunk は、Redux アプリケーションで非同期処理（例えば、WebAPI でデータの取得）を扱うためのミドルウェアです。
 
