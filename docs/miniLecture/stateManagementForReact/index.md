@@ -16,6 +16,8 @@ React では、それらの状態管理を実現するにあたって複数の�
 
 React では、useState というフックを使って状態を管理することができます。useState は、関数コンポーネント内で状態を持つことを可能にするフックとなります。
 
+https://react.dev/reference/react/useState
+
 useState で状態管理したとき、その状態が更新されると関連するコンポーネントが自動的に再レンダリングされて、状態の変更がユーザーインターフェースに反映されます。
 
 useState は特定のコンポーネント内で状態を管理するときに使用します。場合によっては親コンポーネントから子コンポーネントの 2 つのコンポーネント間で状態を props として渡すことがあります。
@@ -35,6 +37,8 @@ useState として設定した状態を、親コンポーネントから子コ�
 ## useContext について
 
 useContext は、React の組み込みフックで、状態をコンポーネントツリー全体で共有します。
+
+https://react.dev/reference/react/useContext
 
 特徴として、状態を子孫コンポーネントに直接渡すことができるので、useState でみたバケツリレーの問題を解決します。
 
@@ -58,6 +62,8 @@ useContext は、ある React コンポーネントのツリーに対して「�
 
 Redux は JavaScript アプリケーションのための予測可能な状態コンテナです。
 
+https://redux.js.org/
+
 主に React や React Native と組み合わせて使用され、アプリケーションで扱う全ての状態を一元化し、管理を容易にします。状態を一元化して管理する点で useContext と似ていますが、Redux で状態を管理しているのはコンポーネントツリーとは分離した Store になります。
 
 では、その Store で管理している状態を更新するまでのデータフローについて。
@@ -79,6 +85,9 @@ Redux は JavaScript アプリケーションのための予測可能な状態�
 
 Redux-saga、Redux-Thunk は、Redux アプリケーションで非同期処理（例えば、WebAPI でデータの取得）を扱うためのミドルウェアです。
 
+- https://redux-saga.js.org/
+- https://redux.js.org/usage/writing-logic-thunks
+
 それらを使用した場合の処理は、Redux のデータフローにおける Action と Reducer の間で行われます。
 
 すなわち、View 側で Action を dispatch した後、非同期処理が行われて完了したら、その結果（成功または失敗）を含む新しい Action を dispatch します。そうすると Action と現在のアプリケーションの状態を引数として Reducer が呼ばれて、Store の更新、View の更新へと処理が行われます。
@@ -92,6 +101,8 @@ Redux Toolkit は Redux をより簡単で、効率的に使用するために�
 ## Recoil について
 
 Recoil は React 専用の状態管理ライブラリで、前述の Redux とは大きく異なる点があります。
+
+https://recoiljs.org/
 
 1. **設計思想**：Recoil はアプリケーションの状態を小さな単位（Atom）として分割し、それぞれを独立して管理することができます。(分散管理)
    一方、Redux では 1 つの Store に状態を一元化します。(一元管理)
