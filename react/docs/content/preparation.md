@@ -21,7 +21,7 @@ $ npm start
 http://localhost:8000
 ```
 
-<!-- # 2. MindMap（任意）
+{/* # 2. MindMap（任意）
 
 MindMap の表示は、[MindMaster](https://www.edrawsoft.com/jp/mindmaster/) というソフトウェアを使っています。
 
@@ -31,7 +31,7 @@ MindMap の表示は、[MindMaster](https://www.edrawsoft.com/jp/mindmaster/) �
 
 MindMap の内容を確認したい方は、MindMaster で react_training.emmx ファイルを開いてください。react_training.emmx の内容は、本研修資料と同じです。
 
-研修中は、react_training.emmx の内容を主に画面共有します。受講生の方々は、本研修資料（ https://access-company.github.io/webfrontend_intro/react/ ）を手元で見れるようにしてください。 -->
+研修中は、react_training.emmx の内容を主に画面共有します。受講生の方々は、本研修資料（ https://access-company.github.io/webfrontend_intro/react/ ）を手元で見れるようにしてください。 */}
 
 # 2. 演習問題
 

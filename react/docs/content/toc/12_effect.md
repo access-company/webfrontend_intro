@@ -272,7 +272,8 @@ Suspense されるためのコンポーネントは、準備が整っていな�
 それ以外の、コンポーネントレンダリングに支障がない状態なら、通常通りです。
 例えば `Promise<any>` でない例外を発する、通常のコーディングミスは Suspense には捕捉されません。
 
-<details><summary>コンポーネントの例</summary>
+<details>
+<summary>コンポーネントの例</summary>
 
 与えられた Promise が完了するまでサスペンドし、完了すればアドレスカードをレンダリングする例
 
@@ -306,7 +307,8 @@ const Card = ({ promise }: { promise: Promise<Value> }) => {
 
 「ローディング中」のような画面を描画して待ち、Promise 完了で直ちにアドレスカード描画をするためには、`<Suspense>...</Suspense>`で`<Card />`を囲みます。
 
-<details><summary>コンポーネントの例</summary>
+<details>
+<summary>コンポーネントの例</summary>
 
 Card コンポーネントを囲み、ローディング中は「Loading...」という表記をする例
 

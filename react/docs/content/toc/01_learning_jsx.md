@@ -41,7 +41,8 @@ function Hello({ name }: Props) {
 const element = <Hello name="world!" />;
 ```
 
-<details><summary>Advanced</summary>
+<details>
+<summary>Advanced</summary>
 
 もし TSX の助けを得ずに記述すると、このようになります。
 
@@ -108,7 +109,8 @@ const element = (
 );
 ```
 
-<details><summary>Advanced</summary>
+<details>
+<summary>Advanced</summary>
 
 もし TSX の助けを得ずに記述すると、このようになります。
 
@@ -139,7 +141,8 @@ function getGreeting(user) {
 }
 ```
 
-<details><summary>Advanced</summary>
+<details>
+<summary>Advanced</summary>
 
 もし TSX の助けを得ずに記述すると、このようになります。
 
@@ -177,7 +180,8 @@ TypeScript 式を TSX に埋め込むために中括弧`{}`を使用します。
 const element = <div tabIndex={getIndex()}></div>;
 ```
 
-<details><summary>Advanced</summary>
+<details>
+<summary>Advanced</summary>
 
 もし TSX の助けを得ずに記述すると、このようになります。
 
@@ -216,7 +220,8 @@ function App3() {
 }
 ```
 
-<details><summary>Advanced</summary>
+<details>
+<summary>Advanced</summary>
 
 もし TSX の助けを得ずに記述すると、このようになります。
 

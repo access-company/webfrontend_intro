@@ -82,7 +82,8 @@ setInterval(tick, 1000);
 $ TARGET=C02/Time npm run dev
 ```
 
-<details><summary>Advanced</summary>
+<details>
+<summary>Advanced</summary>
 
 もしも React に頼らず vanillajs で記述すると、このようになります。
 
