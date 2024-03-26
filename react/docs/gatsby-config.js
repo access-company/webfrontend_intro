@@ -77,11 +77,6 @@ if (config.pwa && config.pwa.enabled && config.pwa.manifest) {
   plugins.push('gatsby-plugin-remove-serviceworker');
 }
 
-// check and remove trailing slash
-if (config.gatsby && !config.gatsby.trailingSlash) {
-  plugins.push('gatsby-plugin-remove-trailing-slashes');
-}
-
 module.exports = {
   pathPrefix: config.gatsby.pathPrefix,
   siteMetadata: {
@@ -98,5 +93,6 @@ module.exports = {
     headerLinks: config.header.links,
     siteUrl: config.gatsby.siteUrl,
   },
-  plugins: plugins
+  plugins: plugins,
+  trailingSlash: !config.gatsby.trailingSlash ? 'never' : 'always',
 };
