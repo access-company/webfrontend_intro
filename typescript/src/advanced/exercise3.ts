@@ -1,20 +1,20 @@
 /*
-* 以下の `Detail` 型を、 `Mapped Type` を用いて全て optional なパラメータを持つ型にしてください。
+* 以下のコードは冗長なコードである。 generics を使って `greet` という関数一つにまとめてください。
+* `some process` は `message` の型の影響を受けないものとします。
 * */
 
 // 以下のコードのコメントアウトを外して修正を行う
 // {
-//   type Detail = {
-//     address: string
-//     gender: boolean
-//     age: number
+//   function greetString(message: string): void {
+//     // some process
+//     console.log(message)
 //   }
   
-//   type OptionalDetail = // ここに Detail のパラメータを全て optional にする処理を記述
-  
-//   const optionalDetail: OptionalDetail = {
-//     age: 22
+//   function greetNumber(message: number): void {
+//     // some process
+//     console.log(message)
 //   }
   
-//   console.log(optionalDetail.age)
+//   greetString('hello')
+//   greetNumber(1)
 // }
