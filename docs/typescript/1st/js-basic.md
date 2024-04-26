@@ -63,6 +63,17 @@ TypeScript では以下に置き換えて型定義を行います。
   ```ts
   const nullValue: null = null;
   ```
+- never: 値を持たない型
+
+  ```ts
+  const error = (message: string): never => {
+    throw new Error(message);
+  };
+
+  const infiniteLoop = (): never => {
+    while (true) {}
+  };
+  ```
 
 <details><summary>Advanced</summary>
 
@@ -136,19 +147,16 @@ TypeScript では以下に置き換えて型定義を行います。
 
     obj2.nonWidening = "fuga"; // コンパイルエラー Assigned expression type "fuga" is not assignable to type "hoge"
     ```
+- optional property  
+  オブジェクトプロパティをオプショナル(任意)なプロパティとして定義
 
-- never  
-  値を持たない型
-
-  ```ts
-  const error = (message: string): never => {
-    throw new Error(message);
-  };
-
-  const infiniteLoop = (): never => {
-    while (true) {}
-  };
-  ```
+    ```ts
+    type User = {
+      name: string
+      age: number
+      gender?: string
+    }
+    ```
 
 </details>
 
@@ -346,10 +354,25 @@ const mulB = (x) => x * x; // 1行のみの場合はreturnとブロックを省�
 Arrow Function については次のような特徴があります。
 
 - 名前をつけることができない（常に匿名関数）
+  - fnA などは変数名で匿名関数を変数に代入しているというイメージ
 - `this` が静的に決定できる
 - `function` キーワードに比べて短く書くことができる
 - `new` できない（コンストラクタ関数ではない）
 - `arguments` 変数を参照できない
+
+  ```ts
+  const arguments = "hoge";
+
+  function regular() {
+    console.log(arguments);
+  }
+  const arrow = () => {
+    console.log(arguments);
+  };
+
+  regular(1, 2); //=> [Arguments] { '0': 1, '1': 2 }
+  arrow(1, 2); //=> hoge
+  ```
 
 `function` キーワードと Arrow Function の大きな違いとして、`this` という特殊なキーワードに関する挙動の違いがあります。
 Arrow Function ではこの `this` の問題の多くを解決できるという利点があります。
@@ -656,6 +679,63 @@ const result = array.map((item) => {
 
 TypeScript の場合も、使い方は同じです。
 
+<details><summary>Advanced</summary>
+
+`Array.prototype.map`の他にもいくつか配列のインスタンスメソッドを紹介します。
+
+- `Array.prototype.some`  
+  配列内の少なくとも 1 つの要素が指定した関数の条件を満たす場合に true を返す。
+  全ての要素が指定した関数の条件を満たさない場合に false を返す。
+
+  ```js
+  const array = [1, 2, 3, 4, 5];
+
+  const even = (element) => element % 2 === 0;
+
+  console.log(array.some(even));
+  // true
+  ```
+
+- `Array.prototype.every`  
+  配列内の全ての要素が指定した関数の条件を全て満たす場合に true を返して、一つでも条件を満たさないものがあれば false を返す。
+
+  ```js
+  const array = [1, 30, 39, 29, 10, 13];
+
+  const isBelowThreshold = (currentValue) => currentValue < 40;
+
+  console.log(array1.every(isBelowThreshold));
+  // false
+  ```
+
+- `Array.prototype.filter`  
+  指定された配列の中から指定された関数の条件を満たす要素だけを抽出したシャローコピーを作成します。
+  ```js
+  const ages = [10, 40, 30, 20, 50]
+  const result = ages.filter(age => age >= 18)
+  console.log(result)
+  // [40, 30, 20, 50]
+  ```
+
+- `Array.prototype.reduce`  
+  隣り合う 2 つの配列要素に対して左から右へ同時に関数を適用し、単一の値にする。
+
+  ```js
+  const array1 = [1, 2, 3, 4];
+
+  // 0 + 1 + 2 + 3 + 4
+  const initialValue = 0;
+  const sumWithInitial = array1.reduce(
+    (accumulator, currentValue) => accumulator + currentValue,
+    initialValue
+  );
+
+  console.log(sumWithInitial);
+  // 10
+  ```
+
+</details>
+
 #### 演習問題
 
 `/typescript/src/standard/exercise5.ts` を解いてみてください。
@@ -760,6 +840,23 @@ errorPromise("catchでエラーハンドリング").catch((error) => {
 });
 ```
 
+Promise にはいくつかのメソッドが用意されているため 1 つだけ紹介します。
+複数の非同期処理が終わるのを待ってから次の処理を実行させたい場合などがあります。
+そういった場合は、`Promise.all`というメソッドを使用します。
+
+```js
+const promise1 = Promise.resolve(3);
+const promise2 = 42;
+const promise3 = new Promise((resolve, reject) => {
+  setTimeout(resolve, 100, "foo");
+});
+
+Promise.all([promise1, promise2, promise3]).then((values) => {
+  console.log(values);
+});
+// [3, 42, "foo"]
+```
+
 ### Async Function(ES2017)
 
 ES2017 以降、 `Async Function` という非同期処理を行う関数を定義する構文が導入されました。  
@@ -789,6 +886,7 @@ async function asyncMain() {
   console.log("この行は非同期処理が完了後に実行される");
 }
 ```
+
 <details><summary>Promise で書くと…</summary>
 
 ```js
@@ -796,11 +894,11 @@ function doAsync() {
   return new Promise((resolve, reject) => {
     // 非同期処理
     resolve();
-  })
+  });
 }
 function asyncMain() {
   // doAsyncの非同期処理が完了するまでまつ
-  doAsync().then(()=>{
+  doAsync().then(() => {
     // 次の行はdoAsyncの非同期処理が完了されるまで実行されない
     console.log("この行は非同期処理が完了後に実行される");
   });

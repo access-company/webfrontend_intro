@@ -1,14 +1,20 @@
 /*
-* 以下の Str. Num 型を表す Flatten<T> を定義してください
+* 以下の `Detail` 型を、 `Mapped Type` を用いて全て optional なパラメータを持つ型にしてください。
 * */
 
 // 以下のコードのコメントアウトを外して修正を行う
 // {
-//   type Flatten<T> = // ここにコードを記述する
-
-//   // 配列であれば要素の型を抜き出す
-//   type Str = Flatten<string[]> // type Str = string
-
-//   // 配列でなければそのままの型を抜き出す
-//   type Num = Flatten<number> // type Num = number
+//   type Detail = {
+//     address: string
+//     gender: boolean
+//     age: number
+//   }
+  
+//   type OptionalDetail = // ここに Detail のパラメータを全て optional にする処理を記述
+  
+//   const optionalDetail: OptionalDetail = {
+//     age: 22
+//   }
+  
+//   console.log(optionalDetail.age)
 // }
