@@ -33,7 +33,7 @@ React では、関数のコンポーネントのことを「**関数コンポー
 ```javascript
 import {Component} from React
 
-class Welcom extends Component {
+class Welcome extends Component {
   render() {
     return <h1>Hello, {this.props.name}</h1>
   }
@@ -78,7 +78,7 @@ React 公式ガイドでは、互換性の観点からクラスコンポーネ�
 interface Props {
   name: string;
 }
-function Welcom(props: Props) {
+function Welcome(props: Props) {
   props.name = 'COVID-19'; // NG!!
   return <h1>Hello, {props.name}</h1>;
 }
