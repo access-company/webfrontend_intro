@@ -28,7 +28,7 @@ function OKButton() {
 `e`は、合成イベント（SyntheticEvent）と呼ばれ、W3C の UI Events 仕様に従った値が渡ってきます。
 
 - [W3C UI Events](https://www.w3.org/TR/DOM-Level-3-Events/)
-- [SyntheticEvent](https://ja.reactjs.org/docs/events.html)
+- [SyntheticEvent](https://ja.react.dev/learn/typescript#typing-dom-events)
   - React 独自のクロスブラウザ対応イベントオブジェクト
 
 # 【DOM API】 preventDefault と stopPropagation について
