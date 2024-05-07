@@ -309,10 +309,6 @@ const element2 = (
 );
 ```
 
-# TSX (JSX) を深く理解する
-
-https://ja.reactjs.org/docs/jsx-in-depth.html
-
 # 【課題 1-1】スタイルを指定してみよう！
 
 以下の要件を満たしてください。
