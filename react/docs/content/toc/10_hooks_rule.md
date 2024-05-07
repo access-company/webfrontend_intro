@@ -51,5 +51,4 @@ function Counter() {
 # Hooks を呼び出すのは React の関数内のみ
 
 **Hook を通常の JavaScript 関数から呼び出さないでください。**
-[カスタム Hook](https://ja.reactjs.org/docs/hooks-custom.html) は、一種の JavaScript 関数ですが、最終的に React の関数（コンポーネント）内
-から呼び出されるので問題ありません。
+[カスタム Hook](https://ja.react.dev/learn/reusing-logic-with-custom-hooks) は、一種の JavaScript 関数ですが、最終的に React の関数（コンポーネント）内から呼び出されるので問題ありません。
