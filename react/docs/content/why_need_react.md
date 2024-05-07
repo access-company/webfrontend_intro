@@ -28,7 +28,7 @@ if (user.likes()) {
 }
 ```
 
-基本的に、現在画面に何が表示されているかを確認し、現在の状態で再描画するために必要なすべての変更を処理する必要があります。これには、前の状態からの変更を元に戻すことも含まれます。これが実際のシナリオでどれほど複雑になるか想像できます。
+命令的 UI では、基本的に、現在画面に何が表示されているかを確認し、現在の状態で再描画するために必要なすべての変更を処理する必要があります。これには、前の状態からの変更を元に戻すことも含まれています。開発者は UI を手動で作成および管理し、状態の変更ごとに UI をどのように更新するかを具体的に指定します。これが実際のシナリオでどれほど複雑になるか想像できます。
 
 一方で、宣言的 UI は次のようになります。
 
@@ -119,21 +119,42 @@ ReactDOM.createRoot(document.body).render(<h1>Hello, world!</h1>);
 ## Online Playground を使う
 
 - [CodePen](https://codepen.io/)
-- [CodeSandbox](https://codesandbox.io/index2)
+- [CodeSandbox](https://codesandbox.io/)
 - [JSFiddle](https://jsfiddle.net/)
 
-## script タグ（React ライブラリ) をサイトに追加する
+## ローカルで React を試す
 
-- Add React to a Website
-  - https://ja.reactjs.org/docs/add-react-to-a-website.html
+[https://ja.react.dev/learn/installation#try-react-locally](https://ja.react.dev/learn/installation#try-react-locally)
 
-デバッグ情報を多く含んでいるため、サイズが大きいです。
-プロダクト向けの方法ではありません。
+ローカル環境で React を試すには、[この HTML ページをダウンロードしてください](https://gist.githubusercontent.com/gaearon/0275b1e1518599bbeafcde4722e79ed1/raw/db72dcbf3384ee1708c4a07d3be79860db04bff0/example.html)。そしてエディタとブラウザで開いてください！
 
-## create-react-app で環境を構築する
+## React プロジェクトを始める
 
-https://github.com/facebook/create-react-app
+[https://ja.react.dev/learn/start-a-new-react-project](https://ja.react.dev/learn/start-a-new-react-project)
 
-今後、React アプリケーションを新規に構築する場合は、create-react-app コマンドを利用することを推奨します。
+React だけで新しいアプリやウェブサイトを作りたい場合は、コミュニティで人気のある React フレームワークから、ひとつを選ぶことをおすすめします。
 
-（研修では、このコマンドを実行することはありません）
+フレームワークなしで React を使うことも可能ですが、ほとんどのアプリやサイトにおいては、コード分割、ルーティング、データ取得、HTML 生成といった問題に対処するための開発が必要であることが分かっています。これらは React に限らずあらゆる UI ライブラリに共通の問題です。
+
+フレームワークを使ってスタートすることで React での開発を素早く立ち上げ、後で実質的に独自フレ
+ームワークのようなものを作ってしまわずに済むようになるでしょう。
+
+### Next.js
+
+Next.js の Pages Router はフルスタックの React フレームワークです。ほぼ静的なブログサイトから複雑でダイナミックなアプリまで、どんな規模の React アプリでも作成できる万能フレームワークです。
+
+### Remix
+
+Remix は、ネスト状のルーティングを備えたフルスタック React フレームワークです。複雑なアプリを階層的に分割し、並列に読み込み、ユーザアクションに応じてリフレッシュすることができます。
+
+### Gatsby
+
+Gatsby は、CMS ベースで高速なサイトを作成するための React フレームワークです。豊富なプラグインのエコシステムと GraphQL データレイヤーにより、コンテンツ、API、サービスの統合が簡素化されます。
+
+### Expo（ネイティブアプリ向け）
+
+Expo は、Android、iOS、およびウェブ向けに、真にネイティブな UI を持ったユニバーサルアプリを作成できる React フレームワークです。React Native 用の SDK を提供し、ネイティブなパーツの使用を簡素化します
+
+### Create React App
+
+Create React App は React アプリケーションの開発を迅速かつ効率的に行うためのライブラリです。セットアップの手間を省いて開発者がすぐに React プロジェクトを始めることができます。
