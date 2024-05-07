@@ -76,7 +76,7 @@ interface Props {
   name: string;
 }
 function Welcome(props: Props) {
-  props.name = 'COVID-19'; // NG!!
+  props.name = 'mutated'; // NG!!
   return <h1>Hello, {props.name}</h1>;
 }
 ```
