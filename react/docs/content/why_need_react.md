@@ -130,6 +130,38 @@ ReactDOM.createRoot(document.body).render(<h1>Hello, world!</h1>);
 
 ## React プロジェクトを始める
 
+### Vite で始める
+
+[最初の Vite プロジェクトを生成する](https://ja.vitejs.dev/guide/#%E6%9C%80%E5%88%9D%E3%81%AE-vite-%E3%83%95%E3%82%9A%E3%83%AD%E3%82%B7%E3%82%99%E3%82%A7%E3%82%AF%E3%83%88%E3%82%92%E7%94%9F%E6%88%90%E3%81%99%E3%82%8B)
+
+#### セットアップ
+
+```
+$ npm create vite@latest
+```
+
+- プロンプトに従ってプロジェクトの名前を入力します（例：my-react-app）。
+- 次に、使用するフレームワークを選択します。react を選択して、React のプロジェクトを始めます。
+- さらに、TypeScript を使うかどうかを尋ねられた場合は、お好みで選択します。
+
+```
+$ cd my-react-app
+```
+
+依存関係のライブラリを install
+
+```
+$ npm install
+```
+
+開発サーバーの起動
+
+```
+$ npm run dev
+```
+
+### その他フレームワークを利用する
+
 [https://ja.react.dev/learn/start-a-new-react-project](https://ja.react.dev/learn/start-a-new-react-project)
 
 React だけで新しいアプリやウェブサイトを作りたい場合は、コミュニティで人気のある React フレームワークから、ひとつを選ぶことをおすすめします。
@@ -138,22 +170,18 @@ React だけで新しいアプリやウェブサイトを作りたい場合は�
 
 フレームワークを使ってスタートすることで React での開発を素早く立ち上げ、後で実質的に独自フレームワークのようなものを作ってしまわずに済むようになるでしょう。
 
-### Next.js
+#### Next.js
 
 Next.js の Pages Router はフルスタックの React フレームワークです。ほぼ静的なブログサイトから複雑でダイナミックなアプリまで、どんな規模の React アプリでも作成できる万能フレームワークです。
 
-### Remix
+#### Remix
 
 Remix は、ネスト状のルーティングを備えたフルスタック React フレームワークです。複雑なアプリを階層的に分割し、並列に読み込み、ユーザアクションに応じてリフレッシュすることができます。
 
-### Gatsby
+#### Gatsby
 
 Gatsby は、CMS ベースで高速なサイトを作成するための React フレームワークです。豊富なプラグインのエコシステムと GraphQL データレイヤーにより、コンテンツ、API、サービスの統合が簡素化されます。
 
-### Expo（ネイティブアプリ向け）
+#### Expo（ネイティブアプリ向け）
 
 Expo は、Android、iOS、およびウェブ向けに、真にネイティブな UI を持ったユニバーサルアプリを作成できる React フレームワークです。React Native 用の SDK を提供し、ネイティブなパーツの使用を簡素化します
-
-### Create React App
-
-Create React App は React アプリケーションの開発を迅速かつ効率的に行うためのライブラリです。セットアップの手間を省いて開発者がすぐに React プロジェクトを始めることができます。
