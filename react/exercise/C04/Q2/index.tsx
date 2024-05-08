@@ -21,8 +21,8 @@ const onClickOuter = (e: React.MouseEvent<HTMLDivElement>) => {};
 const ChildComponent: FC = () => {
   return (
     <div className="subContainer">
-      <div className="outer" onClick={}>
-        <div className="inner" onClick={}>
+      <div className="outer" onClick={onClickOuter}>
+        <div className="inner" onClick={onClickInner}>
           Matryoshka
         </div>
       </div>
