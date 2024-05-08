@@ -98,6 +98,12 @@ const element = <h1>Hello, {formatName(user)}</h1>;
 ReactDOM.createRoot(document.body).render(element);
 ```
 
+```
+`${user.firstName} ${user.lastName}`
+```
+
+これは「テンプレートリテラル (テンプレート文字列)」という記法です。バッククォートを使って定義され、文字列内に変数や式を埋め込むことができる JavaScript の機能です。これにより、複雑な文字列の組み立てが簡単に行えます。変数は `${}`の中括弧のなかに記述します。
+
 TSX の構文を複数行に分けて記述する場合は、括弧`()` で囲んでください。
 
 ```typescript
@@ -195,7 +201,11 @@ const element = React.createElement('div', { tabIndex: getIndex() });
 コンポーネントに渡すオブジェクトをスプレッド演算子として使用することで、
 オブジェクトのパラメータを属性として展開できます。
 
-なお、スプレッド演算子で残余引数が定義できます。例: `const { isDisplay, ...rest } = props;`
+なお、スプレッド演算子で残余引数が定義できます。
+
+```
+const { isDisplay, ...rest } = props;
+```
 
 下記の例は、等価です。
 
@@ -308,6 +318,11 @@ const element2 = (
   </React.Fragment>
 );
 ```
+
+# TSX (JSX) を深く理解する
+
+- [JSX でマークアップを記述する](https://ja.react.dev/learn/writing-markup-with-jsx)
+- [JSX に波括弧で JavaScript を含める](https://ja.react.dev/learn/javascript-in-jsx-with-curly-braces)
 
 # 【課題 1-1】スタイルを指定してみよう！
 
