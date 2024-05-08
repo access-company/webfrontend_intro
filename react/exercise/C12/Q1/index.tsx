@@ -26,7 +26,7 @@ function fetchDummyProfile(): Promise<User> {
         age: 37,
         email: "taro.access@access-company.com",
         gender: "male",
-        avatar: "https://placekitten.com/200/139",
+        avatar: "https://placebear.com/200/139",
       });
     }, 2000);
   });
