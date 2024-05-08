@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './App.module.css'
 
-import Calculator from './containers/Calculator'
+import Calculator from './view/containers/Calculator'
 
 function App(): JSX.Element {
   return (
