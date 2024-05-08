@@ -63,7 +63,7 @@ const Counter: FC = () => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    document.title = `You cliked ${count} times`;
+    document.title = `You clicked ${count} times`;
   }); // 依存リストを省略
 
   return (
@@ -88,7 +88,7 @@ useEffect(doEffect, deps); // depsはArray型
 
 ```javascript
 useEffect(() => {
-  document.title = `You cliked ${count} times`;
+  document.title = `You clicked ${count} times`;
 }, [count]);
 ```
 

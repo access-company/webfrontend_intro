@@ -22,7 +22,7 @@ const MemoizedMyComponent = React.memo(function MyComponent(props) {
 - `useContext` を使っているとき
 - `useSelector`, `useDispatch` を使っているとき（react-redux）
 
-参照: https://ja.reactjs.org/docs/react-api.html#reactmemo
+参照: https://react.dev/reference/react/memo
 
 ## 【課題 14-1】 描画パフォーマンスを改善しよう！
 
