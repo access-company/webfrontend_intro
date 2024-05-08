@@ -114,7 +114,7 @@ React の一番短いコードの例が下記です。
 ReactDOM.createRoot(document.body).render(<h1>Hello, world!</h1>);
 ```
 
-本研修では紹介のみとなりますが、手っ取り早く React を始めるための選択肢として、3 つの方法があります。
+本研修では紹介のみとなりますが、手っ取り早く React を始めるための方法があります。
 
 ## Online Playground を使う
 
