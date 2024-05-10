@@ -5,7 +5,7 @@ import styles from './Calculator.module.css'
 import Button from '../../components/Button'
 import Label from '../../components/Label'
 
-import Parser from '../../helper/FormulaCalculator'
+import Parser from '../../../helper/FormulaCalculator'
 
 type CalculatorState = {
   value: string
