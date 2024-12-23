@@ -48,6 +48,7 @@ class Welcome extends Component {
 基本的には、下記の命名規則を使うことになります。
 
 - コンポーネント名は、「**upper camel case**」（e.g. CamelCase）
+// 命名規則ではなくて、守らなければならないReactのルールということを書いておきたいです。[関数を定義する](https://ja.react.dev/learn/your-first-component#step-2-define-the-function)
 - それ以外の変数名や関数名は、「**lower camel case**」（e.g. camelCase）
 - 定数名（固定値）は、「**snake case**」（e.g. SNAKE_CASE）
 
@@ -286,6 +287,7 @@ $ TARGET=C03/Sample3 npm run dev
 コンポーネントの分け方は、Atomic Design の考え方が参考になるでしょう。
 
 多くの開発案件で、Atomic Design が採用されています。
+// Atomic Designの他に、[bulletproof-react](https://github.com/alan2207/bulletproof-react)も上げておきたいです。
 
 https://bradfrost.com/blog/post/atomic-web-design/
 
