@@ -70,19 +70,34 @@ Reactの公式Docでは、propsとしてtimeを受け取るサンプルを使っ
 「秒刻みで動く時計」のサンプルで、再描画が必要な箇所のみ更新されていることを確認します。
 
 ```javascript
-import { createRoot } from 'react-dom/client';
+import React, { useState, useEffect } from "react";
+import { createRoot } from "react-dom/client";
 
-function tick() {
-  const element = (
+function Clock({ time }) {
+  return (
     <div>
       <h1>Hello, world!</h1>
-      <h2>It is {new Date().toLocaleTimeString()}.</h2>
+      <h2>It is {time}.</h2>
     </div>
   );
-  createRoot(document.body).render(element);
 }
 
-setInterval(tick, 1000);
+function App() {
+  const [time, setTime] = useState(new Date().toLocaleTimeString());
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTime(new Date().toLocaleTimeString());
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return <Clock time={time} />;
+}
+
+const root = createRoot(document.getElementById("root"));
+root.render(<App />);
 ```
 
 ```bash
