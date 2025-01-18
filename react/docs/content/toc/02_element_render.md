@@ -65,6 +65,7 @@ React が面倒を見ます。結果、DOM API を扱うよりもパフォーマ
 ## 「秒刻みで動く時計」のサンプルで確認してみよう
 
 // このサンプルでは、時刻部分だけではなく、すべての要素が更新されてしまうので、修正したほうがよいと思います。
+// TODO ドキュメントのサンプルコードを変更したら、react/exercise/C02/Time/index.tsxの変更も行う
 Reactの公式Docでは、propsとしてtimeを受け取るサンプルを使っています。[ステップ 3：React が DOM への変更をコミットする](https://ja.react.dev/learn/render-and-commit#step-3-react-commits-changes-to-the-dom)
 
 「秒刻みで動く時計」のサンプルで、再描画が必要な箇所のみ更新されていることを確認します。
