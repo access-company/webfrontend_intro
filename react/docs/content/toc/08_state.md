@@ -62,7 +62,7 @@ const [state, setState] = useState(initialState);
 また、`if`文や`for`文などから呼び出してはいけません。関数の中のトップレベルから Hooks API の呼び出しが許されています。
 
 `useState`は、「現在の state（変数）」と「state を変更する関数」を返します。
-このとき、実装者は、「現在の state」と「state を変更する関数」の名前を自由に決めることができます。`initialState`は初期状態です。型は何で指定できますが、Primitive Type（boolean, number, string）を指定してください。Object 型や Array 型も指定できますが、
+このとき、実装者は、「現在の state」と「state を変更する関数」の名前を自由に決めることができます。`initialState`は初期状態です。型は何でも指定できますが、Primitive Type（boolean, number, string）を指定してください。Object 型や Array 型も指定できますが、
 その場合は、後章で説明する `useReducer` を使う方がよいでしょう。
 // 「Primitive Type（boolean, number, string）を指定してください」は言い過ぎだと思いました。公式Doc [関連するStateをグループ化する](https://ja.react.dev/learn/choosing-the-state-structure#group-related-state) では、関連するものはObjectにまとめることを推奨しています。
 stateをどのような型やまとまりで持つか、と、useReducerを使って描画とロジックを分離する、というのは別の話かなと思いました。
