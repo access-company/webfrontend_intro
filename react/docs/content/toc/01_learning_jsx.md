@@ -117,7 +117,6 @@ const element = (
 <details><summary>Advanced</summary>
 
 もし TSX の助けを得ずに記述すると、このようになります。
-// divタグで囲んでいるので、正確には以下のコードが正しそうです。tsxの方のdivタグを無くす方針もよいと思いますが、ネストしたケースの書き方を説明出来るので、divタグアリのコードとしたいです。
 
 ```typescript
 import React from 'react';
