@@ -286,10 +286,8 @@ $ TARGET=C03/Sample3 npm run dev
 
 コンポーネントの分け方は、Atomic Design の考え方が参考になるでしょう。
 
-多くの開発案件で、Atomic Design が採用されています。
-// Atomic Designの他に、[bulletproof-react](https://github.com/alan2207/bulletproof-react)も上げておきたいです。
-
-https://bradfrost.com/blog/post/atomic-web-design/
+多くの開発案件で、[Atomic Design](https://bradfrost.com/blog/post/atomic-web-design/) が採用されています。  
+また、[Bulletproof React](https://github.com/alan2207/bulletproof-react)で採用されているコンポーネントの分け方も有力です。  
 
 # 【課題 3-1】Reply,Retweet,Favorite ボタンを追加してみよう！
 
