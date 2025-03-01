@@ -43,67 +43,47 @@ React が面倒を見ます。結果、DOM API を扱うよりもパフォーマ
 
 ## 仮想 DOM について
 
-仮想 DOM はリアル DOM をメモリ内に表現したものです。UI の表現はメモリ内に保持され、リアル DOM と同期されます。
+仮想 DOM は実 DOM をメモリ内に表現したものです。UI の表現はメモリ内に保持され、実 DOM と同期されます。
 
 基礎となるデータが変更されるたびに、UI 全体が 仮想 DOM を再構築します。
+そして、以前の仮想 DOM と新しい仮想 DOM の差分を検出します。
+計算が終わると、検出した、「実際に変更のある部分」のみ、実 DOM を更新します。
 
 ![仮想DOMのイメージ](./02_lesson2-1.png)
 
-そして、以前の DOM と新しい DOM の差分を算出します。
+## 「掛け算の計算」のサンプルで確認してみよう
 
-// 以前の仮想 DOMと新しい仮想DOMの差分を算出するのが正しいので、図が間違っていますかね？
-
-![仮想DOMのイメージ](./02_lesson2-2.png)
-
-計算が終わると、リアル DOM は実際に変更されたものだけが更新されます。
-
-// "実際に変更されたもの"という文言が少し気になるので
-「算出された差分のみ、リアルDOMが更新されます。」 の方がよいかなと思いました。
-
-![仮想DOMのイメージ](./02_lesson2-3.png)
-
-## 「秒刻みで動く時計」のサンプルで確認してみよう
-
-// このサンプルでは、時刻部分だけではなく、すべての要素が更新されてしまうので、修正したほうがよいと思います。
-// TODO ドキュメントのサンプルコードを変更したら、react/exercise/C02/Time/index.tsxの変更も行う
-Reactの公式Docでは、propsとしてtimeを受け取るサンプルを使っています。[ステップ 3：React が DOM への変更をコミットする](https://ja.react.dev/learn/render-and-commit#step-3-react-commits-changes-to-the-dom)
-
-「秒刻みで動く時計」のサンプルで、再描画が必要な箇所のみ更新されていることを確認します。
+`useState`という React の関数は「第8章 state」で詳しく説明するため理解は不要です。
+ここでは、ブラウザの開発者ツールを使って、更新された要素のみ再描画されることを確認してください。
 
 ```javascript
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 import { createRoot } from "react-dom/client";
 
-function Clock({ time }) {
+function Multiplication() {
+  const [num1, setNum1] = useState(1);
+  const [num2, setNum2] = useState(1);
+
+  const result = num1 * num2;
+
   return (
     <div>
-      <h1>Hello, world!</h1>
-      <h2>It is {time}.</h2>
+      <button onClick={() => setNum1(num1 + 1)}>{num1}</button>
+      x
+      <button onClick={() => setNum2(num2 + 1)}>{num2}</button>
+      =
+    {result}
     </div>
   );
 }
 
-function App() {
-  const [time, setTime] = useState(new Date().toLocaleTimeString());
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setTime(new Date().toLocaleTimeString());
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  return <Clock time={time} />;
-}
-
-const root = createRoot(document.getElementById("root"));
-root.render(<App />);
+const root = createRoot(document.getElementById("root")!);
+root.render(<Multiplication />);
 ```
 
 ```bash
 # react/exercise にて
-$ TARGET=C02/Time npm run dev
+$ TARGET=C02/Sample1 npm run dev
 ```
 
 <details><summary>Advanced</summary>
@@ -111,39 +91,61 @@ $ TARGET=C02/Time npm run dev
 もしも React に頼らず vanillajs で記述すると、このようになります。
 
 ```javascript
-function tick() {
-  const h1_text = 'Hello, world!';
-  const h2_text = `It is ${new Date().toLocaleTimeString()}.`;
+function renderCalculator() {
+  const root = document.getElementById("root");
+  root.innerHTML = "";
 
-  const root = document.getElementById('root');
-  if (root.children.length === 1) {
-    const [div] = root.children;
-    if (div.children.length === 2) {
-      const [h1, h2] = div.children;
-      if (h1.textContent !== h1_text) {
-        h1.textContent = h1_text;
-      }
-      if (h2.textContent !== h2_text) {
-        h2.textContent = h2_text;
-      }
-    }
-  } else {
-    const div = document.createElement('div');
+  let num1 = 1;
+  let num2 = 1;
 
-    const h1 = document.createElement('h1');
-    h1.textContent = h1_text;
+  const container = document.createElement("div");
 
-    const h2 = document.createElement('h2');
-    h2.textContent = h2_text;
+  // num1表示ボタン
+  const button1 = document.createElement("button");
+  button1.textContent = num1;
+  container.appendChild(button1);
 
-    div.appendChild(h1);
-    div.appendChild(h2);
+  // " x "テキスト
+  const timesText = document.createTextNode(" x ");
+  container.appendChild(timesText);
 
-    root.appendChild(div);
-  }
+  // num2表示ボタン
+  const button2 = document.createElement("button");
+  button2.textContent = num2;
+  container.appendChild(button2);
+
+  // " = "テキスト
+  const equalText = document.createTextNode(" = ");
+  container.appendChild(equalText);
+
+  // 結果表示用の要素
+  const resultSpan = document.createElement("span");
+  resultSpan.textContent = num1 * num2;
+  container.appendChild(resultSpan);
+
+  root.appendChild(container);
+
+  // 更新用の関数
+  const update = () => {
+    button1.textContent = num1;
+    button2.textContent = num2;
+    resultSpan.textContent = num1 * num2;
+  };
+
+  // イベントリスナー
+  button1.addEventListener("click", () => {
+    num1++;
+    update();
+  });
+
+  button2.addEventListener("click", () => {
+    num2++;
+    update();
+  });
 }
 
-setInterval(tick, 1000);
+renderCalculator();
+
 ```
 
 </details>
