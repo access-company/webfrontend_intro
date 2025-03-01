@@ -47,8 +47,8 @@ class Welcome extends Component {
 
 基本的には、下記の命名規則を使うことになります。
 
-- コンポーネント名は、「**upper camel case**」（e.g. CamelCase）
-// 命名規則ではなくて、守らなければならないReactのルールということを書いておきたいです。[関数を定義する](https://ja.react.dev/learn/your-first-component#step-2-define-the-function)
+- コンポーネント名は、「**upper camel case**」（e.g. CamelCase)
+  - ※ upper camel caseで書かないと動作しないことに注意。
 - それ以外の変数名や関数名は、「**lower camel case**」（e.g. camelCase）
 - 定数名（固定値）は、「**snake case**」（e.g. SNAKE_CASE）
 
