@@ -92,47 +92,29 @@ $ TARGET=C02/Sample1 npm run dev
 
 ```javascript
 function renderCalculator() {
-  const root = document.getElementById("root");
-  root.innerHTML = "";
-
   let num1 = 1;
   let num2 = 1;
 
-  const container = document.createElement("div");
+  const root = document.getElementById("root");
+  root.innerHTML = `
+    <div>
+      <button>${num1}</button>
+      x
+      <button>${num2}</button>
+      =
+      <span>${num1 * num2}</span>
+    </div>
+  `;
 
-  // num1表示ボタン
-  const button1 = document.createElement("button");
-  button1.textContent = num1;
-  container.appendChild(button1);
+  const [button1, button2] = root.querySelectorAll("button");
+  const resultSpan = root.querySelector("span");
 
-  // " x "テキスト
-  const timesText = document.createTextNode(" x ");
-  container.appendChild(timesText);
-
-  // num2表示ボタン
-  const button2 = document.createElement("button");
-  button2.textContent = num2;
-  container.appendChild(button2);
-
-  // " = "テキスト
-  const equalText = document.createTextNode(" = ");
-  container.appendChild(equalText);
-
-  // 結果表示用の要素
-  const resultSpan = document.createElement("span");
-  resultSpan.textContent = num1 * num2;
-  container.appendChild(resultSpan);
-
-  root.appendChild(container);
-
-  // 更新用の関数
   const update = () => {
     button1.textContent = num1;
     button2.textContent = num2;
     resultSpan.textContent = num1 * num2;
   };
 
-  // イベントリスナー
   button1.addEventListener("click", () => {
     num1++;
     update();
