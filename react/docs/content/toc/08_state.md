@@ -115,10 +115,8 @@ $ TARGET=C08/Q3 npm run dev
 
 編集対象ファイル: `react/exercise/C08/Q3/index.tsx`
 
-# 次のステップ (Optional)
+# 公式ドキュメントへの参照
 
-研修では時間の都合上説明できませんが、useStateに関する重要な説明が公式ドキュメントに書かれています。
-
-- [インタラクティビティの追加](https://ja.react.dev/learn/adding-interactivity)
-- [stateの管理](https://ja.react.dev/learn/managing-state)
-- [useState](https://ja.react.dev/reference/react/useState)
+- [Learn : インタラクティビティの追加](https://ja.react.dev/learn/adding-interactivity)
+- [Lean : stateの管理](https://ja.react.dev/learn/managing-state)
+- [API Reference : useState](https://ja.react.dev/reference/react/useState)
