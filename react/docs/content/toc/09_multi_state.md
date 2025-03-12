@@ -9,15 +9,6 @@ title: '第9章　複数のstateをまとめる'
 
 上記のようなケースでは、`useReducer` API が適しています。
 
-# 「reducer」とは？
-
-「reduce」という単語は、「軽減する」「変える」という意味です。
-React では、「reducer」を「state を変化させる関数」という意味で使われます。
-また、reducer は、入力に state を受け取って、state を返す関数であり、かつ、純粋関数
-でなければなりません。
-
-_ポイント_: **Reducer は純粋関数である**
-
 # useReducer API の導入
 
 ```javascript
@@ -28,7 +19,7 @@ const [currentState, dispatch] = useReducer(reducer, initialState);
 
 - 入力引数
   - `initialState`は、「state の初期値」
-  - `reducer`は、「現在の state」と「アクション」を受け取って「新しい state」を返す関数
+  - `reducer`は、「現在の state」と「アクション」を受け取って「新しい state」を返す関数。純粋関数である必要があります。
   ```typescript
   const reducer = (state: State, action: Action) => {
     // TODO: actionから新しいstateを生成する
@@ -104,6 +95,10 @@ createRoot(document.getElementById("root")!).render(<Counter />);
 
 複数の state を扱う場合は、`useReducer`を使う選択も考慮してください。
 
+# なぜReducerと呼ばれるのか？
+
+JavaScriptの配列のメソッドである[Array.prototype.reduce()](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)という操作にちなんで名付けられています。(WIP)
+
 # 【課題 9-1】2 つの count 状態
 
 2 つの count の状態（`count1`、`count2`）を increment, decrement, reset する`reducer`を実装してください。
@@ -145,3 +140,8 @@ $ TARGET=C09/Q2 npm run dev
 ```
 
 編集対象ファイル: `react/exercise/C09/Q2/index.tsx`
+
+# 公式ドキュメントへの参照
+
+- [Lean : state ロジックをリデューサに抽出する](https://ja.react.dev/learn/extracting-state-logic-into-a-reducer)
+- [API Reference : useReducer](https://ja.react.dev/reference/react/useReducer)
