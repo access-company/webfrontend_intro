@@ -170,11 +170,12 @@ tabIndex target title type useMap value width wmode wrap
 
 と記述します。
 
-例外として、`aria-*`属性と`data-*`属性は、キャメルケースの命名規則を利用しなくてよいです。
+例外として、 `aria-*` 属性と `data-*` 属性は、キャメルケースの命名規則を利用しなくてよいです。
 
 # JSX で子要素を指定する
 
 JSX のタグは子要素を持つことができます。
+また、 JSX は括弧 `()` で囲むことで、複数行に分けて記述することができます。
 
 ```typescript
 const element = (
