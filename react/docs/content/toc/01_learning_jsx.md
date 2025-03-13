@@ -14,6 +14,16 @@ ECMAScript では、上記のような構文は定義されていません。
 **JSX** と呼ばれる TypeScript の拡張構文です。ただし、これはそのままブラウザ上では動作しないので注意が必要です。
 React の toolchain を使って、JSX を使わない、通常の JavaScript オブジェクトへ変換します。
 
+JSX は括弧 `()` で囲むことで、複数行に分けて記述することができます。
+
+```typescript
+const element = (
+  <div>
+    <h1>Hello, world!</h1>
+  </div>
+);
+```
+
 # コンポーネント（→ ３章）
 
 従来の Web アプリケーション開発では、マークアップ(HTML/CSS)とロジック(JavaScript)を別々のファイルに書くことで、関心を分離します。
@@ -95,17 +105,7 @@ ReactDOM.createRoot(document.body).render(element);
 `${user.firstName} ${user.lastName}`
 ```
 
-これは「テンプレートリテラル (テンプレート文字列)」という記法です。バッククォートを使って定義され、文字列内に変数や式を埋め込むことができる JavaScript の機能です。これにより、複雑な文字列の組み立てが簡単に行えます。変数は `${}`の中括弧のなかに記述します。
-
-JSX の構文を複数行に分けて記述する場合は、括弧`()` で囲んでください。
-
-```typescript
-const element = (
-  <div>
-    <h1>Hello, {formatName(user)}</h1>
-  </div>
-);
-```
+これは **テンプレートリテラル (テンプレート文字列)** という記法です。バッククォートを使って定義され、文字列内に変数や式を埋め込むことができる JavaScript の機能です。これにより、複雑な文字列の組み立てが簡単に行えます。変数は `${}` の中に記述します。
 
 <details><summary>Advanced</summary>
 
@@ -114,11 +114,7 @@ const element = (
 ```typescript
 import React from 'react';
 
-const element = React.createElement(
-  'div',
-  null,
-  React.createElement('h1', null, `Hello, ${formatName(user)}`)
-);
+const element = React.createElement('h1', null, `Hello, ${formatName(user)}`);
 ```
 
 </details>
