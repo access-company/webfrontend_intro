@@ -14,61 +14,6 @@ ECMAScript では、上記のような構文は定義されていません。
 **JSX** と呼ばれる TypeScript の拡張構文です。ただし、これはそのままブラウザ上では動作しないので注意が必要です。
 React の toolchain を使って、JSX を使わない、通常の JavaScript オブジェクトへ変換します。
 
-JSX は括弧 `()` で囲むことで、複数行に分けて記述することができます。
-
-```typescript
-const element = (
-  <div>
-    <h1>Hello, world!</h1>
-  </div>
-);
-```
-
-# コンポーネント（→ ３章）
-
-従来の Web アプリケーション開発では、マークアップ(HTML/CSS)とロジック(JavaScript)を別々のファイルに書くことで、関心を分離します。
-一方 React は、マークアップとロジックの両方を含む疎結合の **コンポーネント** という単位を導入して、関心を分離します。
-React はコンポーネントを導入することで、宣言的なプログラミングを実現します。これについては３章で学びます。
-また、 React ではプログラマがコンポーネントを定義し、使用することもできます。
-
-### コンポーネント定義の例
-
-```typescript
-interface Props {
-  name: string;
-}
-function Hello({ name }: Props) {
-  return <h1>Hello, {name}</h1>;
-}
-
-const element = <Hello name="world!" />;
-```
-
-<details><summary>Advanced</summary>
-
-もし JSX の助けを得ずに記述すると、このようになります。
-
-```typescript
-import React from 'react';
-
-const element = React.createElement('h1', null, 'Hello, world!');
-```
-
-```typescript
-import React from 'react';
-
-interface Props {
-  name: string;
-}
-function Hello({ name }: Props) {
-  return React.createElement('h1', null, `Hello, ${name}`);
-}
-
-const element = React.createElement(Hello, { name: 'world!' });
-```
-
-</details>
-
 # JSX に式を埋め込む
 
 JSX 内で **中括弧 {}** で囲むことで、 JavaScript の式を使用できます。
@@ -184,56 +129,12 @@ const element = <div tabIndex={getIndex()}></div>;
 import React from 'react';
 
 const element = React.createElement('div', { tabIndex: '0' });
-const element = React.createElement('div', { tabIndex: getIndex() });
 ```
-
-</details>
-
-## スプレッド演算子を利用した属性の展開
-
-コンポーネントに渡すオブジェクトをスプレッド演算子として使用することで、
-オブジェクトのパラメータを属性として展開できます。
-
-なお、スプレッド演算子で残余引数が定義できます。
-
-```
-const { isDisplay, ...rest } = props;
-```
-
-下記の例は、等価です。
-
-```typescript
-function App1() {
-  return <Greeting firstName="Seiji" lastName="Urushihara" />;
-}
-
-function App2() {
-  const props = { firstName: 'Seiji', lastName: 'Urushihara' };
-  return <Greeting {...props} />;
-}
-
-function App3() {
-  const props = { firstName: 'Seiji', lastName: 'Urushihara', isDisplay: true };
-  const { isDisplay, ...rest } = props;
-  return isDisplay && <Greeting {...rest} />;
-}
-```
-
-<details><summary>Advanced</summary>
-
-もし JSX の助けを得ずに記述すると、このようになります。
 
 ```typescript
 import React from 'react';
 
-function App1() {
-  return React.createElement(Greeting, { firstName: 'Seiji', lastName: 'Urushihara' });
-}
-
-function App2() {
-  const props = { firstName: 'Seiji', lastName: 'Urushihara' };
-  return React.createElement(Greeting, { ...props });
-}
+const element = React.createElement('div', { tabIndex: getIndex() });
 ```
 
 </details>
