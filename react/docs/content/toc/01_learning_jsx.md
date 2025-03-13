@@ -9,26 +9,19 @@ const element = <h1>Hello, world!</h1>;
 ```
 
 ECMAScript では、上記のような構文は定義されていません。
-上記の `<h1></h1>` は、文字列や HTML でもありません。
+上記の `<h1>Hello, world!</h1>` は、文字列や HTML でもありません。
 
-**JSX** と呼ばれる TypeScript の拡張構文です。ただし、これはそのままブラウザ上では動作しないので注意が必要です。React の toolchain を使って、JSX を使わない、通常の JavaScript へ変換します。
+**JSX** と呼ばれる TypeScript の拡張構文です。ただし、これはそのままブラウザ上では動作しないので注意が必要です。
+React の toolchain を使って、JSX を使わない、通常の JavaScript オブジェクトへ変換します。
 
 # コンポーネント（→ ３章）
 
-通常の HTML/CSS/JavaScript の Web アプリケーション開発では、マークアップとロジックを別々のファイルに
-書いて人為的に技術を分離します。一方、React は、マークアップとロジックの両方を含む疎結合の
-「 **コンポーネント** 」という単位を導入して、関心を分離します。
+従来の Web アプリケーション開発では、マークアップ(HTML/CSS)とロジック(JavaScript)を別々のファイルに書くことで、関心を分離します。
+一方 React は、マークアップとロジックの両方を含む疎結合の **コンポーネント** という単位を導入して、関心を分離します。
+React はコンポーネントを導入することで、宣言的なプログラミングを実現します。これについては３章で学びます。
+また、 React ではプログラマがコンポーネントを定義し、使用することもできます。
 
-通常の HTML タグ以外に、React プログラマが定義したコンポーネントを JSX に記載することができます。
-React は、この疎結合のコンポーネントを導入することで、宣言的なプログラミングを実現します。これについては３章で学びます。
-
-### 通常の HTML タグで書く JSX
-
-```typescript
-const element = <h1>Hello, world!</h1>;
-```
-
-### コンポーネントで書く JSX
+### コンポーネント定義の例
 
 ```typescript
 interface Props {
@@ -122,8 +115,8 @@ const element = (
 import React from 'react';
 
 const element = React.createElement(
-  'div', 
-  null, 
+  'div',
+  null,
   React.createElement('h1', null, `Hello, ${formatName(user)}`)
 );
 ```
