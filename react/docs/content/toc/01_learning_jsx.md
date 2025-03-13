@@ -71,7 +71,7 @@ const element = React.createElement(Hello, { name: 'world!' });
 
 # JSX に式を埋め込む
 
-JSX 内で **中括弧 {}** で囲むことで、TypeScript の式を使用できます。
+JSX 内で **中括弧 {}** で囲むことで、 JavaScript の式を使用できます。
 
 ```typescript
 const name = 'Seiji';
@@ -80,7 +80,7 @@ const element = <h1>Hello, {name}</h1>;
 ReactDOM.createRoot(document.body).render(element);
 ```
 
-たとえば、`formatName(user)` という TypeScript 関数の結果を入れることもできます。
+`formatName(user)` という JavaScript 関数の結果を入れることもできます。
 
 ```typescript
 interface User {
@@ -168,9 +168,9 @@ function getGreeting(user) {
 const element = <div tabIndex="0"></div>;
 ```
 
-## TypeScript 式を埋め込む
+## JavaScript 式を埋め込む
 
-TypeScript 式を JSX に埋め込むために中括弧`{}`を使用します。
+JavaScript 式を JSX に埋め込むために中括弧 `{}` を使用します。
 
 ```typescript
 const element = <div tabIndex={getIndex()}></div>;
@@ -258,11 +258,11 @@ sizes span spellCheck src srcDoc srcLang srcSet start step style summary
 tabIndex target title type useMap value width wmode wrap
 ```
 
-改めて、忘れてはいけない点は、HTML ではなく、「JSX は TypeScript の拡張構文」であるということです。
+改めて、忘れてはいけない点は、 JSX は HTML ではなく **JavaScript の拡張構文** であるということです。
 
 **JSX の属性は、キャメルケース（camelCase）の命名規則** を使用する必要があります。
 
-TypeScript の予約語と被る属性、例えば、
+また JavaScript の予約語と被る属性、
 
 - `class` は、`className`
 - `for` は、`htmlFor`
