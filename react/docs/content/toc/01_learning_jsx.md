@@ -1,5 +1,5 @@
 ---
-title: '第1章　TSXを学ぶ'
+title: '第1章　JSXを学ぶ'
 ---
 
 React プログラミングでは、以下のような変数宣言ができます。
@@ -11,7 +11,7 @@ const element = <h1>Hello, world!</h1>;
 ECMAScript では、上記のような構文は定義されていません。
 上記の `<h1></h1>` は、文字列や HTML でもありません。
 
-**TSX** と呼ばれる TypeScript の拡張構文です。ただし、これはそのままブラウザ上では動作しないので注意が必要です。React の toolchain を使って、TSX を使わない、通常の JavaScript へ変換します。
+**JSX** と呼ばれる TypeScript の拡張構文です。ただし、これはそのままブラウザ上では動作しないので注意が必要です。React の toolchain を使って、JSX を使わない、通常の JavaScript へ変換します。
 
 # コンポーネント（→ ３章）
 
@@ -19,16 +19,16 @@ ECMAScript では、上記のような構文は定義されていません。
 書いて人為的に技術を分離します。一方、React は、マークアップとロジックの両方を含む疎結合の
 「 **コンポーネント** 」という単位を導入して、関心を分離します。
 
-通常の HTML タグ以外に、React プログラマが定義したコンポーネントを TSX に記載することができます。
+通常の HTML タグ以外に、React プログラマが定義したコンポーネントを JSX に記載することができます。
 React は、この疎結合のコンポーネントを導入することで、宣言的なプログラミングを実現します。これについては３章で学びます。
 
-### 通常の HTML タグで書く TSX
+### 通常の HTML タグで書く JSX
 
 ```typescript
 const element = <h1>Hello, world!</h1>;
 ```
 
-### コンポーネントで書く TSX
+### コンポーネントで書く JSX
 
 ```typescript
 interface Props {
@@ -43,7 +43,7 @@ const element = <Hello name="world!" />;
 
 <details><summary>Advanced</summary>
 
-もし TSX の助けを得ずに記述すると、このようになります。
+もし JSX の助けを得ずに記述すると、このようになります。
 
 ```typescript
 import React from 'react';
@@ -66,9 +66,9 @@ const element = React.createElement(Hello, { name: 'world!' });
 
 </details>
 
-# TSX に式を埋め込む
+# JSX に式を埋め込む
 
-TSX 内で **中括弧 {}** で囲むことで、TypeScript の式を使用できます。
+JSX 内で **中括弧 {}** で囲むことで、TypeScript の式を使用できます。
 
 ```typescript
 const name = 'Seiji';
@@ -104,7 +104,7 @@ ReactDOM.createRoot(document.body).render(element);
 
 これは「テンプレートリテラル (テンプレート文字列)」という記法です。バッククォートを使って定義され、文字列内に変数や式を埋め込むことができる JavaScript の機能です。これにより、複雑な文字列の組み立てが簡単に行えます。変数は `${}`の中括弧のなかに記述します。
 
-TSX の構文を複数行に分けて記述する場合は、括弧`()` で囲んでください。
+JSX の構文を複数行に分けて記述する場合は、括弧`()` で囲んでください。
 
 ```typescript
 const element = (
@@ -116,7 +116,7 @@ const element = (
 
 <details><summary>Advanced</summary>
 
-もし TSX の助けを得ずに記述すると、このようになります。
+もし JSX の助けを得ずに記述すると、このようになります。
 
 ```typescript
 import React from 'react';
@@ -130,7 +130,7 @@ const element = React.createElement(
 
 </details>
 
-# TSX も式である
+# JSX も式である
 
 変数への代入はもちろん、
 
@@ -138,7 +138,7 @@ const element = React.createElement(
 - 関数からの戻り値
 - `if`文や`for`文の中
 
-などで TSX を利用できます。
+などで JSX を利用できます。
 
 ```typescript
 function getGreeting(user) {
@@ -151,7 +151,7 @@ function getGreeting(user) {
 
 <details><summary>Advanced</summary>
 
-もし TSX の助けを得ずに記述すると、このようになります。
+もし JSX の助けを得ずに記述すると、このようになります。
 
 ```typescript
 import React from "react"
@@ -169,7 +169,7 @@ function getGreeting(user) {
 
 </details>
 
-# TSX に属性を指定する
+# JSX に属性を指定する
 
 ## 文字列リテラル
 
@@ -181,7 +181,7 @@ const element = <div tabIndex="0"></div>;
 
 ## TypeScript 式を埋め込む
 
-TypeScript 式を TSX に埋め込むために中括弧`{}`を使用します。
+TypeScript 式を JSX に埋め込むために中括弧`{}`を使用します。
 
 ```typescript
 const element = <div tabIndex={getIndex()}></div>;
@@ -189,7 +189,7 @@ const element = <div tabIndex={getIndex()}></div>;
 
 <details><summary>Advanced</summary>
 
-もし TSX の助けを得ずに記述すると、このようになります。
+もし JSX の助けを得ずに記述すると、このようになります。
 
 ```typescript
 import React from 'react';
@@ -232,7 +232,7 @@ function App3() {
 
 <details><summary>Advanced</summary>
 
-もし TSX の助けを得ずに記述すると、このようになります。
+もし JSX の助けを得ずに記述すると、このようになります。
 
 ```typescript
 import React from 'react';
@@ -269,9 +269,9 @@ sizes span spellCheck src srcDoc srcLang srcSet start step style summary
 tabIndex target title type useMap value width wmode wrap
 ```
 
-改めて、忘れてはいけない点は、HTML ではなく、「TSX は TypeScript の拡張構文」であるということです。
+改めて、忘れてはいけない点は、HTML ではなく、「JSX は TypeScript の拡張構文」であるということです。
 
-**TSX の属性は、キャメルケース（camelCase）の命名規則** を使用する必要があります。
+**JSX の属性は、キャメルケース（camelCase）の命名規則** を使用する必要があります。
 
 TypeScript の予約語と被る属性、例えば、
 
@@ -282,9 +282,9 @@ TypeScript の予約語と被る属性、例えば、
 
 例外として、`aria-*`属性と`data-*`属性は、キャメルケースの命名規則を利用しなくてよいです。
 
-# TSX で子要素を指定する
+# JSX で子要素を指定する
 
-TSX のタグは子要素を持つことができます。
+JSX のタグは子要素を持つことができます。
 
 ```typescript
 const element = (
@@ -323,7 +323,7 @@ const element2 = (
 );
 ```
 
-# TSX (JSX) を深く理解する
+# JSX を深く理解する
 
 - [JSX でマークアップを記述する](https://ja.react.dev/learn/writing-markup-with-jsx)
 - [JSX に波括弧で JavaScript を含める](https://ja.react.dev/learn/javascript-in-jsx-with-curly-braces)
@@ -332,7 +332,7 @@ const element2 = (
 
 以下の要件を満たしてください。
 
-- 任意の赤色の物の名前, 緑色の物の名前, 青色の物の名前を TSX 内に追加
+- 任意の赤色の物の名前, 緑色の物の名前, 青色の物の名前を JSX 内に追加
   - それぞれが赤色, 青色, 緑色となるようにスタイルを指定
   - 並びや位置関係、厳密に物の色が正しいかどうかは不問
 
