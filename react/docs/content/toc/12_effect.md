@@ -8,7 +8,7 @@ title: '第12章　副作用を実行する'
 
 プログラミングにおいて、関数の「主たる作用」とは値を返すことであり、副作用とはその主たる作用以外の作用を指します。
 
-具体的にはどのような副作用があるのでしょうか？
+Web フロントエンド開発において、具体的にはどのような副作用があるのでしょうか？
 
 1. DOM を変更する
 2. Web API（HTTP, WebSocket 等）を使った通信
@@ -52,8 +52,6 @@ useEffect(
 );
 ```
 
-[# useEffectの実行タイミング](#useeffectの実行タイミング) で説明しますが、useEffectはレンダーフェーズではなくコミットフェーズに実行されるため、「レンダー中に副作用が起きてはならない」というルールに違反しません。
-
 ## useEffectを使った実装例
 
 document.titleを変更する実装例です。  
@@ -67,7 +65,7 @@ const Counter: FC = () => {
     // セットアップ処理
     document.title = `You clicked ${count} times`;
     
-    // クリーンナップ処理は必要ないため記載しない
+    // クリーンナップ処理は必要ないため省略
 
   },[count]); // エフェクトの依存する変数リスト
 
@@ -85,9 +83,9 @@ const Counter: FC = () => {
 $ TARGET=C12/Sample1 npm run dev
 ```
 
-## 副作用の実行を抑制したい
+## エフェクトの実行を抑制したい
 
-ほとんどのエフェクトの実行は、レンダーのたびに毎回ではなく、依存する値が変更したときにだけ実行されれば十分です。
+エフェクトの実行は、レンダーのたびに毎回ではなく、依存する値が変更したときにだけ再実行されれば十分です。
 `useEffect`の第 2 引数（依存リスト）に設定した値が変更されたときにだけ実行されます。
 
 以下のエフェクトは再レンダリングの度に実行されます。
@@ -104,17 +102,6 @@ useEffect(() => {
 useEffect(() => {
   document.title = `You clicked ${count} times`;
 }, [count]);
-```
-
-下記のような例では、`id`または`name`のどちらか前回のレンダーから変更されたときに
-副作用を実行します。
-
-```javascript
-useEffect(() => {
-  fetchUserData(id, name).then((profile) => {
-    setAvatar(profile.avatar);
-  });
-}, [id, name]);
 ```
 
 依存リストに指定する値には、13章で説明する値の同一性を考慮する必要があります。
@@ -193,79 +180,24 @@ useEffect(() => {
 
 ## useEffectの実行タイミング
 
-セットアップとクリーンナップの実行タイミングです。
-同じ色のセットアップとクリーンナップが組になっています。
-注意が必要なことは、クリーンナップの実行は更新前のpropsやstateの値を使って実行されることです。
-大事なことは、セットアップとクリーンナップはレンダー中に実行されないことと、
+以下の図がセットアップとクリーンナップの実行タイミングを表しています。
+同じ色のセットアップとクリーンナップが組になっています。  
+レンダーフェーズ外でエフェクトを実行していることと、新しいStateでのセットアップの前に古いStateでクリーンナップをしていることがポイントになります。
+
+この実行タイミングを見ると複雑に思えますが、useEffectを書くときに意識すればよいのはどのようにセットアップし、どのようにクリーンナップするかだけです。むしろ、コンポーネントのライフサイクルの一部としてuseEffectの実行タイミングを考えることをReact公式は推奨していません。
 
 ![useEffectのセットアップ処理とクリーンナップ処理の実行タイミング](./12_effect_lifecycle.png)
 
-本章の最初に示したdocument.titleを変更するコードです。  
-console.logを使ってuseEffectの実行タイミングの確認もしてみましょう。
-
-```typescript
-const Counter: FC = () => {
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    // セットアップ処理
-    document.title = `You clicked ${count} times`;
-    console.log(`SET UP：${count}`)
-    
-    return ()=>{
-      // クリーンナップ処理
-      console.log(`CLEAN UP：${count}`)
-    }
-  },[count]); // エフェクトの依存する変数リスト
-
-  return (
-    <>
-      <p>You clicked {count} times</p>
-      <button onClick={() => setCount(count + 1)}>Click me</button>
-    </>
-  );
-};
-```
-
-```bash
-# react/exercise にて
-$ TARGET=C12/Sample1 npm run dev
-```
-
-# useEffectを使ったデータフェッチの限界
+## (Optional) useEffectを使ったデータフェッチの限界
 
 初期表示時にデータを取得するのは、エフェクトの代表例とも言えそうですが、React公式はuseEffectを使ってデータフェッチをすることを推奨していません。
 [公式Document：エフェクトを使ったデータフェッチ](https://ja.react.dev/reference/react/useEffect#fetching-data-with-effects) では、useEffectを使ったデータフェッチの問題点を挙げ、その解決法としてNextjsなどのフレームワークやTanstackQueryなどのライブラリを使うことを推奨しています。
 
-# useEffect のまとめ
+## useEffectのまとめ
 
-## コンポーネントの描画の度に副作用を実行したい
-
-```javascript
-useEffect(() => {
-  doEffect();
-});
-```
-
-## コンポーネントの描画時に依存リストが変更されたときだけ副作用を実行したい
-
-```javascript
-useEffect(() => {
-  doEffect();
-}, [deps]);
-```
-
-## コンポーネントの Mount と Unmount のときだけ副作用を実行したい
-
-```javascript
-useEffect(() => {
-  doEffect();
-  return () => {
-    cleanup();
-  };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-}, []);
-```
+- 副作用を「ユーザーのアクションがトリガーとなる副作用」と「画面表示がトリガーとなる副作用」の2つに分類し、前者はイベントハンドラ、後者はuseEffectを使って実装する。
+- useEffectの第一引数にはセットアップのロジックの関数を記述し、必要があればクリーンナップ関数を返す。
+- useEffectの第二引数に依存する値リストを渡すことで、エフェクトの再実行の回数を抑制できる
 
 # Suspense
 

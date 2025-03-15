@@ -3,18 +3,14 @@ import { createRoot } from "react-dom/client";
 
 const Counter: FC = () => {
   const [count, setCount] = useState(0);
-  console.log(`RENDER：${count}`);
 
   useEffect(() => {
     // セットアップ処理
     document.title = `You clicked ${count} times`;
-    console.log(`SET UP：${count}`);
 
-    return () => {
-      // クリーンナップ処理
-      console.log(`CLEAN UP：${count}`);
-    };
-  }, [count]);
+    // クリーンナップ処理は必要ないため省略
+    
+  }, [count]); // エフェクトの依存する変数リスト
 
   return (
     <>
@@ -23,5 +19,4 @@ const Counter: FC = () => {
     </>
   );
 };
-
 createRoot(document.getElementById("root")!).render(<Counter />);
