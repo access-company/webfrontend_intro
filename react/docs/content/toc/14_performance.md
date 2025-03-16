@@ -4,7 +4,13 @@ title: 第14章　描画パフォーマンスの最適化
 
 (Optional)
 
-React は、関数コンポーネントの描画をメモ化するための API(`React.memo`) を用意しています。メモ化したい関数コンポーネントをラップして利用します。
+React は、コンポーネントの再レンダリング回数を必要最小限にするための API として、 `React.memo` と `useCallback` を用意しています。
+
+# React.memo
+
+React はデフォルトでは親コンポーネントが再レンダリングされると子コンポーネントも再レンダリングします。
+
+コンポーネントを `React.memo` でラップすることで、親コンポーネントが再レンダリングされても、自身の props が変更されていない限り再レンダリングされなくなり、最後のレンダーの結果を再利用します。
 
 ```javascript
 const MemoizedMyComponent = React.memo(function MyComponent(props) {
@@ -12,17 +18,163 @@ const MemoizedMyComponent = React.memo(function MyComponent(props) {
 }, opt_areEqual);
 ```
 
-`React.memo`は、`props` に渡される値の同一性が保証されている場合に効果を発揮する API です。`props`に渡される値が変更されていない場合は、最後のレンダーの結果を再利用します。
+ここで注意しなければいけない点は、 `props` の値の変更のみを `React.memo` はチェックするということです。`React.memo` でラップしている関数コンポーネント内で `useState` で定義した state が更新されたときには再レンダリングされます。
 
-ここで注意しなければいけない点は、`props`の値の変更のみを `React.memo`はチェックするということです。下記のような実装を行なっていた場合、`React.memo`による効果はありません。
+参照: https://ja.react.dev/reference/react/memo
 
-`React.memo`でラップしている関数コンポーネント内で
+# useCallback
 
-- `useState` による再レンダーが行われたとき
-- `useContext` を使っているとき
-- `useSelector`, `useDispatch` を使っているとき（react-redux）
+`useCallback` は、レンダー間で関数定義をキャッシュできるようにする Hooks です。関数の実行結果をキャッシュするわけではない点に注意しましょう。
 
-参照: https://react.dev/reference/react/memo
+- 第1引数: キャッシュしたい関数
+- 第2引数: 第1引数のコード内で参照される依存値リスト。配列内の値が変更されたときにだけ関数の再定義が行われる。
+
+```javascript
+const cachedFn = useCallback(fn, dependencies)
+```
+
+参照: https://ja.react.dev/reference/react/useCallback
+
+# React.memo と useCallback を使った実装例
+
+レンダー中に重い計算をしているButtonコンポーネントの再レンダリング回数を最小限にすることを目標とします。
+
+## パフォーマンス改善前のコード
+
+```typescript
+import { useState, memo, useCallback } from "react";
+import { createRoot } from "react-dom/client";
+
+const heavyCalculation = () => {
+  let sum = 0;
+  for (let i = 0; i < 1e9; i++) {
+    sum += i;
+  }
+};
+
+interface ButtonProps {
+  onClick: () => void;
+}
+
+const Button = ({ onClick }: ButtonProps) => {
+  console.log("button render");
+  heavyCalculation();
+  return <button onClick={onClick}>click</button>;
+};
+
+const App = () => {
+  const [count, setCount] = useState(0);
+
+  const handleIncrement = () => {
+    setCount((prev) => prev + 1);
+  };
+
+  return (
+    <>
+      <p>カウント: {count}</p>
+      <Button onClick={handleIncrement} />
+    </>
+  );
+};
+createRoot(document.getElementById("root")!).render(<App />);
+```
+
+## パフォーマンス改善
+
+1. Button コンポーネントを React.memo でラップすることによって、 props が同じだった場合は再レンダリングをスキップされるようにします。
+2. propsとして渡している handleIncrement 関数を useCallback を使ってキャッシュします。第2引数が空配列であるため、一度定義されると再レンダリングをしても再定義されなくなります。
+
+```typescript
+import { useState, memo, useCallback } from "react";
+import { createRoot } from "react-dom/client";
+
+const heavyCalculation = () => {
+  let sum = 0;
+  for (let i = 0; i < 1e9; i++) {
+    sum += i;
+  }
+};
+
+interface ButtonProps {
+  onClick: () => void;
+}
+
+// 1. memoを使ってButtonコンポーネントをキャッシュする
+const Button = memo(({ onClick }: ButtonProps) => {
+  console.log("button render");
+  heavyCalculation();
+  return <button onClick={onClick}>click</button>;
+});
+
+const App = () => {
+  const [count, setCount] = useState(0);
+
+  // 関数をキャッシュしない場合
+  // const handleIncrement = () => {
+  //   setCount((prev) => prev + 1);
+  // };
+
+  // 2. useCallbackで関数をキャッシュする
+  const handleIncrement = useCallback(() => {
+    setCount((prev) => prev + 1);
+  }, []);
+
+  return (
+    <>
+      <p>カウント: {count}</p>
+      <Button onClick={handleIncrement} />
+    </>
+  );
+};
+
+createRoot(document.getElementById("root")!).render(<App />);
+```
+
+```bash
+# react/exercise にて
+$ TARGET=C14/Sample1 npm run dev
+```
+
+# useMemo
+
+useMemoは、レンダー間で計算結果をキャッシュするためのHooksです。
+
+- 第1引数: キャッシュしたい値を計算する関数
+- 第2引数: 第1引数のコード内で参照される依存値リスト。配列内の値が変更されたときにだけ再計算が行われる。
+
+```javascript
+const cachedValue = useMemo(calculateValue, dependencies)
+```
+
+```javascript
+const heavyCalculation = () => {
+  let sum = 0;
+  for (let i = 0; i < 1e9; i++) {
+    sum += i;
+  }
+  return sum;
+};
+
+const Counter = () => {
+  const [count, setCount] = useState(0);
+
+  // キャッシュしない場合
+  // const value = heavyCalculation();
+
+  // キャッシュする場合
+  const value = useMemo(heavyCalculation, []);
+
+  return (
+    <>
+      <div>{count}</div>
+      <button onClick={() => setCount(count + 1)}>increment</button>
+      <div>{value}</div>
+    </>
+  );
+};
+```
+
+参照: https://ja.react.dev/reference/react/useMemo
 
 ## 【課題 14-1】 描画パフォーマンスを改善しよう！
 
