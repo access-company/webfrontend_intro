@@ -5,12 +5,10 @@ const Counter: FC = () => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    // セットアップ処理
+    // エフェクト処理
     document.title = `You clicked ${count} times`;
 
-    // クリーンナップ処理は必要ないため省略
-    
-  }, [count]); // エフェクトの依存する変数リスト
+  },[count]); // エフェクトの依存値リスト
 
   return (
     <>
