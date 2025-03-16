@@ -1,7 +1,6 @@
 ---
 title: 第15章　高度なアプリケーション実装に向けて
 ---
-// 全体的に古い気がします。
 
 * [React-Redux](https://react-redux.js.org/)
   * 多くの案件でReactと共に採用されているFluxフレームワーク
