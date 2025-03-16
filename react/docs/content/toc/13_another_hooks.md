@@ -20,7 +20,7 @@ NOTE: ミュータブル（mutable）とイミュータブル（immutable）と�
 ```js
 // e.g.
 
-const ref = useRef < boolean > false;
+const ref = useRef<boolean>(false);
 console.log(ref.current); // false
 
 ref.current = true;
