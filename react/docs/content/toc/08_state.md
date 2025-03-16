@@ -2,9 +2,11 @@
 title: '第8章　state'
 ---
 
-今まで習ってきたことを復習すると、propsと呼ばれる引数を受け取りJSXを返す関数コンポーネントを組み合わせることによって、UIを構築できました。propsは読み取り専用で変更できないため、propsが同じであれば、必ず同じJSXを返します。
+レンダーフェーズは純粋であるというルールを学びました。純粋であるため、propsが同じであれば同じJSXを返します。
 
-これで気がづくのですが、これでは画面の表示内容を変更することができません。そこで、Reactは画面の表示内容を変更するための機能として、画面表示で変化する値をState（状態）として保持し、Stateを更新することで画面の表示も更新できる仕組みを提供しています。
+そこで気が付くのですが、これでは画面の表示内容を変更することができません。
+
+Reactは画面の表示内容を変更するための機能として、画面表示で変化する値をState（状態）として保持し、Stateを更新することで画面の表示も更新できる仕組みを提供しています。
 
 # useState
 
@@ -14,21 +16,14 @@ State を扱うには、`useState`という API を利用します。
 // useStateを使う準備
 import { useState } from 'react';
 
-// const [状態変数, 状態更新関数] = useState(状態変数の初期値)
+// const [現在のstate, 状態更新関数] = useState(状態の初期値)
 const [state, setState] = useState(initialState);
 ```
 
-後で説明しますが、すべての Hooks API はコンポーネント内で呼び出す必要があります。
-また、`if`文や`for`文などから呼び出してはいけません。関数の中のトップレベルから Hooks API の呼び出しが許されています。
+`useState`は、`initialState`(状態の初期値)を引数として、「現在の state（変数）」と「状態更新関数」を返します。
+このとき、実装者は「現在の state」と「状態更新関数」の名前を自由に決めることができますが、[something, setSomething] のように命名する慣習があります。
 
-`useState`は、「現在の state（変数）」と「state を更新する関数」を返します。
-このとき、実装者は、「現在の state」と「state を更新する関数」の名前を自由に決めることができます。`initialState`は初期状態です。
-
-状態更新関数が実行され、Stateの更新されると、コンポーネントの再レンダリングがトリガーされ、コンポーネントが実行され、更新後のStateを元に画面の更新が行われます。
-
-注意事項として、Stateの更新の検知はObject.is()関数によって行われます。Object.is()関数によって、状態更新関数の実行前と実行後でStateが同一であると判定された場合、再レンダリングはトリガーされず、画面の更新も行われません。
-
-![useState](./08_useState.png)
+状態更新関数によって状態が更新されると、コンポーネントが再レンダリングされ、更新後の状態に基づいて画面が描画されます。
 
 # 例: カウントアップ
 
@@ -58,6 +53,8 @@ createRoot(document.getElementById('root')!).render(<Counter />);
 $ TARGET=C08/Sample1 npm run dev
 ```
 
+![useState](./08_useState.png)
+
 ## 【課題 8-1】increment/decrement ボタンを作る
 
 `Counter`コンポーネントを修正して、以下の要件を満たしてください。
@@ -74,6 +71,33 @@ $ TARGET=C08/Q1 npm run dev
 ```
 
 編集対象ファイル: `react/exercise/C08/Q1/index.tsx`
+
+# (optional) 状態更新関数に関数を渡す
+
+状態更新関数には、値だけでなく関数を渡すことも可能です。関数を渡す場合、その関数は、純粋で、処理中のstateを引数として受け取り、次のstateを返す必要があります。
+
+例えば、countをincrementする場合、以下のように書けます。
+
+```javascript
+const Counter: FC = () => {
+  const [count, setCount] = useState<number>(0);
+  const handleClick = () =>
+    setCount((prevCount) => {
+      return prevCount + 1;
+    });
+
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={handleClick}>Click me</button>
+    </div>
+  );
+};
+```
+
+状態更新関数に値を渡すか、関数を渡すかは、どちらでもよい場合がほとんどです。
+
+ただし、関数を渡した方がよいケースがあり、 [一連の state の更新をキューに入れる](https://ja.react.dev/learn/queueing-a-series-of-state-updates) と [state の読み取りは次の state を計算するためか？](https://ja.react.dev/learn/removing-effect-dependencies#are-you-reading-some-state-to-calculate-the-next-state) で説明されています。
 
 # 複数の state を扱う
 
@@ -114,9 +138,3 @@ $ TARGET=C08/Q3 npm run dev
 ```
 
 編集対象ファイル: `react/exercise/C08/Q3/index.tsx`
-
-# 公式ドキュメントへの参照
-
-- [Learn : インタラクティビティの追加](https://ja.react.dev/learn/adding-interactivity)
-- [Lean : stateの管理](https://ja.react.dev/learn/managing-state)
-- [API Reference : useState](https://ja.react.dev/reference/react/useState)
