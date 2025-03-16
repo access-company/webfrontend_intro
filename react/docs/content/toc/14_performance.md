@@ -4,7 +4,7 @@ title: 第14章　描画パフォーマンスの最適化
 
 (Optional)
 
-React は、コンポーネントの再レンダリング回数を必要最小限にするための API として、 `React.memo` と `useCallback` を用意しています。
+React は、コンポーネントの再レンダリング回数を必要最小限にするための API として、 `React.memo` と `useCallback` 、計算結果をキャッシュするためのAPIとして`useMemo`を用意しています。
 
 # React.memo
 
@@ -35,7 +35,7 @@ const cachedFn = useCallback(fn, dependencies)
 
 参照: https://ja.react.dev/reference/react/useCallback
 
-# React.memo と useCallback を使った実装例
+# React.memo と useCallback を使ったパフォーマンス改善例
 
 レンダー中に重い計算をしているButtonコンポーネントの再レンダリング回数を最小限にすることを目標とします。
 
