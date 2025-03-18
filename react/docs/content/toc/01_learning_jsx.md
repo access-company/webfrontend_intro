@@ -11,7 +11,7 @@ const element = <h1>Hello, world!</h1>;
 ECMAScript では、上記のような構文は定義されていません。
 上記の `<h1>Hello, world!</h1>` は、文字列や HTML でもありません。
 
-**JSX** と呼ばれる TypeScript の拡張構文です。ただし、これはそのままブラウザ上では動作しないので注意が必要です。
+**JSX** と呼ばれる JavaScript の拡張構文です。ただし、これはそのままブラウザ上では動作しないので注意が必要です。
 React の toolchain を使って、JSX を使わない、通常の JavaScript オブジェクトへ変換します。
 
 # JSX に式を埋め込む
