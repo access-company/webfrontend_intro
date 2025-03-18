@@ -11,8 +11,17 @@ const element = <h1>Hello, world!</h1>;
 ECMAScript では、上記のような構文は定義されていません。
 上記の `<h1>Hello, world!</h1>` は、文字列や HTML でもありません。
 
-**JSX** と呼ばれる JavaScript の拡張構文です。ただし、これはそのままブラウザ上では動作しないので注意が必要です。
-React の toolchain を使って、JSX を使わない、通常の JavaScript オブジェクトへ変換します。
+**JSX** と呼ばれる JavaScript の拡張構文です。
+
+JSX を用いて作られる UI の構成要素を **React 要素** と呼びます。
+React 要素は、JavaScript のオブジェクトです。
+
+<details><summary>Advanced</summary>
+JSX はそのままではブラウザ上では動作しません。
+そのため、 React の toolchain を使って、JSX を使わない、通常の JavaScript オブジェクトへ変換します。
+
+この章の Advanced には JSX を使わず、 `React.createElement()` という関数を使用して React 要素を生成する例が書かれています。
+</details>
 
 # JSX に式を埋め込む
 
