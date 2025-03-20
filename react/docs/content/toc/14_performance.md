@@ -12,7 +12,7 @@ React はデフォルトでは親コンポーネントが再レンダリング�
 
 コンポーネントを `React.memo` でラップすることで、親コンポーネントが再レンダリングされても、自身の props が変更されていない限り再レンダリングされなくなり、最後のレンダーの結果を再利用します。
 
-```javascript
+```tsx
 const MemoizedMyComponent = React.memo(function MyComponent(props) {
   /* render using props */
 }, opt_areEqual);
@@ -29,7 +29,7 @@ const MemoizedMyComponent = React.memo(function MyComponent(props) {
 - 第1引数: キャッシュしたい関数
 - 第2引数: 第1引数のコード内で参照される依存値リスト。配列内の値が変更されたときにだけ関数の再定義が行われる。
 
-```javascript
+```tsx
 const cachedFn = useCallback(fn, dependencies)
 ```
 
@@ -41,7 +41,7 @@ const cachedFn = useCallback(fn, dependencies)
 
 ## パフォーマンス改善前のコード
 
-```typescript
+```tsx
 import { useState, memo, useCallback } from "react";
 import { createRoot } from "react-dom/client";
 
@@ -84,7 +84,7 @@ createRoot(document.getElementById("root")!).render(<App />);
 1. Button コンポーネントを React.memo でラップすることによって、 props が同じだった場合は再レンダリングをスキップされるようにします。
 2. propsとして渡している handleIncrement 関数を useCallback を使ってキャッシュします。第2引数が空配列であるため、一度定義されると再レンダリングをしても再定義されなくなります。
 
-```typescript
+```tsx
 import { useState, memo, useCallback } from "react";
 import { createRoot } from "react-dom/client";
 
@@ -142,11 +142,11 @@ useMemoは、レンダー間で計算結果をキャッシュするためのHook
 - 第1引数: キャッシュしたい値を計算する関数
 - 第2引数: 第1引数のコード内で参照される依存値リスト。配列内の値が変更されたときにだけ再計算が行われる。
 
-```javascript
+```tsx
 const cachedValue = useMemo(calculateValue, dependencies)
 ```
 
-```javascript
+```tsx
 const heavyCalculation = () => {
   let sum = 0;
   for (let i = 0; i < 1e9; i++) {

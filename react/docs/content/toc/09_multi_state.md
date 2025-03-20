@@ -11,7 +11,7 @@ title: '第9章　state の更新ロジックを抽出する'
 
 # useReducer API の導入
 
-```javascript
+```tsx
 // const [新しいstate, アクションを発火する関数] =
 //   useReducer(「現在のstate」と「アクション」を受け取って、「新しいstate」を返す関数, stateの初期値)
 const [currentState, dispatch] = useReducer(reducer, initialState);
@@ -68,7 +68,7 @@ function reducer(state: State, action: Action) {
 `Counter`コンポーネントの実装の見通しが良くなったことがわかります。
 アクションを発火する`dispatch`関数の一つにまとめることで、イベント処理が明確になります。
 
-```javascript
+```tsx
 function Counter() {
   const [state, dispatch] = useReducer(reducer, initialState);
 

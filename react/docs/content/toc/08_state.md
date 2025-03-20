@@ -12,7 +12,7 @@ Reactは画面の表示内容を変更するための機能として、画面表
 
 State を扱うには、`useState`という API を利用します。
 
-```javascript
+```tsx
 // useStateを使う準備
 import { useState } from 'react';
 
@@ -29,7 +29,7 @@ const [state, setState] = useState(initialState);
 
 下記コードは、カウントアップに `useState`を使った例です。
 
-```typescript
+```tsx
 import React, { FC, useState } from 'react';
 import { createRoot } from 'react-dom';
 
@@ -78,7 +78,7 @@ $ TARGET=C08/Q1 npm run dev
 
 例えば、countをincrementする場合、以下のように書けます。
 
-```javascript
+```tsx
 const Counter: FC = () => {
   const [count, setCount] = useState<number>(0);
   const handleClick = () =>
@@ -104,7 +104,7 @@ const Counter: FC = () => {
 複数の `state`を扱うこともできます。下記のように複数の state を
 並べていくことで状態を分割管理できます。
 
-```javascript
+```tsx
 const [count, setCount] = useState(0);
 const [comment, setComment] = useState('');
 const [date, setDate] = useState(Date.now());

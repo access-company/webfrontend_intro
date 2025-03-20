@@ -39,7 +39,7 @@ NOTE: Reactの公式ドキュメントでは、後者のことを副作用(side 
 - 第1引数：エフェクトのロジックが記述された関数。
 - 第2引数：第1引数のコード内で参照される依存値リスト。配列内の値が変更されたときにだけエフェクトの再実行が行われる。
 
-```javascript
+```tsx
 useEffect(
   () => {
     // エフェクト処理
@@ -53,7 +53,7 @@ useEffect(
 document.title を変更する実装例です。  
 画面に表示されたときに実行したい副作用のため、useEffect を使って実装します。
 
-```typescript
+```tsx
 const Counter: FC = () => {
   const [count, setCount] = useState(0);
 
@@ -84,7 +84,7 @@ $ TARGET=C12/Sample1 npm run dev
 
 以下のエフェクトは再レンダリングの度に実行されます。
 
-```javascript
+```tsx
 useEffect(() => {
   document.title = `You clicked ${count} times`;
 });
@@ -92,7 +92,7 @@ useEffect(() => {
 
 上記のエフェクトを、`count`が前回のレンダーから変更されたときのみ実行するには下記のように書き換えます。
 
-```javascript
+```tsx
 useEffect(() => {
   document.title = `You clicked ${count} times`;
 }, [count]);
@@ -136,7 +136,7 @@ React におけるクリーンナップの実装は、クリーンナップ処�
 
 実装パターンは下記の通りです。
 
-```javascript
+```tsx
 useEffect(() => {
   // セットアップ処理
   return () => {
@@ -147,7 +147,7 @@ useEffect(() => {
 
 ### クリーンナップの実装例
 
-```javascript
+```tsx
 useEffect(() => {
   const socket = new WebSocket('ws://localhost:8000')
   const handleMessage(e) {
@@ -193,7 +193,7 @@ Suspense されるためのコンポーネントは、準備が整っていな�
 
 与えられた Promise が完了するまでサスペンドし、完了すればアドレスカードをレンダリングする例
 
-```typescript
+```tsx
 import { useRef, useEffect } from 'react';
 
 const Card = ({ promise }: { promise: Promise<Value> }) => {
@@ -227,7 +227,7 @@ const Card = ({ promise }: { promise: Promise<Value> }) => {
 
 Card コンポーネントを囲み、ローディング中は「Loading...」という表記をする例
 
-```typescript
+```tsx
 import { type FC, Suspense } from 'react';
 
 const CardPair: FC = () => {
