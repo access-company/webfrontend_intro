@@ -176,7 +176,11 @@ const Counter = () => {
 
 参照: https://ja.react.dev/reference/react/useMemo
 
-## 【課題 14-1】 描画パフォーマンスを改善しよう！
+# (optional) React Compiler
+
+[React Compiler](https://ja.react.dev/learn/react-compiler) とは、React.memo、useCallback、useMemoを使わなくても、自動的に無駄なコンポーネントの再レンダリングや値の再計算を抑制してくれる機能です。ただし、現在ベータ版であることに注意が必要です。
+
+# 【課題 14-1】 描画パフォーマンスを改善しよう！
 
 はじめに、Chrome Dev Tools を開き、Console の項目（コンソールログ）を表示してください。
 Start ボタン押下するとカウントを開始します。Stop ボタンを押下すると、カウントを一時停止します。
