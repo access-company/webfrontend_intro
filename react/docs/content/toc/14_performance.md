@@ -4,13 +4,16 @@ title: 第14章　描画パフォーマンスの最適化
 
 (Optional)
 
-React は、コンポーネントの再レンダリング回数を必要最小限にするための API として `React.memo` と `useCallback` 、計算結果をキャッシュするためのAPIとして`useMemo`を用意しています。
+React は、描画パフォーマンスを最適化ための API として `React.memo` と `useCallback` と `useMemo` を用意しています。
 
 # React.memo
 
-React はデフォルトでは親コンポーネントが再レンダリングされると子コンポーネントも再レンダリングします。
+`React.memo` を使うことで、props が変更されていない場合にコンポーネントの再レンダリングをスキップできます。
 
-コンポーネントを `React.memo` でラップすることで、親コンポーネントが再レンダリングされても、自身の props が変更されていない限り再レンダリングされなくなり、最後のレンダーの結果を再利用します。
+```
+NOTE: 
+デフォルトでは、親コンポーネントが再レンダリングされると、その子コンポーネントは再レンダリングされます。
+```
 
 ```tsx
 const MemoizedMyComponent = React.memo(function MyComponent(props) {
