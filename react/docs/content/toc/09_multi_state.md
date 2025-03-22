@@ -2,12 +2,11 @@
 title: '第9章　state の更新ロジックを抽出する'
 ---
 
-実際の Web アプリの開発では、stateの更新ロジックが複雑になることがあります。そのような場合でも、`useState`を使って実装できることには変わりありません。
-しかし、`useState`を使って実装していると、コンポーネント実装の複雑度が上がり、実装の見通しが悪くなります。たとえば、ある 配列のstateに対して、「追加」「更新」「削除」のように複数のアクションが行われるケースです。コンポーネントのユニットテストの実装の難易度も上がります。
+実際の Web アプリの開発では、 state の更新ロジックが複雑になることがあります。たとえば、ある配列の state に対して、「追加」「更新」「削除」のように複数のアクションが行われるケースです。そのような場合でも、 `useState` を使って実装できることには変わりありません。
 
-コンポーネントの実装はできるだけシンプルにしたいと考えることがあるでしょう。
+しかし、 `useState` を使って実装すると、コンポーネント内部に複雑なロジックを持つことになり、保守性の低下やコンポーネントの単体テストの難易度の増加に繋がります。
 
-上記のようなケースでは、`useReducer` API が適しています。
+上記のようなケースでは、`useReducer` API を使って、複雑な更新ロジックをコンポーネントの外部に切り出しましょう。
 
 # useReducer API の導入
 
@@ -87,14 +86,15 @@ createRoot(document.getElementById("root")!).render(<Counter />);
 
 # useReducer を使うときとは？
 
-`useState`でも機能的には実現できます。`useReducer`を使って実装するタイミングは、以下の通りです。
+`useState`でも機能的には実現できますが、以下のようなケースでは`useReducer`を使うことを選択肢に入れましょう。
 
-- アクションの数が増えてきたとき
-- 更新のロジックが複雑になってきたとき
+- アクションの数が多いとき
+- 多くのプロパティを持つオブジェクトを state としているとき
+- 更新のロジックが複雑なとき
 
 # (optional) なぜ Reducer と呼ばれるのか？
 
-JavaScriptの配列のメソッドである[Array.prototype.reduce()](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)という操作にちなんで名付けられています。詳細は [なぜリデューサと呼ばれるのか？](https://ja.react.dev/learn/extracting-state-logic-into-a-reducer#why-are-reducers-called-this-way)で説明されています。
+JavaScriptの配列のメソッドである [Array.prototype.reduce()](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce) という操作にちなんで名付けられています。詳細は [「なぜリデューサと呼ばれるのか？](https://ja.react.dev/learn/extracting-state-logic-into-a-reducer#why-are-reducers-called-this-way)で説明されています。
 
 # 【課題 9-1】2 つの count 状態
 
