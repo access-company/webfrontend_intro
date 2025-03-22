@@ -1,4 +1,4 @@
-// C12/Q1
+// C12/Q2
 // 以下の実装の要件を満たしてください。
 // * DummyのWeb APIを呼び出す `fetchDummyProfile()` を使って、ユーザプロファイルを取得する
 // * `Suspense` と `use` を使う
