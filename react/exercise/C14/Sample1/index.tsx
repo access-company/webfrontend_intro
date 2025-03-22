@@ -12,25 +12,18 @@ interface ButtonProps {
   onClick: () => void;
 }
 
-// 1. memoを使ってButtonコンポーネントをキャッシュする
-const Button = memo(({ onClick }: ButtonProps) => {
+const Button = ({ onClick }: ButtonProps) => {
   console.log("button render");
   heavyCalculation();
   return <button onClick={onClick}>click</button>;
-});
+};
 
 const App = () => {
   const [count, setCount] = useState(0);
 
-  // 関数定義をキャッシュしない場合
-  // const handleIncrement = () => {
-  //   setCount((prev) => prev + 1);
-  // };
-
-  // 2. useCallbackで関数定義をキャッシュする
-  const handleIncrement = useCallback(() => {
+  const handleIncrement = () => {
     setCount((prev) => prev + 1);
-  }, []);
+  };
 
   return (
     <>
@@ -39,5 +32,4 @@ const App = () => {
     </>
   );
 };
-
 createRoot(document.getElementById("root")!).render(<App />);

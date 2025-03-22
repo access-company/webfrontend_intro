@@ -24,7 +24,7 @@ const MemoizedMyComponent = React.memo(function MyComponent(props) {
 
 # useCallback
 
-`useCallback` は、レンダー間で関数定義をキャッシュできるようにする Hooks です。関数の実行結果をキャッシュするわけではない点に注意しましょう。
+`useCallback` は、レンダー間で関数定義をキャッシュできるようにする Hooks です。
 
 - 第1引数: キャッシュしたい関数
 - 第2引数: 第1引数のコード内で参照される依存値リスト。配列内の値が変更されたときにだけ関数の再定義が行われる。
@@ -40,6 +40,12 @@ const cachedFn = useCallback(fn, dependencies)
 レンダー中に重い計算をしている`Button` コンポーネントの再レンダリング回数を最小限にすることを目標とします。
 
 ## パフォーマンス改善前のコード
+
+
+```bash
+# react/exercise にて
+$ TARGET=C14/Sample1 npm run dev
+```
 
 ```tsx
 import { useState, memo, useCallback } from "react";
@@ -109,7 +115,7 @@ const Button = memo(({ onClick }: ButtonProps) => {
 const App = () => {
   const [count, setCount] = useState(0);
 
-  // 関数定義をキャッシュしない場合
+  // 再レンダリングのたびに再定義される
   // const handleIncrement = () => {
   //   setCount((prev) => prev + 1);
   // };
@@ -128,11 +134,6 @@ const App = () => {
 };
 
 createRoot(document.getElementById("root")!).render(<App />);
-```
-
-```bash
-# react/exercise にて
-$ TARGET=C14/Sample1 npm run dev
 ```
 
 # useMemo
