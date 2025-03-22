@@ -133,3 +133,30 @@ true
   - useMemoとuseCallbackは「第14章　描画パフォーマンスの最適化」で扱います。
 - memoのpropsの比較
   - React.memoは「第14章　描画パフォーマンスの最適化」で扱います。
+
+# 注意が必要な State の更新
+
+オブジェクトと配列の更新には注意が必要です。
+
+- [state 内のオブジェクトの更新](https://ja.react.dev/learn/updating-objects-in-state)
+- [state 内の配列の更新](https://ja.react.dev/learn/updating-arrays-in-state)
+
+# stateの更新が検知されない例
+
+```tsx
+const Sample = () =>{
+  const [numbers, setNumbers] = useState([2,3,4,1])
+
+  const sortNumbers = () => {
+    // Object.is(numbers,numbers.sort()) が true なので、再レンダリングされない
+    setNumbers(numbers.sort())
+  }
+
+  return (
+    <div>
+      {numbers.map((number) => <div key={number}>{number}</div>)}
+      <button onClick={sortNumbers}> sort </button>
+    </div>
+  )
+}
+```
