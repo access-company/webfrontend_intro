@@ -1,12 +1,13 @@
 // C12/Q1
 // 以下の実装の要件を満たしてください。
 // * DummyのWeb APIを呼び出す `fetchDummyProfile()` を使って、ユーザプロファイルを取得する
-// * `useEffect` と `Suspense` を使う
+// * `Suspense` と `use` を使う
+// * `useState` と `useEffect` は使わない
 // * DummyのWeb APIのリクエストは、`UserProfile`コンポーネントの初回レンダーの1回のみとする
 // * DummyのWeb APIのリクエスト中は、「Loading...」を画面に表示する
 // * 読み込み完了後に、ユーザプロファイルを画面に反映する
 //
-import { useState, useEffect, FC } from "react";
+import { Suspense, use, FC } from "react";
 import { createRoot } from "react-dom/client";
 import "./style.css";
 
