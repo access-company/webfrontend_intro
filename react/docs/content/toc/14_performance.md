@@ -41,7 +41,6 @@ const cachedFn = useCallback(fn, dependencies)
 
 ## パフォーマンス改善前のコード
 
-
 ```bash
 # react/exercise にて
 $ TARGET=C14/Sample1 npm run dev
@@ -147,6 +146,11 @@ useMemoは、レンダー間で計算結果をキャッシュするためのHook
 const cachedValue = useMemo(calculateValue, dependencies)
 ```
 
+```bash
+# react/exercise にて
+$ TARGET=C14/Sample2 npm run dev
+```
+
 ```tsx
 const heavyCalculation = () => {
   let sum = 0;
@@ -160,10 +164,10 @@ const Counter = () => {
   const [count, setCount] = useState(0);
 
   // キャッシュしない場合
-  // const value = heavyCalculation();
+  const value = heavyCalculation();
 
   // キャッシュする場合
-  const value = useMemo(heavyCalculation, []);
+  // const value = useMemo(heavyCalculation, []);
 
   return (
     <>

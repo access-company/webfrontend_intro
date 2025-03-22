@@ -13,10 +13,10 @@ const Counter = () => {
   const [count, setCount] = useState(0);
 
   // キャッシュしない場合
-  // const value = heavyCalculation();
+  const value = heavyCalculation();
 
   // キャッシュする場合
-  const value = useMemo(heavyCalculation, []);
+  // const value = useMemo(heavyCalculation, []);
 
   return (
     <>
