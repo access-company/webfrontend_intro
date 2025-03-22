@@ -74,6 +74,11 @@ function App() {
 createRoot(document.getElementById("root")!).render(<App />);
 ```
 
+```
+NOTE:
+useRefで宣言した値を変更しても再レンダリングされないため、useRefで宣言した値を画面表示で使うことはバグの原因になります。
+```
+
 ## 【課題 13-2】 CountDown
 
 Start ボタンを押すと、
