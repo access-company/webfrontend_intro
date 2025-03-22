@@ -22,12 +22,12 @@ const Button = memo(({ onClick }: ButtonProps) => {
 const App = () => {
   const [count, setCount] = useState(0);
 
-  // 関数をキャッシュしない場合
+  // 関数定義をキャッシュしない場合
   // const handleIncrement = () => {
   //   setCount((prev) => prev + 1);
   // };
 
-  // 2. useCallbackで関数をキャッシュする
+  // 2. useCallbackで関数定義をキャッシュする
   const handleIncrement = useCallback(() => {
     setCount((prev) => prev + 1);
   }, []);

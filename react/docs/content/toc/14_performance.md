@@ -114,7 +114,7 @@ const App = () => {
   //   setCount((prev) => prev + 1);
   // };
 
-  // 2. useCallbackで関数をキャッシュする
+  // 2. useCallbackで関数定義をキャッシュする
   const handleIncrement = useCallback(() => {
     setCount((prev) => prev + 1);
   }, []);
