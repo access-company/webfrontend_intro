@@ -173,104 +173,14 @@ useEffect(() => {
 
 ![useEffectのセットアップ処理とクリーンナップ処理の実行タイミング](./12_effect_lifecycle.png)
 
-# Suspense
-
-## Suspense の概要
-
-コンポーネントが Mount されても、そのコンポーネントのレンダリングに必要な情報が揃うまで、「ローディング中なのでまだレンダリングできない」という趣旨の画面を表示するべきです。
-
-単純な処理では、元となる情報がない状態でレンダリング処理が成立せず、DOM への反映もできない、ということになってしまいます。
-
-Suspense というコンポーネントは、JavaScript の try-catch 文のようにレンダリングがサスペンドしたコンポーネントを補足して、例外的な画面表示を構築することが機能です。
-
-## Suspense のための例外処理
-
-Suspense されるためのコンポーネントは、準備が整っていない間（ローディング中とか）は、`throw (promise as Promise<any>)` を行うように記述します。
-このように、コンポーネントが Promise を throw する、という取扱のことを、サスペンドすると呼びます。
-
-それ以外の、コンポーネントレンダリングに支障がない状態なら、通常通りです。
-例えば `Promise<any>` でない例外を発する、通常のコーディングミスは Suspense には捕捉されません。
-
-<details><summary>コンポーネントの例</summary>
-
-与えられた Promise が完了するまでサスペンドし、完了すればアドレスカードをレンダリングする例
-
-```tsx
-import { useRef, useEffect } from 'react';
-
-const Card = ({ promise }: { promise: Promise<Value> }) => {
-  const data = useRef<Value>();
-  useEffect(() => {
-    promise.then((result: Value) => (data.current = result));
-  }, [promise]);
-
-  if (data.current) {
-    return (
-      <div className="card">
-        <p>name: {data.current.name}</p>
-        <p>address: {data.current.address}</p>
-      </div>
-    );
-  } else {
-    throw promise;
-  }
-};
-```
-
-</details>
-
-## Suspense で囲む
-
-「Suspense のための例外処理」をレンダリングすると、開発者コンソールにエラーが現れ、画面は描画されないはずです。
-
-「ローディング中」のような画面を描画して待ち、Promise 完了で直ちにアドレスカード描画をするためには、`<Suspense>...</Suspense>`で`<Card />`を囲みます。
-
-<details><summary>コンポーネントの例</summary>
-
-Card コンポーネントを囲み、ローディング中は「Loading...」という表記をする例
-
-```tsx
-import { type FC, Suspense } from 'react';
-
-const CardPair: FC = () => {
-  const result = fetch('https://example.com/api/cards.json');
-
-  return (
-    <div className="pair">
-      <h1>Card Pair</h1>
-      <Suspense fallback={<p>Loading...</p>}>
-        <Card promise={result.then((o) => o.cards[0])} />
-        <Card promise={result.then((o) => o.cards[1])} />
-      </Suspense>
-    </div>
-  );
-};
-```
-
-</details>
-
-例示したコードは、画面表示直後には「Loading...」と描画し、`https://example.com/api/cards.json`の受信直後に Card コンポーネントが再描画されます。
-
 ## 【課題 12-1】Web API（Dummy）から取得したユーザプロファイルを表示する
-
-// 2024年の新卒研修ではこの課題は例が良くないのでスキップになっていました。
-// 漆原さんは、「SuspenseはuseEffectを使わないという思想のコンポーネントなので、例がふさわしくない」とおっしゃっていたと思います。
-// React公式Docには、このように書かれています。
-
-```
-サスペンスコンポーネントをアクティブ化できるのはサスペンス対応のデータソースだけです。これには以下が含まれます：
-- Relay や Next.js のようなサスペンス対応のフレームワークでのデータフェッチ
-- lazy を用いたコンポーネントコードの遅延ロード
-- use を用いたキャッシュ済みプロミス (Promise) からの値の読み取り
-サスペンスはエフェクトやイベントハンドラ内でデータフェッチが行われた場合にはそれを検出しません。
-```
 
 「条件付きレンダー」と`useEffect`と`useState`の両方を使った課題です。
 
 以下の実装の要件を満たしてください。
 
 - Dummy の Web API を呼び出す `fetchDummyProfile()` を使って、ユーザプロファイルを取得する
-- `useEffect` と `Suspense` を使う
+- `useEffect` と `useState` を使う
 - Dummy の Web API のリクエストは、`UserProfile`コンポーネントの初回レンダーの 1 回のみとする
 - Dummy の Web API のリクエスト中は、「Loading...」を画面に表示する
 - 読み込み完了後に、ユーザプロファイルを画面に反映する
@@ -285,3 +195,110 @@ $ TARGET=C12/Q1 npm run dev
 ```
 
 編集対象ファイル: `react/exercise/C12/Q1/index.tsx`
+
+# Suspense
+
+## Suspense の概要
+
+コンポーネントが Mount されても、そのコンポーネントのレンダリングに必要な情報が揃うまで、「ローディング中なのでまだレンダリングできない」という趣旨の画面を表示するべきです。
+
+単純な処理では、元となる情報がない状態でレンダリング処理が成立せず、DOM への反映もできない、ということになってしまいます。
+
+Suspense というコンポーネントは、JavaScript の try-catch 文のようにレンダリングがサスペンドしたコンポーネントを補足して、例外的な画面表示を構築することが機能です。
+
+## Suspense のための例外処理
+
+Suspense されるためのコンポーネントは、準備が整っていない間（ローディング中とか）は、Promise を throw するようにします。
+このように、コンポーネントが Promise を throw する、という取扱のことを、サスペンドすると呼びます。
+
+それ以外の、コンポーネントレンダリングに支障がない状態なら、通常通りです。
+例えば `Promise` でない例外を発する、通常のコーディングミスは Suspense には捕捉されません。
+
+```tsx
+const SampleComponent = () =>{
+  // サスペンドする
+  throw new Promise();
+}
+```
+
+注: Suspense を使う開発の際には次に紹介する「 Suspense 対応のデータソース」を使うため、開発者が Promise を throw するコードを書くことはほとんどありません。
+
+## Suspense 対応のデータソース
+
+Suspense コンポーネントを利用するためには、 Suspense に対応したデータソースを利用する必要があります。現時点では、以下のものが挙げられます。
+
+- [Relay](https://relay.dev/docs/guided-tour/rendering/loading-states/) や [Next.js](https://nextjs.org/docs/app/building-your-application/routing/loading-ui-and-streaming#streaming-with-suspense) のようなサスペンス対応のフレームワークデータフェッチ
+- [lazy](https://ja.react.dev/reference/react/lazy) を用いたコンポーネントの遅延ロード
+- [use](https://ja.react.dev/reference/react/use) を用いたキャッシュ済み Promise からの値の読み取り
+
+<details><summary>コンポーネントの例</summary>
+
+use を用いて、与えられた Promise が解決するまでサスペンドし、解決したらアドレスカードをレンダリングする例
+
+```tsx
+import { use } from 'react';
+
+// 注: promiseはコンポーネント内で定義してはいけない。
+// https://ja.react.dev/blog/2024/12/05/react-19#use-does-not-support-promises-created-in-render
+const promise: Promise<User> = fetchDummyProfile();
+
+const Card = () => {
+  const data = use(promise)
+
+  return (
+    <div className="card">
+      <p>name: {data.name}</p>
+      <p>address: {data.address}</p>
+    </div>
+  );
+};
+```
+
+</details>
+
+## Suspense で囲む
+
+例で示した Card コンポーネントをレンダリングすると、Promise が解決するまでは何も画面に表示されないはずです。
+
+「ローディング中」のような画面を描画して待ち、Promise 完了で直ちにアドレスカード描画をするためには、`<Suspense>...</Suspense>`で`<Card />`を囲みます。
+
+<details><summary>コンポーネントの例</summary>
+
+Card コンポーネントを囲み、ローディング中は「Loading...」という表記をする例
+
+```tsx
+import { type FC, Suspense } from 'react';
+
+const CardPage: FC = () => {
+  return (
+    <div className="pair">
+      <h1>Card Page</h1>
+      <Suspense fallback={<p>Loading...</p>}>
+        <Card />
+      </Suspense>
+    </div>
+  );
+};
+```
+
+</details>
+
+例示したコードは、画面表示直後には「Loading...」と描画し、fetchDummyProfile で定義した Promise が解決した直後に Card コンポーネントが再描画されます。
+
+## 【課題 12-2】 (Optional) 課題12-1 を Suspense と use を使って書き換えてみよう
+
+課題12-1を同一の動作のまま Suspense と use を使って書き換えてみましょう。
+
+- Dummy の Web API を呼び出す `fetchDummyProfile()` を使って、ユーザプロファイルを取得する
+- `Suspense` と `use` を使う
+- `useState` と `useEffect` は使わない
+- Dummy の Web API のリクエストは、`UserProfile`コンポーネントの初回レンダーの 1 回のみとする
+- Dummy の Web API のリクエスト中は、「Loading...」を画面に表示する
+- 読み込み完了後に、ユーザプロファイルを画面に反映する
+
+```bash
+# react/exercise にて
+$ TARGET=C12/Q2 npm run dev
+```
+
+編集対象ファイル: `react/exercise/C12/Q2/index.tsx`
