@@ -20,7 +20,7 @@ const MemoizedComponent = memo(SomeComponent, arePropsEqual?)
 ```
 
 - 第1引数: メモ化したいコンポーネント
-- 第2引数: (省略可能) コンポーネントの前回の props と新しい props の 2 つを引数に取る関数。その関数が true を返した場合は再レンダリングがスキップされます。指定しなかった場合は個々の props を Object.is() を使って比較します。
+- 第2引数: (省略可能) コンポーネントの前回の props と新しい props の 2 つを引数に取る関数。その関数が true を返した場合は再レンダリングがスキップされる。指定しなかった場合は個々の props を Object.is() を使って比較される。
 
 ここで注意しなければいけない点は、 `props` の値の変更のみを `React.memo` はチェックするということです。`React.memo` でラップしている関数コンポーネント内で `useState` で定義した state が更新されたときには再レンダリングされます。
 
