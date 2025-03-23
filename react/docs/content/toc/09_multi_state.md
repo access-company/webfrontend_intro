@@ -94,7 +94,7 @@ createRoot(document.getElementById("root")!).render(<Counter />);
 
 # (optional) なぜ Reducer と呼ばれるのか？
 
-JavaScriptの配列のメソッドである [Array.prototype.reduce()](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce) という操作にちなんで名付けられています。詳細は [「なぜリデューサと呼ばれるのか？](https://ja.react.dev/learn/extracting-state-logic-into-a-reducer#why-are-reducers-called-this-way)で説明されています。
+JavaScriptの配列のメソッドである [Array.prototype.reduce()](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce) という操作にちなんで名付けられています。詳細は [なぜリデューサと呼ばれるのか？](https://ja.react.dev/learn/extracting-state-logic-into-a-reducer#why-are-reducers-called-this-way)で説明されています。
 
 # 【課題 9-1】2 つの count 状態
 
