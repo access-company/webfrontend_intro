@@ -4,7 +4,7 @@ title: 第14章　描画パフォーマンスの最適化
 
 (Optional)
 
-React は、描画パフォーマンスを最適化ための API として `React.memo` と `useCallback` と `useMemo` を用意しています。
+React は、描画パフォーマンスを最適化するための API として `React.memo` と `useCallback` と `useMemo` を用意しています。
 
 # React.memo
 
