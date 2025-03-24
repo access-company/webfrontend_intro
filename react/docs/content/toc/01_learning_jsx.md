@@ -13,7 +13,7 @@ ECMAScript では、上記のような構文は定義されていません。
 
 **JSX** と呼ばれる JavaScript の拡張構文です。
 
-JSX を用いて作られる UI の構成要素を **React 要素** と呼びます。
+JSX を用いて UI の構成要素を作ることができます。その UI の構成要素のことを **React 要素** と呼びます。
 React 要素は、JavaScript のオブジェクトです。
 
 <details><summary>Advanced</summary>
