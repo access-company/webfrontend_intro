@@ -1,85 +1,42 @@
 ---
-title: '第1章　TSXを学ぶ'
+title: '第1章　JSXを学ぶ'
 ---
 
 React プログラミングでは、以下のような変数宣言ができます。
 
-```typescript
+```tsx
 const element = <h1>Hello, world!</h1>;
 ```
 
 ECMAScript では、上記のような構文は定義されていません。
-上記の `<h1></h1>` は、文字列や HTML でもありません。
+上記の `<h1>Hello, world!</h1>` は、文字列や HTML でもありません。
 
-**TSX** と呼ばれる TypeScript の拡張構文です。ただし、これはそのままブラウザ上では動作しないので注意が必要です。React の toolchain を使って、TSX を使わない、通常の JavaScript へ変換します。
+**JSX** と呼ばれる JavaScript の拡張構文です。
 
-# コンポーネント（→ ３章）
-
-通常の HTML/CSS/JavaScript の Web アプリケーション開発では、マークアップとロジックを別々のファイルに
-書いて人為的に技術を分離します。一方、React は、マークアップとロジックの両方を含む疎結合の
-「 **コンポーネント** 」という単位を導入して、関心を分離します。
-
-通常の HTML タグ以外に、React プログラマが定義したコンポーネントを TSX に記載することができます。
-React は、この疎結合のコンポーネントを導入することで、宣言的なプログラミングを実現します。これについては３章で学びます。
-
-### 通常の HTML タグで書く TSX
-
-```typescript
-const element = <h1>Hello, world!</h1>;
-```
-
-### コンポーネントで書く TSX
-
-```typescript
-interface Props {
-  name: string;
-}
-function Hello({ name }: Props) {
-  return <h1>Hello, {name}</h1>;
-}
-
-const element = <Hello name="world!" />;
-```
+JSX を用いて UI の構成要素を作ることができます。その UI の構成要素のことを **React 要素** と呼びます。
+React 要素は、JavaScript のオブジェクトです。
 
 <details><summary>Advanced</summary>
+JSX はそのままではブラウザ上では動作しません。
+そのため、 React の toolchain を使って、JSX を使わない、通常の JavaScript オブジェクトへ変換します。
 
-もし TSX の助けを得ずに記述すると、このようになります。
-
-```typescript
-import React from 'react';
-
-const element = React.createElement('h1', null, 'Hello, world!');
-```
-
-```typescript
-import React from 'react';
-
-interface Props {
-  name: string;
-}
-function Hello({ name }: Props) {
-  return React.createElement('h1', null, `Hello, ${name}`);
-}
-
-const element = React.createElement(Hello, { name: 'world!' });
-```
-
+この章の Advanced には JSX を使わず、 `React.createElement()` という関数を使用して React 要素を生成する例が書かれています。
 </details>
 
-# TSX に式を埋め込む
+# JSX に式を埋め込む
 
-TSX 内で **中括弧 {}** で囲むことで、TypeScript の式を使用できます。
+JSX 内で **中括弧 {}** で囲むことで、 JavaScript の式を使用できます。
 
-```typescript
+```tsx
 const name = 'Seiji';
 const element = <h1>Hello, {name}</h1>;
 
 ReactDOM.createRoot(document.body).render(element);
 ```
 
-たとえば、`formatName(user)` という TypeScript 関数の結果を入れることもできます。
+`formatName(user)` という JavaScript 関数の結果を入れることもできます。
 
-```typescript
+```tsx
 interface User {
   firstName: string;
   lastName: string;
@@ -102,35 +59,21 @@ ReactDOM.createRoot(document.body).render(element);
 `${user.firstName} ${user.lastName}`
 ```
 
-これは「テンプレートリテラル (テンプレート文字列)」という記法です。バッククォートを使って定義され、文字列内に変数や式を埋め込むことができる JavaScript の機能です。これにより、複雑な文字列の組み立てが簡単に行えます。変数は `${}`の中括弧のなかに記述します。
-
-TSX の構文を複数行に分けて記述する場合は、括弧`()` で囲んでください。
-
-```typescript
-const element = (
-  <div>
-    <h1>Hello, {formatName(user)}</h1>
-  </div>
-);
-```
+これは **テンプレートリテラル (テンプレート文字列)** という記法です。バッククォートを使って定義され、文字列内に変数や式を埋め込むことができる JavaScript の機能です。これにより、複雑な文字列の組み立てが簡単に行えます。変数は `${}` の中に記述します。
 
 <details><summary>Advanced</summary>
 
-もし TSX の助けを得ずに記述すると、このようになります。
+もし JSX の助けを得ずに記述すると、このようになります。
 
 ```typescript
 import React from 'react';
 
-const element = React.createElement(
-  'div', 
-  null, 
-  React.createElement('h1', null, `Hello, ${formatName(user)}`)
-);
+const element = React.createElement('h1', null, `Hello, ${formatName(user)}`);
 ```
 
 </details>
 
-# TSX も式である
+# JSX も式である
 
 変数への代入はもちろん、
 
@@ -138,9 +81,9 @@ const element = React.createElement(
 - 関数からの戻り値
 - `if`文や`for`文の中
 
-などで TSX を利用できます。
+などで JSX を利用できます。
 
-```typescript
+```tsx
 function getGreeting(user) {
   if (user) {
     return <h1>Hello, {formatName(user)}!</h1>;
@@ -151,7 +94,7 @@ function getGreeting(user) {
 
 <details><summary>Advanced</summary>
 
-もし TSX の助けを得ずに記述すると、このようになります。
+もし JSX の助けを得ずに記述すると、このようになります。
 
 ```typescript
 import React from "react"
@@ -169,82 +112,38 @@ function getGreeting(user) {
 
 </details>
 
-# TSX に属性を指定する
+# JSX に属性を指定する
 
 ## 文字列リテラル
 
 文字列リテラルを属性として指定するために引用符`""`を使用できます。
 
-```typescript
+```tsx
 const element = <div tabIndex="0"></div>;
 ```
 
-## TypeScript 式を埋め込む
+## JavaScript 式を埋め込む
 
-TypeScript 式を TSX に埋め込むために中括弧`{}`を使用します。
+JavaScript 式を JSX に埋め込むために中括弧 `{}` を使用します。
 
-```typescript
+```tsx
 const element = <div tabIndex={getIndex()}></div>;
 ```
 
 <details><summary>Advanced</summary>
 
-もし TSX の助けを得ずに記述すると、このようになります。
+もし JSX の助けを得ずに記述すると、このようになります。
 
 ```typescript
 import React from 'react';
 
 const element = React.createElement('div', { tabIndex: '0' });
-const element = React.createElement('div', { tabIndex: getIndex() });
 ```
-
-</details>
-
-## スプレッド演算子を利用した属性の展開
-
-コンポーネントに渡すオブジェクトをスプレッド演算子として使用することで、
-オブジェクトのパラメータを属性として展開できます。
-
-なお、スプレッド演算子で残余引数が定義できます。
-
-```
-const { isDisplay, ...rest } = props;
-```
-
-下記の例は、等価です。
-
-```typescript
-function App1() {
-  return <Greeting firstName="Seiji" lastName="Urushihara" />;
-}
-
-function App2() {
-  const props = { firstName: 'Seiji', lastName: 'Urushihara' };
-  return <Greeting {...props} />;
-}
-
-function App3() {
-  const props = { firstName: 'Seiji', lastName: 'Urushihara', isDisplay: true };
-  const { isDisplay, ...rest } = props;
-  return isDisplay && <Greeting {...rest} />;
-}
-```
-
-<details><summary>Advanced</summary>
-
-もし TSX の助けを得ずに記述すると、このようになります。
 
 ```typescript
 import React from 'react';
 
-function App1() {
-  return React.createElement(Greeting, { firstName: 'Seiji', lastName: 'Urushihara' });
-}
-
-function App2() {
-  const props = { firstName: 'Seiji', lastName: 'Urushihara' };
-  return React.createElement(Greeting, { ...props });
-}
+const element = React.createElement('div', { tabIndex: getIndex() });
 ```
 
 </details>
@@ -269,24 +168,25 @@ sizes span spellCheck src srcDoc srcLang srcSet start step style summary
 tabIndex target title type useMap value width wmode wrap
 ```
 
-改めて、忘れてはいけない点は、HTML ではなく、「TSX は TypeScript の拡張構文」であるということです。
+改めて、忘れてはいけない点は、 JSX は HTML ではなく **JavaScript の拡張構文** であるということです。
 
-**TSX の属性は、キャメルケース（camelCase）の命名規則** を使用する必要があります。
+**JSX の属性は、キャメルケース（camelCase）の命名規則** を使用する必要があります。
 
-TypeScript の予約語と被る属性、例えば、
+また JavaScript の予約語と被る属性、
 
 - `class` は、`className`
 - `for` は、`htmlFor`
 
 と記述します。
 
-例外として、`aria-*`属性と`data-*`属性は、キャメルケースの命名規則を利用しなくてよいです。
+例外として、 `aria-*` 属性と `data-*` 属性は、キャメルケースの命名規則を利用しなくてよいです。
 
-# TSX で子要素を指定する
+# JSX で子要素を指定する
 
-TSX のタグは子要素を持つことができます。
+JSX のタグは子要素を持つことができます。
+また、 JSX は括弧 `()` で囲むことで、複数行に分けて記述することができます。
 
-```typescript
+```tsx
 const element = (
   <div>
     <h1>Hello!</h1>
@@ -297,24 +197,28 @@ const element = (
 
 # 空の要素(Fragment)
 
-React のコンポーネントでは DOM 要素を返すとき 1 つの要素しか返せません。コンポーネントが複数の要素を返すには、Fragment(`<>`)を使用すると、DOM に余分なノードを追加することなく、子要素のリストをグループ化することができます。
+React のコンポーネント（3章参照）では DOM 要素を返すとき 1 つの要素しか返せません。
+コンポーネントが複数の要素を返すには、Fragment(`<>`)を使用すると、DOM に余分なノードを追加することなく、子要素のリストをグループ化することができます。
 
-なお、`<>` は `<React.Fragment>` のシンタックスシュガーになります。
-
-1. Fragment は、余分な DOM ノードを作成しないので、少し速く、より少ないメモリを使用します。これは、非常に大きく深いツリーでこそ真価を発揮します。
-2. Flexbox や CSS Grid などの CSS の仕組みには、特殊な親子関係があり、途中に div を追加すると、望ましいレイアウトを維持するのが難しくなります。
-3. DOM インスペクタが乱雑にならずに済みます
-
-たとえば、上記のような構造を表現するとき、余分な div を使わずに済ませることができます。
-
-```typescript
+```tsx
 const element1 = (
   <>
     <h1>Hello!</h1>
     <h2>Good to see you here.</h2>
   </>
 );
+```
 
+余分な DOM ノードの作成を避けることで以下の様な利点があります。
+
+- **パフォーマンス向上** : わずかに高速で、メモリ消費量も少なくなります。
+- **CSSレイアウトの維持** : Flexbox や CSS Gridを使ったレイアウトにおいて、意図しない要素が挿入されることによるレイアウト崩れを防ぎます。
+- **DOM構造の簡潔化** : DOM インスペクタで要素を確認する際に、 DOM 構造が整理されて見やすくなります。
+
+なお、 `<>` は `<React.Fragment>` のシンタックスシュガーです。
+そのため、上記の `element1` と以下の `element2` は同じ構造のオブジェクトになります。
+
+```tsx
 const element2 = (
   <React.Fragment>
     <h1>Hello!</h1>
@@ -323,7 +227,9 @@ const element2 = (
 );
 ```
 
-# TSX (JSX) を深く理解する
+※ シンタックスシュガー（糖衣構文）は、コードを短く読みやすくする代替記法です。
+
+# JSX を深く理解する
 
 - [JSX でマークアップを記述する](https://ja.react.dev/learn/writing-markup-with-jsx)
 - [JSX に波括弧で JavaScript を含める](https://ja.react.dev/learn/javascript-in-jsx-with-curly-braces)
@@ -332,7 +238,7 @@ const element2 = (
 
 以下の要件を満たしてください。
 
-- 任意の赤色の物の名前, 緑色の物の名前, 青色の物の名前を TSX 内に追加
+- 任意の赤色の物の名前, 緑色の物の名前, 青色の物の名前を JSX 内に追加
   - それぞれが赤色, 青色, 緑色となるようにスタイルを指定
   - 並びや位置関係、厳密に物の色が正しいかどうかは不問
 
