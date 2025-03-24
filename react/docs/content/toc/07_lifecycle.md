@@ -5,7 +5,7 @@ title: "第7章　React コンポーネントのライフサイクル"
 ここでは、 React コンポーネントにおけるライフサイクル（状態遷移）を導入します。
 React の挙動を把握する上でライフサイクルは重要なポイントです。
 
-![Hooks Lifecycle](./07_hooks_lifecycle.svg)
+![Hooks Lifecycle](./07_hooks_lifecycle.png)
 
 第2章で掲載した図を再掲します。
 「①関数の実行」がレンダーフェーズにあたり、「②実DOMへの反映」はコミットフェーズで行います。
