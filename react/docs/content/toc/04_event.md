@@ -13,7 +13,7 @@ React では、イベント属性名を camelCase にし、イベントハンド
 
 React コンポーネントで書いた例は下記の通りです。
 
-```javascript
+```tsx
 function OKButton() {
   function handleClick(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
@@ -62,7 +62,7 @@ function OKButton() {
 下記のような実装では、button を click すると、コンソールに "inner" と "outer" が表示されます。
 これは、button のクリックイベントが親要素である div にも伝播するためです。
 
-```javascript
+```tsx
 function Counter() {
   const handleOuterClick = () => {
     console.log('outer');
@@ -82,7 +82,7 @@ function Counter() {
 
 `handleOuterClick` を実行したくない場合は、 `stopPropagation` を `handleInnerClick` 内で実行してください。
 
-```typescript
+```tsx
 function Counter() {
   const handleOuterClick = () => {
     console.log('outer');

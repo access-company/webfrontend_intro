@@ -4,7 +4,7 @@ title: '第5章　条件付きレンダー'
 
 React における条件付きレンダーは、 JavaScript における条件分岐と同じように動作します。
 
-```typescript
+```tsx
 type GreetingProps = {
   isLoggedIn: boolean;
 };
@@ -28,7 +28,7 @@ $ TARGET=C05/Sample1 npm run dev
 
 もちろん、条件付きレンダーを変数に格納することもできます。
 
-```typescript
+```tsx
 const UserGreeting: FC = () => <h1>Welcome back!</h1>
 const GuestGreeting: FC = () => <h1>Please sign up.</h1>
 const Greeting: FC<GreetingProps> = props => {
@@ -45,7 +45,7 @@ createRoot(document.getElementById("root")!).render(
 
 下記のように、Greeting コンポーネントの構造が少し変わった場合でも、条件付きレンダーが利用できます。
 
-```javascript
+```tsx
 // 条件付きレンダーを変数に入れる
 const UserGreeting: FC = () => <h1>Welcome back!</h1>;
 const GuestGreeting: FC = () => <h1>Please sign up.</h1>;
@@ -62,7 +62,7 @@ createRoot(document.getElementById("root")!).render(
 
 条件付きレンダーを中括弧でインライン記述することもできます。
 
-```javascript
+```tsx
 const UserGreeting: FC = () => <h1>Welcome back!</h1>;
 const GuestGreeting: FC = () => <h1>Please sign up.</h1>;
 const Greeting: FC<GreetingProps> = (props) => {

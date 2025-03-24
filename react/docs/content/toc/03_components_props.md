@@ -15,7 +15,7 @@ title: 第3章　コンポーネントとprops
 
 単純な例として、下記のような単純な関数は、コンポーネントです。
 
-```javascript
+```tsx
 function Welcome(props) {
   return <h1>Hello, {props.name}</h1>;
 }
@@ -26,7 +26,7 @@ function Welcome(props) {
 
 ただの関数なので Arrow Function を使ったり、 TypeScript を用いて型をつけたりすることができます。
 
-```typescript
+```tsx
 interface Props {
   name: string;
 }
@@ -45,7 +45,7 @@ React では、上記の様な関数のコンポーネントのことを **関�
 また、 React では、ES6 クラスでもコンポーネントを定義できます。
 ES6 クラスで定義したコンポーネントのことを **クラスコンポーネント（class component）** と呼びます。
 
-```javascript
+```tsx
 import {Component} from React
 
 class Welcome extends Component {
@@ -84,7 +84,7 @@ React 開発においては、 JavaScript/TypeScript の慣習に従ってくだ
 
 以下の例は、ルールに反するため、React のビルドでエラーになります。
 
-```typescript
+```tsx
 interface Props {
   name: string;
 }
@@ -100,7 +100,7 @@ function Welcome(props: Props) {
 
 コンポーネントは自身の出力（返り値）の中で他のコンポーネントを参照できます。
 
-```typescript
+```tsx
 interface Props {
   name: string;
 }
@@ -137,7 +137,7 @@ $ TARGET=C03/Sample1 npm run dev
 
 コンポーネントの分割・抽出について、下記の `Comment` コンポーネントを例に考えてみます。
 
-```typescript
+```tsx
 function formatDate(date: Date) {
   return date.toLocaleDateString();
 }
@@ -191,7 +191,7 @@ $ TARGET=C03/Sample2 npm run dev
 
 ここでは、 `userInfo` クラスを `Avatar` コンポーネントと `UserInfo` コンポーネントの 2 つのコンポーネントに分割・抽出しました。
 
-```typescript
+```tsx
 
 function formatDate(date: Date) {
   return date.toLocaleDateString();

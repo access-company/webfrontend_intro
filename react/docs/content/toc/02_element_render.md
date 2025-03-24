@@ -63,7 +63,7 @@ React が面倒を見ます。結果、DOM API を扱うよりもパフォーマ
 `useState` という React の API を使っていますが、「第8章 state」で詳しく説明するため理解は不要です。
 ここでは、ブラウザの開発者ツールを使って、更新された要素のみ再描画されることを確認してください。
 
-```javascript
+```tsx
 import { useState } from "react";
 import { createRoot } from "react-dom/client";
 

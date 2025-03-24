@@ -4,7 +4,7 @@ title: '第1章　JSXを学ぶ'
 
 React プログラミングでは、以下のような変数宣言ができます。
 
-```typescript
+```tsx
 const element = <h1>Hello, world!</h1>;
 ```
 
@@ -27,7 +27,7 @@ JSX はそのままではブラウザ上では動作しません。
 
 JSX 内で **中括弧 {}** で囲むことで、 JavaScript の式を使用できます。
 
-```typescript
+```tsx
 const name = 'Seiji';
 const element = <h1>Hello, {name}</h1>;
 
@@ -36,7 +36,7 @@ ReactDOM.createRoot(document.body).render(element);
 
 `formatName(user)` という JavaScript 関数の結果を入れることもできます。
 
-```typescript
+```tsx
 interface User {
   firstName: string;
   lastName: string;
@@ -83,7 +83,7 @@ const element = React.createElement('h1', null, `Hello, ${formatName(user)}`);
 
 などで JSX を利用できます。
 
-```typescript
+```tsx
 function getGreeting(user) {
   if (user) {
     return <h1>Hello, {formatName(user)}!</h1>;
@@ -118,7 +118,7 @@ function getGreeting(user) {
 
 文字列リテラルを属性として指定するために引用符`""`を使用できます。
 
-```typescript
+```tsx
 const element = <div tabIndex="0"></div>;
 ```
 
@@ -126,7 +126,7 @@ const element = <div tabIndex="0"></div>;
 
 JavaScript 式を JSX に埋め込むために中括弧 `{}` を使用します。
 
-```typescript
+```tsx
 const element = <div tabIndex={getIndex()}></div>;
 ```
 
@@ -186,7 +186,7 @@ tabIndex target title type useMap value width wmode wrap
 JSX のタグは子要素を持つことができます。
 また、 JSX は括弧 `()` で囲むことで、複数行に分けて記述することができます。
 
-```typescript
+```tsx
 const element = (
   <div>
     <h1>Hello!</h1>
@@ -200,7 +200,7 @@ const element = (
 React のコンポーネント（3章参照）では DOM 要素を返すとき 1 つの要素しか返せません。
 コンポーネントが複数の要素を返すには、Fragment(`<>`)を使用すると、DOM に余分なノードを追加することなく、子要素のリストをグループ化することができます。
 
-```typescript
+```tsx
 const element1 = (
   <>
     <h1>Hello!</h1>
@@ -218,7 +218,7 @@ const element1 = (
 なお、 `<>` は `<React.Fragment>` のシンタックスシュガーです。
 そのため、上記の `element1` と以下の `element2` は同じ構造のオブジェクトになります。
 
-```typescript
+```tsx
 const element2 = (
   <React.Fragment>
     <h1>Hello!</h1>

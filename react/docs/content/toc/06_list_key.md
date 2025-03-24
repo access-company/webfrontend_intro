@@ -20,7 +20,7 @@ console.log(doubled); // [2, 4, 6, 8, 10]
 次のコードを例に、リストの作成方法を見ていきましょう。
 `ListItem` に渡されている `key` 属性については次のセクションで説明します。
 
-```typescript
+```tsx
 type ListItemProps = {
   value: number;
 };
