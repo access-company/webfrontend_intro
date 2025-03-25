@@ -36,7 +36,7 @@ const NumberList: FC<NumberListProps> = (props) => {
   return (
     <ul>
       {numbers.map((num: number) => (
-        <ListItem key={num.toString()} value={num} />
+        <ListItem key={num} value={num} />
       ))}
     </ul>
   );
