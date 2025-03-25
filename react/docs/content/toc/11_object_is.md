@@ -144,11 +144,11 @@ true
 # stateの更新が検知されない例
 
 ```tsx
-const Sample = () =>{
+const Sample = () => {
   const [numbers, setNumbers] = useState([2,3,4,1])
 
   const sortNumbers = () => {
-    // Object.is(numbers,numbers.sort()) が true なので、再レンダリングされない
+    // Object.is(numbers, numbers.sort()) が true なので、再レンダリングされない
     setNumbers(numbers.sort())
   }
 
