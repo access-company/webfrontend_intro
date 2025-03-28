@@ -1,14 +1,20 @@
 /*
-* 以下の Str. Num 型を表す Flatten<T> を定義してください
+* 以下のコードは冗長なコードである。 generics を使って `greet` という関数一つにまとめてください。
+* `some process` は `message` の型の影響を受けないものとします。
 * */
 
 // 以下のコードのコメントアウトを外して修正を行う
 // {
-//   type Flatten<T> = // ここにコードを記述する
-
-//   // 配列であれば要素の型を抜き出す
-//   type Str = Flatten<string[]> // type Str = string
-
-//   // 配列でなければそのままの型を抜き出す
-//   type Num = Flatten<number> // type Num = number
+//   function greetString(message: string): void {
+//     // some process
+//     console.log(message)
+//   }
+  
+//   function greetNumber(message: number): void {
+//     // some process
+//     console.log(message)
+//   }
+  
+//   greetString('hello')
+//   greetNumber(1)
 // }

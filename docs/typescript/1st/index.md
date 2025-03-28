@@ -12,6 +12,7 @@
 - Microsoft が開発した静的型付け言語
   - 静的型付け
     - JavaScript は動的型付け言語
+    - <img src='static_typing.png' width="600px" style="border: 1px solid"/>
   - JavaScript のスーパーセット
 - 簡単に言うと JavaScript に型を付けた言語
   - TypeScript から型情報を取り除くと JavaScript となる
@@ -65,12 +66,14 @@ sum("1", 2); // コンパイルエラー (Argument of type 'string' is not assig
   - tsc, webpack(ts-loader), vite, babel などがある
 - 本研修ではトランスパイラに `tsc` を使用していきます
 
+<img src='transpile.png' width="600px" style="border: 1px solid"/>
+
 <details><summary>Advanced</summary>
 
 - tsc
   - Microsoft 純正の TypeScript トランスパイラ
   - 最新バージョンの TypeScript に対応したり、言語すべての機能を利用することができる
-  - es2015以前の ES への互換性は低い
+  - es2015 以前の ES への互換性は低い
   - `--noEmit` option で型チェックのみを行うことも可能
 - webpack
   - ts-loader を使い TypeScript をトランスパイル可能
@@ -87,7 +90,7 @@ sum("1", 2); // コンパイルエラー (Argument of type 'string' is not assig
   - typeScript のトランスパイルには `@babel/preset-typescript` が必要
   - TypeScript の一部機能が制限される
   - 旧 ES への変換が優秀
-    - IEにどうしても対応するなど
+    - IE にどうしても対応するなど
 
 </details>
 

@@ -19,6 +19,10 @@
   - [if 文](#if文)
   - [switch 文](#switch文)
 - [ループ](#ループ)
+- [例外処理](#例外処理)
+  - [throw構文](#throw構文)
+  - [try-catch構文](#try-catch構文)
+  - [finally構文](#finally構文)
 - [非同期処理](#非同期処理)
 
 ## 基本的な型
@@ -89,8 +93,9 @@ TypeScript では以下に置き換えて型定義を行います。
   obj.bar = 100;
   obj = "hello";
   const n: number = obj;
-  ```  
-  正しいコードを書いていても稀にTypeScriptの型推論能力が足りなくてエラーになることなどがある。  
+  ```
+
+  正しいコードを書いていても稀に TypeScript の型推論能力が足りなくてエラーになることなどがある。  
   そう言った場合にやむなく使うケースがある。
 
 - array  
@@ -147,16 +152,17 @@ TypeScript では以下に置き換えて型定義を行います。
 
     obj2.nonWidening = "fuga"; // コンパイルエラー Assigned expression type "fuga" is not assignable to type "hoge"
     ```
+
 - optional property  
   オブジェクトプロパティをオプショナル(任意)なプロパティとして定義
 
-    ```ts
-    type User = {
-      name: string
-      age: number
-      gender?: string
-    }
-    ```
+  ```ts
+  type User = {
+    name: string;
+    age: number;
+    gender?: string;
+  };
+  ```
 
 </details>
 
@@ -188,7 +194,7 @@ TypeScript では以下に置き換えて型定義を行います。
 - 正規表現  
   正規表現リテラルは `/`（スラッシュ）と `/`（スラッシュ）で正規表現のパターン文字列を囲みます。
 
- #### 演習問題
+#### 演習問題
 
 `/typescript/src/standard/exercise1.ts` を解いてみてください。
 
@@ -275,7 +281,6 @@ var name = "jiro"; // name は 'jiro' になる
 ES2015 で追加された `const` , `let` はこれらの問題が解消されています。  
 `var` を人間が使わなければならない場面は無いので、原則使わないようにしましょう。  
 ※ 今でも `var` が残っているのは後方互換のためです。
-
 
 #### 演習問題
 
@@ -567,7 +572,7 @@ TypeScript で返り値の型を縛る事で、実装者が意図しない型変
 
 条件分岐を使うことで、特定の条件を満たすかどうかで行う処理を変更できます。
 
-### if文
+### if 文
 
 if 文を使うことで、プログラム内に条件分岐を書けます。  
 if 文は次のような構文が基本形となります。 `条件式` の評価結果が `true` であるならば、 `実行する文` が実行されます。
@@ -616,7 +621,7 @@ if (num > 10) {
 
 TypeScript の場合も、使い方は同じです。
 
-### switch文
+### switch 文
 
 switch 文は、次のような構文で `式` の評価結果が指定した値である場合に行う処理を並べて書きます。
 
@@ -659,7 +664,7 @@ getECMAScriptName("ES6"); // => 'ECMAScript 2015'
 
 TypeScript の場合も、使い方は同じです。
 
-## ループ 
+## ループ
 
 反復処理には `for文` や `while文`, 配列のインスタンスメソッドなどがあります。
 
@@ -710,10 +715,11 @@ TypeScript の場合も、使い方は同じです。
 
 - `Array.prototype.filter`  
   指定された配列の中から指定された関数の条件を満たす要素だけを抽出したシャローコピーを作成します。
+
   ```js
-  const ages = [10, 40, 30, 20, 50]
-  const result = ages.filter(age => age >= 18)
-  console.log(result)
+  const ages = [10, 40, 30, 20, 50];
+  const result = ages.filter(age => age >= 18);
+  console.log(result);
   // [40, 30, 20, 50]
   ```
 
@@ -739,6 +745,64 @@ TypeScript の場合も、使い方は同じです。
 #### 演習問題
 
 `/typescript/src/standard/exercise5.ts` を解いてみてください。
+
+## 例外処理
+
+プログラム中でエラーが発生した時に、そのエラーをthrow構文で投げてtry-catch構文で補足することができます。  
+これにより、エラーが発生してもプログラムが途中で止まらずエラーに応じた処理を行うことができます。
+
+### throw構文
+
+throwはエラーを意図的に発生させるためのキーワードです。  
+エラーが発生した場合、そのエラーを「投げる」ことでエラーを処理する仕組みに渡します。
+
+```js
+throw new Error("network error!");
+```
+
+### try-catch構文
+
+try-catch構文はエラーが発生する可能性のあるコードを安全に実行し、エラーが派生した場合にそのエラーを処理するために使います。
+
+```js
+function safeDivide(a: number, b: number): number {
+  try {
+    if (b === 0) {
+      throw new Error("0で割ることはできません");
+    }
+    return a / b;
+  } catch (error) {
+    console.error("エラーが発生しました:", error.message);
+    return 0; // デフォルト値を返す
+  }
+}
+
+console.log(safeDivide(10, 2)); // 5
+console.log(safeDivide(10, 0)); // エラーが発生しました: 0で割ることはできません
+                                // 0
+```
+
+### finally構文
+
+try-catch構文には、finallyブロックを追加することもできます。  
+finallyブロックは、エラーの有無に関係なく必ず実行されるコードを記述するために使います。
+
+```js
+try {
+  console.log("処理を開始します");
+  throw new Error("エラーが発生しました");
+} catch (error) {
+  console.error("エラー:", error.message);
+} finally {
+  console.log("処理が終了しました");
+}
+
+// 出力結果:
+// 処理を開始します
+// エラー: エラーが発生しました
+// 処理が終了しました
+```
+
 
 ## 非同期処理
 
@@ -906,7 +970,6 @@ function asyncMain() {
 ```
 
 </details>
-
 
 #### 演習問題
 

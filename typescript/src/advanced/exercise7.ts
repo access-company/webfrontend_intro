@@ -1,14 +1,14 @@
 /*
-* 以下のコードを name にデフォルトパラメータを設定することで、関数内で userName を定義する必要が無いように修正してください
+* 以下の Str. Num 型を表す Flatten<T> を定義してください
 * */
 
 // 以下のコードのコメントアウトを外して修正を行う
 // {
-//   const log = (message: string, name?: string): void => {
-//     const userName = name || 'guest'
-//     console.log(`${name}: ${message}`)
-//   }
-  
-//   log('hello', 'taro') // taro: hello
-//   log('hello') // guest: hello
+//   type Flatten<T> = // ここにコードを記述する
+
+//   // 配列であれば要素の型を抜き出す
+//   type Str = Flatten<string[]> // type Str = string
+
+//   // 配列でなければそのままの型を抜き出す
+//   type Num = Flatten<number> // type Num = number
 // }
