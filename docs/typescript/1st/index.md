@@ -12,7 +12,9 @@
 - Microsoft が開発した静的型付け言語
   - 静的型付け
     - JavaScript は動的型付け言語
-    - <img src='static_typing.png' width="600px" style="border: 1px solid"/>
+
+      <img src='static_typing.png' width="600px" style="border: 1px solid"/>
+
   - JavaScript のスーパーセット
 - 簡単に言うと JavaScript に型を付けた言語
   - TypeScript から型情報を取り除くと JavaScript となる
@@ -56,6 +58,10 @@ sum("1", 2); // コンパイルエラー (Argument of type 'string' is not assig
 
 ## トランスパイラ
 
+<section style="text-align: center;">
+  <img src='transpile.png' width="600px" style="border: 1px solid; text-align: center;"/>
+</section>
+
 - TypeScript は JavaScript にコンパイルしてから実行をする必要がある
   - コンパイル: ある言語で記述されたソースコードを取得し、他の言語で（または多数の）出力ファイルを生成するプログラムを説明する包括的な用語
   - トランスパイル: ソースコードファイルを取り込み、それを他の言語または異なるバージョンの別のソースコードファイルに変換するコンパイラのサブセット( 今回の場合は TypeScript -> JavaScript のイメージ)
@@ -65,8 +71,6 @@ sum("1", 2); // コンパイルエラー (Argument of type 'string' is not assig
     - IE のようなゾンビブラウザでは、古い EcmaScript の構文しかサポートしていないため、IE での動作も保証する場合には必要だったりする
   - tsc, webpack(ts-loader), vite, babel などがある
 - 本研修ではトランスパイラに `tsc` を使用していきます
-
-<img src='transpile.png' width="600px" style="border: 1px solid"/>
 
 <details><summary>Advanced</summary>
 
