@@ -33,7 +33,7 @@ React では、関数のコンポーネントのことを「**関数コンポー
 ```javascript
 import {Component} from React
 
-class Welcom extends Component {
+class Welcome extends Component {
   render() {
     return <h1>Hello, {this.props.name}</h1>
   }
@@ -58,9 +58,6 @@ class Welcom extends Component {
 後の研修で説明しますが、React Hooks API は関数コンポーネントでの利用を想定した API であるため、
 クラスコンポーネントを選択して実装する必要はありません。
 
-React 公式ガイドでは、互換性の観点からクラスコンポーネントを使った説明が多く残されていますが、
-これからのフロントエンド開発では、クラスコンポーネントを使う場面は非常に少なくなります。
-
 # props について
 
 コンポーネントの引数のことを、`props`と呼びます。
@@ -78,8 +75,8 @@ React 公式ガイドでは、互換性の観点からクラスコンポーネ�
 interface Props {
   name: string;
 }
-function Welcom(props: Props) {
-  props.name = 'COVID-19'; // NG!!
+function Welcome(props: Props) {
+  props.name = 'mutated'; // NG!!
   return <h1>Hello, {props.name}</h1>;
 }
 ```
