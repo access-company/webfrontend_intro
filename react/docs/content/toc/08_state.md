@@ -108,8 +108,6 @@ const [comment, setComment] = useState('');
 const [date, setDate] = useState(Date.now());
 ```
 
-![複数のstate](08_multi_state.svg)
-
 ## 【課題 8-2】Counter の偶数判定
 
 課題 8-1 のコードをベースに、以下の要件を満たしてください。
