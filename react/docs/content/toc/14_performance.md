@@ -41,7 +41,7 @@ const cachedFn = useCallback(fn, dependencies)
 
 # React.memo と useCallback を使ったパフォーマンス改善例
 
-レンダー中に重い計算をしている`Button` コンポーネントの再レンダリング回数を最小限にすることを目標とします。
+レンダー中に重い計算をしている `Button` コンポーネントの再レンダリング回数を最小限にすることを目標とします。
 
 ## パフォーマンス改善前のコード
 
