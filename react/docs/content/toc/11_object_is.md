@@ -127,12 +127,12 @@ true
 
 # Object.is()を使って比較する場面
 
-- useState、useReducerによる状態の更新の検知
-- useEffect、useMemo、useCallbackの依存配列内の値の変化の検知
-  - useEffectは「第12章　副作用を実行する」で扱います。
-  - useMemoとuseCallbackは「第14章　描画パフォーマンスの最適化」で扱います。
-- memoのpropsの比較
-  - React.memoは「第14章　描画パフォーマンスの最適化」で扱います。
+- useState、useReducer による状態の更新の検知
+- useEffect、useMemo、useCallback の依存配列内の値の変化の検知
+  - useEffect は「第 12 章　副作用を実行する」で扱います。
+  - useMemo と useCallback は「第 14 章　描画パフォーマンスの最適化」で扱います。
+- memo の props の比較
+  - React.memo は「第 14 章　描画パフォーマンスの最適化」で扱います。
 
 # 注意が必要な State の更新
 
@@ -141,22 +141,24 @@ true
 - [state 内のオブジェクトの更新](https://ja.react.dev/learn/updating-objects-in-state)
 - [state 内の配列の更新](https://ja.react.dev/learn/updating-arrays-in-state)
 
-# stateの更新が検知されない例
+# state の更新が検知されない例
 
 ```tsx
 const Sample = () => {
-  const [numbers, setNumbers] = useState([2,3,4,1])
+  const [numbers, setNumbers] = useState([2, 3, 4, 1]);
 
   const sortNumbers = () => {
     // Object.is(numbers, numbers.sort()) が true なので、再レンダリングされない
-    setNumbers(numbers.sort())
-  }
+    setNumbers(numbers.sort());
+  };
 
   return (
     <div>
-      {numbers.map((number) => <div key={number}>{number}</div>)}
+      {numbers.map((number) => (
+        <div key={number}>{number}</div>
+      ))}
       <button onClick={sortNumbers}> sort </button>
     </div>
-  )
-}
+  );
+};
 ```

@@ -71,7 +71,7 @@ React では、どの要素が変更、追加もしくは削除されたかを�
 また、 `key` 属性の値は、リスト内で一意（ユニーク）である必要があります。
 `key` に使える値は `string` か `number` か `bigint` に限られており、それ以外の型（`object` や `array` など）を指定することはできません。
 
-**【注意事項】**  `key` に配列の item の値を使う場合、値に重複があると描画の不具合を起こす可能性があります。
+**【注意事項】** `key` に配列の item の値を使う場合、値に重複があると描画の不具合を起こす可能性があります。
 どのような不具合が起こりうるかは、[公式ドキュメント：key によるリストアイテムの順序の保持](https://ja.react.dev/learn/rendering-lists#keeping-list-items-in-order-with-key)で解説されています。
 
 ```javascript

@@ -71,7 +71,7 @@ function App() {
   return <ChildComponent />;
 }
 
-createRoot(document.getElementById("root")!).render(<App />);
+createRoot(document.getElementById('root')!).render(<App />);
 ```
 
 ```
@@ -125,7 +125,7 @@ function CountDown() {
   );
 }
 
-createRoot(document.getElementById("root")!).render(<CountDown />);
+createRoot(document.getElementById('root')!).render(<CountDown />);
 ```
 
 ```bash

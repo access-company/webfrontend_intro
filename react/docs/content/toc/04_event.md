@@ -23,6 +23,7 @@ function OKButton() {
   return <button onClick={handleClick}>OK</button>;
 }
 ```
+
 `handleClick` の仮引数 `e` は、合成イベント（SyntheticEvent）と呼ばれるオブジェクトで、W3C の UI Events という仕様に準拠した API を提供します。
 これは、 React がブラウザの標準のイベント（ネイティブイベント）をラップし、どのブラウザでも一貫した動作をするように設計されたものです。
 

@@ -81,7 +81,7 @@ function Counter() {
   );
 }
 
-createRoot(document.getElementById("root")!).render(<Counter />);
+createRoot(document.getElementById('root')!).render(<Counter />);
 ```
 
 # useReducer を使うときとは？
@@ -94,7 +94,7 @@ createRoot(document.getElementById("root")!).render(<Counter />);
 
 # (optional) なぜ Reducer と呼ばれるのか？
 
-JavaScriptの配列のメソッドである [Array.prototype.reduce()](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce) という操作にちなんで名付けられています。詳細は [なぜリデューサと呼ばれるのか？](https://ja.react.dev/learn/extracting-state-logic-into-a-reducer#why-are-reducers-called-this-way)で説明されています。
+JavaScript の配列のメソッドである [Array.prototype.reduce()](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce) という操作にちなんで名付けられています。詳細は [なぜリデューサと呼ばれるのか？](https://ja.react.dev/learn/extracting-state-logic-into-a-reducer#why-are-reducers-called-this-way)で説明されています。
 
 # 【課題 9-1】2 つの count 状態
 
@@ -116,12 +116,14 @@ $ TARGET=C09/Q1 npm run dev
 `useReducer` で車のアニメーションを実装しましょう。
 
 アニメーションは以下の順で遷移します。
+
 - Fuel ゲージを満タンにする。
 - Open the gate ボタンでゲートを開く。
 - Launch ボタンで車を発進させる。
 - Reset ボタンで初期状態に戻る。
 
 以下の 4 つの状態を `useState` で管理しています。
+
 - `fuelAmount`: 燃料ゲージ
 - `fulfilled`: 燃料が満タンかどうか
 - `opened`: ゲートが開いたかどうか
