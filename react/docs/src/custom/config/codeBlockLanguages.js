@@ -15,7 +15,6 @@ export function applyLanguages(_Prism) {
    * require("prismjs/components/prism-ada");
    * ```
    */
-
 }
 
 export function getTheme(_Prism) {
