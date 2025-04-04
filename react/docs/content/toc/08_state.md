@@ -2,56 +2,37 @@
 title: '第8章　state'
 ---
 
-開発を進めていると、コンポーネント自身に状態を持たせたい状況が発生します。
-React では、「状態」のことを言葉通りに「state」と呼びます。
+コンポーネントによっては、ユーザー操作の結果として画面上の表示内容を変更する必要があります。例えば、チェックボックスをクリックすると選択された状態になる、フォームにテキストを入力する、といったものです。
 
-# state を持つとは？
+このようにインタラクティブに画面を更新する機能を実現するために `useState` という API が用意されています。
 
-`props`は、コンポーネントの外から渡すもので、かつ、読み取り専用です。
-一方、`state`は、コンポーネント自身が持つ情報で、かつ、書き換えができます。
+# useState
 
-関数型言語では、**純粋関数** と **不純関数** という用語があります。
-`state` を持つということは、そのコンポーネントは、不純関数です。
-一方、`state`を持たず、副作用がないコンポーネントは、純粋関数です。
+useState はコンポーネント内で `state` (状態)を保持するための仕組みです。`state` とは画面表示で変化しうる値のことです。
 
-![純粋関数と不純関数](./08_function.svg)
+`state` が更新されると自動的にコンポーネントが再レンダリングされ、それに伴って画面表示が更新されます。
 
-| コンポーネント | 特徴                                                                                                                                                                |
-| :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 純粋関数       | 透過参照である（入力`props`に対して、毎回同じ戻り値が返る）。 ユニットテストが実装しやすい。 純粋関数のコンポーネントを組み合わせて作った UI のコードは読みやすい。 |
-| 不純関数       | 透過参照でない（入力`props`に対して、異なる戻り値が返ることがある）。ユニットテストが書きにくくなる。                                                               |
-
-# state に関する Hooks API を学ぶ
-
-state を扱うには、`useState`という API を利用します。
-
-```javascript
+```tsx
 // useStateを使う準備
 import { useState } from 'react';
 
-// const [状態変数, 状態変更関数] = useState(状態変数の初期値)
+// const [現在のstate, 状態更新関数] = useState(状態の初期値)
 const [state, setState] = useState(initialState);
 ```
 
-後で説明しますが、すべての Hooks API はコンポーネント内で呼び出す必要があります。
-また、`if`文や`for`文などから呼び出してはいけません。関数の中のトップレベルから Hooks API の呼び出しが許されています。
-
-`useState`は、「現在の state（変数）」と「state を変更する関数」を返します。
-このとき、実装者は、「現在の state」と「state を変更する関数」の名前を自由に決めることができます。`initialState`は初期状態です。型は何で指定できますが、Primitive Type（boolean, number, string）を指定してください。Object 型や Array 型も指定できますが、
-その場合は、後章で説明する `useReducer` を使う方がよいでしょう。
-
-![useState](./08_useState.svg)
+`useState` は、 `initialState` (状態の初期値)を引数として、「現在の state（変数）」と「状態更新関数」を返します。
+このとき、実装者は「現在の state 」と「状態更新関数」の名前を自由に決めることができますが、`[something, setSomething]` のように命名する慣習があります。
 
 # 例: カウントアップ
 
-下記コードは、カウントアップに `useState`を使った例です。
+下記コードは、カウントアップに `useState` を使った例です。
 
-```typescript
+```tsx
 import React, { FC, useState } from 'react';
 import { createRoot } from 'react-dom';
 
 const Counter: FC = () => {
-  const [count, setCount] = useState < number > 0;
+  const [count, setCount] = useState<number>(0);
   const handleClick = () => setCount(count + 1);
 
   return (
@@ -70,9 +51,11 @@ createRoot(document.getElementById('root')!).render(<Counter />);
 $ TARGET=C08/Sample1 npm run dev
 ```
 
+![useState](./08_useState.png)
+
 ## 【課題 8-1】increment/decrement ボタンを作る
 
-`Counter`コンポーネントを修正して、以下の要件を満たしてください。
+`Counter` コンポーネントを修正して、以下の要件を満たしてください。
 
 - increment(+)ボタンと decrement(-)ボタンを用意する
 - increment(+)ボタンを押下すると、count が 1 上がる
@@ -87,18 +70,43 @@ $ TARGET=C08/Q1 npm run dev
 
 編集対象ファイル: `react/exercise/C08/Q1/index.tsx`
 
+# (optional) 状態更新関数に関数を渡す
+
+状態更新関数には、値だけでなく関数を渡すことも可能です。関数を渡す場合、その関数は、純粋で、処理中の state を引数として受け取り、次の state を返す必要があります。
+
+例えば、countをincrementする場合、以下のように書けます。
+
+```tsx
+const Counter: FC = () => {
+  const [count, setCount] = useState<number>(0);
+  const handleClick = () =>
+    setCount((prevCount) => {
+      return prevCount + 1;
+    });
+
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={handleClick}>Click me</button>
+    </div>
+  );
+};
+```
+
+状態更新関数に値を渡すか、関数を渡すかは、どちらでもよい場合がほとんどです。
+
+ただし、関数を渡した方がよいケースがあり、 [一連の state の更新をキューに入れる](https://ja.react.dev/learn/queueing-a-series-of-state-updates) と [state の読み取りは次の state を計算するためか？](https://ja.react.dev/learn/removing-effect-dependencies#are-you-reading-some-state-to-calculate-the-next-state) で説明されています。
+
 # 複数の state を扱う
 
-複数の `state`を扱うこともできます。下記のように複数の Primitive Type の state を
+複数の `state` を扱うこともできます。下記のように複数の state を
 並べていくことで状態を分割管理できます。
 
-```javascript
+```tsx
 const [count, setCount] = useState(0);
 const [comment, setComment] = useState('');
 const [date, setDate] = useState(Date.now());
 ```
-
-![複数のstate](08_multi_state.svg)
 
 ## 【課題 8-2】Counter の偶数判定
 

@@ -8,7 +8,7 @@ Hooks API は 2 つのルールに従う必要があります。
 
 **Hook を `if`文や`for`文、クロージャー（ネストされた関数）内で定義してはいけません。**
 
-```typescript
+```tsx
 interface Props {
   initCount: number;
 }
@@ -22,7 +22,7 @@ function Counter(props: Props) {
 }
 ```
 
-```javascript
+```tsx
 interface Props {
   data: string;
 }
@@ -36,7 +36,7 @@ function Counter(props: Props) {
 }
 ```
 
-```javascript
+```tsx
 function Counter() {
   let arr;
 

@@ -125,168 +125,38 @@ false
 true
 ```
 
-# 値の同一性を考慮していない実装の例
+# Object.is()を使って比較する場面
 
-下記コードは、エラー無く動作しますが、値の同一性の考慮がなされていません。
+- useState、useReducerによる状態の更新の検知
+- useEffect、useMemo、useCallbackの依存配列内の値の変化の検知
+  - useEffectは「第12章　副作用を実行する」で扱います。
+  - useMemoとuseCallbackは「第14章　描画パフォーマンスの最適化」で扱います。
+- memoのpropsの比較
+  - React.memoは「第14章　描画パフォーマンスの最適化」で扱います。
 
-```typescript
-import React, { FC, MouseEvent } from 'react';
-import Avatar from './Avatar';
-import DetailButton from './DetailButton';
-import { doSomething } from './util';
+# 注意が必要な State の更新
 
-type UserProfileProps = {
-  url: string;
-  name: string;
-  age: number;
-};
+オブジェクトと配列の更新には注意が必要です。
 
-const UserProfile: FC<UserProfileProps> = (props) => {
-  const { url, name, age } = props;
+- [state 内のオブジェクトの更新](https://ja.react.dev/learn/updating-objects-in-state)
+- [state 内の配列の更新](https://ja.react.dev/learn/updating-arrays-in-state)
 
-  const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
-    doSomething(e);
-  };
+# stateの更新が検知されない例
 
-  return (
-    <>
-      <Avatar url={url} />
-      <p>
-        <span>Name: </span>
-        <span>{name}</span>
-      </p>
-      <p>
-        <span>Age: </span>
-        <span>{age}</span>
-      </p>
-      <DetailButton onClick={handleClick}>Detail</DetailButton>
-    </>
-  );
-};
-```
+```tsx
+const Sample = () => {
+  const [numbers, setNumbers] = useState([2,3,4,1])
 
-値の同一性が考慮されていない箇所は、`handleClick`です。
-
-```javascript
-const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
-  doSomething(e);
-};
-```
-
-`handleClick`は関数オブジェクト（Function 型）ですが、前の説明の通り、
-`UserProfile`コンポーネントが再描画されるたびに、`DetailButton`へ渡す
-`handleClick`の値の同一性が失われていることに気づくことでしょう。
-
-React では、この問題を解決する Hooks API として `useCallback` を用意しています。
-
-# useCallback の導入
-
-関数オブジェクトの値の同一性を保証するには、**関数オブジェクトをメモ化**していく必要があります。
-
-下記のようなメモ化されていない関数オブジェクトを例にメモ化の仕方について説明します。
-
-```javascript
-const callback = (e) => {
-  handleEvent(e);
-  doSomething(dep1, dep2);
-};
-```
-
-上記`callback`関数は、メモ化されていません。そのほか、`doSomething`関数は、`callback`関数のスコープ外にある`dep1`と`dep2`の 2 つの変数に依存していることがわかります。
-
-`callback`関数をメモ化する場合、元の関数を`useCallback`の第 1 引数に指定して、
-第 2 引数に関数内の依存変数を配列に列挙します。
-
-```javascript
-const memoizedCallback = useCallback(
-  (e) => {
-    handleEvent(e);
-    doSomething(dep1, dep2);
-  },
-  [dep1, dep2]
-);
-```
-
-関数内にスコープ外の依存変数が存在しないときは、第 2 引数の依存リストを空の配列としてください。
-
-```javascript
-const memoizedCallback = useCallback((e) => {
-  handleEvent(e);
-}, []);
-```
-
-注意事項として、`useCallback`の第 2 引数（依存リスト）は省略してはいけません。
-
-# 値の同一性を考慮した実装の例
-
-```typescript
-import React, { useCallback, FC, MouseEvent } from 'react';
-import Avatar from './Avatar';
-import DetailButton from './DetailButton';
-import { doSomething } from './util';
-
-type UserProfileProps = {
-  url: string;
-  name: string;
-  age: number;
-};
-const UserProfile: FC<UserProfileProps> = (props) => {
-  const { url, name, age } = props;
-
-  const handleClick = useCallback((e: MouseEvent<HTMLButtonElement>) => {
-    console.log(e);
-  }, []);
+  const sortNumbers = () => {
+    // Object.is(numbers, numbers.sort()) が true なので、再レンダリングされない
+    setNumbers(numbers.sort())
+  }
 
   return (
-    <>
-      <Avatar url={url} />
-      <p>
-        <span>Name: </span>
-        <span>{name}</span>
-      </p>
-      <p>
-        <span>Age: </span>
-        <span>{age}</span>
-      </p>
-      <DetailButton onClick={handleClick}>Detail</DetailButton>
-    </>
-  );
-};
-```
-
-# メモ化の不要の関数オブジェクト
-
-すべての関数オブジェクトをメモ化すれば良いというわけではありません。
-メモ化の不要な関数オブジェクトまで `useCallback` を使うと、それはオーバヘッドでしかありません。
-
-ここでは、どのようなケースではメモ化が不要なのかを見ていきます。
-
-## 関数コンポーネントのスコープ外で定義された関数
-
-トップレベルで定義された関数は、コンポーネントが再描画されても、関数オブジェクトの値が保証されています（値が変わりません）。
-
-```javascript
-function doSomething(e) {
-  // 略
-}
-
-const App: FC = () => {
-  return <ChildComponent onClick={doSomething}>
+    <div>
+      {numbers.map((number) => <div key={number}>{number}</div>)}
+      <button onClick={sortNumbers}> sort </button>
+    </div>
+  )
 }
 ```
-
-## Hooks API が返す関数オブジェクト
-
-Hooks API が返す関数オブジェクトは、値の同一性が保証されています。
-Hooks API が返す関数オブジェクトとは、以下の 2 つのことを指します。
-
-- `useState` の setter 関数
-- `useReducer` の `dispatch` 関数
-
-上記関数をさらに `useCallback` を使ってメモ化する必要はありません。
-
-## plain な要素
-
-plain な要素とは、HTML が定義する `div`要素、`p`要素、`span`要素、`input`要素、`a`要素などを指します。plain な要素であって、厳密にはコンポーネントではありません。
-
-plain な要素の属性の値に対して、メモ化する必要はありません。

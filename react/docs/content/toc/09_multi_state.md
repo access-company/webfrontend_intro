@@ -1,26 +1,16 @@
 ---
-title: '第9章　複数のstateをまとめる'
+title: '第9章　state の更新ロジックを抽出する'
 ---
 
-実際の Web アプリの開発では、一つのコンポーネントに複数の状態を持たせたい場面に遭遇します。そのような場合でも、`useState`を使って実装できることには変わりありません。
-しかし、`useState`を使って実装していると、コンポーネント実装の複雑度が上がり、実装の見通しが悪くなります。たとえば、ある state が別の state の状態変化に影響を与えるようなケースです。コンポーネントのユニットテストの実装の難易度も上がります。
+実際の Web アプリの開発では、 state の更新ロジックが複雑になることがあります。たとえば、ある配列の state に対して、「追加」「更新」「削除」のように更新の方法が複数あるケースです。そのような場合でも、 `useState` を使って実装できることには変わりありません。
 
-state を持つため、不純関数であることには変わりないが、コンポーネントの実装はできるだけシンプルにしたいと考えることがあるでしょう。
+しかし、 `useState` を使って実装すると、コンポーネント内部に複雑なロジックを持つことになり、保守性の低下やコンポーネントの単体テストの難易度の増加に繋がります。
 
-上記のようなケースでは、`useReducer` API が適しています。
-
-# 「reducer」とは？
-
-「reduce」という単語は、「軽減する」「変える」という意味です。
-React では、「reducer」を「state を変化させる関数」という意味で使われます。
-また、reducer は、入力に state を受け取って、state を返す関数であり、かつ、純粋関数
-でなければなりません。
-
-_ポイント_: **Reducer は純粋関数である**
+上記のようなケースでは、`useReducer` API を使って、複雑な更新ロジックをコンポーネントの外部に切り出しましょう。
 
 # useReducer API の導入
 
-```javascript
+```tsx
 // const [新しいstate, アクションを発火する関数] =
 //   useReducer(「現在のstate」と「アクション」を受け取って、「新しいstate」を返す関数, stateの初期値)
 const [currentState, dispatch] = useReducer(reducer, initialState);
@@ -28,7 +18,7 @@ const [currentState, dispatch] = useReducer(reducer, initialState);
 
 - 入力引数
   - `initialState`は、「state の初期値」
-  - `reducer`は、「現在の state」と「アクション」を受け取って「新しい state」を返す関数
+  - `reducer`は、「現在の state」と「アクション」を受け取って「新しい state」を返す関数。純粋関数である必要があります。
   ```typescript
   const reducer = (state: State, action: Action) => {
     // TODO: actionから新しいstateを生成する
@@ -77,7 +67,7 @@ function reducer(state: State, action: Action) {
 `Counter`コンポーネントの実装の見通しが良くなったことがわかります。
 アクションを発火する`dispatch`関数の一つにまとめることで、イベント処理が明確になります。
 
-```javascript
+```tsx
 function Counter() {
   const [state, dispatch] = useReducer(reducer, initialState);
 
@@ -96,13 +86,15 @@ createRoot(document.getElementById("root")!).render(<Counter />);
 
 # useReducer を使うときとは？
 
-`useState`でも機能的には実現できます。`useReducer`を使って実装するタイミングは、以下の通りです。
+`useState`でも機能的には実現できますが、以下のようなケースでは`useReducer`を使うことを選択肢に入れましょう。
 
-- 一つのコンポーネントに複数の state を扱うようになったとき
-- 異なる state が相互に影響を与えるとき
-- コンポーネントの実装が肥大化してきたとき
+- アクションの数が多いとき
+- 多くのプロパティを持つオブジェクトを state としているとき
+- 更新のロジックが複雑なとき
 
-複数の state を扱う場合は、`useReducer`を使う選択も考慮してください。
+# (optional) なぜ Reducer と呼ばれるのか？
+
+JavaScriptの配列のメソッドである [Array.prototype.reduce()](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce) という操作にちなんで名付けられています。詳細は [なぜリデューサと呼ばれるのか？](https://ja.react.dev/learn/extracting-state-logic-into-a-reducer#why-are-reducers-called-this-way)で説明されています。
 
 # 【課題 9-1】2 つの count 状態
 

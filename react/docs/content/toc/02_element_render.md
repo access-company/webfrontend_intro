@@ -2,11 +2,17 @@
 title: '第2章　要素のレンダー'
 ---
 
-# React 要素をルート DOM にレンダリングする
+# DOM (Document Object Model)
 
-React 要素は、JavaScript の関数です。ただの関数であるため、ブラウザの DOM に描画するための API を利用する必要があります。ブラウザの DOM に描画するには、react-dom ライブラリが提供する `ReactDOM.createRoot().render()` を利用します。
+ブラウザの **DOM (Document Object Model)** とは、 Web ページの HTML をツリー構造として表現し、 JavaScript から要素の取得・変更・追加・削除を可能にする仕組みです。
+ブラウザがページをレンダリングする際に生成され、動的な操作を通じて UI を更新できます。
+このあと出てくる **仮想 DOM** という概念と対比して **実 DOM** と呼ばれることもあります。
 
-HTML ファイルにマークアップされた `id`属性の値が`root`の`div`要素に対して、「Hello, world!」を描画する例は以下の通りです。
+## React 要素をルート DOM にレンダリングする
+
+React 要素を DOM に描画するには、 react-dom ライブラリが提供する `ReactDOM.createRoot().render()` という API を利用します。
+
+HTML ファイルにマークアップされた `id` 属性の値が `root` の `div` 要素に対して、「Hello, world!」を描画する例は以下の通りです。
 
 ```html
 <div id="root"></div>
@@ -34,52 +40,57 @@ $ TARGET=C02/Q1 npm run dev
 
 # React は仮想 DOM により再描画が必要な箇所のみ更新する
 
-DOM API を使って実装した場合、開発者自身が値の変更箇所を検知する仕組みを用意し、
-描画の更新を明示的にプログラミングしていく必要があります。
+ブラウザが提供する DOM API（Document Object Model API）を利用すると、 JavaScript から要素の取得・変更・追加・削除やイベント処理が可能になります。
+ただし DOM API は、効率的な描画更新の仕組みは備えていません。
+そのため、開発者自身が値の変更箇所を検知する仕組みを用意し、描画の更新を明示的にプログラミングしていく必要があります。
 
 React では、明示的に要素の更新箇所を制御する必要はありません。仮想 DOM によって再描画が必要な箇所は、
 React が面倒を見ます。結果、DOM API を扱うよりもパフォーマンスに優れた実装が可能となります。
 もちろん、例外はありますが、多くのケースでは気にする必要はありません。
 
-## 仮想 DOM について
+## 仮想 DOM
 
-仮想 DOM はリアル DOM をメモリ内に表現したものです。UI の表現はメモリ内に保持され、リアル DOM と同期されます。
+仮想 DOM は実 DOMをメモリ内に表現したものです。UI の表現はメモリ内に保持され、実 DOM と同期されます。
 
 基礎となるデータが変更されるたびに、UI 全体が 仮想 DOM を再構築します。
+そして以前の仮想 DOM と新しい仮想 DOM を比較し、差分（変更のあった部分）を検出します。
+その後、検出した差分のみを実 DOM を反映します。
 
 ![仮想DOMのイメージ](./02_lesson2-1.png)
 
-そして、以前の DOM と新しい DOM の差分を算出します。
+## 「掛け算の計算」のサンプルで確認してみよう
 
-![仮想DOMのイメージ](./02_lesson2-2.png)
+ブラウザの開発者ツールを使って、更新された要素のみ再描画されることを確認してみましょう。
+ただし、 `useState` という React の API は「第8章 state」で詳しく説明するため理解は不要です。
 
-計算が終わると、リアル DOM は実際に変更されたものだけが更新されます。
+```tsx
+import { useState } from "react";
+import { createRoot } from "react-dom/client";
 
-![仮想DOMのイメージ](./02_lesson2-3.png)
+function Multiplication() {
+  const [num1, setNum1] = useState(1);
+  const [num2, setNum2] = useState(1);
 
-## 「秒刻みで動く時計」のサンプルで確認してみよう
+  const result = num1 * num2;
 
-「秒刻みで動く時計」のサンプルで、再描画が必要な箇所のみ更新されていることを確認します。
-
-```javascript
-import { createRoot } from 'react-dom/client';
-
-function tick() {
-  const element = (
+  return (
     <div>
-      <h1>Hello, world!</h1>
-      <h2>It is {new Date().toLocaleTimeString()}.</h2>
+      <button onClick={() => setNum1(num1 + 1)}>{num1}</button>
+      x
+      <button onClick={() => setNum2(num2 + 1)}>{num2}</button>
+      =
+    {result}
     </div>
   );
-  createRoot(document.body).render(element);
 }
 
-setInterval(tick, 1000);
+const root = createRoot(document.getElementById("root")!);
+root.render(<Multiplication />);
 ```
 
 ```bash
 # react/exercise にて
-$ TARGET=C02/Time npm run dev
+$ TARGET=C02/Sample1 npm run dev
 ```
 
 <details><summary>Advanced</summary>
@@ -87,39 +98,43 @@ $ TARGET=C02/Time npm run dev
 もしも React に頼らず vanillajs で記述すると、このようになります。
 
 ```javascript
-function tick() {
-  const h1_text = 'Hello, world!';
-  const h2_text = `It is ${new Date().toLocaleTimeString()}.`;
+function renderCalculator() {
+  let num1 = 1;
+  let num2 = 1;
 
-  const root = document.getElementById('root');
-  if (root.children.length === 1) {
-    const [div] = root.children;
-    if (div.children.length === 2) {
-      const [h1, h2] = div.children;
-      if (h1.textContent !== h1_text) {
-        h1.textContent = h1_text;
-      }
-      if (h2.textContent !== h2_text) {
-        h2.textContent = h2_text;
-      }
-    }
-  } else {
-    const div = document.createElement('div');
+  const root = document.getElementById("root");
+  root.innerHTML = `
+    <div>
+      <button>${num1}</button>
+      x
+      <button>${num2}</button>
+      =
+      <span>${num1 * num2}</span>
+    </div>
+  `;
 
-    const h1 = document.createElement('h1');
-    h1.textContent = h1_text;
+  const [button1, button2] = root.querySelectorAll("button");
+  const resultSpan = root.querySelector("span");
 
-    const h2 = document.createElement('h2');
-    h2.textContent = h2_text;
+  const update = () => {
+    button1.textContent = num1;
+    button2.textContent = num2;
+    resultSpan.textContent = num1 * num2;
+  };
 
-    div.appendChild(h1);
-    div.appendChild(h2);
+  button1.addEventListener("click", () => {
+    num1++;
+    update();
+  });
 
-    root.appendChild(div);
-  }
+  button2.addEventListener("click", () => {
+    num2++;
+    update();
+  });
 }
 
-setInterval(tick, 1000);
+renderCalculator();
+
 ```
 
 </details>

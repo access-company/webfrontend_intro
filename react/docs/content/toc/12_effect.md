@@ -6,65 +6,64 @@ title: '第12章　副作用を実行する'
 
 # 副作用とは？
 
-副作用とは、
+プログラミングにおいて、関数の「主たる作用」とは値を返すことであり、副作用とはその主たる作用以外の作用を指します。
 
-- 引数以外の要因で結果が変わる関数
-- 関数の外に影響を与える関数
+React コンポーネントの「主たる作用」は React 要素を返すことです。
 
-のことです。
+では、具体的にはどのような副作用があるのでしょうか？
 
-![副作用](./12_effect.svg)
+1. DOM を変更する
+2. Web API（HTTP, WebSocket 等）を使った通信
+3. グローバル変数の値を書き換える
 
-`useState`も副作用の一種です。
+副作用は、コンポーネントの再利用性が損なわれたり、ユニットテストが書きづらくなるなどの多くのデメリットがあります。とはいえ、Web フロントエンドの世界では副作用にあふれているため、上手に付き合っていかなければなりません。
 
-副作用は、コンポーネントの再利用性が損なわれたり、ユニットテストが書きづらくなるなどの
-多くのデメリットがあります。とはいえ、Web フロントエンドの世界では、副作用にあふれているため、上手に付き合っていかなければなりません。
+# 副作用の分類
 
-具体的には、どのような副作用があるのでしょうか？
+React で副作用を含むロジックを実装する際、副作用を「ユーザーのアクションがトリガーとなる副作用」と「画面表示がトリガーとなる副作用」の2つに分類すると実装しやすいです。
 
-1. `useState`
-2. DOM を変更する
-3. Web API（HTTP, WebSocket 等）を使った通信
-4. グローバル変数の値を書き換える
+例えば、提出ボタンを押してサーバーに対してデータを送る動作は「ユーザーのアクションがトリガーとなる副作用」で、画面の初期表示時にサーバーからデータを取得する動作は「画面表示がトリガーとなる副作用」です。
 
-ここでは、2〜4 のような副作用を扱う `useEffect` API の導入を行います。
+```
+NOTE: Reactの公式ドキュメントでは、後者のことを副作用(side effect)と区別するために「エフェクト(Effect)」と名付けています。そのため、本資料もそれに習って「画面表示がトリガーとなる副作用」をエフェクトと呼ぶことにします。
+```
+
+「ユーザーのアクションがトリガーとなる副作用」は onClick などのイベントハンドラで実装すれば実現できます。
+
+一方、エフェクトはどのように実装すればよいでしょうか？
+
+単純にコンポーネント内に書いてしまうと、React のコンポーネントのルールである「レンダー中に副作用が起きてはならない」というルールに違反してしまいます。
+
+そこで、エフェクトをコンポーネントに含める場合は、`useEffect` Hooks API を使います。
 
 # useEffect API の導入
 
-副作用をコンポーネントに含める場合は、`useEffect` Hooks API を使います。
-副作用となる処理をコールバックとして記述します。その副作用となる処理に依存する変数を
-依存リストに含めます。
+- 第1引数：エフェクトのロジックが記述された関数。
+- 第2引数：第1引数のコード内で参照される依存値リスト。配列内の値が変更されたときにだけエフェクトの再実行が行われる。
 
-```javascript
+```tsx
 useEffect(
   () => {
-    // TODO: 副作用をここに書く
+    // エフェクト処理
   },
-  [
-    /* 副作用実装の依存リスト */
-  ]
+  [/* エフェクトの依存値リスト */]
 );
 ```
 
-## コンポーネントの描画の度に副作用を実行する
+## 例: document.title を変更する
 
-第 2 引数の依存リストを省略することで、副作用を描画の度に必ず実行します。
+document.title を変更する実装例です。  
+画面に表示されたときに実行したい副作用のため、useEffect を使って実装します。
 
-下記コードはその例です`Counter`コンポーネントが再描画される度に
-`useEffect`で実装した `document.title` が呼び出されます。
-
-```bash
-# react/exercise にて
-$ TARGET=C12/Sample1 npm run dev
-```
-
-```typescript
+```tsx
 const Counter: FC = () => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
+    // エフェクト処理
     document.title = `You clicked ${count} times`;
-  }); // 依存リストを省略
+
+  },[count]); // エフェクトの依存値リスト
 
   return (
     <>
@@ -75,56 +74,53 @@ const Counter: FC = () => {
 };
 ```
 
-## 副作用の実行を抑制したい
-
-副作用を毎回実行したくない状況が発生することが想定されます。
-そういうときは、`useEffect`の第 2 引数（依存リスト）を使います。
-
-```javascript
-useEffect(doEffect, deps); // depsはArray型
+```bash
+# react/exercise にて
+$ TARGET=C12/Sample1 npm run dev
 ```
 
-たとえば、`count`が前回のレンダーから変更されたときのみ、副作用を実行するには下記のように書き換えます。
+## エフェクトの実行を抑制したい
 
-```javascript
+エフェクトの実行は、レンダーのたびに毎回ではなく、依存する値が変更したときにだけ再実行されれば十分です。
+`useEffect`の第 2 引数（依存リスト）に設定した値が変更されたときにだけ実行されます。
+
+以下のエフェクトは再レンダリングの度に実行されます。
+
+```tsx
+useEffect(() => {
+  document.title = `You clicked ${count} times`;
+});
+```
+
+上記のエフェクトを、`count` が変更されたときのみ実行するには下記のように書き換えます。
+
+```tsx
 useEffect(() => {
   document.title = `You clicked ${count} times`;
 }, [count]);
 ```
 
-下記のような例では、`id`または`name`のどちらか前回のレンダーから変更されたときに
-副作用を実行します。
-
-```javascript
-useEffect(() => {
-  fetchUserData(id, name).then((profile) => {
-    setAvatar(profile.avatar);
-  });
-}, [id, name]);
-```
-
-依存リストに指定する値には、前章で説明した値の同一性を考慮する必要があります。
 基本的には、Primitive Type を依存リストに含めるような実装としてください。
-Object 型、Array 型、Function 型を依存リストに含めるような実装となる場合は、
-値の同一性に注意を払う必要があります。多くの場合、依存リストに Object 型、Array 型、Function 型を含めるようなケースは実装が複雑化していると思ってください。
+Object 型、Array 型、Function 型を依存リストに含めるような実装となる場合は、実装が複雑化していると思ってください。
 
-# React コンポーネントにおける 2 種類の副作用
+## ESLint: react-hooks/exhaustive-deps ルール
 
-副作用は、大きく分けて 2 つに分けることができます。
+実際の開発の現場では、eslint-plugin-react-hooks パッケージを導入し、さらに、
+`"react-hooks/exhaustive-deps": "warn"` を有効にすることをお勧めします。
 
-- クリーンナップを必要としない副作用
-- クリーンナップを必要とする副作用
+このルールを適用すると、依存リストの不足などを Linter が警告してくれます。
 
-## クリーンナップを必要とする副作用
+このルールを破ることは基本的にはありません。つまり、依存値は全て依存配列に入れる必要があり、依存配列に何を設定するかは、Linterの指示のままに自動的に決まります。  
+ただし、ルールに従った結果、エフェクトが頻繁に実行されすぎたり、無限ループが発生したりすることがあります。そのような事象例や解決方法は、[公式ドキュメント エフェクトから依存値を取り除く](https://ja.react.dev/learn/removing-effect-dependencies) に書かれているので読んでおくとよいでしょう。
 
-「クリーンナップを必要とする」とは、どういうことかについて説明します。
-一般的なプログラミングにおいて、状態を持つようなケースでは、データのクリーンナップが
-必要となることが頻繁にあります。例えば、以下のような追となる関数が存在したとします。
+## クリーンナップを必要とするエフェクト
+
+エフェクトにはデータのクリーンナップが必要となることがあります。例えば、以下のような対となる関数が存在したとします。
 アプリ実装において、後処理が抜けていた場合、どのような問題が発生するでしょうか？
 
 ```
 new - delete
-create - destory
+create - destroy
 add - remove
 open - close
 connect - disconnect
@@ -135,30 +131,23 @@ connect - disconnect
 React におけるクリーンナップの実装は、クリーンナップ処理を `useEffect`内に一緒に書くことで、以下のメリットが得られます。
 
 - 実装漏れを防ぐ効果
-- 追となる処理をまとめておくことでユニットテストが簡単にかける
+- 対となる処理をまとめておくことでユニットテストが簡単にかける
 - コードリーディングの向上
-
-**React におけるクリーンナップ処理は、マウントとアンマウントのタイミングで実行されます。**
 
 実装パターンは下記の通りです。
 
-```javascript
+```tsx
 useEffect(() => {
-  // マウント時の処理
-  // クリーンナップ前の副作用の実行
-
+  // セットアップ処理
   return () => {
-    // アンマウント時の処理
-    // TODO: クリーンナップ処理
+    // クリーンナップ処理
   };
-}, []);
+}, [...]);
 ```
-
-![useEffectによるクリーンナップ処理](./12_lifecycle_useEffect2.svg)
 
 ### クリーンナップの実装例
 
-```javascript
+```tsx
 useEffect(() => {
   const socket = new WebSocket('ws://localhost:8000')
   const handleMessage(e) {
@@ -171,166 +160,16 @@ useEffect(() => {
     socket.removeEventListener('message', handleMessage)
     socket.close()
   }
-}, [])　// 注: depsを空にすること
+}, [])
 ```
 
-## クリーンナップを必要としない副作用
+## useEffectの実行タイミング
 
-```javascript
-/** 使用例 */
+以下の図がセットアップとクリーンナップの実行タイミングを表しています。
+同じ色のセットアップとクリーンナップが組になっています。  
+レンダーフェーズ外でエフェクトを実行していることと、新しいStateでのセットアップの前に古いStateでクリーンナップをしていることがポイントになります。
 
-  useEffect(() => {
-    fetchAPI()
-  })
-
-  useEffect(() => {
-    fetchAPI()
-  }, [])
-
-  useEffect(() =>
-    doSomething1(dep1)
-    doSomething2(dep2)
-  }, [dep1, dep2])
-```
-
-コンポーネントの実行の度に `useEffect` も実行しようとする特徴を持ちます。
-とはいえ、`useEffect`の実行を抑制したい場合があります。そのときは、
-`useEffect`の第 2 引数（依存リスト）を使います。
-
-`useEffect`のクリーンナップを必要とするコールバックの追は、
-下記の太青色に当たります。
-
-![ライフサイクル](./12_lifecycle_useEffect.svg)
-
-# ESLint: react-hooks/exhaustive-deps ルール
-
-実際の開発の現場では、eslint-plugin-react-hooks パッケージを導入し、さらに、
-`"react-hooks/exhaustive-deps": "warn"` を有効にすることをお勧めします。
-
-このルールを適用すると、依存リストの不足などを Linter が警告してくれます。
-
-```
-// React公式より
-
-We recommend using the exhaustive-deps rule as part of our eslint-plugin-react-hooks package. It warns when dependencies are specified incorrectly and suggests a fix.
-cf. Hooks API Reference – React
-```
-
-prettier を導入していた場合、依存リストに値の同一性が保証されている関数オブジェクトが自動的に挿入される場合があります。依存リストの自動挿入を無効化したい場合は、依存リストに対して、eslint-disable を適用してください。
-
-```javascript
-useEffect(() => {
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-}, []);
-```
-
-# useEffect のまとめ
-
-## コンポーネントの描画の度に副作用を実行したい
-
-```javascript
-useEffect(() => {
-  doEffect();
-});
-```
-
-## コンポーネントの描画時に依存リストが変更されたときだけ副作用を実行したい
-
-```javascript
-useEffect(() => {
-  doEffect();
-}, [deps]);
-```
-
-## コンポーネントの Mount と Unmount のときだけ副作用を実行したい
-
-```javascript
-useEffect(() => {
-  doEffect();
-  return () => {
-    cleanup();
-  };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-}, []);
-```
-
-# Suspense
-
-## Suspense の概要
-
-コンポーネントが Mounte されても、そのコンポーネントのレンダリングに必要な情報が揃うまで、「ローディング中なのでまだレンダリングできない」という趣旨の画面を表示するべきです。
-
-単純な処理では、元となる情報がない状態でレンダリング処理が成立せず、DOM への反映もできない、ということになってしまいます。
-
-Suspense というコンポーネントは、JavaScript の try-catch 文のようにレンダリングがサスペンドしたコンポーネントを補足して、例外的な画面表示を構築することが機能です。
-
-## Suspense のための例外処理
-
-Suspense されるためのコンポーネントは、準備が整っていない間（ローディング中とか）は、`throw (promise as Promise<any>)` を行うように記述します。
-このように、コンポーネントが Promise を throw する、という取扱のことを、サスペンドすると呼びます。
-
-それ以外の、コンポーネントレンダリングに支障がない状態なら、通常通りです。
-例えば `Promise<any>` でない例外を発する、通常のコーディングミスは Suspense には捕捉されません。
-
-<details><summary>コンポーネントの例</summary>
-
-与えられた Promise が完了するまでサスペンドし、完了すればアドレスカードをレンダリングする例
-
-```typescript
-import { useRef, useEffect } from 'react';
-
-const Card = ({ promise }: { promise: Promise<Value> }) => {
-  const data = useRef<Value>();
-  useEffect(() => {
-    promise.then((result: Value) => (data.current = result));
-  }, [promise]);
-
-  if (data.current) {
-    return (
-      <div className="card">
-        <p>name: {data.current.name}</p>
-        <p>address: {data.current.address}</p>
-      </div>
-    );
-  } else {
-    throw promise;
-  }
-};
-```
-
-</details>
-
-## Suspense で囲む
-
-「Suspense のための例外処理」をレンダリングすると、開発者コンソールにエラーが現れ、画面は描画されないはずです。
-
-「ローディング中」のような画面を描画して待ち、Promise 完了で直ちにアドレスカード描画をするためには、`<Suspense>...</Suspense>`で`<Card />`を囲みます。
-
-<details><summary>コンポーネントの例</summary>
-
-Card コンポーネントを囲み、ローディング中は「Loading...」という表記をする例
-
-```typescript
-import { type FC, Suspense } from 'react';
-
-const CardPair: FC = () => {
-  const result = fetch('https://example.com/api/cards.json');
-
-  return (
-    <div className="pair">
-      <h1>Card Pair</h1>
-      <Suspense fallback={<p>Loading...</p>}>
-        <Card promise={result.then((o) => o.cards[0])} />
-        <Card promise={result.then((o) => o.cards[1])} />
-      </Suspense>
-    </div>
-  );
-};
-```
-
-</details>
-
-例示したコードは、画面表示直後には「Loading...」と描画し、`https://example.com/api/cards.json`の受信直後に Card コンポーネントが再描画されます。
+![useEffectのセットアップ処理とクリーンナップ処理の実行タイミング](./12_effect_lifecycle.png)
 
 ## 【課題 12-1】Web API（Dummy）から取得したユーザプロファイルを表示する
 
@@ -339,7 +178,7 @@ const CardPair: FC = () => {
 以下の実装の要件を満たしてください。
 
 - Dummy の Web API を呼び出す `fetchDummyProfile()` を使って、ユーザプロファイルを取得する
-- `useEffect` と `Suspense` を使う
+- `useEffect` と `useState` を使う
 - Dummy の Web API のリクエストは、`UserProfile`コンポーネントの初回レンダーの 1 回のみとする
 - Dummy の Web API のリクエスト中は、「Loading...」を画面に表示する
 - 読み込み完了後に、ユーザプロファイルを画面に反映する
@@ -354,3 +193,110 @@ $ TARGET=C12/Q1 npm run dev
 ```
 
 編集対象ファイル: `react/exercise/C12/Q1/index.tsx`
+
+# Suspense
+
+## Suspense の概要
+
+コンポーネントが Mount されても、そのコンポーネントのレンダリングに必要な情報が揃うまで、「ローディング中なのでまだレンダリングできない」という趣旨の画面を表示するべきです。
+
+単純な処理では、元となる情報がない状態でレンダリング処理が成立せず、DOM への反映もできない、ということになってしまいます。
+
+Suspense というコンポーネントは、JavaScript の try-catch 文のようにレンダリングがサスペンドしたコンポーネントを補足して、例外的な画面表示を構築することが機能です。
+
+## Suspense のための例外処理
+
+Suspense されるためのコンポーネントは、準備が整っていない間（ローディング中とか）は、Promise を throw するようにします。
+このように、コンポーネントが Promise を throw する、という取扱のことを、サスペンドすると呼びます。
+
+それ以外の、コンポーネントレンダリングに支障がない状態なら、通常通りです。
+例えば `Promise` でない例外を発する、通常のコーディングミスは Suspense には捕捉されません。
+
+```tsx
+const SampleComponent = () =>{
+  // サスペンドする
+  throw new Promise();
+}
+```
+
+注: Suspense を使う開発の際には次に紹介する「 Suspense 対応のデータソース」を使うため、開発者が Promise を throw するコードを書くことはほとんどありません。
+
+## Suspense 対応のデータソース
+
+Suspense コンポーネントを利用するためには、 Suspense に対応したデータソースを利用する必要があります。現時点では、以下のものが挙げられます。
+
+- [Relay](https://relay.dev/docs/guided-tour/rendering/loading-states/) や [Next.js](https://nextjs.org/docs/app/building-your-application/routing/loading-ui-and-streaming#streaming-with-suspense) のようなサスペンス対応のフレームワークデータフェッチ
+- [lazy](https://ja.react.dev/reference/react/lazy) を用いたコンポーネントの遅延ロード
+- [use](https://ja.react.dev/reference/react/use) を用いたキャッシュ済み Promise からの値の読み取り
+
+<details><summary>コンポーネントの例</summary>
+
+use を用いて、与えられた Promise が解決するまでサスペンドし、解決したらアドレスカードをレンダリングする例
+
+```tsx
+import { use } from 'react';
+
+// 注: promiseはコンポーネント内で定義してはいけない。
+// https://ja.react.dev/blog/2024/12/05/react-19#use-does-not-support-promises-created-in-render
+const promise: Promise<User> = fetchDummyProfile();
+
+const Card = () => {
+  const data = use(promise)
+
+  return (
+    <div className="card">
+      <p>name: {data.name}</p>
+      <p>address: {data.address}</p>
+    </div>
+  );
+};
+```
+
+</details>
+
+## Suspense で囲む
+
+例で示した Card コンポーネントをレンダリングすると、Promise が解決するまでは何も画面に表示されないはずです。
+
+「ローディング中」のような画面を描画して待ち、Promise 完了で直ちにアドレスカード描画をするためには、`<Suspense>...</Suspense>`で`<Card />`を囲みます。
+
+<details><summary>コンポーネントの例</summary>
+
+Card コンポーネントを囲み、ローディング中は「Loading...」という表記をする例
+
+```tsx
+import { type FC, Suspense } from 'react';
+
+const CardPage: FC = () => {
+  return (
+    <div className="pair">
+      <h1>Card Page</h1>
+      <Suspense fallback={<p>Loading...</p>}>
+        <Card />
+      </Suspense>
+    </div>
+  );
+};
+```
+
+</details>
+
+例示したコードは、画面表示直後には「Loading...」と描画し、fetchDummyProfile で定義した Promise が解決した直後に Card コンポーネントが再描画されます。
+
+## 【課題 12-2】 (Optional) 課題12-1 を Suspense と use を使って書き換えてみよう
+
+課題12-1を同一の動作のまま Suspense と use を使って書き換えてみましょう。
+
+- Dummy の Web API を呼び出す `fetchDummyProfile()` を使って、ユーザプロファイルを取得する
+- `Suspense` と `use` を使う
+- `useState` と `useEffect` は使わない
+- Dummy の Web API のリクエストは、`UserProfile`コンポーネントの初回レンダーの 1 回のみとする
+- Dummy の Web API のリクエスト中は、「Loading...」を画面に表示する
+- 読み込み完了後に、ユーザプロファイルを画面に反映する
+
+```bash
+# react/exercise にて
+$ TARGET=C12/Q2 npm run dev
+```
+
+編集対象ファイル: `react/exercise/C12/Q2/index.tsx`
