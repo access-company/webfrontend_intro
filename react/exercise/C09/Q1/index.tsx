@@ -3,9 +3,9 @@
 // [ヒント]
 // * spread構文を使う（`...state`）
 //
-import { useReducer } from "react";
-import { createRoot } from "react-dom/client";
-import "./style.css";
+import { useReducer } from 'react';
+import { createRoot } from 'react-dom/client';
+import './style.css';
 
 type State = {};
 type Action = {};
@@ -18,11 +18,11 @@ const initialState: State = {
 function reducer(state: State, action: Action) {
   const { count1 } = state;
   switch (action.type) {
-    case "increment1":
+    case 'increment1':
       return { count1: count1 + 1 };
-    case "decrement1":
+    case 'decrement1':
       return { count1: count1 - 1 };
-    case "reset1":
+    case 'reset1':
       return initialState;
     default:
       throw new Error();
@@ -36,18 +36,18 @@ function Counter() {
     <>
       <div>
         <p>Count1: {state.count1}</p>
-        <button onClick={() => dispatch({ type: "reset1" })}>Reset</button>
-        <button onClick={() => dispatch({ type: "decrement1" })}>-</button>
-        <button onClick={() => dispatch({ type: "increment1" })}>+</button>
+        <button onClick={() => dispatch({ type: 'reset1' })}>Reset</button>
+        <button onClick={() => dispatch({ type: 'decrement1' })}>-</button>
+        <button onClick={() => dispatch({ type: 'increment1' })}>+</button>
       </div>
       <div>
         <p>Count2: {state.count2}</p>
-        <button onClick={() => dispatch({ type: "reset2" })}>Reset</button>
-        <button onClick={() => dispatch({ type: "decrement2" })}>-</button>
-        <button onClick={() => dispatch({ type: "increment2" })}>+</button>
+        <button onClick={() => dispatch({ type: 'reset2' })}>Reset</button>
+        <button onClick={() => dispatch({ type: 'decrement2' })}>-</button>
+        <button onClick={() => dispatch({ type: 'increment2' })}>+</button>
       </div>
     </>
   );
 }
 
-createRoot(document.getElementById("root")!).render(<Counter />);
+createRoot(document.getElementById('root')!).render(<Counter />);

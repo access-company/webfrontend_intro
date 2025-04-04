@@ -1,5 +1,5 @@
-import { FC } from "react";
-import { createRoot } from "react-dom/client";
+import { FC } from 'react';
+import { createRoot } from 'react-dom/client';
 
 type GreetingProps = {
   isLoggedIn: boolean;
@@ -11,7 +11,7 @@ const Greeting: FC<GreetingProps> = (props) => {
   return props.isLoggedIn ? <UserGreeting /> : <GuestGreeting />;
 };
 
-createRoot(document.getElementById("root")!).render(
+createRoot(document.getElementById('root')!).render(
   // Try changing to isLoggedIn={false}:
   <Greeting isLoggedIn={true} />
 );

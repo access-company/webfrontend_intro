@@ -23,7 +23,7 @@ const SearchIcon = styled(Search)`
 `;
 
 const HitsWrapper = styled.div`
-  display: ${props => (props.show ? `grid` : `none`)};
+  display: ${(props) => (props.show ? `grid` : `none`)};
   max-height: 80vh;
   overflow: scroll;
   z-index: 2;
@@ -44,15 +44,15 @@ const HitsWrapper = styled.div`
     width: 100%;
     max-width: 500px;
   }
-  border-radius: ${props => props.theme.smallBorderRadius};
+  border-radius: ${(props) => props.theme.smallBorderRadius};
   > * + * {
     padding-top: 1em !important;
-    border-top: 2px solid ${props => props.theme.darkGray};
+    border-top: 2px solid ${(props) => props.theme.darkGray};
   }
   li + li {
     margin-top: 0.7em;
     padding-top: 0.7em;
-    border-top: 1px solid ${props => props.theme.lightGray};
+    border-top: 1px solid ${(props) => props.theme.lightGray};
   }
   * {
     margin-top: 0;
@@ -63,8 +63,8 @@ const HitsWrapper = styled.div`
     list-style: none;
   }
   mark {
-    color: ${props => props.theme.lightBlue};
-    background: ${props => props.theme.darkBlue};
+    color: ${(props) => props.theme.lightBlue};
+    background: ${(props) => props.theme.darkBlue};
   }
   header {
     display: flex;
@@ -72,9 +72,9 @@ const HitsWrapper = styled.div`
     margin-bottom: 0.3em;
     h3 {
       color: black;
-      background: ${props => props.theme.gray};
+      background: ${(props) => props.theme.gray};
       padding: 0.1em 0.4em;
-      border-radius: ${props => props.theme.smallBorderRadius};
+      border-radius: ${(props) => props.theme.smallBorderRadius};
     }
   }
   h3 {
@@ -103,7 +103,7 @@ const Results = connectStateResults(
 
 const useClickOutside = (ref, handler, events) => {
   if (!events) events = [`mousedown`, `touchstart`];
-  const detectClickOutside = event =>
+  const detectClickOutside = (event) =>
     ref && ref.current && !ref.current.contains(event.target) && handler();
 
   useEffect(() => {

@@ -23,7 +23,9 @@ body {
 
 .toggleInput:focus + .toggleBtn::after,
 .toggleBtn:active::after {
-  box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.1), 0 0.4rem 0 rgba(0, 0, 0, 0.08),
+  box-shadow:
+    0 0 0 0.2rem rgba(0, 0, 0, 0.1),
+    0 0.4rem 0 rgba(0, 0, 0, 0.08),
     inset 0px 0px 0px 0.3rem #9c9c9c;
 }
 
@@ -31,14 +33,18 @@ body {
   left: 0;
   position: relative;
   display: block;
-  content: "";
+  content: '';
   width: 50%;
   height: 100%;
   border-radius: 5rem;
   background: #fbfbfb;
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
-    padding 0.3s ease, margin 0.3s ease;
-  box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.1), 0 0.4rem 0 rgba(0, 0, 0, 0.08);
+  transition:
+    all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    padding 0.3s ease,
+    margin 0.3s ease;
+  box-shadow:
+    0 0 0 0.2rem rgba(0, 0, 0, 0.1),
+    0 0.4rem 0 rgba(0, 0, 0, 0.08);
 }
 
 .toggleBtn.toggleBtnOn::after {

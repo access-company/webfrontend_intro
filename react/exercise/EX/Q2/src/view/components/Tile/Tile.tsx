@@ -30,9 +30,7 @@ const getClassName = (type?: MatchType): string => {
 const Tile: FC<TileProps> = memo(function Tile(props) {
   const { text, type, selected } = props;
 
-  const className = `${styles.tile} ${getClassName(type)} ${
-    selected ? styles.selected : ''
-  }`;
+  const className = `${styles.tile} ${getClassName(type)} ${selected ? styles.selected : ''}`;
 
   return (
     <div className={className} data-testid="tile">

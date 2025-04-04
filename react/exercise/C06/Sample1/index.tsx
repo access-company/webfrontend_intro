@@ -1,5 +1,5 @@
-import { FC } from "react";
-import { createRoot } from "react-dom/client";
+import { FC } from 'react';
+import { createRoot } from 'react-dom/client';
 
 type ListItemProps = {
   value: number;
@@ -24,6 +24,4 @@ const NumberList: FC<NumberListProps> = (props) => {
 
 // numbers は重複のないリスト
 const numbers = [1, 2, 3, 4, 5];
-createRoot(document.getElementById("root")!).render(
-  <NumberList numbers={numbers} />
-);
+createRoot(document.getElementById('root')!).render(<NumberList numbers={numbers} />);

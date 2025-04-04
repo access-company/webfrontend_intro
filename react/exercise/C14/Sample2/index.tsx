@@ -1,5 +1,5 @@
-import { useMemo, useState } from "react";
-import { createRoot } from "react-dom/client";
+import { useMemo, useState } from 'react';
+import { createRoot } from 'react-dom/client';
 
 const heavyCalculation = () => {
   let sum = 0;
@@ -27,4 +27,4 @@ const Counter = () => {
   );
 };
 
-createRoot(document.getElementById("root")!).render(<Counter />);
+createRoot(document.getElementById('root')!).render(<Counter />);

@@ -7,27 +7,18 @@
 //      * 引数の文字列が valid なら true, そうでなければ false を返す
 // * [ヒント] 文字列の入った四角形は `ListItem` コンポーネント
 //
-import { FC } from "react";
-import { createRoot } from "react-dom/client";
-import "./style.css";
+import { FC } from 'react';
+import { createRoot } from 'react-dom/client';
+import './style.css';
 
 declare type ListItemProps = {
   value: string;
 };
 
-const valueList = [
-  "user123",
-  "Hoge9999",
-  "dummy12",
-  "test678",
-  "React246",
-  "HTML234",
-  "DEV3456",
-];
+const valueList = ['user123', 'Hoge9999', 'dummy12', 'test678', 'React246', 'HTML234', 'DEV3456'];
 
 // Value が Valid かどうか確認する関数
-const isValidValue = (value: string): boolean =>
-  /^[a-zA-Z]{4}[0-9]{3,4}$/.test(value);
+const isValidValue = (value: string): boolean => /^[a-zA-Z]{4}[0-9]{3,4}$/.test(value);
 
 // Value が Valid であるものは赤色、そうでないものは青色にする
 // 以下の ListItem 以外は変更しないこと
@@ -46,4 +37,4 @@ const App: FC = () => {
   return <ChildComponent />;
 };
 
-createRoot(document.getElementById("root")!).render(<App />);
+createRoot(document.getElementById('root')!).render(<App />);

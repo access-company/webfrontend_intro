@@ -50,7 +50,7 @@ React が面倒を見ます。結果、DOM API を扱うよりもパフォーマ
 
 ## 仮想 DOM
 
-仮想 DOM は実 DOMをメモリ内に表現したものです。UI の表現はメモリ内に保持され、実 DOM と同期されます。
+仮想 DOM は実 DOM をメモリ内に表現したものです。UI の表現はメモリ内に保持され、実 DOM と同期されます。
 
 基礎となるデータが変更されるたびに、UI 全体が 仮想 DOM を再構築します。
 そして以前の仮想 DOM と新しい仮想 DOM を比較し、差分（変更のあった部分）を検出します。
@@ -61,11 +61,11 @@ React が面倒を見ます。結果、DOM API を扱うよりもパフォーマ
 ## 「掛け算の計算」のサンプルで確認してみよう
 
 ブラウザの開発者ツールを使って、更新された要素のみ再描画されることを確認してみましょう。
-ただし、 `useState` という React の API は「第8章 state」で詳しく説明するため理解は不要です。
+ただし、 `useState` という React の API は「第 8 章 state」で詳しく説明するため理解は不要です。
 
 ```tsx
-import { useState } from "react";
-import { createRoot } from "react-dom/client";
+import { useState } from 'react';
+import { createRoot } from 'react-dom/client';
 
 function Multiplication() {
   const [num1, setNum1] = useState(1);
@@ -76,15 +76,15 @@ function Multiplication() {
   return (
     <div>
       <button onClick={() => setNum1(num1 + 1)}>{num1}</button>
-      x
+      {'x'}
       <button onClick={() => setNum2(num2 + 1)}>{num2}</button>
-      =
-    {result}
+      {'='}
+      {result}
     </div>
   );
 }
 
-const root = createRoot(document.getElementById("root")!);
+const root = createRoot(document.getElementById('root')!);
 root.render(<Multiplication />);
 ```
 
@@ -102,7 +102,7 @@ function renderCalculator() {
   let num1 = 1;
   let num2 = 1;
 
-  const root = document.getElementById("root");
+  const root = document.getElementById('root');
   root.innerHTML = `
     <div>
       <button>${num1}</button>
@@ -113,8 +113,8 @@ function renderCalculator() {
     </div>
   `;
 
-  const [button1, button2] = root.querySelectorAll("button");
-  const resultSpan = root.querySelector("span");
+  const [button1, button2] = root.querySelectorAll('button');
+  const resultSpan = root.querySelector('span');
 
   const update = () => {
     button1.textContent = num1;
@@ -122,19 +122,18 @@ function renderCalculator() {
     resultSpan.textContent = num1 * num2;
   };
 
-  button1.addEventListener("click", () => {
+  button1.addEventListener('click', () => {
     num1++;
     update();
   });
 
-  button2.addEventListener("click", () => {
+  button2.addEventListener('click', () => {
     num2++;
     update();
   });
 }
 
 renderCalculator();
-
 ```
 
 </details>

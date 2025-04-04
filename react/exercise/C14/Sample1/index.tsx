@@ -1,5 +1,5 @@
-import { useState, memo, useCallback } from "react";
-import { createRoot } from "react-dom/client";
+import { useState, memo, useCallback } from 'react';
+import { createRoot } from 'react-dom/client';
 
 const heavyCalculation = () => {
   let sum = 0;
@@ -13,7 +13,7 @@ interface ButtonProps {
 }
 
 const Button = ({ onClick }: ButtonProps) => {
-  console.log("button render");
+  console.log('button render');
   heavyCalculation();
   return <button onClick={onClick}>click</button>;
 };
@@ -32,4 +32,4 @@ const App = () => {
     </>
   );
 };
-createRoot(document.getElementById("root")!).render(<App />);
+createRoot(document.getElementById('root')!).render(<App />);

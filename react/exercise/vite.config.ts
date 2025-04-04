@@ -1,15 +1,15 @@
-import { resolve } from "path";
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
+import { resolve } from 'path';
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
 const ROOT_PATH = resolve(__dirname, process.env.TARGET);
-const PUBLIC_DIR_PATH = resolve(__dirname, "public");
-const OUTPUT_DIR_PATH = resolve(__dirname, "dist");
+const PUBLIC_DIR_PATH = resolve(__dirname, 'public');
+const OUTPUT_DIR_PATH = resolve(__dirname, 'dist');
 
 export default defineConfig({
   root: ROOT_PATH,
   server: {
-    host: "localhost",
+    host: 'localhost',
     port: 3000,
     open: true,
     watch: {

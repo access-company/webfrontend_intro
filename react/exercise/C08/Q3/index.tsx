@@ -6,9 +6,9 @@
 //   * `true` -> `false`, `false` -> `true`
 //   * [ヒント] `Switch` コンポーネントの `props` にある `onClick` にイベントハンドラを渡すと、`Switch` コンポーネントをクリックした時の振る舞いを定義できる。
 //
-import { FC, useState, useCallback } from "react";
-import { createRoot } from "react-dom/client";
-import "./style.css";
+import { FC, useState, useCallback } from 'react';
+import { createRoot } from 'react-dom/client';
+import './style.css';
 
 // ボタンを押した時に電球が光って、世界が明るくなるようにしましょう
 
@@ -73,7 +73,7 @@ const Switch: FC<SwitchProps> = (props) => {
         height="44"
         viewBox="0 0 24 24"
         strokeWidth="1.5"
-        stroke={power ? "#2c3e50" : "#ffffff"}
+        stroke={power ? '#2c3e50' : '#ffffff'}
         fill="none"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -97,7 +97,7 @@ const ChildComponent: FC = () => {
   );
 
   return (
-    <div className={power ? "subContainer" : "subContainer off"}>
+    <div className={power ? 'subContainer' : 'subContainer off'}>
       {/* 下記の2つのコンポーネントに必要な物を渡す */}
       <LightBulb />
       <Switch />
@@ -111,4 +111,4 @@ const App: FC = () => {
   return <ChildComponent />;
 };
 
-createRoot(document.getElementById("root")!).render(<App />);
+createRoot(document.getElementById('root')!).render(<App />);

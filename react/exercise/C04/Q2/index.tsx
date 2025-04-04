@@ -4,9 +4,9 @@
 //   * 赤い `<div>` をクリックした際には `Clicked Red` のみコンソールに表示する
 //   * 青い `<div>` をクリックした際には `Clicked Blue` のみコンソールに表示する
 //
-import { FC } from "react";
-import { createRoot } from "react-dom/client";
-import "./style.css";
+import { FC } from 'react';
+import { createRoot } from 'react-dom/client';
+import './style.css';
 
 // ’Clicked Blue’ とコンソールに表示するイベントハンドラー 'onClickInner' を実装
 
@@ -38,4 +38,4 @@ const App: FC = () => {
   );
 };
 
-createRoot(document.getElementById("root")!).render(<App />);
+createRoot(document.getElementById('root')!).render(<App />);

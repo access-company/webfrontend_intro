@@ -1,13 +1,5 @@
-import {
-  FC,
-  useRef,
-  useState,
-  useEffect,
-  memo,
-  useCallback,
-  useMemo,
-} from "react";
-import { createRoot } from "react-dom/client";
+import { FC, useRef, useState, useEffect, memo, useCallback, useMemo } from 'react';
+import { createRoot } from 'react-dom/client';
 
 // ----- ここから、数行先のログ用関数を触る必要はありません -----
 
@@ -31,29 +23,23 @@ function usePerformanceCounter() {
   const perfRef = useRef<PerformanceCounter>(initialPerformanceCounter);
 
   function outputLog() {
-    console.log("++++++++++++++++++++++++++++++");
+    console.log('++++++++++++++++++++++++++++++');
     console.log(`Counter: ${perfRef.current.__Counter}`);
-    console.log(
-      `CounterButton: id=start: ${perfRef.current.__CounterButton.start}`
-    );
-    console.log(
-      `CounterButton: id=stop:  ${perfRef.current.__CounterButton.stop}`
-    );
-    console.log("++++++++++++++++++++++++++++++");
+    console.log(`CounterButton: id=start: ${perfRef.current.__CounterButton.start}`);
+    console.log(`CounterButton: id=stop:  ${perfRef.current.__CounterButton.stop}`);
+    console.log('++++++++++++++++++++++++++++++');
   }
 
   function incrementPerformanceCounter(componentName: string, id?: string) {
     switch (componentName) {
-      case "Counter":
+      case 'Counter':
         perfRef.current.__Counter += 1;
         console.info(`${componentName}: ${perfRef.current.__Counter}`);
         break;
-      case "CounterButton":
-        const key = id as keyof PerformanceCounter["__CounterButton"];
+      case 'CounterButton':
+        const key = id as keyof PerformanceCounter['__CounterButton'];
         perfRef.current.__CounterButton[key] += 1;
-        console.info(
-          `${componentName}: ${id}: ${perfRef.current.__CounterButton[key]}`
-        );
+        console.info(`${componentName}: ${id}: ${perfRef.current.__CounterButton[key]}`);
         break;
       default:
         break;
@@ -80,7 +66,7 @@ const CounterButton = (props: CounterButtonProps) => {
 
   // --- 計測用 ---
   const { incrementPerformanceCounter } = usePerformanceCounter();
-  incrementPerformanceCounter("CounterButton", id);
+  incrementPerformanceCounter('CounterButton', id);
   // --- 計測用 ---
 
   return (
@@ -98,7 +84,7 @@ interface CounterProps {
 const Counter: FC<CounterProps> = (props) => {
   // --- 計測用 ---
   const { incrementPerformanceCounter } = usePerformanceCounter();
-  incrementPerformanceCounter("Counter");
+  incrementPerformanceCounter('Counter');
   // --- 計測用 ---
 
   const { handleCustomStartCount, handleCustomStopCount } = props;
@@ -117,14 +103,14 @@ const Counter: FC<CounterProps> = (props) => {
   }
 
   const handleStartCount = (e: React.MouseEvent<HTMLButtonElement>) => {
-    if (typeof handleCustomStartCount === "function") {
+    if (typeof handleCustomStartCount === 'function') {
       handleCustomStartCount(e);
     }
     loop();
   };
 
   const handleStopCount = (e: React.MouseEvent<HTMLButtonElement>) => {
-    if (typeof handleCustomStopCount === "function") {
+    if (typeof handleCustomStopCount === 'function') {
       handleCustomStopCount(e);
     }
     stop();
@@ -133,18 +119,8 @@ const Counter: FC<CounterProps> = (props) => {
   return (
     <>
       <p className="label">count= {count}</p>
-      <CounterButton
-        id="start"
-        onClick={handleStartCount}
-        disabled={false}
-        label="start"
-      />
-      <CounterButton
-        id="stop"
-        onClick={handleStopCount}
-        disabled={false}
-        label="stop"
-      />
+      <CounterButton id="start" onClick={handleStartCount} disabled={false} label="start" />
+      <CounterButton id="stop" onClick={handleStopCount} disabled={false} label="stop" />
     </>
   );
 };
@@ -153,10 +129,10 @@ function App() {
   const { outputLog } = usePerformanceCounter();
 
   const handleCustomStartCount = (e: React.MouseEvent<HTMLButtonElement>) => {
-    console.log("handleCustomStartCount");
+    console.log('handleCustomStartCount');
   };
   const handleCustomStopCount = (e: React.MouseEvent<HTMLButtonElement>) => {
-    console.log("handleCustomStopCount");
+    console.log('handleCustomStopCount');
     outputLog(); // コンソールログへ計測ログを出力
   };
 
@@ -168,4 +144,4 @@ function App() {
   return <Counter {...props} />;
 }
 
-createRoot(document.getElementById("root")!).render(<App />);
+createRoot(document.getElementById('root')!).render(<App />);

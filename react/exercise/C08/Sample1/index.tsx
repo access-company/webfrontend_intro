@@ -1,5 +1,5 @@
-import { FC, useState } from "react";
-import { createRoot } from "react-dom/client";
+import { FC, useState } from 'react';
+import { createRoot } from 'react-dom/client';
 
 const Counter: FC = () => {
   const [count, setCount] = useState<number>(0);
@@ -13,4 +13,4 @@ const Counter: FC = () => {
   );
 };
 
-createRoot(document.getElementById("root")!).render(<Counter />);
+createRoot(document.getElementById('root')!).render(<Counter />);

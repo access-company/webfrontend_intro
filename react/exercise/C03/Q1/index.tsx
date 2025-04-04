@@ -7,8 +7,8 @@
 // * 「Reply」「Retweet」「Favorite」を選択したときのイベント実装
 // * デザイン性（要件を満たしていればOKとします）
 //
-import { createRoot } from "react-dom/client";
-import "./style.css";
+import { createRoot } from 'react-dom/client';
+import './style.css';
 
 function formatDate(date: Date) {
   return date.toLocaleDateString();
@@ -50,13 +50,13 @@ function Comment(props: Props) {
 
 const comment = {
   date: new Date(),
-  text: "I hope you enjoy learning React!",
+  text: 'I hope you enjoy learning React!',
   author: {
-    name: "Hello Teddy",
-    avatarUrl: "https://placebear.com/64/64",
+    name: 'Hello Teddy',
+    avatarUrl: 'https://placebear.com/64/64',
   },
 };
 
-createRoot(document.getElementById("root")!).render(
+createRoot(document.getElementById('root')!).render(
   <Comment date={comment.date} text={comment.text} author={comment.author} />
 );

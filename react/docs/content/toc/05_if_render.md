@@ -54,7 +54,7 @@ const Greeting: FC<GreetingProps> = (props) => {
   return <div className="container">{greeting}</div>;
 };
 
-createRoot(document.getElementById("root")!).render(
+createRoot(document.getElementById('root')!).render(
   // Try changing to isLoggedIn={false}:
   <Greeting isLoggedIn={true} />
 );
@@ -69,7 +69,7 @@ const Greeting: FC<GreetingProps> = (props) => {
   return <div className="container">{props.isLoggedIn ? <UserGreeting /> : <GuestGreeting />}</div>;
 };
 
-createRoot(document.getElementById("root")!).render(
+createRoot(document.getElementById('root')!).render(
   // Try changing to isLoggedIn={false}:
   <Greeting isLoggedIn={true} />
 );

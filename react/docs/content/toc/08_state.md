@@ -74,7 +74,7 @@ $ TARGET=C08/Q1 npm run dev
 
 状態更新関数には、値だけでなく関数を渡すことも可能です。関数を渡す場合、その関数は、純粋で、処理中の state を引数として受け取り、次の state を返す必要があります。
 
-例えば、countをincrementする場合、以下のように書けます。
+例えば、count を increment する場合、以下のように書けます。
 
 ```tsx
 const Counter: FC = () => {

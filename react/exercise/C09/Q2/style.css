@@ -38,98 +38,98 @@
 }
 
 @keyframes dropped {
-  0% { 
-    transform: translateY(-200%)
+  0% {
+    transform: translateY(-200%);
   }
   5% {
-    transform: translateY(-175%)
+    transform: translateY(-175%);
   }
   10% {
-    transform: translateY(-125%)
+    transform: translateY(-125%);
   }
   15% {
-    transform: translateY(-50%)
+    transform: translateY(-50%);
   }
   17% {
-    transform: translateY(0%)
+    transform: translateY(0%);
   }
   18% {
-    transform: translateY(0%)
+    transform: translateY(0%);
   }
   20% {
-    transform: translateY(-20%)
+    transform: translateY(-20%);
   }
   24% {
-    transform: translateY(-35%)
+    transform: translateY(-35%);
   }
   28% {
-    transform: translateY(-45%)
+    transform: translateY(-45%);
   }
   32% {
-    transform: translateY(-50%)
+    transform: translateY(-50%);
   }
-  33% { 
-    transform: translateY(-50%)
+  33% {
+    transform: translateY(-50%);
   }
   36% {
-    transform: translateY(-45%)
+    transform: translateY(-45%);
   }
   40% {
-    transform: translateY(-35%)
+    transform: translateY(-35%);
   }
   44% {
-    transform: translateY(-20%)
+    transform: translateY(-20%);
   }
   47% {
-    transform: translateY(-0%)
+    transform: translateY(-0%);
   }
   48% {
-    transform: translateY(-5%)
+    transform: translateY(-5%);
   }
   51% {
-    transform: translateY(-9%)
+    transform: translateY(-9%);
   }
   54% {
-    transform: translateY(-12%)
+    transform: translateY(-12%);
   }
   57% {
-    transform: translateY(-14%)
+    transform: translateY(-14%);
   }
   60% {
-    transform: translateY(-15%)
+    transform: translateY(-15%);
   }
   63% {
-    transform: translateY(-15%)
+    transform: translateY(-15%);
   }
   66% {
-    transform: translateY(-14%)
+    transform: translateY(-14%);
   }
   69% {
-    transform: translateY(-12%)
+    transform: translateY(-12%);
   }
   72% {
-    transform: translateY(-9%)
+    transform: translateY(-9%);
   }
   75% {
-    transform: translateY(-5%)
+    transform: translateY(-5%);
   }
   78% {
-    transform: translateY(0%)
+    transform: translateY(0%);
   }
   89% {
-    transform: translateY(-2%)
+    transform: translateY(-2%);
   }
   90% {
-    transform: translateY(-3%)
+    transform: translateY(-3%);
   }
   91% {
-    transform: translateY(-2%)
+    transform: translateY(-2%);
   }
   92% {
-    transform: translateY(0%)
+    transform: translateY(0%);
   }
   100% {
-    transform: translateY(0%)
+    transform: translateY(0%);
   }
 }
 
