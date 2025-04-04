@@ -3,8 +3,8 @@
 // また、カウントを10に戻す Reset ボタンも追加してください。
 // 注意： letは使わないでください。
 //
-import { useRef, useCallback, useState } from "react";
-import { createRoot } from "react-dom/client";
+import { useRef, useCallback, useState } from 'react';
+import { createRoot } from 'react-dom/client';
 
 const INIT_COUNT = 10;
 
@@ -43,4 +43,4 @@ function CountDown() {
   );
 }
 
-createRoot(document.getElementById("root")!).render(<CountDown />);
+createRoot(document.getElementById('root')!).render(<CountDown />);

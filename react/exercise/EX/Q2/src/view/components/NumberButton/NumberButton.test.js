@@ -14,9 +14,7 @@ describe('NumberButton', () => {
     const assignedKey = '0';
     const text = '1';
     const onPushMock = jest.fn();
-    render(
-      <NumberButton assignedKey={assignedKey} text={text} onPush={onPushMock} />
-    );
+    render(<NumberButton assignedKey={assignedKey} text={text} onPush={onPushMock} />);
     const element = screen.getByTestId('number-button');
     expect(element).toHaveTextContent(text);
   });
@@ -53,9 +51,7 @@ describe('NumberButton', () => {
     const assignedKey = '0';
     const type = 'default';
     const onPushMock = jest.fn();
-    render(
-      <NumberButton assignedKey={assignedKey} onPush={onPushMock} type={type} />
-    );
+    render(<NumberButton assignedKey={assignedKey} onPush={onPushMock} type={type} />);
     const element = screen.getByTestId('number-button');
     fireEvent.keyDown(window, { key: assignedKey, code: assignedKey });
     expect(element.className.trimEnd()).toBe('button default pressed');
@@ -67,9 +63,7 @@ describe('NumberButton', () => {
     const assignedKey = '0';
     const type = 'unused';
     const onPushMock = jest.fn();
-    render(
-      <NumberButton assignedKey={assignedKey} onPush={onPushMock} type={type} />
-    );
+    render(<NumberButton assignedKey={assignedKey} onPush={onPushMock} type={type} />);
     const element = screen.getByTestId('number-button');
     fireEvent.keyDown(window, { key: assignedKey, code: assignedKey });
     expect(element.className.trimEnd()).toBe('button dark pressed');
@@ -81,9 +75,7 @@ describe('NumberButton', () => {
     const assignedKey = '0';
     const type = 'used';
     const onPushMock = jest.fn();
-    render(
-      <NumberButton assignedKey={assignedKey} onPush={onPushMock} type={type} />
-    );
+    render(<NumberButton assignedKey={assignedKey} onPush={onPushMock} type={type} />);
     const element = screen.getByTestId('number-button');
     fireEvent.keyDown(window, { key: assignedKey, code: assignedKey });
     expect(element.className.trimEnd()).toBe('button yellow pressed');
@@ -95,9 +87,7 @@ describe('NumberButton', () => {
     const assignedKey = '0';
     const type = 'matched';
     const onPushMock = jest.fn();
-    render(
-      <NumberButton assignedKey={assignedKey} onPush={onPushMock} type={type} />
-    );
+    render(<NumberButton assignedKey={assignedKey} onPush={onPushMock} type={type} />);
     const element = screen.getByTestId('number-button');
     fireEvent.keyDown(window, { key: assignedKey, code: assignedKey });
     expect(element.className.trimEnd()).toBe('button green pressed');
@@ -109,14 +99,7 @@ describe('NumberButton', () => {
     const assignedKey = '0';
     const type = 'default';
     const onPushMock = jest.fn();
-    render(
-      <NumberButton
-        assignedKey={assignedKey}
-        onPush={onPushMock}
-        type={type}
-        disabled
-      />
-    );
+    render(<NumberButton assignedKey={assignedKey} onPush={onPushMock} type={type} disabled />);
     const element = screen.getByTestId('number-button');
     expect(element.className.trimEnd()).toBe('button disabled');
   });

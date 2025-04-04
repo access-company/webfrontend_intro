@@ -47,11 +47,7 @@ const NumberButton: FC<NumberButtonProps> = (props) => {
     // 無効化されていない &&
     // キー入力と assingedKey の内容が一致 (念のため小文字比較) &&
     // pressed 状態でないとき
-    if (
-      !disabled &&
-      event.key.toLowerCase() === assignedKey.toLowerCase() &&
-      !pressed
-    ) {
+    if (!disabled && event.key.toLowerCase() === assignedKey.toLowerCase() && !pressed) {
       onPush(assignedKey);
       setPressedValue(true);
     }
@@ -80,11 +76,7 @@ const NumberButton: FC<NumberButtonProps> = (props) => {
   }`;
 
   return (
-    <div
-      className={className}
-      onClick={onClick}
-      data-testid="number-button"
-    >
+    <div className={className} onClick={onClick} data-testid="number-button">
       {text || assignedKey}
     </div>
   );

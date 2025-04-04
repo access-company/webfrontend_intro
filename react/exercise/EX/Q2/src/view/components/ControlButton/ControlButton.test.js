@@ -15,13 +15,7 @@ describe('ControlButton', () => {
     const assignedKey = '0';
     const text = '1';
     const onPushMock = jest.fn();
-    render(
-      <ControlButton
-        assignedKey={assignedKey}
-        text={text}
-        onPush={onPushMock}
-      />
-    );
+    render(<ControlButton assignedKey={assignedKey} text={text} onPush={onPushMock} />);
     const element = screen.getByTestId('control-button');
     expect(element).toHaveTextContent(text);
   });
@@ -58,13 +52,7 @@ describe('ControlButton', () => {
     const assignedKey = '0';
     const type = 'default';
     const onPushMock = jest.fn();
-    render(
-      <ControlButton
-        assignedKey={assignedKey}
-        onPush={onPushMock}
-        type={type}
-      />
-    );
+    render(<ControlButton assignedKey={assignedKey} onPush={onPushMock} type={type} />);
     const element = screen.getByTestId('control-button');
     fireEvent.keyDown(window, { key: assignedKey, code: assignedKey });
     expect(element.className.trimEnd()).toBe('button default pressed');
@@ -76,14 +64,7 @@ describe('ControlButton', () => {
     const assignedKey = '0';
     const type = 'default';
     const onPushMock = jest.fn();
-    render(
-      <ControlButton
-        assignedKey={assignedKey}
-        onPush={onPushMock}
-        type={type}
-        disabled
-      />
-    );
+    render(<ControlButton assignedKey={assignedKey} onPush={onPushMock} type={type} disabled />);
     const element = screen.getByTestId('control-button');
     expect(element.className.trimEnd()).toBe('button disabled');
   });

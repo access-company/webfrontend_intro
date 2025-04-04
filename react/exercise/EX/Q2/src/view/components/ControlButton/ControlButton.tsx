@@ -59,12 +59,7 @@ const ControlButton: FC<ControlButtonProps> = (props) => {
   } ${pressed ? styles.pressed : ''}`;
 
   return (
-    <div
-      className={className}
-      onClick={onClick}
-      data-testid="number-button"
-      key={text}
-    >
+    <div className={className} onClick={onClick} data-testid="number-button" key={text}>
       {text}
     </div>
   );

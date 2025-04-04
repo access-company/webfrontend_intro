@@ -1,12 +1,12 @@
-import { FC, useReducer, useState, useCallback } from "react";
-import { createRoot } from "react-dom/client";
-import "./style.css";
+import { FC, useReducer, useState, useCallback } from 'react';
+import { createRoot } from 'react-dom/client';
+import './style.css';
 
-type ActionTypes = { [P in "toggle" | "on" | "off"]: string };
+type ActionTypes = { [P in 'toggle' | 'on' | 'off']: string };
 const actionTypes: ActionTypes = {
-  toggle: "TOGGLE",
-  on: "ON",
-  off: "OFF",
+  toggle: 'TOGGLE',
+  on: 'ON',
+  off: 'OFF',
 };
 
 const TOO_MANY_CLICKS = 4;
@@ -29,7 +29,7 @@ function useToggleSwitch({ reducer = toggleSwitchReducer } = {}): [
   boolean,
   () => void,
   () => void,
-  () => void
+  () => void,
 ] {
   const [{ on }, dispatch] = useReducer(reducer, initialState);
 
@@ -47,18 +47,11 @@ type Props = {
 
 const ToggleSwitch: FC<Props> = (props) => {
   const { on, onClick } = props;
-  const toggleStyle = ["toggleBtn", on ? "toggleBtnOn" : "toggleBtnOff"]
-    .filter(Boolean)
-    .join(" ");
+  const toggleStyle = ['toggleBtn', on ? 'toggleBtnOn' : 'toggleBtnOff'].filter(Boolean).join(' ');
 
   return (
     <label aria-label="Toggle">
-      <input
-        type="checkbox"
-        checked={on}
-        className="toggleInput"
-        onClick={onClick}
-      />
+      <input type="checkbox" checked={on} className="toggleInput" onClick={onClick} />
       <span className={toggleStyle}></span>
     </label>
   );
@@ -96,4 +89,4 @@ const TestApp: FC = () => {
   );
 };
 
-createRoot(document.getElementById("root")!).render(<TestApp />);
+createRoot(document.getElementById('root')!).render(<TestApp />);

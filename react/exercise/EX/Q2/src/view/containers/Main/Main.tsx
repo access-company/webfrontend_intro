@@ -3,12 +3,7 @@ import styles from './Main.module.css';
 // ゲームに関係する定数
 import { DIGITS, RADIX, MAX_ATTEMPTS } from '../../../constants';
 // マッチング処理
-import {
-  generateAnswer,
-  compare,
-  isFullMatched,
-  updateButtonState,
-} from '../../../lib/behaviors';
+import { generateAnswer, compare, isFullMatched, updateButtonState } from '../../../lib/behaviors';
 import MainGrid from '../../layouts/MainGrid';
 import TileGrid from '../../layouts/TileGrid';
 import Tile from '../../components/Tile';
@@ -67,7 +62,7 @@ const Main: FC = () => {
       setResults(newResults);
       setButtonState(newButtonState);
       setGameOver(isGameOver);
-      setMessage(isGameOver ? gameOverMessage : message)
+      setMessage(isGameOver ? gameOverMessage : message);
     }
   };
 
@@ -111,14 +106,7 @@ const Main: FC = () => {
     const row = Math.floor(index / DIGITS);
     const { value, type } = getTileInfo(col, row);
     const selected = results.length === row && inputValues.length === col;
-    return (
-      <Tile
-        text={value}
-        type={type}
-        key={generateKey(col, row)}
-        selected={selected}
-      />
-    );
+    return <Tile text={value} type={type} key={generateKey(col, row)} selected={selected} />;
   });
 
   // Button コンポーネントをまとめて生成
@@ -127,14 +115,13 @@ const Main: FC = () => {
       assignedKey={`${value}`}
       onPush={() => {
         if (inputValues.length < DIGITS) {
-          setInputValues([...inputValues, `${value}`])
+          setInputValues([...inputValues, `${value}`]);
         }
       }}
       type={buttonState[value]}
       disabled={isGameOver}
     />
   ));
-
 
   return (
     <div className={styles.container}>
@@ -143,11 +130,7 @@ const Main: FC = () => {
         <TileGrid>{tiles}</TileGrid>
         <NumberButtonGrid>{numButtons}</NumberButtonGrid>
         <ControlButtonGrid>
-          <ControlButton
-            assignedKey="r"
-            text="Reset"
-            onPush={onPushReset}
-          />
+          <ControlButton assignedKey="r" text="Reset" onPush={onPushReset} />
           <ControlButton
             assignedKey="BackSpace"
             text="Delete"

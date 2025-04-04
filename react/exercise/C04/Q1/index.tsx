@@ -4,9 +4,9 @@
 //   * `<button>` をクリックした際には `Clicked Button` とコンソールに表示する
 //   * `<div>` をクリックした際には `Clicked Div` とコンソールに表示する
 //
-import { FC } from "react";
-import { createRoot } from "react-dom/client";
-import "./style.css";
+import { FC } from 'react';
+import { createRoot } from 'react-dom/client';
+import './style.css';
 
 // ’Clicked Button’ とコンソールに表示するイベントハンドラー 'onClickButton' を実装
 
@@ -31,4 +31,4 @@ const App: FC = () => {
   );
 };
 
-createRoot(document.getElementById("root")!).render(<App />);
+createRoot(document.getElementById('root')!).render(<App />);

@@ -1,4 +1,4 @@
-import { createRoot } from "react-dom/client";
+import { createRoot } from 'react-dom/client';
 
 function formatDate(date: Date) {
   return date.toLocaleDateString();
@@ -40,13 +40,13 @@ function Comment(props: Props) {
 
 const comment = {
   date: new Date(),
-  text: "I hope you enjoy learning React!",
+  text: 'I hope you enjoy learning React!',
   author: {
-    name: "Hello Teddy",
-    avatarUrl: "https://placebear.com/g/64/64",
+    name: 'Hello Teddy',
+    avatarUrl: 'https://placebear.com/g/64/64',
   },
 };
 
-createRoot(document.getElementById("root")!).render(
+createRoot(document.getElementById('root')!).render(
   <Comment date={comment.date} text={comment.text} author={comment.author} />
 );
