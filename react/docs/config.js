@@ -59,7 +59,7 @@ const config = {
       },
       {
         text: 'React公式 スタートガイド',
-        link: 'https://ja.reactjs.org/docs/getting-started.html',
+        link: 'https://ja.react.dev/learn',
       },
       {
         text: 'CodePen',
