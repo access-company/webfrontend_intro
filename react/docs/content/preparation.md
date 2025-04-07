@@ -21,7 +21,7 @@ $ npm start
 http://localhost:8000
 ```
 
-<!-- # 2. MindMap（任意）
+{/*-- # 2. MindMap（任意）
 
 MindMap の表示は、[MindMaster](https://www.edrawsoft.com/jp/mindmaster/) というソフトウェアを使っています。
 
@@ -31,7 +31,7 @@ MindMap の表示は、[MindMaster](https://www.edrawsoft.com/jp/mindmaster/) �
 
 MindMap の内容を確認したい方は、MindMaster で react_training.emmx ファイルを開いてください。react_training.emmx の内容は、本研修資料と同じです。
 
-研修中は、react_training.emmx の内容を主に画面共有します。受講生の方々は、本研修資料（ https://access-company.github.io/webfrontend_intro/react/ ）を手元で見れるようにしてください。 -->
+研修中は、react_training.emmx の内容を主に画面共有します。受講生の方々は、本研修資料（ https://access-company.github.io/webfrontend_intro/react/ ）を手元で見れるようにしてください。 */}
 
 # 2. 演習問題
 
@@ -53,7 +53,8 @@ $ npm install
 $ TARGET=C01/Q1 npm run dev
 ```
 
-<!--
+{/*
+
 # 3. サンプル： 電卓アプリ
 
 React のサンプルとして用意した電卓アプリ。
@@ -159,4 +160,4 @@ Addon も豊富で, 用途や目的に合わせて Storybook に様々な機能�
 - Knobs: `props` 等に渡す値を任意のものに変更
   - 例: `Button` に表示するテキストの変更, `Label` で表示する数値の変更 等
 
--->
+*/}

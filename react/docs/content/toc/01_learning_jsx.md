@@ -16,7 +16,8 @@ ECMAScript では、上記のような構文は定義されていません。
 JSX を用いて UI の構成要素を作ることができます。その UI の構成要素のことを **React 要素** と呼びます。
 React 要素は、JavaScript のオブジェクトです。
 
-<details><summary>Advanced</summary>
+<details>
+<summary>Advanced</summary>
 JSX はそのままではブラウザ上では動作しません。
 そのため、 React の toolchain を使って、JSX を使わない、通常の JavaScript オブジェクトへ変換します。
 
@@ -62,7 +63,8 @@ ReactDOM.createRoot(document.body).render(element);
 
 これは **テンプレートリテラル (テンプレート文字列)** という記法です。バッククォートを使って定義され、文字列内に変数や式を埋め込むことができる JavaScript の機能です。これにより、複雑な文字列の組み立てが簡単に行えます。変数は `${}` の中に記述します。
 
-<details><summary>Advanced</summary>
+<details>
+<summary>Advanced</summary>
 
 もし JSX の助けを得ずに記述すると、このようになります。
 
@@ -93,7 +95,8 @@ function getGreeting(user) {
 }
 ```
 
-<details><summary>Advanced</summary>
+<details>
+<summary>Advanced</summary>
 
 もし JSX の助けを得ずに記述すると、このようになります。
 
@@ -131,7 +134,8 @@ JavaScript 式を JSX に埋め込むために中括弧 `{}` を使用します�
 const element = <div tabIndex={getIndex()}></div>;
 ```
 
-<details><summary>Advanced</summary>
+<details>
+<summary>Advanced</summary>
 
 もし JSX の助けを得ずに記述すると、このようになります。
 
