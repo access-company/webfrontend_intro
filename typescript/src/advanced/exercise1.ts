@@ -1,29 +1,16 @@
-
 /*
-* 以下のコードに長方形(rectangle) を追加し、 `getArea` 関数に面積を求める処理を加えてください。
+* 以下の コードが実行できるように修正してください
+* func() 関数は引数を optional で受け取れるものとする
 * */
 
 // 以下のコードのコメントアウトを外して修正を行う
 // {
-//   type Square = {
-//     type: 'square'
-//     length: number
-//   }
-
-//   type Shape = Square
-
-//   function getArea(s: Shape) {
-//     switch (s.type) {
-//       case 'square':
-//         return s.length * s.length
+//   const func = (num: number): number => {
+//     if (!num) {
+//       return 0
 //     }
+//     return num
 //   }
-
-//   const square: Square = {
-//     type: 'square',
-//     length: 2
-//   }
-
-//   console.log(getArea(square))
-//   console.log(getArea(rectangle))
+//   console.log(func()) // 0
+//   console.log(func(10)) // 10
 // }

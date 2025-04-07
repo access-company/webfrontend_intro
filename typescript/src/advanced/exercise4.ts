@@ -1,20 +1,23 @@
 /*
-* 以下の `Detail` 型を、 `Mapped Type` を用いて全て optional なパラメータを持つ型にしてください。
+* 以下の User 型 に companyName: string のプロパティを追加で持つ Admin 型を定義してください
+* 余裕があれば User 型と Admin 型を interface で定義した場合もやってみてください
 * */
 
 // 以下のコードのコメントアウトを外して修正を行う
 // {
-//   type Detail = {
-//     address: string
-//     gender: boolean
-//     age: number
+//   type User = {
+//     id: number
+//     name: string
 //   }
-  
-//   type OptionalDetail = // ここに Detail のパラメータを全て optional にする処理を記述
-  
-//   const optionalDetail: OptionalDetail = {
-//     age: 22
+
+//   const user1: User = {
+//     id: 1,
+//     name: 'taro'
 //   }
-  
-//   console.log(optionalDetail.age)
+
+//   const admin1: Admin = {
+//     id: 1,
+//     name: 'jiro',
+//     companyName: 'Access'
+//   }
 // }

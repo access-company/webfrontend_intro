@@ -1,20 +1,29 @@
+
 /*
-* 以下のコードは冗長なコードである。 generics を使って `greet` という関数一つにまとめてください。
-* `some process` は `message` の型の影響を受けないものとします。
+* 以下のコードに長方形(rectangle) を追加し、 `getArea` 関数に面積を求める処理を加えてください。
 * */
 
 // 以下のコードのコメントアウトを外して修正を行う
 // {
-//   function greetString(message: string): void {
-//     // some process
-//     console.log(message)
+//   type Square = {
+//     type: 'square'
+//     length: number
 //   }
-  
-//   function greetNumber(message: number): void {
-//     // some process
-//     console.log(message)
+
+//   type Shape = Square
+
+//   function getArea(s: Shape) {
+//     switch (s.type) {
+//       case 'square':
+//         return s.length * s.length
+//     }
 //   }
-  
-//   greetString('hello')
-//   greetNumber(1)
+
+//   const square: Square = {
+//     type: 'square',
+//     length: 2
+//   }
+
+//   console.log(getArea(square))
+//   console.log(getArea(rectangle))
 // }
