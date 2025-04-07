@@ -7,8 +7,9 @@
   "dependencies": {
     "@babel/eslint-parser": "^7.27.0",
     "@babel/plugin-proposal-export-default-from": "^7.23.3",
-    "@emotion/react": "^11.11.4",
-    "@emotion/styled": "^11.11.0",
+    "@emotion/cache": "^11.14.0",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
     "@emotion/styled-base": "^11.0.0",
     "@gatsbyjs/reach-router": "^2.0.1",
     "@mdx-js/loader": "^1.6.22",
