@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
 import { MDXProvider } from '@mdx-js/react';
-
+import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { Layout, Link } from '$components';
 import NextPrevious from '../components/NextPrevious';
 import config from '../../config';
@@ -77,18 +76,6 @@ export default class MDXRuntimeTest extends Component {
 
     return (
       <Layout {...this.props}>
-        <Helmet>
-          {metaTitle ? <title>{metaTitle}</title> : null}
-          {metaTitle ? <meta name="title" content={metaTitle} /> : null}
-          {metaDescription ? <meta name="description" content={metaDescription} /> : null}
-          {metaTitle ? <meta property="og:title" content={metaTitle} /> : null}
-          {metaDescription ? <meta property="og:description" content={metaDescription} /> : null}
-          {metaTitle ? <meta property="twitter:title" content={metaTitle} /> : null}
-          {metaDescription ? (
-            <meta property="twitter:description" content={metaDescription} />
-          ) : null}
-          <link rel="canonical" href={canonicalUrl} />
-        </Helmet>
         <div className={'titleWrapper'}>
           <StyledHeading>{mdx.fields.title}</StyledHeading>
           <Edit className={'mobileView'}>
@@ -100,7 +87,9 @@ export default class MDXRuntimeTest extends Component {
           </Edit>
         </div>
         <StyledMainWrapper>
-          <MDXProvider>{mdx.body}</MDXProvider>
+          <MDXProvider>
+            <MDXRenderer>{mdx.body}</MDXRenderer>
+          </MDXProvider>
         </StyledMainWrapper>
         <div className={'addPaddTopBottom'}>
           <NextPrevious mdx={mdx} nav={nav} />
@@ -108,6 +97,29 @@ export default class MDXRuntimeTest extends Component {
       </Layout>
     );
   }
+}
+
+export function Head({ data }) {
+  const metaTitle = data.mdx.frontmatter.metaTitle;
+  const metaDescription = data.mdx.frontmatter.metaDescription;
+
+  let canonicalUrl = config.gatsby.siteUrl;
+  canonicalUrl =
+    config.gatsby.pathPrefix !== '/' ? canonicalUrl + config.gatsby.pathPrefix : canonicalUrl;
+  canonicalUrl = canonicalUrl + data.mdx.fields.slug;
+
+  return (
+    <>
+      {metaTitle && <title>{metaTitle}</title>}
+      {metaTitle && <meta name="title" content={metaTitle} />}
+      {metaDescription && <meta name="description" content={metaDescription} />}
+      {metaTitle && <meta property="og:title" content={metaTitle} />}
+      {metaDescription && <meta property="og:description" content={metaDescription} />}
+      {metaTitle && <meta property="twitter:title" content={metaTitle} />}
+      {metaDescription && <meta property="twitter:description" content={metaDescription} />}
+      <link rel="canonical" href={canonicalUrl} />
+    </>
+  );
 }
 
 export const pageQuery = graphql`
