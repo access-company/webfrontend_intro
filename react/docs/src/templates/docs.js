@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
-import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer';
+import { MDXProvider } from '@mdx-js/react';
 
 import { Layout, Link } from '$components';
 import NextPrevious from '../components/NextPrevious';
@@ -100,7 +100,7 @@ export default class MDXRuntimeTest extends Component {
           </Edit>
         </div>
         <StyledMainWrapper>
-          <MDXRenderer>{mdx.body}</MDXRenderer>
+          <MDXProvider>{mdx.body}</MDXProvider>
         </StyledMainWrapper>
         <div className={'addPaddTopBottom'}>
           <NextPrevious mdx={mdx} nav={nav} />
