@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { connectSearchBox } from 'react-instantsearch-dom';
+import { connectSearchBox } from 'react-instantsearch';
 
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';

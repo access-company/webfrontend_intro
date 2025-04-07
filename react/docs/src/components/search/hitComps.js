@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Highlight, Snippet } from 'react-instantsearch-dom';
+import { Highlight, Snippet } from 'react-instantsearch';
 import { Link } from 'gatsby';
 
 export const PageHit =

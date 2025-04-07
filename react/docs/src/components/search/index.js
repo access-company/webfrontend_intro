@@ -4,9 +4,8 @@ import {
   Index,
   Hits,
   Configure,
-  Pagination,
   connectStateResults,
-} from 'react-instantsearch-dom';
+} from 'react-instantsearch';
 import algoliasearch from 'algoliasearch/lite';
 import config from '../../../config.js';
 
