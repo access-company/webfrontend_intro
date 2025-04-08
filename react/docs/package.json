@@ -71,7 +71,8 @@
     "develop": "NODE_OPTIONS=--openssl-legacy-provider gatsby develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "postinstall": "patch-package"
   },
   "devDependencies": {
     "eslint-config-prettier": "^8.10.0",
@@ -79,6 +80,7 @@
     "eslint-plugin-jsx-a11y": "^6.8.0",
     "eslint-plugin-prettier": "^3.4.1",
     "eslint-plugin-react": "^7.34.0",
+    "patch-package": "^8.0.0",
     "prettier": "^2.8.8",
     "prism-react-renderer": "^1.3.5"
   }
