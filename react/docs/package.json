@@ -22,7 +22,7 @@
     "dotenv": "^8.6.0",
     "emotion": "^11.0.0",
     "emotion-server": "^11.0.0",
-    "eslint": "^9.23.0",
+    "eslint": "^8.57.1",
     "gatsby": "^5.14.1",
     "gatsby-link": "^5.14.1",
     "gatsby-plugin-algolia": "^1.0.3",
