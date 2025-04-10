@@ -93,7 +93,8 @@ root.render(<Multiplication />);
 $ TARGET=C02/Sample1 npm run dev
 ```
 
-<details><summary>Advanced</summary>
+<details>
+<summary>Advanced</summary>
 
 もしも React に頼らず vanillajs で記述すると、このようになります。
 

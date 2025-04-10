@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { connectSearchBox } from 'react-instantsearch-dom';
+import { useSearchBox } from 'react-instantsearch';
 
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
@@ -73,22 +73,25 @@ const Form = styled.form`
   }
 `;
 
-export default connectSearchBox(({ refine, ...rest }) => {
+export default function CustomSearchBox(props) {
+  const { query, refine } = useSearchBox();
+
   const preventSubmit = (e) => {
     e.preventDefault();
   };
 
   return (
-    <Form className={'formElement'} onSubmit={preventSubmit}>
+    <Form className="formElement" onSubmit={preventSubmit}>
       <SearchIcon />
       <Input
-        className={'searchInput '}
+        className="searchInput"
         type="text"
         placeholder="Search"
         aria-label="Search"
+        value={query}
         onChange={(e) => refine(e.target.value)}
-        {...rest}
+        {...props}
       />
     </Form>
   );
-});
+}
