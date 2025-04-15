@@ -11,12 +11,15 @@ import { DarkModeSwitch } from './DarkModeSwitch';
 import Sidebar from './sidebar';
 
 const help = require('./images/help.svg');
+
 const logoImg = require('./images/logo.svg');
+
 const twitter = require('./images/twitter.svg');
 const discordBrandsBlock = require('./images/discord-brands-block.svg');
 const twitterBrandsBlock = require('./images/twitter-brands-block.svg');
 
 const isSearchEnabled = config.header.search && config.header.search.enabled;
+
 const searchIndices = isSearchEnabled && config.header.search.indexName
   ? [{
       name: config.header.search.indexName,
@@ -32,6 +35,7 @@ const LoadableComponent = Loadable({
 
 function myFunction() {
   const x = document.getElementById('navbar');
+
   x.className = x.className === 'topnav'
     ? 'topnav responsive'
     : 'topnav';
@@ -82,6 +86,7 @@ const Header = ({ location, isDarkThemeActive, toggleActiveTheme }) => {
   } = data.site.siteMetadata;
 
   const finalLogoLink = logo.link || 'https://hasura.io/';
+
   const logoSrc = logo.image || logoImg;
 
   return (

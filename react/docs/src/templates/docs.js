@@ -25,6 +25,7 @@ export default class MDXRuntimeTest extends Component {
     } = data;
 
     const githubIcon = require('../components/images/github.svg').default;
+
     const navItems = allMdx.edges
       .map(({ node }) => node.fields.slug)
       .filter((slug) => slug !== '/')
@@ -101,9 +102,11 @@ export default class MDXRuntimeTest extends Component {
 
 export function Head({ data }) {
   const metaTitle = data.mdx.frontmatter.metaTitle;
+
   const metaDescription = data.mdx.frontmatter.metaDescription;
 
   let canonicalUrl = config.gatsby.siteUrl;
+
   canonicalUrl =
     config.gatsby.pathPrefix !== '/' ? canonicalUrl + config.gatsby.pathPrefix : canonicalUrl;
   canonicalUrl = canonicalUrl + data.mdx.fields.slug;
