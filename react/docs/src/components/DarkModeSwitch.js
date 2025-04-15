@@ -13,82 +13,51 @@ const StyledSwitch = styled('div')`
   /* The switch - the box around the slider */
   .switch {
     position: relative;
-    display: inline-block;
     width: 50px;
     height: 20px;
-  }
-
-  /* Hide default HTML checkbox */
-  .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-
-  /* The slider */
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    appearance: none;
     background-color: #ccc;
-    -webkit-transition: 0.4s;
+    outline: none;
+    cursor: pointer;
+    border-radius: 34px;
     transition: 0.4s;
   }
 
-  .slider:before {
-    position: absolute;
+  .switch::before {
     content: '';
+    position: absolute;
     height: 30px;
     width: 30px;
     left: 0px;
-    bottom: 4px;
-    top: 0;
-    bottom: 0;
-    margin: auto 0;
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
-    box-shadow: 0 0px 15px #2020203d;
+    top: 50%;
+    transform: translateY(-50%);
     background: white url(${NightImage});
     background-repeat: no-repeat;
     background-position: center;
+    border-radius: 50%;
+    box-shadow: 0 0px 15px #2020203d;
+    transition: 0.4s;
   }
 
-  input:checked + .slider {
+  .switch:checked {
     background: linear-gradient(to right, #fefb72, #f0bb31);
   }
 
-  input:checked + .slider:before {
-    -webkit-transform: translateX(24px);
-    -ms-transform: translateX(24px);
-    transform: translateX(24px);
+  .switch:checked::before {
+    transform: translate(24px, -50%);
     background: white url(${DayImage});
     background-repeat: no-repeat;
     background-position: center;
-  }
-
-  /* Rounded sliders */
-  .slider.round {
-    border-radius: 34px;
-  }
-
-  .slider.round:before {
-    border-radius: 50%;
   }
 `;
 
 export const DarkModeSwitch = ({ isDarkThemeActive, toggleActiveTheme }) => (
   <StyledSwitch>
-    <label id="switch" className="switch">
-      <input
-        type="checkbox"
-        id="slider"
-        onChange={toggleActiveTheme}
-        checked={isDarkThemeActive ? false : true}
-      />
-      <span className="slider round"></span>
-    </label>
+    <input
+      type="checkbox"
+      className="switch"
+      onChange={toggleActiveTheme}
+      checked={!isDarkThemeActive}
+    />
   </StyledSwitch>
 );
