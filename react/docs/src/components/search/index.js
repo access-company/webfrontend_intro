@@ -11,14 +11,8 @@ import config from '../../../config.js';
 
 import styled from '@emotion/styled';
 import { PoweredBy } from './styles';
-import { Search } from '@styled-icons/fa-solid/Search';
 import Input from './input';
 import * as hitComps from './hitComps';
-
-const SearchIcon = styled(Search)`
-  width: 1em;
-  pointer-events: none;
-`;
 
 const HitsWrapper = styled.div`
   display: ${(props) => (props.show ? `grid` : `none`)};
@@ -149,7 +143,7 @@ export default function SearchComponent({ indices, collapse, hitsAsGrid }) {
         show={query.length > 0 && focus}
         asGrid={hitsAsGrid}
       >
-        {indices.map(({ name, title, hitComp, type }) => {
+        {indices.map(({ name, hitComp }) => {
           return (
             <Index key={name} indexName={name}>
               <Results />

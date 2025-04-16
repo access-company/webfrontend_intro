@@ -28,7 +28,7 @@ const LoadableComponent = Loadable({
 
 /* eslint-disable react/jsx-key */
 const CodeBlock = ({ children: exampleCode, ...props }) => {
-  const [_, updateView] = React.useState(0);
+  const [, updateView] = React.useState(0);
 
   React.useEffect(() => {
     var windowPrism = window.Prism;
@@ -53,7 +53,7 @@ const CodeBlock = ({ children: exampleCode, ...props }) => {
         theme={theme}
       >
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
-          <pre className={className + ' pre'} style={style} p={3}>
+          <pre className={className + ' pre'} style={style}>
             {cleanTokens(tokens).map((line, i) => {
               let lineClass = {};
 

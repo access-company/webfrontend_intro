@@ -20,7 +20,7 @@ export default class MDXRuntimeTest extends Component {
       allMdx,
       mdx,
       site: {
-        siteMetadata: { docsLocation, title },
+        siteMetadata: { docsLocation },
       },
     } = data;
 
@@ -63,17 +63,6 @@ export default class MDXRuntimeTest extends Component {
           return { title: node.fields.title, url: node.fields.slug };
         }
       });
-
-    // meta tags
-    const metaTitle = mdx.frontmatter.metaTitle;
-
-    const metaDescription = mdx.frontmatter.metaDescription;
-
-    let canonicalUrl = config.gatsby.siteUrl;
-
-    canonicalUrl =
-      config.gatsby.pathPrefix !== '/' ? canonicalUrl + config.gatsby.pathPrefix : canonicalUrl;
-    canonicalUrl = canonicalUrl + mdx.fields.slug;
 
     return (
       <Layout {...this.props}>
