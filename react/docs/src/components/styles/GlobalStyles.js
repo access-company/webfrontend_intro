@@ -22,10 +22,9 @@ export const baseStyles = css`
   }
   html,
   body {
-    font-family:
-      -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Roboto Light', 'Oxygen', 'Ubuntu',
-      'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif, 'Apple Color Emoji',
-      'Segoe UI Emoji', 'Segoe UI Symbol';
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Roboto Light', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif,
+      'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 
     font-size: 16px;
     scroll-behavior: smooth;
@@ -730,9 +729,7 @@ export const baseStyles = css`
     padding: 0;
   }
   .topnav {
-    -webkit-transition:
-      top 0.5s,
-      bottom 0.5s;
+    -webkit-transition: top 0.5s, bottom 0.5s;
   }
 
   @media (max-width: 767px) {

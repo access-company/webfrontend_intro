@@ -1,11 +1,5 @@
 import React, { useState, useEffect, createRef } from 'react';
-import {
-  InstantSearch,
-  Index,
-  Hits,
-  Configure,
-  useInstantSearch,
-} from 'react-instantsearch';
+import { InstantSearch, Index, Hits, Configure, useInstantSearch } from 'react-instantsearch';
 import algoliasearch from 'algoliasearch/lite';
 import config from '../../../config.js';
 
@@ -100,7 +94,7 @@ const Results = () => {
   }
 
   return null;
-}
+};
 
 const useClickOutside = (ref, handler, events) => {
   if (!events) events = [`mousedown`, `touchstart`];

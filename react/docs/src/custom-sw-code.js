@@ -1,4 +1,4 @@
-/* eslint-env serviceworker */   /* global workbox */
+/* eslint-env serviceworker */ /* global workbox */
 
 workbox.routing.registerRoute(
   new RegExp('https:.*min.(css|js)'),

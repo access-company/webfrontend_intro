@@ -33,9 +33,7 @@ const SidebarLayout = ({ location }) => {
 
       if (items && items.length) {
         finalNavItems = items.map((innerItem, idx) => {
-          const itemId = innerItem.title
-            ? innerItem.title.replace(/\s+/g, '').toLowerCase()
-            : '';
+          const itemId = innerItem.title ? innerItem.title.replace(/\s+/g, '').toLowerCase() : '';
 
           return (
             <ListItem key={idx} to={`#${itemId}`} level={1}>
