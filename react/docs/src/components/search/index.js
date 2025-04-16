@@ -147,7 +147,7 @@ export default function SearchComponent({ indices, collapse, hitsAsGrid }) {
           return (
             <Index key={name} indexName={name}>
               <Results />
-              <Hits hitComponent={hitComps[hitComp](() => setFocus(false))} />
+              <Hits hitComponent={hitComps(hitComp)(() => setFocus(false))} />
             </Index>
           );
         })}

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { graphql } from 'gatsby';
 import { MDXProvider } from '@mdx-js/react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
-import { Layout, Link } from '$components';
+import { Layout, Link } from '../components';
 import NextPrevious from '../components/NextPrevious';
 import config from '../../config';
 import { Edit, StyledHeading, StyledMainWrapper } from '../components/styles/Docs';
