@@ -1,4 +1,4 @@
-export function applyLanguages(_Prism) {
+export function applyLanguages() {
   /**
    * Here you have the possibility to add other supported languages to Prism and thus to the code highlighting.
    *
@@ -17,7 +17,7 @@ export function applyLanguages(_Prism) {
    */
 }
 
-export function getTheme(_Prism) {
+export function getTheme() {
   /**
    * Here you have the possibility to change the prism highlighting.
    */

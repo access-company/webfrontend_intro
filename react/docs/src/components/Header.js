@@ -11,19 +11,23 @@ import { DarkModeSwitch } from './DarkModeSwitch';
 import Sidebar from './sidebar';
 
 const help = require('./images/help.svg');
+
 const logoImg = require('./images/logo.svg');
+
 const twitter = require('./images/twitter.svg');
-const discordBrandsBlock = require('./images/discord-brands-block.svg');
-const twitterBrandsBlock = require('./images/twitter-brands-block.svg');
 
 const isSearchEnabled = config.header.search && config.header.search.enabled;
-const searchIndices = isSearchEnabled && config.header.search.indexName
-  ? [{
-      name: config.header.search.indexName,
-      title: 'Results',
-      hitComp: 'PageHit',
-    }]
-  : [];
+
+const searchIndices =
+  isSearchEnabled && config.header.search.indexName
+    ? [
+        {
+          name: config.header.search.indexName,
+          title: 'Results',
+          hitComp: 'PageHit',
+        },
+      ]
+    : [];
 
 const LoadableComponent = Loadable({
   loader: () => import('./search/index'),
@@ -32,18 +36,17 @@ const LoadableComponent = Loadable({
 
 function myFunction() {
   const x = document.getElementById('navbar');
-  x.className = x.className === 'topnav'
-    ? 'topnav responsive'
-    : 'topnav';
+
+  x.className = x.className === 'topnav' ? 'topnav responsive' : 'topnav';
 }
 
 const StyledBgDiv = styled('div')`
   height: 60px;
-  box-shadow: 0 3px 6px 0 rgba(0,0,0,0.16);
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   background-color: #f8f8f8;
   position: relative;
   display: none;
-  background: ${props => props.isDarkThemeActive ? '#001932' : undefined};
+  background: ${(props) => (props.isDarkThemeActive ? '#001932' : undefined)};
 
   @media (max-width: 767px) {
     display: block;
@@ -82,6 +85,7 @@ const Header = ({ location, isDarkThemeActive, toggleActiveTheme }) => {
   } = data.site.siteMetadata;
 
   const finalLogoLink = logo.link || 'https://hasura.io/';
+
   const logoSrc = logo.image || logoImg;
 
   return (
@@ -89,11 +93,7 @@ const Header = ({ location, isDarkThemeActive, toggleActiveTheme }) => {
       <nav className="navBarDefault">
         <div className="navBarHeader">
           <Link to={finalLogoLink} className="navBarBrand">
-            <img
-              className="img-responsive displayInline"
-              src={logoSrc}
-              alt="logo"
-            />
+            <img className="img-responsive displayInline" src={logoSrc} alt="logo" />
           </Link>
           <div
             className="headerTitle displayInline"
@@ -145,9 +145,7 @@ const Header = ({ location, isDarkThemeActive, toggleActiveTheme }) => {
             {tweetText && (
               <li>
                 <a
-                  href={`https://twitter.com/intent/tweet?&text=${encodeURIComponent(
-                    tweetText
-                  )}`}
+                  href={`https://twitter.com/intent/tweet?&text=${encodeURIComponent(tweetText)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -156,9 +154,7 @@ const Header = ({ location, isDarkThemeActive, toggleActiveTheme }) => {
               </li>
             )}
 
-            {(tweetText || githubUrl) && (
-              <li className="divider hiddenMobile" />
-            )}
+            {(tweetText || githubUrl) && <li className="divider hiddenMobile" />}
 
             {config.header.social && (
               <li className="hiddenMobile">
@@ -171,11 +167,7 @@ const Header = ({ location, isDarkThemeActive, toggleActiveTheme }) => {
 
             {githubUrl && (
               <li className="githubBtn">
-                <GitHubButton
-                  href={githubUrl}
-                  data-show-count="true"
-                  aria-label="Star on GitHub"
-                >
+                <GitHubButton href={githubUrl} data-show-count="true" aria-label="Star on GitHub">
                   Star
                 </GitHubButton>
               </li>

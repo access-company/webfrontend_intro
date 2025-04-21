@@ -83,7 +83,7 @@ const Divider = styled((props) => (
   }
 `;
 
-const SidebarLayout = ({ location }) => {
+const SidebarLayout = () => {
   const { allMdx } = useStaticQuery(graphql`
     query SidebarTreeQuery {
       allMdx {
