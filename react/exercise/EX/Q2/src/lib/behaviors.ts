@@ -12,21 +12,14 @@ export const MatchTypeWeight: { [type in MatchType]: number } = {
 // 答えを生成するメソッド
 export const generateAnswer = (): Array<string> => {
   // DIGITS 桁の空配列を作り、Array.prototype.map と Math.random で 0 ~ RADIX-1 の値を入れ込む
-  return [...new Array(DIGITS)].map(
-    () => `${Math.floor(Math.random() * RADIX)}`
-  );
+  return [...new Array(DIGITS)].map(() => `${Math.floor(Math.random() * RADIX)}`);
 };
 
 // 入力と答えを比較してマッチの結果を返すメソッド
-export const compare = (
-  input: Array<string>,
-  answer: Array<string>
-): Array<MatchResult> => {
+export const compare = (input: Array<string>, answer: Array<string>): Array<MatchResult> => {
   if (input.length !== answer.length) {
     console.error('input.length is not matched to answer.length');
-    console.error(
-      `input.length: ${input.length}, answer.length: ${answer.length}`
-    );
+    console.error(`input.length: ${input.length}, answer.length: ${answer.length}`);
   }
 
   // answer 配列に含まれている各数字の index 値を mapping
@@ -43,9 +36,9 @@ export const compare = (
   //   [],
   //   []
   // ]
-  const indexMap = (
-    [...new Array(RADIX)] as FiniteArray<typeof RADIX, Array<string>>
-  ).map((): Array<string> => []);
+  const indexMap = ([...new Array(RADIX)] as FiniteArray<typeof RADIX, Array<string>>).map(
+    (): Array<string> => []
+  );
 
   answer.forEach((value, index) => {
     console.info(`value: ${value}, index: ${index}`);

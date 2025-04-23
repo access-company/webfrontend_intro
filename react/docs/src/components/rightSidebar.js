@@ -1,79 +1,62 @@
 import * as React from 'react';
-import { StaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql } from 'gatsby';
 
-// import Link from './link';
 import config from '../../config';
 import { Sidebar, ListItem } from './styles/Sidebar';
 
-const SidebarLayout = ({ location }) => (
-  <StaticQuery
-    query={graphql`
-      query {
-        allMdx {
-          edges {
-            node {
-              fields {
-                slug
-              }
-              tableOfContents
+const SidebarLayout = ({ location }) => {
+  const { allMdx } = useStaticQuery(graphql`
+    query SidebarLayoutQuery {
+      allMdx {
+        edges {
+          node {
+            fields {
+              slug
             }
+            tableOfContents
           }
         }
       }
-    `}
-    render={({ allMdx }) => {
-      let navItems = [];
+    }
+  `);
 
-      let finalNavItems;
+  // 現在のパスにマッチするページの目次アイテムを抽出
+  let finalNavItems = [];
 
-      if (allMdx.edges !== undefined && allMdx.edges.length > 0) {
-        const navItems = allMdx.edges.map((item, index) => {
-          let innerItems;
+  allMdx.edges.forEach(({ node }) => {
+    const { slug } = node.fields;
 
-          if (item !== undefined) {
-            if (
-              item.node.fields.slug === location.pathname ||
-              config.gatsby.pathPrefix + item.node.fields.slug === location.pathname
-            ) {
-              if (item.node.tableOfContents.items) {
-                innerItems = item.node.tableOfContents.items.map((innerItem, index) => {
-                  const itemId = innerItem.title
-                    ? innerItem.title.replace(/\s+/g, '').toLowerCase()
-                    : '#';
+    const fullPath = `${config.gatsby.pathPrefix}${slug}`;
 
-                  return (
-                    <ListItem key={index} to={`#${itemId}`} level={1}>
-                      {innerItem.title}
-                    </ListItem>
-                  );
-                });
-              }
-            }
-          }
-          if (innerItems) {
-            finalNavItems = innerItems;
-          }
+    if (slug === location.pathname || fullPath === location.pathname) {
+      const items = node.tableOfContents?.items;
+
+      if (items && items.length) {
+        finalNavItems = items.map((innerItem, idx) => {
+          const itemId = innerItem.title ? innerItem.title.replace(/\s+/g, '').toLowerCase() : '';
+
+          return (
+            <ListItem key={idx} to={`#${itemId}`} level={1}>
+              {innerItem.title}
+            </ListItem>
+          );
         });
       }
+    }
+  });
 
-      if (finalNavItems && finalNavItems.length) {
-        return (
-          <Sidebar>
-            <ul className={'rightSideBarUL'}>
-              <li className={'rightSideTitle'}>CONTENTS</li>
-              {finalNavItems}
-            </ul>
-          </Sidebar>
-        );
-      } else {
-        return (
-          <Sidebar>
-            <ul></ul>
-          </Sidebar>
-        );
-      }
-    }}
-  />
-);
+  return (
+    <Sidebar>
+      {finalNavItems.length > 0 ? (
+        <ul className="rightSideBarUL">
+          <li className="rightSideTitle">CONTENTS</li>
+          {finalNavItems}
+        </ul>
+      ) : (
+        <ul />
+      )}
+    </Sidebar>
+  );
+};
 
 export default SidebarLayout;

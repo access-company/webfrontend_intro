@@ -1,0 +1,13 @@
+diff --git a/node_modules/gatsby-plugin-mdx/gatsby-node.js b/node_modules/gatsby-plugin-mdx/gatsby-node.js
+index 75b7c04..50a4cde 100644
+--- a/node_modules/gatsby-plugin-mdx/gatsby-node.js
++++ b/node_modules/gatsby-plugin-mdx/gatsby-node.js
+@@ -17,7 +17,7 @@ exports.createSchemaCustomization = require(`./gatsby/create-schema-customizatio
+ /**
+  * Check whether to create Mdx nodes from MDX files.
+  */
+-exports.unstable_shouldOnCreateNode = unstable_shouldOnCreateNode
++exports.shouldOnCreateNode = unstable_shouldOnCreateNode
+ 
+ /**
+  * Create Mdx nodes from MDX files.

@@ -6,9 +6,9 @@
 // * countが 0 のとき、decrement(-)ボタンを disabled（ボタン押下できない状態）にする
 //   * [ヒント] button要素に `disabled` 属性（boolean）を付与する
 //
-import { FC, useState } from "react";
-import { createRoot } from "react-dom/client";
-import "./style.css";
+import { FC, useState } from 'react';
+import { createRoot } from 'react-dom/client';
+import './style.css';
 
 const Counter: FC = () => {
   const [count, setCount] = useState<number>(0);
@@ -22,4 +22,4 @@ const Counter: FC = () => {
   );
 };
 
-createRoot(document.getElementById("root")!).render(<Counter />);
+createRoot(document.getElementById('root')!).render(<Counter />);

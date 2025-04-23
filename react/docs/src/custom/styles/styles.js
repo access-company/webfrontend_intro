@@ -1,7 +1,5 @@
 import { css } from '@emotion/react';
 
-const customStyles = css`
-
-`;
+const customStyles = css``;
 
 export const styles = [customStyles];

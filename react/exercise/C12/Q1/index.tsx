@@ -6,9 +6,9 @@
 // * DummyのWeb APIのリクエスト中は、「Loading...」を画面に表示する
 // * 読み込み完了後に、ユーザプロファイルを画面に反映する
 //
-import { useState, useEffect, FC } from "react";
-import { createRoot } from "react-dom/client";
-import "./style.css";
+import { useState, useEffect, FC } from 'react';
+import { createRoot } from 'react-dom/client';
+import './style.css';
 
 type User = {
   name: string;
@@ -22,11 +22,11 @@ function fetchDummyProfile(): Promise<User> {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve({
-        name: "ACCESS",
+        name: 'ACCESS',
         age: 37,
-        email: "taro.access@access-company.com",
-        gender: "male",
-        avatar: "https://placebear.com/200/139",
+        email: 'taro.access@access-company.com',
+        gender: 'male',
+        avatar: 'https://placebear.com/200/139',
       });
     }, 2000);
   });
@@ -34,12 +34,11 @@ function fetchDummyProfile(): Promise<User> {
 
 const UserProfile: FC = () => {
   const user: User = {
-    name: "anonymous",
+    name: 'anonymous',
     age: 0,
-    gender: "female",
-    email: "anonymous@gmail.com",
-    avatar:
-      "data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==",
+    gender: 'female',
+    email: 'anonymous@gmail.com',
+    avatar: 'https://placebear.com/200/139',
   };
 
   return (
@@ -69,4 +68,4 @@ const UserProfile: FC = () => {
   );
 };
 
-createRoot(document.getElementById("root")!).render(<UserProfile />);
+createRoot(document.getElementById('root')!).render(<UserProfile />);

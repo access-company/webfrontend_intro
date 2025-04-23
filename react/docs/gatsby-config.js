@@ -1,6 +1,9 @@
 require("dotenv").config();
+
 const queries = require("./src/utils/algolia");
+
 const config = require("./config");
+
 const plugins = [
   'gatsby-plugin-sitemap',
   'gatsby-plugin-sharp',
@@ -11,7 +14,6 @@ const plugins = [
     }
   },
   'gatsby-plugin-emotion',
-  'gatsby-plugin-react-helmet',
   {
     resolve: "gatsby-source-filesystem",
     options: {
@@ -26,8 +28,7 @@ const plugins = [
         {
           resolve: "gatsby-remark-images",
           options: {
-            maxWidth: 1035,
-            sizeByPixelDensity: true
+            maxWidth: 1035
           }
         },
         {
@@ -47,8 +48,9 @@ const plugins = [
       // enable ip anonymization
       anonymize: false,
     },
-  },
+  }
 ];
+
 // check and add algolia
 if (config.header.search && config.header.search.enabled && config.header.search.algoliaAppId && config.header.search.algoliaAdminKey) {
   plugins.push({

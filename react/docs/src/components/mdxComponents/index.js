@@ -26,47 +26,59 @@ const appendString = (children) => {
 };
 
 export default {
-  h1: (props) => (
+  h1: ({ children, ...props }) => (
     <h1
       className="heading1"
-      id={appendString(props.children).replace(/\s+/g, '').toLowerCase()}
+      id={appendString(children).replace(/\s+/g, '').toLowerCase()}
       {...props}
-    />
+    >
+      {children}
+    </h1>
   ),
-  h2: (props) => (
+  h2: ({ children, ...props }) => (
     <h2
       className="heading2"
-      id={appendString(props.children).replace(/\s+/g, '').toLowerCase()}
+      id={appendString(children).replace(/\s+/g, '').toLowerCase()}
       {...props}
-    />
+    >
+      {children}
+    </h2>
   ),
-  h3: (props) => (
+  h3: ({ children, ...props }) => (
     <h3
       className="heading3"
-      id={appendString(props.children).replace(/\s+/g, '').toLowerCase()}
+      id={appendString(children).replace(/\s+/g, '').toLowerCase()}
       {...props}
-    />
+    >
+      {children}
+    </h3>
   ),
-  h4: (props) => (
+  h4: ({ children, ...props }) => (
     <h4
       className="heading4"
-      id={appendString(props.children).replace(/\s+/g, '').toLowerCase()}
+      id={appendString(children).replace(/\s+/g, '').toLowerCase()}
       {...props}
-    />
+    >
+      {children}
+    </h4>
   ),
-  h5: (props) => (
+  h5: ({ children, ...props }) => (
     <h5
       className="heading5"
-      id={appendString(props.children).replace(/\s+/g, '').toLowerCase()}
+      id={appendString(children).replace(/\s+/g, '').toLowerCase()}
       {...props}
-    />
+    >
+      {children}
+    </h5>
   ),
-  h6: (props) => (
+  h6: ({ children, ...props }) => (
     <h6
       className="heading6"
-      id={appendString(props.children).replace(/\s+/g, '').toLowerCase()}
+      id={appendString(children).replace(/\s+/g, '').toLowerCase()}
       {...props}
-    />
+    >
+      {children}
+    </h6>
   ),
   p: (props) => <p className="paragraph" {...props} />,
   pre: (props) => (

@@ -6,7 +6,7 @@ title: '第13章　その他のHooks関数'
 
 # useRef
 
-```js
+```tsx
 const ref = useRef(initialVal);
 ```
 
@@ -17,10 +17,10 @@ NOTE: ミュータブル（mutable）とイミュータブル（immutable）と�
 ミュータブルは、変更可能な変数、イミュータブルは変更不可な変数の意味で使われます。
 ```
 
-```js
+```tsx
 // e.g.
 
-const ref = useRef < boolean > false;
+const ref = useRef<boolean>(false);
 console.log(ref.current); // false
 
 ref.current = true;
@@ -47,7 +47,7 @@ console.log(ref.current); // true
 $ TARGET=C13/Q1 npm run dev
 ```
 
-```js
+```tsx
 const ChildComponent: FC = () => {
   // TODO
 
@@ -71,7 +71,12 @@ function App() {
   return <ChildComponent />;
 }
 
-createRoot(document.getElementById("root")!).render(<App />);
+createRoot(document.getElementById('root')!).render(<App />);
+```
+
+```
+NOTE:
+useRefで宣言した値を変更しても再レンダリングされないため、useRefで宣言した値を画面表示で使うことはバグの原因になります。
 ```
 
 ## 【課題 13-2】 CountDown
@@ -82,7 +87,7 @@ Start ボタンを押すと、
 
 注意： `let`は使わないでください。
 
-```js
+```tsx
 const INIT_COUNT = 10;
 
 function CountDown() {
@@ -120,7 +125,7 @@ function CountDown() {
   );
 }
 
-createRoot(document.getElementById("root")!).render(<CountDown />);
+createRoot(document.getElementById('root')!).render(<CountDown />);
 ```
 
 ```bash

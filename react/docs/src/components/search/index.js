@@ -1,29 +1,15 @@
 import React, { useState, useEffect, createRef } from 'react';
-import {
-  InstantSearch,
-  Index,
-  Hits,
-  Configure,
-  Pagination,
-  connectStateResults,
-} from 'react-instantsearch-dom';
+import { InstantSearch, Index, Hits, Configure, useInstantSearch } from 'react-instantsearch';
 import algoliasearch from 'algoliasearch/lite';
 import config from '../../../config.js';
 
 import styled from '@emotion/styled';
-import { css } from '@emotion/react';
 import { PoweredBy } from './styles';
-import { Search } from '@styled-icons/fa-solid/Search';
 import Input from './input';
 import * as hitComps from './hitComps';
 
-const SearchIcon = styled(Search)`
-  width: 1em;
-  pointer-events: none;
-`;
-
 const HitsWrapper = styled.div`
-  display: ${props => (props.show ? `grid` : `none`)};
+  display: ${(props) => (props.show ? `grid` : `none`)};
   max-height: 80vh;
   overflow: scroll;
   z-index: 2;
@@ -44,15 +30,15 @@ const HitsWrapper = styled.div`
     width: 100%;
     max-width: 500px;
   }
-  border-radius: ${props => props.theme.smallBorderRadius};
+  border-radius: ${(props) => props.theme.smallBorderRadius};
   > * + * {
     padding-top: 1em !important;
-    border-top: 2px solid ${props => props.theme.darkGray};
+    border-top: 2px solid ${(props) => props.theme.darkGray};
   }
   li + li {
     margin-top: 0.7em;
     padding-top: 0.7em;
-    border-top: 1px solid ${props => props.theme.lightGray};
+    border-top: 1px solid ${(props) => props.theme.lightGray};
   }
   * {
     margin-top: 0;
@@ -63,8 +49,8 @@ const HitsWrapper = styled.div`
     list-style: none;
   }
   mark {
-    color: ${props => props.theme.lightBlue};
-    background: ${props => props.theme.darkBlue};
+    color: ${(props) => props.theme.lightBlue};
+    background: ${(props) => props.theme.darkBlue};
   }
   header {
     display: flex;
@@ -72,9 +58,9 @@ const HitsWrapper = styled.div`
     margin-bottom: 0.3em;
     h3 {
       color: black;
-      background: ${props => props.theme.gray};
+      background: ${(props) => props.theme.gray};
       padding: 0.1em 0.4em;
-      border-radius: ${props => props.theme.smallBorderRadius};
+      border-radius: ${(props) => props.theme.smallBorderRadius};
     }
   }
   h3 {
@@ -96,14 +82,23 @@ const Root = styled.div`
   }
 `;
 
-const Results = connectStateResults(
-  ({ searching, searchState: state, searchResults: res }) =>
-    (searching && `Searching...`) || (res && res.nbHits === 0 && `No results for '${state.query}'`)
-);
+const Results = () => {
+  const { status, results, indexUiState } = useInstantSearch();
+
+  if (status === `loading`) {
+    return `Searching...`;
+  }
+
+  if (results?.nbHits === 0) {
+    return `No results for '${indexUiState.query}'`;
+  }
+
+  return null;
+};
 
 const useClickOutside = (ref, handler, events) => {
   if (!events) events = [`mousedown`, `touchstart`];
-  const detectClickOutside = event =>
+  const detectClickOutside = (event) =>
     ref && ref.current && !ref.current.contains(event.target) && handler();
 
   useEffect(() => {
@@ -128,6 +123,7 @@ export default function SearchComponent({ indices, collapse, hitsAsGrid }) {
 
   useClickOutside(ref, () => setFocus(false));
   const displayResult = query.length > 0 && focus ? 'showResults' : 'hideResults';
+
   return (
     <InstantSearch
       searchClient={searchClient}
@@ -141,11 +137,11 @@ export default function SearchComponent({ indices, collapse, hitsAsGrid }) {
         show={query.length > 0 && focus}
         asGrid={hitsAsGrid}
       >
-        {indices.map(({ name, title, hitComp, type }) => {
+        {indices.map(({ name, hitComp }) => {
           return (
             <Index key={name} indexName={name}>
               <Results />
-              <Hits hitComponent={hitComps[hitComp](() => setFocus(false))} />
+              <Hits hitComponent={hitComps(hitComp)(() => setFocus(false))} />
             </Index>
           );
         })}

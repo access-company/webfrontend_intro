@@ -1,12 +1,13 @@
-import { FC, useState, useEffect } from "react";
-import { createRoot } from "react-dom/client";
+import { FC, useState, useEffect } from 'react';
+import { createRoot } from 'react-dom/client';
 
 const Counter: FC = () => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    document.title = `You cliked ${count} times`;
-  });
+    // エフェクト処理
+    document.title = `You clicked ${count} times`;
+  }, [count]); // エフェクトの依存値リスト
 
   return (
     <>
@@ -15,5 +16,4 @@ const Counter: FC = () => {
     </>
   );
 };
-
-createRoot(document.getElementById("root")!).render(<Counter />);
+createRoot(document.getElementById('root')!).render(<Counter />);

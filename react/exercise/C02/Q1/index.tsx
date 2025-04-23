@@ -4,6 +4,6 @@
 // * `createRoot(document.body).render` の引数の一部を式（関数）に置き換える
 // * 氏名を格納したオブジェクトを関数の引数に渡す
 //
-import { createRoot } from "react-dom/client";
+import { createRoot } from 'react-dom/client';
 
 createRoot(document.body).render(<h1>Hello, world!</h1>);

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ThemeProvider as EmotionThemeProvider, Global, css } from '@emotion/react';
+import { ThemeProvider as EmotionThemeProvider, Global } from '@emotion/react';
 
 import { lightTheme, darkTheme } from './index';
 import Header from '../Header';
@@ -22,7 +22,7 @@ class ThemeProvider extends React.Component {
   };
 
   toggleActiveTheme = () => {
-    this.setState(prevState => ({ isDarkThemeActive: !prevState.isDarkThemeActive }));
+    this.setState((prevState) => ({ isDarkThemeActive: !prevState.isDarkThemeActive }));
 
     window.localStorage.setItem('isDarkThemeActive', JSON.stringify(!this.state.isDarkThemeActive));
   };

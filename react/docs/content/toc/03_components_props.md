@@ -2,9 +2,11 @@
 title: 第3章　コンポーネントとprops
 ---
 
-ここでは、「**コンポーネント**」という概念を導入します。
+従来の Web アプリケーション開発では、マークアップ(HTML)とロジック(JavaScript)を別々のファイルに書くことで、関心を分離します。
 
-コンポーネントの導入を導入することで、UI を独立した、再利用できる部分に分割し、
+一方 React は、マークアップとロジックの両方を含む **コンポーネント** という単位を導入して、関心を分離します。
+
+コンポーネントを導入することで、 UI を独立した再利用できる部分に分割し、
 パーツそれぞれを分離して考えることができるようになります。
 
 # コンポーネントとは？
@@ -13,24 +15,37 @@ title: 第3章　コンポーネントとprops
 
 単純な例として、下記のような単純な関数は、コンポーネントです。
 
-```typescript
-interface Props {
-  name: string;
-}
-function Welcome(props: Props) {
+```tsx
+function Welcome(props) {
   return <h1>Hello, {props.name}</h1>;
 }
 ```
 
-つまり、React のコンポーネントはただの TypeScript の関数です。
-関数仕様は、引数`props` で任意の値を受け取り、画面上に表示したい React 要素を返します。
+つまり、React のコンポーネントはただの JavaScript の関数です。
+関数仕様は、引数 `props` で任意の値を受け取り、画面上に表示したい React 要素を返します。
 
-React では、関数のコンポーネントのことを「**関数コンポーネント（function component）**」と呼びます。
+ただの関数なので Arrow Function を使ったり、 TypeScript を用いて型をつけたりすることができます。
 
-なお、React では、ES6 クラスでもコンポーネントを定義できます。ES6 クラスで定義したコンポーネントのことを
-「**クラスコンポーネント（class component）**」と呼びます。
+```tsx
+interface Props {
+  name: string;
+}
 
-```javascript
+const Welcome = ({ name }: Props): JSX.Element => {
+  return <h1>Hello, {name}</h1>;
+};
+```
+
+`JSX.Element` は、TypeScript において JSX を返す React コンポーネントの戻り値の型を表す型です。
+
+## 関数コンポーネント vs. クラスコンポーネント
+
+React では、上記の様な関数のコンポーネントのことを **関数コンポーネント（function component）** と呼びます。
+
+また、 React では、ES6 クラスでもコンポーネントを定義できます。
+ES6 クラスで定義したコンポーネントのことを **クラスコンポーネント（class component）** と呼びます。
+
+```tsx
 import {Component} from React
 
 class Welcome extends Component {
@@ -40,38 +55,36 @@ class Welcome extends Component {
 }
 ```
 
-### 命名規則について
-
-基本的には、JS/TS の慣習に従ってください。開発案件では、コーディングルールがあらかじめ決められているので、
-そのルールに従うことになります。
-
-基本的には、下記の命名規則を使うことになります。
-
-- コンポーネント名は、「**upper camel case**」（e.g. CamelCase）
-- それ以外の変数名や関数名は、「**lower camel case**」（e.g. camelCase）
-- 定数名（固定値）は、「**snake case**」（e.g. SNAKE_CASE）
-
-### 関数コンポーネント vs. クラスコンポーネント
-
 **最新のバージョンの React は、関数コンポーネントを使った実装を推奨しています。**
 一部を除き、クラスコンポーネントを使った実装は、極力行わないようにしてください。
-後の研修で説明しますが、React Hooks API は関数コンポーネントでの利用を想定した API であるため、
+後の研修で説明しますが、 React Hooks API は関数コンポーネントでの利用を想定した API であるため、
 クラスコンポーネントを選択して実装する必要はありません。
+
+## コンポーネントの命名規則
+
+コンポーネント名は、 **upper camel case**（e.g. UpperCamelCase) で命名してください。
+これ以外の形式では動作しません。
+
+### React での開発における命名規則
+
+React 開発においては、 JavaScript/TypeScript の慣習に従ってください。
+一般的な命名規則は以下です。
+
+- 変数名や関数名は、 **lower camel case**（e.g. lowerCamelCase）
+- 定数名（固定値）は、 **snake case**（e.g. SNAKE_CASE）
+
+開発案件では、コーディングルールがあらかじめ決められているので、そのルールに従ってください。
 
 # props について
 
-コンポーネントの引数のことを、`props`と呼びます。
+コンポーネントが受け取る引数のことを `props` と呼びます。
 
-`props`は、以下の特性を持ちます。
-
-- コンポーネント自身で変更してはならない
-- 読み取り専用である
-- 親コンポーネントは props を子コンポーネントに渡すことができるが、子コンポーネントは受け取った props を修正することはできない
-
+`props` は読み取り専用であり、コンポーネント自身で変更してはいけません。
 全てのコンポーネントは、自身の `props` に対して純粋関数のように振舞わなければなりません。
+
 以下の例は、ルールに反するため、React のビルドでエラーになります。
 
-```typescript
+```tsx
 interface Props {
   name: string;
 }
@@ -81,12 +94,13 @@ function Welcome(props: Props) {
 }
 ```
 
+※ 純粋関数とは、同じ入力に対して常に同じ出力を返し、外部の状態に影響を与えない関数です。
+
 # コンポーネントを組み合わせる
 
-コンポーネントという単一の抽象化を利用することで、
-コンポーネントは自身の出力（`return`）の中で他のコンポーネントを参照できます。
+コンポーネントは自身の出力（返り値）の中で他のコンポーネントを参照できます。
 
-```typescript
+```tsx
 interface Props {
   name: string;
 }
@@ -112,18 +126,18 @@ createRoot(document.getElementById('root')!).render(<App />);
 $ TARGET=C03/Sample1 npm run dev
 ```
 
-典型的な React アプリケーションは、上記のような `App` コンポーネントをルートとして、様々なコンポーネントを組み合わせて作られます。
+典型的な React アプリケーションは、上記の例のように、 `App` コンポーネントをルートとして、様々なコンポーネントを組み合わせて作られます。
 
 # コンポーネントを分割・抽出する
 
-開発を行なっていると、コンポーネントの構造が大きくなることがあります。そうなった場合、
-コンポーネントの分割・抽出を考えることになります。
+開発を行なっていると、コンポーネントの構造が大きくなることがあります。
+そうなった場合、コンポーネントの分割・抽出を考えることになります。
 
 ## 分割・抽出前
 
-コンポーネントを分割・抽出について、下記の `Comment` コンポーネントを例に考えてみます。
+コンポーネントの分割・抽出について、下記の `Comment` コンポーネントを例に考えてみます。
 
-```typescript
+```tsx
 function formatDate(date: Date) {
   return date.toLocaleDateString();
 }
@@ -155,7 +169,7 @@ const comment = {
   text: 'I hope you enjoy learning React!',
   author: {
     name: 'Hello Kitty',
-    avatarUrl: 'https://placekitten.com/g/64/64',
+    avatarUrl: 'https://placecats.com/64/64',
   },
 };
 
@@ -169,57 +183,15 @@ createRoot(document.getElementById('root')!).render(
 $ TARGET=C03/Sample2 npm run dev
 ```
 
-どのように抽出・分割していくかは、コンポーネントの抽象度をどうするかは、アプリの構造に依存します。
+どのようにコンポーネントを抽出・分割するか、またその抽象度をどう設定するかは、アプリの構造に依存します。
 
 抽出・分割したコンポーネントが、再利用できるのであれば、積極的にコンポーネント化を進めてください。
 
 ## 分割・抽出後
 
-`Avatar`コンポーネントと`UserInfo`コンポーネントの 2 つのコンポーネントに分割・抽出しています。
+ここでは、 `userInfo` クラスを `Avatar` コンポーネントと `UserInfo` コンポーネントの 2 つのコンポーネントに分割・抽出しました。
 
-```typescript
-interface User {
-  name: string;
-  avatarUrl: string;
-}
-
-function Avatar(props: User) {
-  return <img className="Avatar" src={props.avatarUrl} alt={props.name} />;
-}
-```
-
-```typescript
-function UserInfo(props: User) {
-  return (
-    <div className="UserInfo">
-      <Avatar avatarUrl={props.avatarUrl} name={props.name} />
-      <div className="UserInfo-name">{props.name}</div>
-    </div>
-  );
-}
-```
-
-```typescript
-interface Props {
-  date: Date;
-  text: string;
-  author: User;
-}
-function Comment(props: Props) {
-  return (
-    <div className="Comment">
-      <UserInfo avatarUrl={props.author.avatarUrl} name={props.author.name} />
-      <div className="Comment-text">{props.text}</div>
-      <div className="Comment-date">{formatDate(props.date)}</div>
-    </div>
-  );
-}
-```
-
-分割・抽出後の全体のコードは下記の通りです。
-
-```javascript
-
+```tsx
 function formatDate(date: Date) {
   return date.toLocaleDateString();
 }
@@ -260,14 +232,14 @@ function Comment(props: Props) {
 
 const comment = {
   date: new Date(),
-  text: "I hope you enjoy learning React!",
+  text: 'I hope you enjoy learning React!',
   author: {
-    name: "Hello Kitty",
-    avatarUrl: "https://placekitten.com/g/64/64",
+    name: 'Hello Teddy',
+    avatarUrl: 'https://placebear.com/64/64',
   },
 };
 
-createRoot(document.getElementById("root")!).render(
+createRoot(document.getElementById('root')!).render(
   <Comment date={comment.date} text={comment.text} author={comment.author} />
 );
 ```
@@ -279,19 +251,18 @@ $ TARGET=C03/Sample3 npm run dev
 
 `Comment`コンポーネントがシンプルになりました。
 
-労力を伴う作業であるが、アプリが大きくなったときに努力に見合った利益を生み出します。
+労力を伴う作業ですが、アプリが大きくなったときに努力に見合った利益を生み出します。
 
 # 【ヒント】コンポーネントの分け方
 
 コンポーネントの分け方は、Atomic Design の考え方が参考になるでしょう。
 
-多くの開発案件で、Atomic Design が採用されています。
-
-https://bradfrost.com/blog/post/atomic-web-design/
+多くの開発案件で、[Atomic Design](https://bradfrost.com/blog/post/atomic-web-design/) が採用されています。
+また、[Bulletproof React](https://github.com/alan2207/bulletproof-react)で採用されているコンポーネントの分け方も有力です。
 
 # 【課題 3-1】Reply,Retweet,Favorite ボタンを追加してみよう！
 
-前の実装例に、「Reply」「Retweet」「Favorite」の UI を追加してください。
+前の実装例 C03/Sample3 に、「Reply」「Retweet」「Favorite」の UI を追加してください。
 
 その際、以下の要件を満たしてください。
 

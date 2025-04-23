@@ -28,15 +28,16 @@ const LoadableComponent = Loadable({
 
 /* eslint-disable react/jsx-key */
 const CodeBlock = ({ children: exampleCode, ...props }) => {
-  const [_, updateView] = React.useState(0);
+  const [, updateView] = React.useState(0);
 
   React.useEffect(() => {
     var windowPrism = window.Prism;
+
     window.Prism = Prism;
     applyLanguages(Prism);
     window.Prism = windowPrism;
     updateView({
-      data: Date.now()
+      data: Date.now(),
     });
   }, []);
 
@@ -44,9 +45,15 @@ const CodeBlock = ({ children: exampleCode, ...props }) => {
     return <LoadableComponent code={exampleCode} />;
   } else {
     return (
-      <Highlight {...defaultProps} Prism={Prism} code={exampleCode} language={(props.className)?props.className.split("-")[1] :"javascript"} theme={theme}>
+      <Highlight
+        {...defaultProps}
+        Prism={Prism}
+        code={exampleCode}
+        language={props.className ? props.className.split('-')[1] : 'javascript'}
+        theme={theme}
+      >
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
-          <pre className={className + ' pre'} style={style} p={3}>
+          <pre className={className + ' pre'} style={style}>
             {cleanTokens(tokens).map((line, i) => {
               let lineClass = {};
 
