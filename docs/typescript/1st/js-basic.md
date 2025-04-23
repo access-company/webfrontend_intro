@@ -152,8 +152,6 @@ TypeScript では以下に置き換えて型定義を行います。
 
     obj2.nonWidening = "fuga"; // コンパイルエラー Assigned expression type "fuga" is not assignable to type "hoge"
     ```
-- optional property  
-  オブジェクトプロパティをオプショナル(任意)なプロパティとして定義
 
 - optional property  
   オブジェクトプロパティをオプショナル(任意)なプロパティとして定義
