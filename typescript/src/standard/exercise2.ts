@@ -5,23 +5,23 @@
  * */
 
 // 以下のコードのコメントアウトを外して修正を行う
-{
-  const name: any = "taro";
+// {
+//   const name: any = "taro";
 
-  const price: any = 100;
+//   const price: any = 100;
 
-  const isValid: any = true;
+//   const isValid: any = true;
 
-  const items: any[] = ["hoge", "fuga", "piyo"];
+//   const items: any[] = ["hoge", "fuga", "piyo"];
 
-  const obj: { id: any; title: any } = {
-    id: 1,
-    title: "hoge",
-  };
+//   const obj: { id: any; title: any } = {
+//     id: 1,
+//     title: "hoge",
+//   };
 
-  const sum = (num1: any, num2: any): any => {
-    return num1 + num2;
-  };
+//   const sum = (num1: any, num2: any): any => {
+//     return num1 + num2;
+//   };
 
-  console.log(sum("1", "2")); // 数値の加算だけできる様にする
-}
+//   console.log(sum("1", "2")); // 数値の加算だけできる様にする
+// }
