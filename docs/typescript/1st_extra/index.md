@@ -319,7 +319,7 @@ const string = obj.foo?.bar;
 `foo` が存在しなければ `bar` を返す記述を例にすると
 
 ```ts
-// javascript での例
+// 論理演算子で書いた例
 const result = foo || bar;
 // これは以下と同義
 const result = foo ? foo : bar;
