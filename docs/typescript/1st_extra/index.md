@@ -310,7 +310,7 @@ const string = obj.foo?.bar;
 
 `/typescript/src/advanced/exercise9.ts` を解いてみてください。
 
-## Nullish Coalescing（☆☆）
+## Nullish Coalescing（☆☆☆☆）
 
 短絡評価を null と undefined に制限して評価する記法です。  
 `??` を用いて表現します。
