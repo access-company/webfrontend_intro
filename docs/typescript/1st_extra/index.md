@@ -21,7 +21,7 @@
 
 `?` を用いる事でパラメータを省略可能であると表せます。  
 optional なパラメータは required なパラメータの最後に記述しなければなりません。  
-optional なパラメータは実質 `undefined` との Union Types となります
+optionalなパラメータが省略された場合は `undefined` が入ります。
 
 ```ts
 function log(message: string, userName?: string): void {
@@ -66,7 +66,8 @@ TypeScript の型システムを使用すると、さまざまな演算子を使
 ### Union-Types（☆☆☆）
 
 値が複数の型のどれかに当てはまるような型を表します。  
-`|` で繋いで表現をします。
+`|` で繋いで表現をします。  
+Optional Parameters は実質 `undefined` との Union Types と言えます。
 
 ```ts
 let value: string | number; // value は文字列型か数値型を持つ
