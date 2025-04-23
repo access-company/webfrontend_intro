@@ -11,10 +11,11 @@
 
 - Microsoft が開発した静的型付け言語
   - 静的型付け
+    - 変数や関数に入ってくる値について、コンパイルやプログラムの実行よりも前に型があらかじめ決められている形態のこと
+      <img src="static_typing.png" width="600px" style="border: 1px solid"/>
+  - 動的型付け
+    - 変数や関数に入ってくる値について、コンパイルやプログラムの実行よりも前に型を決めずに実行時に型の決定が行われる形態のこと
     - JavaScript は動的型付け言語
-
-      <img src='static_typing.png' width="600px" style="border: 1px solid"/>
-
   - JavaScript のスーパーセット
 - 簡単に言うと JavaScript に型を付けた言語
   - TypeScript から型情報を取り除くと JavaScript となる
@@ -59,7 +60,7 @@ sum("1", 2); // コンパイルエラー (Argument of type 'string' is not assig
 ## トランスパイラ
 
 <section style="text-align: center;">
-  <img src='transpile.png' width="600px" style="border: 1px solid; text-align: center;"/>
+  <img src="transpile.png" width="600px" style="border: 1px solid; text-align: center;"/>
 </section>
 
 - TypeScript は JavaScript にコンパイルしてから実行をする必要がある
