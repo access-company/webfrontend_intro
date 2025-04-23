@@ -181,9 +181,9 @@ const obj2: Foo<number, string> = {
 
 ### Mapped-Types（☆）
 
-(半)動的に型を生成出来ます。  
+キーの型と値の型からオブジェクトの型を生成できます。  
 `{[P in K]: T}` のようにして表現します。  
-`K` は string の部分型である必要があります。
+`K` は string・number・symbol の部分型である必要があります。
 
 ```ts
 type Hoge = { [P in "foo" | "bar"]: string };
