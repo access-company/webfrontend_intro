@@ -21,7 +21,7 @@
 
 `?` を用いる事でパラメータを省略可能であると表せます。  
 optional なパラメータは required なパラメータの最後に記述しなければなりません。  
-optionalなパラメータが省略された場合は `undefined` が入ります。
+optional なパラメータが省略された場合は `undefined` が入ります。
 
 ```ts
 function log(message: string, userName?: string): void {
