@@ -3,17 +3,17 @@
 // TODO: Q1. 型定義をする
 // ブックマークの基本情報
 interface BookmarkRecord {
-  id: string
-  createdAt: Date
+  id: string;
+  createdAt: Date;
 }
 
 interface BookmarkResource {
-  title: string
-  url: string
+  title: string;
+  url: string;
 }
 
 interface BookmarkOptionalInfo {
-  category?: string
+  category?: string;
 }
 
 // TODO: Q2. インターフェースの継承を使ってみる
@@ -23,103 +23,105 @@ interface Bookmark
     BookmarkOptionalInfo {}
 
 // ストレージキー
-const STORAGE_KEY = 'bookmark_list'
+const STORAGE_KEY = 'bookmark_list';
 
 // DOM要素の作成
 const createElement = <T extends HTMLElement>(
   tag: string,
   options: Partial<T> = {}
 ): T => {
-  const element = document.createElement(tag) as T
-  Object.assign(element, options)
-  return element
-}
+  const element = document.createElement(tag) as T;
+  Object.assign(element, options);
+  return element;
+};
 
 // DOM要素の取得
-const bookmarkForm = document.getElementById('bookmark-form') as HTMLFormElement
-const titleInput = document.getElementById('title') as HTMLInputElement
-const urlInput = document.getElementById('url') as HTMLInputElement
-const categoryInput = document.getElementById('category') as HTMLInputElement
+const bookmarkForm = document.getElementById(
+  'bookmark-form'
+) as HTMLFormElement;
+const titleInput = document.getElementById('title') as HTMLInputElement;
+const urlInput = document.getElementById('url') as HTMLInputElement;
+const categoryInput = document.getElementById('category') as HTMLInputElement;
 const bookmarkList = document.getElementById(
   'bookmark-list'
-) as HTMLUListElement
+) as HTMLUListElement;
 
 // TODO: Q3. オプショナルチェーンを使って、リファクタリングしてみる
 // localStorage からデータを読み込む関数
 const loadBookmarks = (): Bookmark[] =>
   JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]', (key, value) =>
     key === 'createdAt' ? new Date(value) : value
-  )
+  );
 
 // ブックマークを保存する
 const saveBookmarks = (bookmarks: Bookmark[]): void =>
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(bookmarks))
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(bookmarks));
 
 // カテゴリーの描画
 const renderCategory = (category: string, parent: HTMLElement) => {
   const span = createElement<HTMLSpanElement>('span', {
     textContent: ` [${category}]`,
-  })
-  parent.appendChild(span)
-}
+  });
+  parent.appendChild(span);
+};
 
 // TODO: Q4. 登録日を表示してみる
 const renderRegistrationDate = (createdAt: Date, parent: HTMLElement) => {
   const small = createElement<HTMLElement>('small', {
     textContent: ` (${createdAt.toLocaleString()})`,
-  })
-  parent.appendChild(small)
-}
+  });
+  parent.appendChild(small);
+};
 
 // TODO: Q5. 削除ボタンを作成してみる
 const renderDeleteButton = (bookmarkId: string, parent: HTMLElement) => {
   const deleteBtn = createElement<HTMLButtonElement>('button', {
     textContent: '削除',
-  })
-  deleteBtn.style.marginLeft = '10px'
+  });
+  deleteBtn.style.marginLeft = '10px';
   deleteBtn.addEventListener('click', () => {
-    const updatedBookmarks = bookmarks.filter((b) => b.id !== bookmarkId)
-    saveBookmarks(updatedBookmarks)
-    renderBookmarks(updatedBookmarks)
-  })
-  parent.appendChild(deleteBtn)
-}
+    const updatedBookmarks = bookmarks.filter((b) => b.id !== bookmarkId);
+    saveBookmarks(updatedBookmarks);
+    renderBookmarks(updatedBookmarks);
+  });
+  parent.appendChild(deleteBtn);
+};
 
 // TODO: Q6. forEachを使って、ブックマークを表示してみる
 // ブックマークを一覧表示する
 const renderBookmarks = (bookmarks: Bookmark[]): void => {
-  bookmarkList.innerHTML = ''
+  bookmarkList.innerHTML = '';
   bookmarks.forEach((bookmark) => {
-    const listItem = createElement<HTMLLIElement>('li')
+    const listItem = createElement<HTMLLIElement>('li');
     const link = createElement<HTMLAnchorElement>('a', {
       href: bookmark.url,
       target: '_blank',
       textContent: bookmark.title,
-    })
+    });
 
-    listItem.appendChild(link)
-    bookmark.category && renderCategory(bookmark.category, listItem)
-    renderRegistrationDate(bookmark.createdAt, listItem)
-    renderDeleteButton(bookmark.id, listItem)
+    listItem.appendChild(link);
+    bookmark.category && renderCategory(bookmark.category, listItem);
+    renderRegistrationDate(bookmark.createdAt, listItem);
+    renderDeleteButton(bookmark.id, listItem);
 
-    bookmarkList.appendChild(listItem)
-  })
-}
+    bookmarkList.appendChild(listItem);
+  });
+};
 
 // 入力フォームのクリア
 const clearInputForm = () => {
-  ;[titleInput, urlInput, categoryInput].forEach((input) => (input.value = ''))
-}
+  [titleInput, urlInput, categoryInput].forEach((input) => (input.value = ''));
+};
 
 // フォーム送信時の処理
 bookmarkForm.addEventListener('submit', (event) => {
-  event.preventDefault()
+  event.preventDefault();
 
-  const title = titleInput.value.trim()
-  const url = urlInput.value.trim()
-  const category = categoryInput.value.trim()
+  const title = titleInput.value.trim();
+  const url = urlInput.value.trim();
+  const category = categoryInput.value.trim();
 
-  if (!title || !url) return
+  if (!title || !url) return;
 
   // TODO: Q7. 新しいブックマークの作成をしてみる
   const newBookmark: Bookmark = {
@@ -128,15 +130,15 @@ bookmarkForm.addEventListener('submit', (event) => {
     url,
     category: category || undefined,
     createdAt: new Date(),
-  }
+  };
 
   // TODO: Q8. ブックマークの更新をしてみる
-  const updatedBookmarks = [...bookmarks, newBookmark]
-  saveBookmarks(updatedBookmarks)
-  renderBookmarks(updatedBookmarks)
-  clearInputForm()
-})
+  const updatedBookmarks = [...bookmarks, newBookmark];
+  saveBookmarks(updatedBookmarks);
+  renderBookmarks(updatedBookmarks);
+  clearInputForm();
+});
 
 // 初期化
-const bookmarks = loadBookmarks()
-document.addEventListener('DOMContentLoaded', () => renderBookmarks(bookmarks))
+const bookmarks = loadBookmarks();
+document.addEventListener('DOMContentLoaded', () => renderBookmarks(bookmarks));
