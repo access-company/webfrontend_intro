@@ -46,12 +46,14 @@ const bookmarkList = document.getElementById(
   'bookmark-list'
 ) as HTMLUListElement;
 
-// TODO: Q3. オプショナルチェーンを使って、リファクタリングしてみる
+// TODO: Q3. 三項演算子を使って、リファクタリングしてみる
 // localStorage からデータを読み込む関数
-const loadBookmarks = (): Bookmark[] =>
-  JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]', (key, value) =>
-    key === 'createdAt' ? new Date(value) : value
-  );
+const loadBookmarks = (): Bookmark[] => {
+  const data = localStorage.getItem(STORAGE_KEY)
+  return data === null 
+    ? []
+    : JSON.parse(data, (key, value) => (key === 'createdAt' ? new Date(value) : value))
+}
 
 // ブックマークを保存する
 const saveBookmarks = (bookmarks: Bookmark[]): void =>
