@@ -93,6 +93,8 @@ const renderDeleteButton = (bookmarkId: string, parent: HTMLElement) => {
 // ブックマークを一覧表示する
 const renderBookmarks = (bookmarks: Bookmark[]): void => {
   bookmarkList.innerHTML = '';
+  const fragment = document.createDocumentFragment();
+
   bookmarks.forEach((bookmark) => {
     const listItem = createElement<HTMLLIElement>('li');
     const link = createElement<HTMLAnchorElement>('a', {
@@ -106,8 +108,10 @@ const renderBookmarks = (bookmarks: Bookmark[]): void => {
     renderRegistrationDate(bookmark.createdAt, listItem);
     renderDeleteButton(bookmark.id, listItem);
 
-    bookmarkList.appendChild(listItem);
+    fragment.appendChild(listItem);
   });
+
+  bookmarkList.appendChild(fragment);
 };
 
 // 入力フォームのクリア

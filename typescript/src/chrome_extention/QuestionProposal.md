@@ -103,6 +103,7 @@ const renderDeleteButton = (bookmarkId: string, parent: HTMLElement) => {
 // ブックマークを一覧表示する関数
 const renderBookmarks = (bookmarks: Bookmark[]): void => {
   bookmarkList.innerHTML = '';
+  const fragment = document.createDocumentFragment();
   // TODO forEachを使ってブックマークリストの要素を表示してみよう
   bookmarks.forEach((bookmark) => {
     // タイトルとURLのリンクを作成
@@ -119,7 +120,7 @@ const renderBookmarks = (bookmarks: Bookmark[]): void => {
 
     // TODO 削除ボタンの作成
 
-    bookmarkList.appendChild(title);
+    bookmarkList.appendChild(fragment);
   });
 };
 ```
