@@ -69,12 +69,12 @@
 
 // // TODO: Q5. 削除ボタンを作成してみる
 // const renderDeleteButton = (bookmarkId: string, parent: HTMLElement) => {
-//   const deleteBtn = createElement<HTMLButtonElement>('button', {
+//   const deleteButton = createElement<HTMLButtonElement>('button', {
 //     textContent: '削除',
 //   })
-//   deleteBtn.style.marginLeft = '10px'
-//   deleteBtn.addEventListener('click', () => {})
-//   parent.appendChild(deleteBtn)
+//   deleteButton.style.marginLeft = '10px'
+//   deleteButton.addEventListener('click', () => {})
+//   parent.appendChild(deleteButton)
 // }
 
 // // TODO: Q6. forEachを使って、ブックマークを表示してみる

@@ -85,12 +85,13 @@ const renderRegistrationDate = (createdAt: Date, title: HTMLElement) => {};
 `addEventListener` を用いて、削除ボタンの機能を作成してください。
 
 ```ts
-const createDeleteButton = (bookmarkId: number, title: HTMLElement) => {
-  const deleteBtn = document.createElement('button');
-  deleteBtn.textContent = '削除';
-  deleteBtn.style.marginLeft = '10px';
-  deleteBtn.addEventListener('click', () => {});
-  title.appendChild(deleteBtn);
+const renderDeleteButton = (bookmarkId: string, parent: HTMLElement) => {
+  const deleteButton = createElement<HTMLButtonElement>('button', {
+    textContent: '削除',
+  });
+  deleteButton.style.marginLeft = '10px';
+  deleteButton.addEventListener('click', () => {});
+  parent.appendChild(deleteButton);
 };
 ```
 

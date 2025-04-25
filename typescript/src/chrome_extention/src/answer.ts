@@ -75,16 +75,18 @@ const renderRegistrationDate = (createdAt: Date, parent: HTMLElement) => {
 
 // TODO: Q5. 削除ボタンを作成してみる
 const renderDeleteButton = (bookmarkId: string, parent: HTMLElement) => {
-  const deleteBtn = createElement<HTMLButtonElement>('button', {
+  const deleteButton = createElement<HTMLButtonElement>('button', {
     textContent: '削除',
   });
-  deleteBtn.style.marginLeft = '10px';
-  deleteBtn.addEventListener('click', () => {
-    const updatedBookmarks = bookmarks.filter((b) => b.id !== bookmarkId);
+  deleteButton.style.marginLeft = '10px';
+  deleteButton.addEventListener('click', () => {
+    const updatedBookmarks = bookmarks.filter(
+      (bookmark) => bookmark.id !== bookmarkId
+    );
     saveBookmarks(updatedBookmarks);
     renderBookmarks(updatedBookmarks);
   });
-  parent.appendChild(deleteBtn);
+  parent.appendChild(deleteButton);
 };
 
 // TODO: Q6. forEachを使って、ブックマークを表示してみる
