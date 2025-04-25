@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ブックマーク管理</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        padding: 10px;
+        min-width: 300px;
+      }
+      form {
+        margin-bottom: 10px;
+      }
+      input,
+      button {
+        padding: 5px;
+        margin-right: 5px;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+        max-height: 300px;
+        overflow-y: auto;
+      }
+      li {
+        margin-bottom: 5px;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 3px;
+      }
+      li a {
+        color: blue;
+        text-decoration: none;
+      }
+      li a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>ブックマーク管理</h2>
+    <form id="bookmark-form">
+      <input type="text" id="title" placeholder="タイトル" required />
+      <input type="url" id="url" placeholder="URL" required />
+      <input type="text" id="category" placeholder="カテゴリ（任意）" />
+      <button type="submit">追加</button>
+    </form>
+    <ul id="bookmark-list"></ul>
+
+    <script src="dist/app.js"></script>
+  </body>
+</html>
