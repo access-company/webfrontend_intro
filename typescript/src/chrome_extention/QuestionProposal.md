@@ -107,21 +107,24 @@ const renderBookmarks = (bookmarks: Bookmark[]): void => {
   // TODO forEachを使ってブックマークリストの要素を表示してみよう
   bookmarks.forEach((bookmark) => {
     // タイトルとURLのリンクを作成
-    const title = document.createElement('li');
-    const link = document.createElement('a');
-    link.href = bookmark.url;
-    link.target = '_blank';
-    link.textContent = bookmark.title;
-    title.appendChild(link);
+    const listItem = createElement<HTMLLIElement>('li');
+    const link = createElement<HTMLAnchorElement>('a', {
+      href: bookmark.url,
+      target: '_blank',
+      textContent: bookmark.title,
+    });
 
+    listItem.appendChild(link);
     // TODO カテゴリがあったらカテゴリを表示してみよう
 
     // TODO 登録日時の表示
 
     // TODO 削除ボタンの作成
 
-    bookmarkList.appendChild(fragment);
+    fragment.appendChild(listItem);
   });
+
+  bookmarkList.appendChild(fragment);
 };
 ```
 
