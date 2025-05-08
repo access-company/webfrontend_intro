@@ -140,7 +140,8 @@ id にランダムな UUID、createdAt には Date 関数を用いて、新し�
 
 ```ts
 // 新しいブックマークの作成
-const newBookmark: Bookmark = {};
+const createBookmark = (): Bookmark => ({
+})
 ```
 
 ## Q8. ブックマークの更新をしてみる

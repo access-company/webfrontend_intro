@@ -49,11 +49,13 @@ const bookmarkList = document.getElementById(
 // TODO: Q3. 三項演算子を使って、リファクタリングしてみる
 // localStorage からデータを読み込む関数
 const loadBookmarks = (): Bookmark[] => {
-  const data = localStorage.getItem(STORAGE_KEY)
-  return data === null 
+  const data = localStorage.getItem(STORAGE_KEY);
+  return data === null
     ? []
-    : JSON.parse(data, (key, value) => (key === 'createdAt' ? new Date(value) : value))
-}
+    : JSON.parse(data, (key, value) =>
+        key === 'createdAt' ? new Date(value) : value
+      );
+};
 
 // ブックマークを保存する
 const saveBookmarks = (bookmarks: Bookmark[]): void =>
@@ -121,6 +123,19 @@ const clearInputForm = () => {
   [titleInput, urlInput, categoryInput].forEach((input) => (input.value = ''));
 };
 
+//TODO: Q7. 新しいブックマークの作成をしてみる
+const createBookmark = (
+  title: string,
+  url: string,
+  category?: string
+): Bookmark => ({
+  id: crypto.randomUUID(),
+  title,
+  url,
+  category,
+  createdAt: new Date(),
+});
+
 // フォーム送信時の処理
 bookmarkForm.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -131,14 +146,7 @@ bookmarkForm.addEventListener('submit', (event) => {
 
   if (!title || !url) return;
 
-  // TODO: Q7. 新しいブックマークの作成をしてみる
-  const newBookmark: Bookmark = {
-    id: crypto.randomUUID(),
-    title,
-    url,
-    category: category || undefined,
-    createdAt: new Date(),
-  };
+  const newBookmark = createBookmark(title, url, category);
 
   // TODO: Q8. ブックマークの更新をしてみる
   const updatedBookmarks = [...bookmarks, newBookmark];
