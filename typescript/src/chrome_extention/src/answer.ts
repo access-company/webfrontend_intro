@@ -157,4 +157,4 @@ bookmarkForm.addEventListener('submit', (event) => {
 
 // 初期化
 const bookmarks = loadBookmarks();
-document.addEventListener('DOMContentLoaded', () => renderBookmarks(bookmarks));
+renderBookmarks(bookmarks);
