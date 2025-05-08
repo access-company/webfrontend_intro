@@ -16,7 +16,7 @@ $ npm i
   - standard: 基礎演習
   - advanced: 応用演習
   - sp: 時間が余った用総復習問題
-  - chrome_extention: 時間が余った用自由課題
+  - chrome_extension: 時間が余った用自由課題
 
 ## 動作確認
 
