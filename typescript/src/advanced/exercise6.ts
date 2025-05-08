@@ -1,16 +1,20 @@
 /*
-* 以下の コードが実行できるように修正してください
-* func() 関数は引数を optional で受け取れるものとする
+* 以下の `Detail` 型を、 `Mapped Type` を用いて全て optional なパラメータを持つ型にしてください。
 * */
 
 // 以下のコードのコメントアウトを外して修正を行う
 // {
-//   const func = (num: number): number => {
-//     if (!num) {
-//       return 0
-//     }
-//     return num
+//   type Detail = {
+//     address: string
+//     gender: boolean
+//     age: number
 //   }
-//   console.log(func()) // 0
-//   console.log(func(10)) // 10
+  
+//   type OptionalDetail = // ここに Detail のパラメータを全て optional にする処理を記述
+  
+//   const optionalDetail: OptionalDetail = {
+//     age: 22
+//   }
+  
+//   console.log(optionalDetail.age)
 // }

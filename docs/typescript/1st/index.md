@@ -11,6 +11,10 @@
 
 - Microsoft が開発した静的型付け言語
   - 静的型付け
+    - 変数や関数に入ってくる値について、コンパイルやプログラムの実行よりも前に型があらかじめ決められている形態のこと
+      <img src="static_typing.png" width="600px" style="border: 1px solid"/>
+  - 動的型付け
+    - 変数や関数に入ってくる値について、コンパイルやプログラムの実行よりも前に型を決めずに実行時に型の決定が行われる形態のこと
     - JavaScript は動的型付け言語
   - JavaScript のスーパーセット
 - 簡単に言うと JavaScript に型を付けた言語
@@ -55,6 +59,10 @@ sum("1", 2); // コンパイルエラー (Argument of type 'string' is not assig
 
 ## トランスパイラ
 
+<section style="text-align: center;">
+  <img src="transpile.png" width="600px" style="border: 1px solid; text-align: center;"/>
+</section>
+
 - TypeScript は JavaScript にコンパイルしてから実行をする必要がある
   - コンパイル: ある言語で記述されたソースコードを取得し、他の言語で（または多数の）出力ファイルを生成するプログラムを説明する包括的な用語
   - トランスパイル: ソースコードファイルを取り込み、それを他の言語または異なるバージョンの別のソースコードファイルに変換するコンパイラのサブセット( 今回の場合は TypeScript -> JavaScript のイメージ)
@@ -70,7 +78,7 @@ sum("1", 2); // コンパイルエラー (Argument of type 'string' is not assig
 - tsc
   - Microsoft 純正の TypeScript トランスパイラ
   - 最新バージョンの TypeScript に対応したり、言語すべての機能を利用することができる
-  - es2015以前の ES への互換性は低い
+  - es2015 以前の ES への互換性は低い
   - `--noEmit` option で型チェックのみを行うことも可能
 - webpack
   - ts-loader を使い TypeScript をトランスパイル可能
@@ -87,7 +95,7 @@ sum("1", 2); // コンパイルエラー (Argument of type 'string' is not assig
   - typeScript のトランスパイルには `@babel/preset-typescript` が必要
   - TypeScript の一部機能が制限される
   - 旧 ES への変換が優秀
-    - IEにどうしても対応するなど
+    - IE にどうしても対応するなど
 
 </details>
 

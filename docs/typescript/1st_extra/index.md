@@ -2,29 +2,72 @@
 
 ## 目次
 
+- [Optional and Default Parameters](#Optional-and-Default-Parameters)
+  - [Optional Parameters](#Optional-Parameters)
+  - [Default Parameters](#Default-Parameters)
 - [Basic Types](#Basic-Types)
   - [Union Type](#Union-Types)
   - [Intersection Type](#Intersection-Types)
     - [Mapped Type](#mapped-types)
     - [Conditional Type](#conditional-types)
     - [Generics](#generics)
-- [先行して使える構文](#先行して使える構文)
-  - [Optional and Default Parameters](#Optional-and-Default-Parameters)
-    - [Optional Parameters](#Optional-Parameters)
-    - [Default Parameters](#Default-Parameters)
-  - [Non-null assertion](#Non-null-assertion)
-  - [Optional Chaining](#Optional-Chaining)
-  - [Nullish Coalescing](#Nullish-Coalescing)
+- [Non-null assertion](#Non-null-assertion)
+- [Optional Chaining](#Optional-Chaining)
+- [Nullish Coalescing](#Nullish-Coalescing)
+
+## Optional-and-Default-Parameters
+
+### Optional Parameters（☆☆☆☆☆）
+
+`?` を用いる事でパラメータを省略可能であると表せます。  
+optional なパラメータは required なパラメータの最後に記述しなければなりません。  
+optional なパラメータが省略された場合は `undefined` が入ります。
+
+```ts
+function log(message: string, userName?: string): void {
+  if (!userName) {
+    console.log(`guest: ${message}`);
+  }
+  console.log(`${userName}: ${message}`);
+}
+
+log("hello"); // OK -> guest: hello
+log("hello", "taro"); // OK -> taro: hello
+```
+
+#### 演習問題
+
+`/typescript/src/advanced/exercise1.ts` を解いてみてください。
+
+### Default Parameters（☆☆☆）
+
+関数の引数の後に `= ***` で引数のデフォルト値を指定出来ます。  
+関数の引数の場合、デフォルトパラメータを指定しておく場合も多いです。  
+デフォルトパラメータを指定する場合、順序に決まりはありません。
+
+```ts
+function log(message: string, userName: string = "guest"): void {
+  console.log(`${userName}: ${message}`);
+}
+
+log("hello"); // OK -> guest: hello
+log("hello", "jiro"); // OK -> jiro: hello
+```
+
+#### 演習問題
+
+`/typescript/src/advanced/exercise2.ts` を解いてみてください。
 
 ## Basic-Types
 
 TypeScript の型システムを使用すると、さまざまな演算子を使用して、既存の型から新しい型を構築できます。  
 いくつかピックアップして解説していきます。
 
-### Union-Types
+### Union-Types（☆☆☆）
 
 値が複数の型のどれかに当てはまるような型を表します。  
-`|` で繋いで表現をします。
+`|` で繋いで表現をします。  
+Optional Parameters は実質 `undefined` との Union Types と言えます。
 
 ```ts
 let value: string | number; // value は文字列型か数値型を持つ
@@ -36,9 +79,9 @@ value = true; // コンパイルエラー
 
 #### 演習問題
 
-`/typescript/src/advanced/exercise1.ts` を解いてみてください。
+`/typescript/src/advanced/exercise3.ts` を解いてみてください。
 
-### Intersection-Types
+### Intersection-Types（☆☆☆）
 
 指定した型の両方を満たす型を表します。  
 `&` で繋いで表現をします。
@@ -68,7 +111,7 @@ const obj2: Hoge & Fuga = {
 
 #### 演習問題
 
-`/typescript/src/advanced/exercise2.ts` を解いてみてください。
+`/typescript/src/advanced/exercise4.ts` を解いてみてください。
 
 <details><summary>Advanced</summary>
 
@@ -106,7 +149,7 @@ const obj2: THoge & TFuga = {
 
 </details>
 
-### Generics
+### Generics（☆☆）
 
 型定義の中で型変数を持てます。  
 名前の後に `< >` で囲った名前の列を与えて表現をします。
@@ -125,7 +168,7 @@ const obj1: Foo<string, number> = {
 const obj2: Foo<number, string> = {
   foo: 2,
   bar: "foo",
-}
+};
 ```
 
 上記コードのようにすると、 `Foo` は２つの型変数 `S`, `T` を持ち、 `foo` , `bar` が型変数 `S`, `T` の型となる object の型を表します。  
@@ -134,18 +177,18 @@ const obj2: Foo<number, string> = {
 
 #### 演習問題
 
-`/typescript/src/advanced/exercise3.ts` を解いてみてください。
+`/typescript/src/advanced/exercise5.ts` を解いてみてください。
 
-### Mapped-Types
+### Mapped-Types（☆）
 
-(半)動的に型を生成出来ます。  
+キーの型と値の型からオブジェクトの型を生成できます。  
 `{[P in K]: T}` のようにして表現します。  
-`K` は string の部分型である必要があります。
+`K` は string・number・symbol の部分型である必要があります。
 
 ```ts
 type Hoge = { [P in "foo" | "bar"]: string };
 
-const obj = {
+const obj: Hoge = {
   foo: "taro",
   bar: "jiro",
 };
@@ -156,7 +199,7 @@ const obj = {
 
 #### 演習問題
 
-`/typescript/src/advanced/exercise4.ts` を解いてみてください。
+`/typescript/src/advanced/exercise6.ts` を解いてみてください。
 
 <details><summary>Advanced</summary>
 
@@ -175,7 +218,7 @@ type OptionalHoge = Partial<Hoge>; // { foo?: string, bar?: number }
 
 </details>
 
-### Conditional-Types
+### Conditional-Types（☆）
 
 型レベルの条件分岐が可能な型です。  
 `T extends U ? X : Y` のようにして表現します。  
@@ -216,54 +259,9 @@ type Diff = "name";
 
 #### 演習問題
 
-`/typescript/src/advanced/exercise5.ts` を解いてみてください。
-
-## 先行して使える構文
-
-### Optional-and-Default-Parameters
-
-#### Optional Parameters
-
-`?` を用いる事でパラメータを省略可能であると表せます。  
-optional なパラメータは required なパラメータの最後に記述しなければなりません。  
-optional なパラメータは実質 `undefined` との Union Types となります
-
-```ts
-function log(message: string, userName?: string): void {
-  if (!userName) {
-    console.log(`guest: ${message}`);
-  }
-  console.log(`${userName}: ${message}`);
-}
-
-log("hello"); // OK -> guest: hello
-log("hello", "taro"); // OK -> taro: hello
-```
-
-##### 演習問題
-
-`/typescript/src/advanced/exercise6.ts` を解いてみてください。
-
-#### Default Parameters
-
-関数の引数の後に `= ***` で引数のデフォルト値を指定出来ます。  
-関数の引数の場合、デフォルトパラメータを指定しておく場合も多いです。  
-デフォルトパラメータを指定する場合、順序に決まりはありません。
-
-```ts
-function log(message: string, userName: string = "guest"): void {
-  console.log(`${userName}: ${message}`);
-}
-
-log("hello"); // OK -> guest: hello
-log("hello", "jiro"); // OK -> jiro: hello
-```
-
-##### 演習問題
-
 `/typescript/src/advanced/exercise7.ts` を解いてみてください。
 
-### Non-null assertion
+## Non-null assertion（☆☆）
 
 その変数が `undefined` , `null` ではない事をコンパイラに伝える記法です。  
 要素の後ろに `!` を記述して表現します。
@@ -281,11 +279,11 @@ message3!.toUpperCase(); // コンパイルエラーにならず、ランタイ�
 コンパイラに「この要素は存在する」と伝えるため、 要素が `null` であることによるコンパイルエラーが発生しません。  
 そのため、実装者が要素の存在を担保できる場合にのみ使うことが望ましいです。
 
-#### 演習問題
+### 演習問題
 
 `/typescript/src/advanced/exercise8.ts` を解いてみてください。
 
-### Optional Chaining
+## Optional Chaining（☆☆☆☆☆）
 
 null/undefined のチェックを楽に書ける記法です。  
 null/undefined になり得る要素の後ろに `?` を記述して表現します。
@@ -308,11 +306,11 @@ const string = obj.foo?.bar;
 // const string = obj.foo && obj.foo.bar // 論理演算子を使っている
 ```
 
-#### 演習問題
+### 演習問題
 
 `/typescript/src/advanced/exercise9.ts` を解いてみてください。
 
-### Nullish Coalescing
+## Nullish Coalescing（☆☆☆☆）
 
 短絡評価を null と undefined に制限して評価する記法です。  
 `??` を用いて表現します。
@@ -321,7 +319,7 @@ const string = obj.foo?.bar;
 `foo` が存在しなければ `bar` を返す記述を例にすると
 
 ```ts
-// javascript での例
+// 論理演算子で書いた例
 const result = foo || bar;
 // これは以下と同義
 const result = foo ? foo : bar;
@@ -335,7 +333,7 @@ const result = foo ? foo : bar;
 const result = foo ?? bar;
 ```
 
-#### 演習問題
+### 演習問題
 
 `/typescript/src/advanced/exercise10.ts` を解いてみてください。
 
