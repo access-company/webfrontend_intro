@@ -4,9 +4,7 @@
 
 ## サンプル
 
-<video controls width="600">
-  <source src="./assets/images/chrome_extension_sample.mov" type="video/mp4">
-</video>
+[動画を見る](./assets/images/chrome_extension_sample.mov)
 
 ## やり方
 
