@@ -1,3 +1,8 @@
+---
+title: 1 日目(午後) TypeScript 基礎演習
+layout: default
+---
+
 # 1 日目(午後) TypeScript 基礎演習
 
 TypeScript で簡単なコードを書いてみよう
@@ -15,7 +20,7 @@ $ cd typescript
 $ npm i
 ```
 
-演習問題は、 `/typescript/src/standard` にあります。  
+演習問題は、 `/typescript/src/standard` にあります。
 `exercise1` から順番に問いていってみてください。
 
 ## 動作確認方法
@@ -29,7 +34,7 @@ $ npm run build  # tsc 実行
 $ node ./dist/standard/{対象の.jsファイル名} # 相対パスで指定
 ```
 
-わからない点や質問したい点があれば `#ncg2023-question` でグループ名を添えて投稿してください。  
+わからない点や質問したい点があれば `#ncg2023-question` でグループ名を添えて投稿してください。
 スレッドで回答 or meet に参加します。
 
 解説はこの後に行います。

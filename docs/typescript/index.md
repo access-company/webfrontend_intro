@@ -1,3 +1,8 @@
+---
+title: TypeScript
+layout: default
+---
+
 # TypeScript
 
 ## 研修最終目標
@@ -13,7 +18,7 @@
 
 ## 目次
 
-- [基礎研修](./1st/index.md)  
+- [基礎研修](./1st/index.md)
   - 座学・演習
   - TypeScript とは何か？
   - JavaScript(TypeScript)の基礎

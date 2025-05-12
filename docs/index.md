@@ -1,3 +1,8 @@
+---
+title: Web Frontend 新卒研修
+layout: default
+---
+
 # Web Frontend 新卒研修
 
 - プロダクト紹介

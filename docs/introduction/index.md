@@ -1,3 +1,8 @@
+---
+title: Web Frontend 新卒研修の序論
+layout: default
+---
+
 # Web Frontend 新卒研修の序論
 
 ## 目的

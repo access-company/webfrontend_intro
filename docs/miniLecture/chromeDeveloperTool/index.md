@@ -1,3 +1,8 @@
+---
+title: Chrome 開発者ツールの主な使い方
+layout: default
+---
+
 # Chrome 開発者ツールの主な使い方
 
 Web ブラウザの Google Chrome で「表示 → 開発/管理 → デベロッパーツール」(F12、`command + option + i`)を押すと開発者ツールが表示されます。

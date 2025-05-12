@@ -1,3 +1,8 @@
+---
+title: TypeScript について知る
+layout: default
+---
+
 # TypeScript について知る
 
 ## 目次
@@ -28,18 +33,18 @@
 
 `tsconfig.json` の覚えとくと捗る `compilerOptions`
 
-- `target`  
-  トランスパイルおよび polyfill の対象を指定する項目  
+- `target`
+  トランスパイルおよび polyfill の対象を指定する項目
   `tsc` でトランスパイルした場合に、ここに指定した ES edition に準拠する JavaScript が吐き出される
-- `lib`  
-  TypeScript を記述する際に利用できる機能を列挙する項目  
-  最新の ES edition の機能を使いたい場合は、 `esnext` を追加する  
+- `lib`
+  TypeScript を記述する際に利用できる機能を列挙する項目
+  最新の ES edition の機能を使いたい場合は、 `esnext` を追加する
   また、ブラウザで動かすことを想定するのであれば、 `dom` を指定する
-- `module`  
+- `module`
   トランスパイル時の JavaScript モジュールパターンを指定する項目
-- `strict`  
-  `true` に設定すると、厳密な型チェックのオプションを `true` にする  
-  TypeScript の恩恵を受けるのであれば `true` 必至  
+- `strict`
+  `true` に設定すると、厳密な型チェックのオプションを `true` にする
+  TypeScript の恩恵を受けるのであれば `true` 必至
   プロジェクト初期で TypeScript を導入するのであれば、 `true` 推奨
 
 </details>
@@ -103,12 +108,12 @@ sum("1", 2); // コンパイルエラー (Argument of type 'string' is not assig
 
 TypeScript の学習と JavaScript の学習はほぼ同義です。
 
-冒頭で説明したように、 TypeScript は JavaScript のスーパーセットです。  
+冒頭で説明したように、 TypeScript は JavaScript のスーパーセットです。
 単に型を付与したものです。
 
 TypeScript で配列をソートしたい場合はどうしたら良い？という考えは無く、それは JavaScript で配列をソートする記述と同じです。
 
-例外として、 TypeScript の記法、独自の機能や JavaScript には適用されていない EcmaScript の機能などは別途 TypeScript のバージョンに合わせて学習していく必要はあります。  
+例外として、 TypeScript の記法、独自の機能や JavaScript には適用されていない EcmaScript の機能などは別途 TypeScript のバージョンに合わせて学習していく必要はあります。
 本研修では、その点の補足をしつつ、 **TypeScript ベースで JavaScript の学習を行う**と考えてください。
 
 Deep Dive に関しては、午後に時間が許す範囲で行います。
@@ -126,7 +131,7 @@ $ cd typescript
 $ npm i
 ```
 
-演習問題は、 `/typescript/src/standard` にあります。  
+演習問題は、 `/typescript/src/standard` にあります。
 `exercise1` から順番に問いていってみてください。
 
 ### 動作確認方法
