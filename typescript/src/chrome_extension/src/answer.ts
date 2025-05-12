@@ -82,7 +82,7 @@ const renderDeleteButton = (bookmarkId: string, parent: HTMLElement) => {
   const deleteButton = createElement<HTMLButtonElement>('button', {
     textContent: '削除',
   });
-  deleteButton.style.marginLeft = '10px';
+  deleteButton.style.marginInlineStart = '10px';
   deleteButton.addEventListener('click', () => {
     const updatedBookmarks = bookmarks.filter(
       (bookmark) => bookmark.id !== bookmarkId
