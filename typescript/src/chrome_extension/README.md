@@ -4,20 +4,20 @@
 
 ## サンプル
 
-https://github.com/user-attachments/assets/83738bcc-a676-4684-b7a8-bdd9970d88dc
+<video controls width="600">
+  <source src="./assets/images/chrome_extension_sample.mov" type="video/mp4">
+</video>
 
 ## やり方
 
-### Google拡張機能を管理する
+1. URL横にある拡張機能マークをクリックし、Google拡張機能を管理をクリックする
 
-#### URL横にある拡張機能を管理をクリック
+![add_chrome_extension_method1.png](./assets/images/add_chrome_extension_method1.png)
 
-<img width="456" alt="スクリーンショット 2025-03-06 16 00 29" src="https://github.com/user-attachments/assets/bfcbf1a6-0986-454c-b739-900ada4bf857" />
+2. パッケージ化されていない拡張機能を読み込むをクリック
 
-#### パッケージ化されていない拡張機能を読み込むをクリック
+![add_chrome_extension_method2.png](./assets/images/add_chrome_extension_method2.png)
 
-<img width="1392" alt="スクリーンショット 2025-03-06 16 01 43" src="https://github.com/user-attachments/assets/2c6aa5c2-c60f-4148-9eef-a42f040b3861" />
+3. chrome_extensionディレクトリを選択
 
-#### chrome-extensionディレクトリを選択
-
-<img width="1477" alt="スクリーンショット 2025-05-12 11 50 42" src="https://github.com/user-attachments/assets/dfae8588-ea42-4c42-9e91-59fabcd00602" />
+![add_chrome_extension_method3.png](./assets/images/add_chrome_extension_method3.png)
