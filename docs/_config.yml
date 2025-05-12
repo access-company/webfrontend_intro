@@ -1,2 +1,4 @@
 theme: jekyll-theme-cayman
-markdown: CommonMarkGhPages
+markdown: kramdown
+exclude:
+  - react
