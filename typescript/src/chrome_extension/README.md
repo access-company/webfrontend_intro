@@ -20,4 +20,4 @@ https://github.com/user-attachments/assets/83738bcc-a676-4684-b7a8-bdd9970d88dc
 
 #### chrome-extensionディレクトリを選択
 
-<img width="1479" alt="スクリーンショット 2025-03-06 17 01 43" src="https://github.com/user-attachments/assets/2b319f7e-0488-4e69-9736-7b5b7bd68312" />
+<img width="1477" alt="スクリーンショット 2025-05-12 11 50 42" src="https://github.com/user-attachments/assets/dfae8588-ea42-4c42-9e91-59fabcd00602" />
