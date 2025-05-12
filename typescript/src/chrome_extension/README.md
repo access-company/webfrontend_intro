@@ -4,7 +4,7 @@
 
 ## サンプル
 
-[動画を見る](./assets/images/chrome_extension_sample.mov)
+https://github.com/user-attachments/assets/be043fa1-2ff9-4e86-9344-33995931389f
 
 ## やり方
 
