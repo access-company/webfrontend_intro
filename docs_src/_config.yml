@@ -1,0 +1,4 @@
+theme: jekyll-theme-cayman
+markdown: kramdown
+baseurl: /webfrontend_intro
+destination: ../docs
