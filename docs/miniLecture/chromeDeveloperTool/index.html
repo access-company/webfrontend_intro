@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Chrome 開発者ツールの主な使い方</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Chrome 開発者ツールの主な使い方" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Chrome 開発者ツールの主な使い方" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"Chrome 開発者ツールの主な使い方","url":"/webfrontend_intro/miniLecture/chromeDeveloperTool/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style" type="text/css" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/webfrontend_intro/assets/css/style.css?v=">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/webfrontend_intro/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header" role="banner">
+      <h1 class="project-name">Chrome 開発者ツールの主な使い方</h1>
+      <h2 class="project-tagline"></h2>
+      
+      
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      <h1 id="chrome-開発者ツールの主な使い方">Chrome 開発者ツールの主な使い方</h1>
+
+<p>Web ブラウザの Google Chrome で「表示 → 開発/管理 → デベロッパーツール」(F12、<code class="language-plaintext highlighter-rouge">command + option + i</code>)を押すと開発者ツールが表示されます。</p>
+
+<p>そこで、開発者にとって非常に有用なそのツールのなかで、特に利用頻度の高い機能と簡単な用途について説明します。</p>
+
+<p>※説明画像は、すべて Twitter を開いたときのものとなります。</p>
+
+<h2 id="elements">Elements</h2>
+
+<ul>
+  <li>開発者ツールを開くと、デフォルトで Elements タブが選択されます。HTML、CSS のコードを表示し、編集できます。</li>
+  <li>HTML を編集
+    <ul>
+      <li>左端の「Select an element」ボタン（矢印アイコン、<code class="language-plaintext highlighter-rouge">command + shift + c</code>）をクリックし、Web ページ上の要素を選択すると、Elements タブでその要素がハイライトされ、その要素の HTML コードが表示されます。
+そこで、右クリックで「Edit as HTML」を選択すると、HTML コードを編集できます。</li>
+    </ul>
+  </li>
+  <li>CSS を編集
+    <ul>
+      <li>左端の「Select an element」ボタン（矢印アイコン）をクリックし、Web ページ上の要素を選択すると、その HTML タグの Style が開発者ツールの右ペインに表示されます。
+そこで、各プロパティの値を編集できます。さらに、新たにプロパティを追加できます。</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img width="1661" alt="elements" src="https://user-images.githubusercontent.com/70614554/235631908-fa454bd6-873f-4ec8-ac49-bea59897d20c.png" /></p>
+
+<h2 id="console">Console</h2>
+
+<ul>
+  <li>JavaScript の実行やデバッグ、エラーメッセージの確認ができます。</li>
+  <li>開発コードの <code class="language-plaintext highlighter-rouge">console.log()</code> などのコンソールコマンドの結果が表示されます。</li>
+  <li>JavaScript のコードを入力して Enter キーを押すと、そのコードがリアルタイムで実行されます。</li>
+  <li>多くの開発者が、Console を開きながら開発を進めています。</li>
+</ul>
+
+<p><img width="1666" alt="console" src="https://user-images.githubusercontent.com/70614554/235632222-d1767246-de48-4f3f-a967-5c557177969b.png" /></p>
+
+<h2 id="sources">Sources</h2>
+
+<ul>
+  <li>Web ページに関連するファイルがツリー構造で表示されます。</li>
+  <li>JavaScript のデバッグを行います。
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">command + p</code> でデバッグ対象のファイルを選択します。</li>
+      <li>デバッグを行うためのブレークポイントを設定するには、コードの行番号をクリックして、青いマーカーが表示されるまで待ちます。ブレークポイントが設定されると、コードがその行で一時停止し、変数の値やコールスタック(処理の流れ)を確認できます。</li>
+      <li>デバッグ中に、上部のツールバーにある実行コントロールボタン（再生、一時停止、ステップオーバー、ステップイン、ステップアウトなど）を使って、コードの実行をコントロールできます。</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="実行コントロールボタンについて">実行コントロールボタンについて</h3>
+
+<ul>
+  <li>pause script execution - F8：スクリプト一時停止。</li>
+  <li>resume script execution - F8 : スクリプトを再生。</li>
+  <li>step over next function call - F10 : 関数等の呼び出しをスキップする動作。ステップオーバー。</li>
+  <li>step into next function call - F11 : 関数呼び出しの内部へ移動してさらにステップ実行を続ける動作。ステップイン。</li>
+  <li>step out next function call - F11：ステップイン後の呼び出し元に戻るまで一気に実行する動作。ステップアウト。</li>
+  <li>step - F9 : 次の処理を実行し、カーソルを進める。ステップ実行。</li>
+</ul>
+
+<p>なお、デバッグするためには sourcemap を設定します。sourcemap を設定するとコンパイル前のファイルが扱えますが、通常は開発環境の場合のみ設定されています。</p>
+
+<p><img width="1664" alt="sources" src="https://user-images.githubusercontent.com/70614554/235632292-cbc16642-d574-4b4d-b5b2-3cdddede715e.png" /></p>
+
+<h2 id="network">Network</h2>
+
+<ul>
+  <li>Web ページに関連するリソースや通信の情報を確認、分析、デバッグできます。</li>
+  <li>Web ページに関連するリソース（HTML、CSS、JavaScript、画像、フォントなど）が順々に読み込まれる状態をリスト形式で表示されます。</li>
+  <li>Fetch した結果が表示されます。
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">Fetch/XHR</code> タブを選択すると Fetch した結果が表示されます。
+例えば WebAPI を Request した結果の Response を確認することができます。その他に URL、応答ステータスコード、応答ヘッダー、リソースのプレビュー、応答時間なども確認できます。</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img width="1665" alt="network" src="https://user-images.githubusercontent.com/70614554/235632371-99f8ddb0-9623-460d-8ed5-2b77dd8eb003.png" /></p>
+
+<h2 id="application">Application</h2>
+
+<ul>
+  <li>Web ページに関連する Local Storage や Cookie、Cache、そしてマニフェストなどの情報を確認、編集、デバッグできます。</li>
+  <li>特に Local Storage の値を確認、編集することが多いです。それは Web アプリケーションを実行する上で、それらの値を参照するためです。</li>
+</ul>
+
+<p><img width="1663" alt="application" src="https://user-images.githubusercontent.com/70614554/235632464-a65233f9-a353-404b-a171-6b3a5f678af0.png" /></p>
+
+<h2 id="lighthouse">Lighthouse</h2>
+
+<ul>
+  <li>Web ページの品質を評価します。パフォーマンス、アクセシビリティ、ベストプラクティス、SEO、プログレッシブウェブアプリ（PWA）など、さまざまなカテゴリで Web ページを分析し、改善点が表示されます。</li>
+  <li>分析対象の項目を選択した後、「Analyze page load」ボタンをクリックするとページを分析し、レポートが生成されます。
+レポートには各カテゴリのスコアが表示されて、具体的な改善点と推奨される対策が提案されます。</li>
+</ul>
+
+<p><img width="1666" alt="ligthhouse" src="https://user-images.githubusercontent.com/70614554/235632507-de2acb93-6898-4312-aaf3-8b1640ba1df4.png" /></p>
+
+<h2 id="redux">Redux</h2>
+
+<ul>
+  <li>利用するには Chrome 拡張機能「<a href="https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=ja">Redux DevTools</a>」を install します。</li>
+  <li>Redux を使った JavaScript アプリケーションの状態管理をデバッグできます。</li>
+  <li>左ペインで Action を選択すると、アプリケーションで dispatch された Action のリストが表示されます。Action が dispatch された時点のアプリケーションの状態や、状態の変化を順番に追ってデバッグできます。</li>
+  <li>右ペインの Action タブで、左ペインで選択した Action の type や payload の情報を確認できます。</li>
+  <li>右ペインの State タブで、左ペインで選択した Action 時の Store の State を確認できます。</li>
+  <li>右ペインの Diff タブで、左ペインで選択した Action によって状態がどのように変更されたかを確認できます。変更前後の state を比較して、reducer が正しく機能しているかを確認できます。</li>
+</ul>
+
+<p><img width="1660" alt="redux" src="https://user-images.githubusercontent.com/70614554/235632558-121696b1-25f2-4875-ab75-6aafb1b7a3ed.png" /></p>
+
+<h2 id="components">Components</h2>
+
+<ul>
+  <li>利用するには Chrome 拡張機能「<a href="https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=ja">React Developer Tools</a>」を install します。</li>
+  <li>React のコンポーネントの階層構造をツリー上で視覚的に確認できます。</li>
+  <li>コンポーネントツリー内の特定のコンポーネントを選択すると、そのコンポーネントの state や props を確認できます。</li>
+  <li>左ペインの右上の「設定」アイコンをクリックして、「Highlight updates when components render.」をチェックすると、画面表示や UI 操作によってレンダリングされた Component を確認できます。</li>
+</ul>
+
+<p><img width="1668" alt="components" src="https://user-images.githubusercontent.com/70614554/235632603-972d5f8b-75e7-4770-b0fa-871c1057973b.png" /></p>
+
+<p>以上となります。
+簡単ではありますが、Chrome 開発者ツールで利用頻度の高い機能とその説明でした。</p>
+
+
+      <footer class="site-footer">
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </main>
+  </body>
+</html>
