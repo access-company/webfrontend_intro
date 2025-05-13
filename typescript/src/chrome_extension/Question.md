@@ -53,8 +53,8 @@ interface BookmarkOptionalInfo {}
 
 ```ts
 // TODO Bookmarkの型定義をする
-interface Bookmark =
-// あるいは type = Bookmark =
+interface Bookmark {}
+// あるいは type Bookmark
 ```
 
 ## Q3. 三項演算子を使ってリファクタリングしてみる

@@ -1,23 +1,21 @@
-// 問題の答え
-
 // TODO: Q1. 型定義をする
 // ブックマークの基本情報
-// interface BookmarkRecord {
-//   id: string;
-//   createdAt: Date;
-// }
+interface BookmarkRecord {
+  id: string;
+  createdAt: Date;
+}
 
 // ブックマークのリソース情報
 // TODO title, urlを定義する
-// interface BookmarkResource {}
+interface BookmarkResource {}
 
 // オプショナルなプロパティ
 // TODO categoryを定義する
-// interface BookmarkOptionalInfo {}
+interface BookmarkOptionalInfo {}
 
 // TODO: Q2. インターフェースの継承を使ってみる
-// interface Bookmark =
-// あるいは type = Bookmark =
+interface Bookmark {}
+//あるいは type Bookmark =
 
 // ストレージキー
 const STORAGE_KEY = 'bookmark_list';
