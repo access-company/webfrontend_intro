@@ -1,41 +1,36 @@
-React Training
-====
+# React Training
 
-## Generate static site
+## 研修資料のセットアップ手順
 
-### Installation
+### 1. インストール
 
+以下の手順で Node.js とプロジェクトの依存関係をインストールします：
+
+- Node.jsのインストールと設定
+  ```
+  $ asdf install nodejs 22.15.0
+  $ asdf set nodejs 22.15.0
+  ```
+- docs ディレクトリへ移動し、依存パッケージのインストール
+  ```
+  $ cd docs
+  $ npm install
+  ```
+
+### 2. ローカルサーバでサイトを起動
+
+以下のコマンドでローカルサーバを起動してください：
 ```
-$ asdf install nodejs 10.19.0
-$ asdf local nodejs 10.19.0
-$ cd docs
+$ npm run start
+```
+
+起動後、ブラウザで以下の URL にアクセスして資料を確認できます：
+[http://localhost:8000](http://localhost:8000)
+
+## 研修課題の実行環境構築
+
+exercise ディレクトリへ移動し、依存パッケージのインストール
+```
+$ cd exercise
 $ npm install
-```
-
-### Edit API keys
-
-```
-$ cp .env{Template,}
-```
-
-```
-// .env
-
-GATSBY_ALGOLIA_INDEX_NAME=
-GATSBY_ALGOLIA_APP_ID=
-GATSBY_ALGOLIA_SEARCH_KEY=
-ALGOLIA_ADMIN_KEY=
-```
-
-### Getting Started
-
-```
-$ npm run build
-$ npm start
-```
-
-### Staging (copy)
-
-```shell
-$ npm run stage
 ```
