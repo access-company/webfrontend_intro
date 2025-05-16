@@ -87,11 +87,12 @@ const Switch: FC<SwitchProps> = (props) => {
 };
 
 const ChildComponent: FC = () => {
-  const power = false;
+  const [power, setPower] = useState<boolean>(false);
 
   const onClickSwitch = useCallback(
     (e: React.MouseEvent<HTMLDivElement>) => {
       // onClickSwitch を実装
+      setPower(!power)
     },
     [power]
   );
@@ -99,8 +100,8 @@ const ChildComponent: FC = () => {
   return (
     <div className={power ? 'subContainer' : 'subContainer off'}>
       {/* 下記の2つのコンポーネントに必要な物を渡す */}
-      <LightBulb />
-      <Switch />
+      <LightBulb power={power} />
+      <Switch power={power} onClick={onClickSwitch} />
       {/* ================================ */}
       <p>SVG Icons by Tabler Icons (https://tablericons.com/)</p>
     </div>
