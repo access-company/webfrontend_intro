@@ -1,8 +1,8 @@
-import React from 'react';
-import { ComponentStory } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import Tile from './Tile';
 
-export default {
+// Define the component metadata
+const meta: Meta<typeof Tile> = {
   title: 'components/Tile',
   component: Tile,
   args: {
@@ -12,39 +12,38 @@ export default {
   },
 };
 
-const Template: ComponentStory<typeof Tile> = (props) => {
-  return <Tile {...props} />;
+export default meta;
+type Story = StoryObj<typeof Tile>;
+
+export const Default: Story = {};
+
+export const Normal: Story = {
+  args: {
+    type: 'default',
+  },
 };
 
-export const Default = Template.bind({});
-Default.args = {};
-
-export const Normal = Template.bind({});
-Normal.args = {
-  ...Normal.args,
-  type: 'default',
+export const Unused: Story = {
+  args: {
+    type: 'unused',
+  },
 };
 
-export const Unused = Template.bind({});
-Unused.args = {
-  ...Unused.args,
-  type: 'unused',
+export const Used: Story = {
+  args: {
+    type: 'used',
+  },
 };
 
-export const Used = Template.bind({});
-Used.args = {
-  ...Used.args,
-  type: 'used',
+export const Matched: Story = {
+  args: {
+    type: 'matched',
+  },
 };
 
-export const Matched = Template.bind({});
-Matched.args = {
-  ...Matched.args,
-  type: 'matched',
-};
-
-export const Selected = Template.bind({});
-Selected.args = {
-  ...Normal.args,
-  selected: true,
+export const Selected: Story = {
+  args: {
+    type: 'default',
+    selected: true,
+  },
 };

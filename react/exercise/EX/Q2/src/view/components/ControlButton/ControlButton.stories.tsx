@@ -1,27 +1,24 @@
-import React from 'react';
-import { ComponentStory } from '@storybook/react';
-import NumberButton from './ControlButton';
+import type { Meta, StoryObj } from '@storybook/react';
+import ControlButton from './ControlButton';
 
 const onPush = () => {};
 
-export default {
+const meta: Meta<typeof ControlButton> = {
   title: 'components/ControlButton',
-  component: NumberButton,
+  component: ControlButton,
   args: {
     text: 'Push',
     onPush,
-    key: 'key',
   },
 };
 
-const Template: ComponentStory<typeof NumberButton> = (props) => {
-  return <NumberButton {...props} />;
-};
+export default meta;
+type Story = StoryObj<typeof ControlButton>;
 
-export const Default = Template.bind({});
-Default.args = {};
+export const Default: Story = {};
 
-export const Disabled = Template.bind({});
-Disabled.args = {
-  disabled: true,
+export const Disabled: Story = {
+  args: {
+    disabled: true,
+  },
 };

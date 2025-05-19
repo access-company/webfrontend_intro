@@ -1,5 +1,4 @@
-import React from 'react';
-import { ComponentStory } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import MainGrid from './MainGrid';
 
 const getStyle = (background: string, height: string) => ({
@@ -9,13 +8,16 @@ const getStyle = (background: string, height: string) => ({
   fontSize: '0.25rem',
 });
 
-export default {
+const meta: Meta<typeof MainGrid> = {
   title: 'layouts/MainGrid',
   component: MainGrid,
 };
 
-const Template: ComponentStory<typeof MainGrid> = () => {
-  return (
+export default meta;
+type Story = StoryObj<typeof MainGrid>;
+
+export const Default: Story = {
+  render: () => (
     <MainGrid>
       <div style={getStyle('red', '1.2rem')}>message</div>
       <div style={getStyle('yellow', '4rem')}>tile</div>
@@ -23,7 +25,5 @@ const Template: ComponentStory<typeof MainGrid> = () => {
       <div style={getStyle('blue', '1.6rem')}>number</div>
       <div style={getStyle('purple', '.8rem')}>control</div>
     </MainGrid>
-  );
+  ),
 };
-
-export const Default = Template.bind({});

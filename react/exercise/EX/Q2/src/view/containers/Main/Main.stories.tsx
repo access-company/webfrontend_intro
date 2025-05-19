@@ -1,14 +1,12 @@
-import React from 'react';
-import { ComponentStory } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import Main from './Main';
 
-export default {
+const meta: Meta<typeof Main> = {
   title: 'containers/Main',
   component: Main,
 };
 
-const Template: ComponentStory<typeof Main> = (props) => {
-  return <Main {...props} />;
-};
+export default meta;
+type Story = StoryObj<typeof Main>;
 
-export const Default = Template.bind({});
+export const Default: Story = {};
